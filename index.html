@@ -258,6 +258,31 @@
             border-radius: 12px;
         }
 
+        /* Form container */
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(90vw, 640px);
+            height: 400px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-container.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .form-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
     </style>
 </head>
 <body>
@@ -307,6 +332,14 @@
                 allowfullscreen>
             </iframe>
         </div>
+
+        <!-- Pre-order form section -->
+        <div class="form-container">
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLScNRNtOBAqSddr2QdIzM4lp0kgbmqkk8jys9NxMUHI474dEOg/viewform?embedded=true"
+                title="Pre-order form">
+            </iframe>
+        </div>
     </section>
 
     <script>
@@ -340,8 +373,9 @@
         const scrollIndicator = document.querySelector('.scroll-indicator');
         const logo = document.querySelector('.logo');
         const videoContainer = document.querySelector('.video-container');
+        const formContainer = document.querySelector('.form-container');
 
-        // States: 0 = nothing, 1 = group1, 2 = group2, 3 = video
+        // States: 0 = nothing, 1 = group1, 2 = group2, 3 = video, 4 = form
         let currentState = 0;
         let isLocked = false;
         let settleTimeout = null;
@@ -354,6 +388,7 @@
             scrollIndicator.classList.remove('visible');
             logo.classList.remove('hidden');
             videoContainer.classList.remove('visible');
+            formContainer.classList.remove('visible');
 
             if (currentState === 0) {
                 scrollIndicator.classList.add('visible');
@@ -364,6 +399,9 @@
             } else if (currentState === 3) {
                 logo.classList.add('hidden');
                 videoContainer.classList.add('visible');
+            } else if (currentState === 4) {
+                logo.classList.add('hidden');
+                formContainer.classList.add('visible');
             }
         }
 
@@ -386,7 +424,7 @@
             }
 
             // Change state
-            if (e.deltaY > 5 && currentState < 3) {
+            if (e.deltaY > 5 && currentState < 4) {
                 currentState++;
                 updateVisibility();
                 isLocked = true;
@@ -417,7 +455,7 @@
 
         window.addEventListener('touchend', (e) => {
             const deltaY = touchStartY - e.changedTouches[0].clientY;
-            if (deltaY > 50 && currentState < 3) {
+            if (deltaY > 50 && currentState < 4) {
                 currentState++;
                 updateVisibility();
             } else if (deltaY < -50 && currentState > 0) {
