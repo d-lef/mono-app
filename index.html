@@ -6,7 +6,7 @@
     <title>mono - Record from any app</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -30,7 +30,7 @@
         }
 
         body {
-            font-family: 'Baloo 2', sans-serif;
+            font-family: 'MuseoModerno', sans-serif;
             font-weight: 400;
             background-color: var(--bg-primary);
             color: var(--text-primary);
@@ -173,8 +173,10 @@
 
         // States: 0 = nothing, 1 = group1, 2 = group2
         let currentState = 0;
-        let scrollAccumulator = 0;
-        const scrollThreshold = 150; // scroll "energy" needed to change state
+        let isLocked = false;
+        let settleTimeout = null;
+        const animationTime = 600; // ms - matches CSS transition
+        const settleTime = 100; // ms - wait for kinetic scroll to stop
 
         function updateVisibility() {
             group1.classList.remove('visible');
@@ -187,27 +189,40 @@
             }
         }
 
-        // Snap scrolling: accumulate scroll until threshold, then advance
+        // Scroll handling: lock during animation, then wait for scroll to settle
         window.addEventListener('wheel', (e) => {
             e.preventDefault();
 
-            scrollAccumulator += e.deltaY;
+            // During lock, reset settle timer (kinetic scroll still happening)
+            if (isLocked) {
+                if (settleTimeout) clearTimeout(settleTimeout);
+                settleTimeout = setTimeout(() => {
+                    isLocked = false;
+                }, settleTime);
+                return;
+            }
 
-            // Scroll down - advance to next state
-            if (scrollAccumulator >= scrollThreshold && currentState < 2) {
+            // Change state
+            if (e.deltaY > 5 && currentState < 2) {
                 currentState++;
                 updateVisibility();
-                scrollAccumulator = 0;
-            }
-            // Scroll up - go to previous state
-            else if (scrollAccumulator <= -scrollThreshold && currentState > 0) {
+                isLocked = true;
+                // After animation, start watching for settle
+                setTimeout(() => {
+                    settleTimeout = setTimeout(() => {
+                        isLocked = false;
+                    }, settleTime);
+                }, animationTime);
+            } else if (e.deltaY < -5 && currentState > 0) {
                 currentState--;
                 updateVisibility();
-                scrollAccumulator = 0;
+                isLocked = true;
+                setTimeout(() => {
+                    settleTimeout = setTimeout(() => {
+                        isLocked = false;
+                    }, settleTime);
+                }, animationTime);
             }
-
-            // Clamp accumulator to prevent building up too much
-            scrollAccumulator = Math.max(-scrollThreshold, Math.min(scrollThreshold, scrollAccumulator));
         }, { passive: false });
 
         // Touch support for mobile
