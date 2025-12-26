@@ -173,8 +173,8 @@
 
         // States: 0 = nothing, 1 = group1, 2 = group2
         let currentState = 0;
-        let isLocked = false;
-        let unlockTimeout = null;
+        let scrollAccumulator = 0;
+        const scrollThreshold = 150; // scroll "energy" needed to change state
 
         function updateVisibility() {
             group1.classList.remove('visible');
@@ -187,49 +187,42 @@
             }
         }
 
-        // One scroll gesture = one state change
-        // Unlock only after scroll stops (no wheel events for 1ms)
+        // Snap scrolling: accumulate scroll until threshold, then advance
         window.addEventListener('wheel', (e) => {
             e.preventDefault();
 
-            // Reset unlock timer on EVERY wheel event
-            if (unlockTimeout) clearTimeout(unlockTimeout);
-            unlockTimeout = setTimeout(() => {
-                isLocked = false;
-            }, 100);
+            scrollAccumulator += e.deltaY;
 
-            if (isLocked) return;
-
-            if (e.deltaY > 5 && currentState < 2) {
-                isLocked = true;
+            // Scroll down - advance to next state
+            if (scrollAccumulator >= scrollThreshold && currentState < 2) {
                 currentState++;
                 updateVisibility();
-            } else if (e.deltaY < -5 && currentState > 0) {
-                isLocked = true;
+                scrollAccumulator = 0;
+            }
+            // Scroll up - go to previous state
+            else if (scrollAccumulator <= -scrollThreshold && currentState > 0) {
                 currentState--;
                 updateVisibility();
+                scrollAccumulator = 0;
             }
+
+            // Clamp accumulator to prevent building up too much
+            scrollAccumulator = Math.max(-scrollThreshold, Math.min(scrollThreshold, scrollAccumulator));
         }, { passive: false });
 
         // Touch support for mobile
         let touchStartY = 0;
-        let lastTouchTime = 0;
 
         window.addEventListener('touchstart', (e) => {
             touchStartY = e.touches[0].clientY;
         }, { passive: true });
 
         window.addEventListener('touchend', (e) => {
-            const now = Date.now();
-            if (now - lastTouchTime < scrollCooldown) return;
-
             const deltaY = touchStartY - e.changedTouches[0].clientY;
             if (deltaY > 50 && currentState < 2) {
-                lastTouchTime = now;
                 currentState++;
                 updateVisibility();
             } else if (deltaY < -50 && currentState > 0) {
-                lastTouchTime = now;
                 currentState--;
                 updateVisibility();
             }
