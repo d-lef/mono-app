@@ -14,15 +14,33 @@
             box-sizing: border-box;
         }
 
+        /* Dark theme (default) */
         :root {
             --bg-primary: #252525;
             --bg-secondary: #2D2D2D;
-            --bg-tertiary: #353535;
             --accent: #E0E0E0;
             --text-primary: #FFFFFF;
             --text-secondary: #B0B0B0;
-            --border: #404040;
-            --recording-red: #F44336;
+        }
+
+        /* Light theme - system preference */
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) {
+                --bg-primary: #F5F5F5;
+                --bg-secondary: #FFFFFF;
+                --accent: #424242;
+                --text-primary: #212121;
+                --text-secondary: #757575;
+            }
+        }
+
+        /* Light theme - manual override */
+        :root.light {
+            --bg-primary: #F5F5F5;
+            --bg-secondary: #FFFFFF;
+            --accent: #424242;
+            --text-primary: #212121;
+            --text-secondary: #757575;
         }
 
         html {
@@ -56,6 +74,8 @@
 
         /* Logo */
         .logo {
+            display: flex;
+            align-items: flex-end;
             font-family: 'MuseoModerno', sans-serif;
             font-size: clamp(48px, 12vw, 120px);
             font-weight: 300;
@@ -68,6 +88,20 @@
 
         body.loaded .logo {
             opacity: 1;
+        }
+
+        .logo-char {
+            display: flex;
+            align-items: flex-end;
+            line-height: 1;
+        }
+
+        .filled-o {
+            width: 0.52em;
+            height: 0.52em;
+            background-color: var(--text-primary);
+            border-radius: 50%;
+            margin-bottom: 0.14em;
         }
 
         /* Tagline container - holds swappable groups */
@@ -83,7 +117,7 @@
             align-items: center;
             gap: 6px;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.25s ease;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -107,15 +141,14 @@
         /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
-            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
             animation: bounce 2s ease-in-out infinite;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.25s ease;
         }
 
-        body.loaded .scroll-indicator {
+        body.loaded .scroll-indicator.visible {
             opacity: 0.4;
         }
 
@@ -130,20 +163,85 @@
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* Hide scroll indicator when scrolling */
-        .scroll-indicator.hidden {
-            opacity: 0 !important;
-            pointer-events: none;
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.15s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        .theme-toggle:active {
+            background-color: var(--bg-secondary);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Show sun in dark mode, moon in light mode */
+        .theme-toggle .icon-sun { display: block; }
+        .theme-toggle .icon-moon { display: none; }
+
+        /* Light theme icons - manual override */
+        :root.light .theme-toggle .icon-sun { display: none; }
+        :root.light .theme-toggle .icon-moon { display: block; }
+
+        /* Light theme icons - system preference */
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .theme-toggle .icon-sun { display: none; }
+            :root:not(.dark) .theme-toggle .icon-moon { display: block; }
         }
 
     </style>
 </head>
 <body>
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
+
     <section class="hero">
         <div class="content">
-            <div class="logo">mono</div>
+            <div class="logo">
+                <div class="logo-char">m</div>
+                <div class="logo-char"><span class="filled-o"></span></div>
+                <div class="logo-char">n</div>
+                <div class="logo-char"><span class="filled-o"></span></div>
+            </div>
 
             <div class="tagline-container">
+                <div class="scroll-indicator">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14M5 12l7 7 7-7"/>
+                    </svg>
+                </div>
                 <div class="tagline-group group-1">
                     <p class="tagline">For people who want to record from any app</p>
                     <p class="tagline">and manage recordings in one place</p>
@@ -154,15 +252,29 @@
                 </div>
             </div>
         </div>
-
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
-        </div>
     </section>
 
     <script>
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const root = document.documentElement;
+
+        function isLightMode() {
+            if (root.classList.contains('light')) return true;
+            if (root.classList.contains('dark')) return false;
+            return window.matchMedia('(prefers-color-scheme: light)').matches;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (isLightMode()) {
+                root.classList.remove('light');
+                root.classList.add('dark');
+            } else {
+                root.classList.remove('dark');
+                root.classList.add('light');
+            }
+        });
+
         // Wait for font to load before showing content
         document.fonts.ready.then(() => {
             document.body.classList.add('loaded');
@@ -182,13 +294,21 @@
         function updateVisibility() {
             group1.classList.remove('visible');
             group2.classList.remove('visible');
+            scrollIndicator.classList.remove('visible');
 
-            if (currentState === 1) {
+            if (currentState === 0) {
+                scrollIndicator.classList.add('visible');
+            } else if (currentState === 1) {
                 group1.classList.add('visible');
             } else if (currentState === 2) {
                 group2.classList.add('visible');
             }
         }
+
+        // Show scroll indicator on initial load
+        document.fonts.ready.then(() => {
+            scrollIndicator.classList.add('visible');
+        });
 
         // Scroll handling: lock during animation, then wait for scroll to settle
         window.addEventListener('wheel', (e) => {
