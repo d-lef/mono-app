@@ -369,10 +369,10 @@
         /* Mobile: show home button and hide theme toggle at state 4 */
         @media (max-width: 768px) {
             body.state-4 .theme-toggle {
-                display: none;
+                display: none !important;
             }
             body.state-4 .home-button {
-                display: flex;
+                display: flex !important;
             }
         }
 
@@ -525,9 +525,9 @@
             }
         }
 
-        // Show scroll indicator on initial load
+        // Set initial state on load
         document.fonts.ready.then(() => {
-            scrollIndicator.classList.add('visible');
+            updateVisibility();
         });
 
         // Scroll handling: lock during animation, then wait for scroll to settle
