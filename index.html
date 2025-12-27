@@ -522,6 +522,9 @@
             } else if (currentState === 4) {
                 logo.classList.add('hidden');
                 formContainer.classList.add('visible');
+                // Reload iframe to reset scroll position on mobile
+                formContainer.classList.remove('loaded');
+                formIframe.src = formIframe.dataset.src;
             }
         }
 
@@ -583,6 +586,23 @@
                 updateVisibility();
             }
         }, { passive: true });
+
+        // Click to advance (like scrolling down)
+        document.addEventListener('click', (e) => {
+            // Don't trigger on buttons or iframes
+            if (e.target.closest('button, iframe, a')) return;
+
+            if (isLocked) return;
+
+            if (currentState < 4) {
+                currentState++;
+                updateVisibility();
+                isLocked = true;
+                setTimeout(() => {
+                    isLocked = false;
+                }, animationTime);
+            }
+        });
     </script>
 </body>
 </html>
