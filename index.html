@@ -679,7 +679,10 @@
                 logo.classList.add('hidden');
                 // Reload iframe to reset scroll position on mobile
                 formContainer.classList.remove('loaded');
-                formIframe.src = formIframe.dataset.src;
+                // Use language-specific form if available
+                const formUrl = (typeof currentLang !== 'undefined' && translations[currentLang]?.form)
+                    || formIframe.dataset.src;
+                formIframe.src = formUrl;
                 formContainer.classList.add('visible');
             }
         }
@@ -768,7 +771,8 @@
                 tagline2a: "No-subscription culture:",
                 tagline2b: "AI features with one-time payment",
                 code: "EN",
-                video: "Imy_H4gUr8I"
+                video: "Imy_H4gUr8I",
+                form: "https://docs.google.com/forms/d/e/1FAIpQLScNRNtOBAqSddr2QdIzM4lp0kgbmqkk8jys9NxMUHI474dEOg/viewform?embedded=true"
             },
             es: {
                 tagline1a: "Para quienes quieren grabar reuniones desde cualquier app",
@@ -776,7 +780,8 @@
                 tagline2a: "Sin suscripciones:",
                 tagline2b: "Funciones IA con pago único",
                 code: "ES",
-                video: "-wmQvwh6vqc"
+                video: "-wmQvwh6vqc",
+                form: null
             },
             ru: {
                 tagline1a: "Для тех, кто хочет записывать встречи из любого приложения",
@@ -784,7 +789,8 @@
                 tagline2a: "Без подписок:",
                 tagline2b: "ИИ-функции за разовый платёж",
                 code: "RU",
-                video: "nmVnfocQYQA"
+                video: "nmVnfocQYQA",
+                form: "https://docs.google.com/forms/d/e/1FAIpQLScA8fL2bafFns89Bj_AMxNWCUrw4Cwn5FixRJeQ9Xs29zJGMQ/viewform?embedded=true"
             },
             fr: {
                 tagline1a: "Pour ceux qui veulent enregistrer leurs réunions depuis n'importe quelle app",
@@ -792,7 +798,8 @@
                 tagline2a: "Zéro abonnement :",
                 tagline2b: "Fonctions IA pour un paiement unique",
                 code: "FR",
-                video: "Nv6x_nkKlN8"
+                video: "Nv6x_nkKlN8",
+                form: null
             },
             de: {
                 tagline1a: "Für alle, die Meetings aus jeder App aufnehmen wollen",
@@ -800,7 +807,8 @@
                 tagline2a: "Ohne Abo:",
                 tagline2b: "KI-Funktionen zum Einmalpreis",
                 code: "DE",
-                video: "XK5-sXCDfl4"
+                video: "XK5-sXCDfl4",
+                form: null
             },
             zh: {
                 tagline1a: "录制会议，来自任何应用",
@@ -808,7 +816,8 @@
                 tagline2a: "告别订阅：",
                 tagline2b: "AI功能，一次付费",
                 code: "中",
-                video: "iVJtTuE7H7Q"
+                video: "iVJtTuE7H7Q",
+                form: null
             }
         };
 
