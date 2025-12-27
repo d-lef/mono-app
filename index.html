@@ -502,6 +502,20 @@
             left: calc(50% - 44px);
         }
 
+        /* Mobile: allow tagline wrapping */
+        @media (max-width: 480px) {
+            .tagline-group {
+                white-space: normal;
+                padding: 0 20px;
+            }
+            .tagline {
+                white-space: normal;
+            }
+            .tagline-container {
+                height: 70px;
+            }
+        }
+
     </style>
 </head>
 <body>
