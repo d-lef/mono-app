@@ -502,18 +502,10 @@
             left: calc(50% - 44px);
         }
 
-        /* Mobile: allow tagline wrapping */
-        @media (max-width: 480px) {
-            .tagline-group {
-                white-space: normal;
-                padding: 0 20px;
-            }
-            .tagline {
-                white-space: normal;
-            }
-            .tagline-container {
-                height: 70px;
-            }
+        /* Allow wrapping only for overflowing taglines */
+        .tagline.wrap-text {
+            white-space: normal;
+            padding: 0 20px;
         }
 
     </style>
@@ -872,8 +864,29 @@
                 option.classList.add('active');
 
                 langSelector.classList.remove('open');
+
+                // Check for text overflow after language change
+                checkTaglineOverflow();
             });
         });
+
+        // Check if taglines overflow the screen and add wrap class
+        function checkTaglineOverflow() {
+            const taglines = document.querySelectorAll('.tagline');
+            const viewportWidth = window.innerWidth;
+
+            taglines.forEach(tagline => {
+                tagline.classList.remove('wrap-text');
+                // Check if text is wider than viewport (with some margin)
+                if (tagline.scrollWidth > viewportWidth - 40) {
+                    tagline.classList.add('wrap-text');
+                }
+            });
+        }
+
+        // Check on load and resize
+        window.addEventListener('resize', checkTaglineOverflow);
+        document.fonts.ready.then(checkTaglineOverflow);
     </script>
 </body>
 </html>
