@@ -383,6 +383,95 @@
             }
         }
 
+        /* Language selector */
+        .lang-selector {
+            position: fixed;
+            top: 20px;
+            left: calc(50% + 44px);
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        .lang-button {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .lang-button:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .lang-button:active {
+            background-color: var(--bg-pressed);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .lang-selector.open .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lang-option {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 13px;
+            color: var(--text-primary);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .lang-option:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .lang-option.active {
+            color: var(--text-secondary);
+        }
+
+        /* Move theme toggle left to make room */
+        .theme-toggle {
+            left: calc(50% - 44px);
+        }
+
+        /* Mobile: hide language selector at state 4 */
+        @media (max-width: 768px) {
+            body.state-4 .lang-selector {
+                display: none !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -402,6 +491,17 @@
             <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
     </button>
+
+    <div class="lang-selector">
+        <button class="lang-button" aria-label="Select language">EN</button>
+        <div class="lang-dropdown">
+            <button class="lang-option active" data-lang="en">English</button>
+            <button class="lang-option" data-lang="fr">Français</button>
+            <button class="lang-option" data-lang="de">Deutsch</button>
+            <button class="lang-option" data-lang="zh">中文</button>
+            <button class="lang-option" data-lang="ru">Русский</button>
+        </div>
+    </div>
 
     <section class="hero">
         <div class="content">
@@ -424,7 +524,7 @@
                 </div>
                 <div class="tagline-group group-2">
                     <p class="tagline">No-subscription culture:</p>
-                    <p class="tagline">AI features with one-time payment of 50 euros</p>
+                    <p class="tagline">AI features with one-time payment</p>
                 </div>
             </div>
         </div>
@@ -599,7 +699,7 @@
         // Click to advance (like scrolling down)
         document.addEventListener('click', (e) => {
             // Don't trigger on buttons or iframes
-            if (e.target.closest('button, iframe, a')) return;
+            if (e.target.closest('button, iframe, a, .lang-selector')) return;
 
             if (isLocked) return;
 
@@ -611,6 +711,91 @@
                     isLocked = false;
                 }, animationTime);
             }
+        });
+
+        // Language support
+        const translations = {
+            en: {
+                tagline1a: "For people who want to record from any app",
+                tagline1b: "and manage recordings in one place",
+                tagline2a: "No-subscription culture:",
+                tagline2b: "AI features with one-time payment",
+                code: "EN"
+            },
+            ru: {
+                tagline1a: "Для тех, кто хочет записывать из любого приложения",
+                tagline1b: "и хранить всё в одном месте",
+                tagline2a: "Без подписок:",
+                tagline2b: "ИИ-функции за разовый платёж",
+                code: "RU"
+            },
+            fr: {
+                tagline1a: "Pour ceux qui veulent enregistrer depuis n'importe quelle app",
+                tagline1b: "et tout gérer au même endroit",
+                tagline2a: "Zéro abonnement :",
+                tagline2b: "Fonctions IA pour un paiement unique",
+                code: "FR"
+            },
+            de: {
+                tagline1a: "Für alle, die aus jeder App aufnehmen wollen",
+                tagline1b: "und alles an einem Ort verwalten",
+                tagline2a: "Ohne Abo:",
+                tagline2b: "KI-Funktionen zum Einmalpreis",
+                code: "DE"
+            },
+            zh: {
+                tagline1a: "随心录制，来自任何应用",
+                tagline1b: "一处管理，井井有条",
+                tagline2a: "告别订阅：",
+                tagline2b: "AI功能，一次付费",
+                code: "中"
+            }
+        };
+
+        const langSelector = document.querySelector('.lang-selector');
+        const langButton = document.querySelector('.lang-button');
+        const langOptions = document.querySelectorAll('.lang-option');
+        const tagline1a = group1.querySelector('.tagline:first-child');
+        const tagline1b = group1.querySelector('.tagline:last-child');
+        const tagline2a = group2.querySelector('.tagline:first-child');
+        const tagline2b = group2.querySelector('.tagline:last-child');
+
+        let currentLang = 'en';
+
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langSelector.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => {
+            langSelector.classList.remove('open');
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lang = option.dataset.lang;
+                if (lang === currentLang) {
+                    langSelector.classList.remove('open');
+                    return;
+                }
+
+                currentLang = lang;
+                const t = translations[lang];
+
+                // Update text
+                tagline1a.textContent = t.tagline1a;
+                tagline1b.textContent = t.tagline1b;
+                tagline2a.textContent = t.tagline2a;
+                tagline2b.textContent = t.tagline2b;
+                langButton.textContent = t.code;
+
+                // Update active state
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+
+                langSelector.classList.remove('open');
+            });
         });
     </script>
 </body>
