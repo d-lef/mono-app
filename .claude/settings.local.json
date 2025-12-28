@@ -14,7 +14,11 @@
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nMake video larger on desktop\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nAdd Google Analytics tracking\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" add -A)",
-      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nAdd favicon\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nAdd favicon\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nUpdate tagline to mention meetings\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nAdd language-specific YouTube videos\n\n- English: Imy_H4gUr8I\n- Spanish: -wmQvwh6vqc\n- Russian: nmVnfocQYQA\n- French: Nv6x_nkKlN8\n- German: XK5-sXCDfl4\n- Chinese: iVJtTuE7H7Q\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nUpdate form when language changes\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"$\\(cat <<''EOF''\nAllow tagline text wrapping on mobile\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
