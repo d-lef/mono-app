@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - mono</title>
+    <meta name="description" content="Privacy Policy for mono - the audio recording app">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://d-lef.github.io/mono-app/privacy.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #252525;
+            --bg-secondary: #2D2D2D;
+            --bg-hover: #3A3A3A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) {
+                --bg-primary: #F5F5F5;
+                --bg-secondary: #FFFFFF;
+                --bg-hover: #E0E0E0;
+                --text-primary: #212121;
+                --text-secondary: #757575;
+            }
+        }
+
+        :root.light {
+            --bg-primary: #F5F5F5;
+            --bg-secondary: #FFFFFF;
+            --bg-hover: #E0E0E0;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: flex-end;
+            font-family: 'MuseoModerno', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-bottom: 40px;
+        }
+
+        .logo-char {
+            display: flex;
+            align-items: flex-end;
+            line-height: 1;
+        }
+
+        .filled-o {
+            width: 0.52em;
+            height: 0.52em;
+            background-color: var(--text-primary);
+            border-radius: 50%;
+            margin-bottom: 0.14em;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 24px;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.15s ease;
+        }
+
+        .back-link:hover {
+            background-color: var(--bg-hover);
+            opacity: 1;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .theme-toggle .icon-sun { display: block; }
+        .theme-toggle .icon-moon { display: none; }
+
+        :root.light .theme-toggle .icon-sun { display: none; }
+        :root.light .theme-toggle .icon-moon { display: block; }
+
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .theme-toggle .icon-sun { display: none; }
+            :root:not(.dark) .theme-toggle .icon-moon { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <a href="index.html" class="logo">
+            <div class="logo-char">m</div>
+            <div class="logo-char"><span class="filled-o"></span></div>
+            <div class="logo-char">n</div>
+            <div class="logo-char"><span class="filled-o"></span></div>
+        </a>
+
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: January 2, 2025</p>
+
+        <p>This Privacy Policy describes how mono ("we", "our", or "the app") handles your information when you use our audio recording application.</p>
+
+        <h2>Data Storage</h2>
+        <p><strong>All your data stays on your device.</strong> mono is designed with privacy in mind:</p>
+        <ul>
+            <li>Audio recordings are stored locally on your computer</li>
+            <li>Transcriptions and summaries are saved locally</li>
+            <li>Application settings are stored locally</li>
+            <li>We do not operate servers that store your personal data</li>
+        </ul>
+
+        <h2>Audio Recording</h2>
+        <p>mono captures audio from applications and microphones on your device. This audio is:</p>
+        <ul>
+            <li>Saved only to your local storage</li>
+            <li>Never uploaded to our servers</li>
+            <li>Under your complete control to delete at any time</li>
+        </ul>
+
+        <h2>AI Features</h2>
+        <p>When you use AI-powered features (transcription, summarization), your audio or text may be sent to third-party AI providers you configure:</p>
+        <ul>
+            <li><strong>Cloud AI providers</strong> (OpenAI, Anthropic, Google, etc.): If you configure a cloud AI provider, relevant data is sent to that provider according to their privacy policies</li>
+            <li><strong>Local AI models</strong>: If you use local models, all processing happens on your device with no data transmitted externally</li>
+        </ul>
+        <p>You choose which AI provider to use. We recommend reviewing the privacy policy of any third-party AI service you configure.</p>
+
+        <h2>Google Calendar Integration</h2>
+        <p>mono offers optional Google Calendar integration to help you prepare for meetings. When enabled:</p>
+        <ul>
+            <li>We request <strong>read-only</strong> access to your calendar</li>
+            <li>We only read upcoming meeting titles and times</li>
+            <li>Calendar data is used locally to display meeting notifications</li>
+            <li>We do not store, share, or transmit your calendar data to any server</li>
+            <li>You can disconnect your calendar at any time in Settings</li>
+        </ul>
+
+        <h2>Data We Collect</h2>
+        <p><strong>We do not collect personal data.</strong> The app operates entirely on your device. We do not have access to:</p>
+        <ul>
+            <li>Your recordings</li>
+            <li>Your transcriptions or summaries</li>
+            <li>Your calendar events</li>
+            <li>Your usage patterns</li>
+        </ul>
+
+        <h2>Third-Party Services</h2>
+        <p>The app may interact with third-party services only when you explicitly configure them:</p>
+        <ul>
+            <li><strong>AI Providers</strong>: Only when you add an API key and use AI features</li>
+            <li><strong>Google Calendar</strong>: Only when you connect your account</li>
+        </ul>
+        <p>Each third-party service has its own privacy policy governing how they handle data.</p>
+
+        <h2>Data Security</h2>
+        <p>Your data security depends on your device security. We recommend:</p>
+        <ul>
+            <li>Using device encryption</li>
+            <li>Keeping your operating system updated</li>
+            <li>Using strong passwords</li>
+        </ul>
+
+        <h2>Children's Privacy</h2>
+        <p>mono is not intended for use by children under 13. We do not knowingly collect information from children.</p>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last updated" date.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions about this Privacy Policy, please contact us at:</p>
+        <p><a href="mailto:d.lefanov.work@gmail.com">d.lefanov.work@gmail.com</a></p>
+
+        <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+        const root = document.documentElement;
+
+        function isLightMode() {
+            if (root.classList.contains('light')) return true;
+            if (root.classList.contains('dark')) return false;
+            return window.matchMedia('(prefers-color-scheme: light)').matches;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (isLightMode()) {
+                root.classList.remove('light');
+                root.classList.add('dark');
+            } else {
+                root.classList.remove('dark');
+                root.classList.add('light');
+            }
+        });
+    </script>
+</body>
+</html>

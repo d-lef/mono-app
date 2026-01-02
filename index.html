@@ -497,6 +497,24 @@
             color: var(--text-secondary);
         }
 
+        /* Privacy link */
+        .privacy-link {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.15s ease;
+        }
+
+        .privacy-link:hover {
+            opacity: 1;
+        }
+
         /* Move theme toggle left to make room */
         .theme-toggle {
             left: calc(50% - 44px);
@@ -587,6 +605,8 @@
             </iframe>
         </div>
     </section>
+
+    <a href="privacy.html" class="privacy-link">Privacy Policy</a>
 
     <script>
         // Theme toggle
