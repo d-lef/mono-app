@@ -246,6 +246,8 @@
         }
 
         .lang-button {
+            position: relative;
+            z-index: 1;
             width: 36px;
             height: 36px;
             border: none;
@@ -281,6 +283,7 @@
             padding: 4px;
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
             transition: opacity 0.15s ease, visibility 0.15s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
@@ -288,6 +291,7 @@
         .lang-selector.open .lang-dropdown {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
         }
 
         .lang-option {
@@ -344,14 +348,14 @@
     </button>
 
     <div class="lang-selector">
-        <button class="lang-button" aria-label="Select language">EN</button>
+        <button type="button" class="lang-button" aria-label="Select language">EN</button>
         <div class="lang-dropdown">
-            <button class="lang-option active" data-lang="en">English</button>
-            <button class="lang-option" data-lang="es">Español</button>
-            <button class="lang-option" data-lang="fr">Français</button>
-            <button class="lang-option" data-lang="de">Deutsch</button>
-            <button class="lang-option" data-lang="zh">中文</button>
-            <button class="lang-option" data-lang="ru">Русский</button>
+            <button type="button" class="lang-option active" data-lang="en">English</button>
+            <button type="button" class="lang-option" data-lang="es">Español</button>
+            <button type="button" class="lang-option" data-lang="fr">Français</button>
+            <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+            <button type="button" class="lang-option" data-lang="zh">中文</button>
+            <button type="button" class="lang-option" data-lang="ru">Русский</button>
         </div>
     </div>
 
