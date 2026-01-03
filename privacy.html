@@ -211,7 +211,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
         }
 
         .home-button:hover {
@@ -265,6 +264,10 @@
 
         .lang-button:hover {
             background-color: var(--bg-hover);
+        }
+
+        .lang-button:active {
+            background-color: var(--bg-pressed);
         }
 
         .lang-dropdown {
@@ -333,12 +336,12 @@
         </svg>
     </button>
 
-    <a href="index.html" class="home-button" aria-label="Go home">
+    <button class="home-button" aria-label="Go home" onclick="window.location.href='index.html'">
         <svg viewBox="0 0 24 24">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
-    </a>
+    </button>
 
     <div class="lang-selector">
         <button class="lang-button" aria-label="Select language">EN</button>

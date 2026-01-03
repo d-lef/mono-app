@@ -27,7 +27,8 @@
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Move scroll indicator higher on mobile\")",
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Move scroll indicator even higher on mobile\")",
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Add nav bar to privacy policy page\")",
-      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Add language selector and translations to privacy page\n\n- Add full nav bar matching main page \\(theme, home, language\\)\n- Translate privacy policy to ES, FR, DE, ZH, RU\n- Fix nav button positions to match main page exactly\")"
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Add language selector and translations to privacy page\n\n- Add full nav bar matching main page \\(theme, home, language\\)\n- Translate privacy policy to ES, FR, DE, ZH, RU\n- Fix nav button positions to match main page exactly\")",
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Fix nav buttons alignment and lang button active state\")"
     ]
   }
 }
