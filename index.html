@@ -223,12 +223,18 @@
         /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
-            bottom: 20%;
+            bottom: 15%;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
             animation: bounce 2s ease-in-out infinite;
             transition: opacity 0.25s ease;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-indicator {
+                bottom: 30%;
+            }
         }
 
         body.loaded .scroll-indicator.visible {
