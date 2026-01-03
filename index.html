@@ -234,12 +234,16 @@
 
         @media (max-width: 768px) {
             .scroll-indicator {
-                bottom: 27%;
+                bottom: 35%;
             }
 
             /* Shift content up to visually center below nav bar */
             .logo-group {
                 margin-top: -10vh;
+            }
+
+            .tagline-container {
+                top: 45%;
             }
         }
 
@@ -807,12 +811,10 @@
                 logoGroup.classList.remove('hidden');
                 logoGroup.classList.add('at-top');
             } else if (currentState === 4) {
-                logoGroup.classList.remove('hidden');
-                logoGroup.classList.add('at-top');
+                logoGroup.classList.add('hidden');
                 videoContainer.classList.add('visible');
             } else if (currentState === 5) {
-                logoGroup.classList.remove('hidden');
-                logoGroup.classList.add('at-top');
+                logoGroup.classList.add('hidden');
                 // Reload iframe to reset scroll position on mobile
                 formContainer.classList.remove('loaded');
                 // Use language-specific form if available
