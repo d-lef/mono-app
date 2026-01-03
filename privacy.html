@@ -23,6 +23,7 @@
             --bg-primary: #252525;
             --bg-secondary: #2D2D2D;
             --bg-hover: #3A3A3A;
+            --bg-pressed: #454545;
             --text-primary: #FFFFFF;
             --text-secondary: #B0B0B0;
         }
@@ -32,6 +33,7 @@
                 --bg-primary: #F5F5F5;
                 --bg-secondary: #FFFFFF;
                 --bg-hover: #E0E0E0;
+                --bg-pressed: #D0D0D0;
                 --text-primary: #212121;
                 --text-secondary: #757575;
             }
@@ -41,6 +43,7 @@
             --bg-primary: #F5F5F5;
             --bg-secondary: #FFFFFF;
             --bg-hover: #E0E0E0;
+            --bg-pressed: #D0D0D0;
             --text-primary: #212121;
             --text-secondary: #757575;
         }
@@ -152,10 +155,12 @@
             opacity: 1;
         }
 
-        /* Nav buttons */
-        .nav-button {
+        /* Theme toggle button */
+        .theme-toggle {
             position: fixed;
             top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 100;
             width: 36px;
             height: 36px;
@@ -168,11 +173,19 @@
             justify-content: center;
         }
 
-        .nav-button:hover {
+        .theme-toggle:hover {
             background-color: var(--bg-hover);
         }
 
-        .nav-button svg {
+        .theme-toggle:active {
+            background-color: var(--bg-pressed);
+        }
+
+        .theme-toggle:not(:active):not(:hover) {
+            transition: background-color 0.15s ease;
+        }
+
+        .theme-toggle svg {
             width: 20px;
             height: 20px;
             stroke: var(--text-secondary);
@@ -182,14 +195,119 @@
             stroke-linejoin: round;
         }
 
-        .theme-toggle {
-            left: calc(50% - 44px);
-            transform: translateX(-50%);
-        }
-
+        /* Home button */
         .home-button {
+            position: fixed;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 100;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .home-button:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .home-button:active {
+            background-color: var(--bg-pressed);
+        }
+
+        .home-button svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Language selector */
+        .lang-selector {
+            position: fixed;
+            top: 20px;
+            left: calc(50% + 44px);
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        /* Move theme toggle left to make room */
+        .theme-toggle {
+            left: calc(50% - 44px);
+        }
+
+        .lang-button {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .lang-button:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .lang-selector.open .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lang-option {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 13px;
+            color: var(--text-primary);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .lang-option:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .lang-option.active {
+            color: var(--text-secondary);
         }
 
         .theme-toggle .icon-sun { display: block; }
@@ -205,7 +323,7 @@
     </style>
 </head>
 <body>
-    <button class="nav-button theme-toggle" aria-label="Toggle theme">
+    <button class="theme-toggle" aria-label="Toggle theme">
         <svg class="icon-moon" viewBox="0 0 24 24">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
@@ -215,12 +333,24 @@
         </svg>
     </button>
 
-    <a href="index.html" class="nav-button home-button" aria-label="Go home">
+    <a href="index.html" class="home-button" aria-label="Go home">
         <svg viewBox="0 0 24 24">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
     </a>
+
+    <div class="lang-selector">
+        <button class="lang-button" aria-label="Select language">EN</button>
+        <div class="lang-dropdown">
+            <button class="lang-option active" data-lang="en">English</button>
+            <button class="lang-option" data-lang="es">Español</button>
+            <button class="lang-option" data-lang="fr">Français</button>
+            <button class="lang-option" data-lang="de">Deutsch</button>
+            <button class="lang-option" data-lang="zh">中文</button>
+            <button class="lang-option" data-lang="ru">Русский</button>
+        </div>
+    </div>
 
     <div class="container">
         <a href="index.html" class="logo">
@@ -233,36 +363,36 @@
         <h1>Privacy Policy</h1>
         <p class="last-updated">Last updated: January 2, 2025</p>
 
-        <p>This Privacy Policy describes how mono ("we", "our", or "the app") handles your information when you use our audio recording application.</p>
+        <p class="intro">This Privacy Policy describes how mono ("we", "our", or "the app") handles your information when you use our audio recording application.</p>
 
-        <h2>Data Storage</h2>
-        <p><strong>All your data stays on your device.</strong> mono is designed with privacy in mind:</p>
-        <ul>
+        <h2 class="data-storage-title">Data Storage</h2>
+        <p class="data-storage-intro"><strong>All your data stays on your device.</strong> mono is designed with privacy in mind:</p>
+        <ul class="data-storage-list">
             <li>Audio recordings are stored locally on your computer</li>
             <li>Transcriptions and summaries are saved locally</li>
             <li>Application settings are stored locally</li>
             <li>We do not operate servers that store your personal data</li>
         </ul>
 
-        <h2>Audio Recording</h2>
-        <p>mono captures audio from applications and microphones on your device. This audio is:</p>
-        <ul>
+        <h2 class="audio-recording-title">Audio Recording</h2>
+        <p class="audio-recording-intro">mono captures audio from applications and microphones on your device. This audio is:</p>
+        <ul class="audio-recording-list">
             <li>Saved only to your local storage</li>
             <li>Never uploaded to our servers</li>
             <li>Under your complete control to delete at any time</li>
         </ul>
 
-        <h2>AI Features</h2>
-        <p>When you use AI-powered features (transcription, summarization), your audio or text may be sent to third-party AI providers you configure:</p>
-        <ul>
+        <h2 class="ai-features-title">AI Features</h2>
+        <p class="ai-features-intro">When you use AI-powered features (transcription, summarization), your audio or text may be sent to third-party AI providers you configure:</p>
+        <ul class="ai-features-list">
             <li><strong>Cloud AI providers</strong> (OpenAI, Anthropic, Google, etc.): If you configure a cloud AI provider, relevant data is sent to that provider according to their privacy policies</li>
             <li><strong>Local AI models</strong>: If you use local models, all processing happens on your device with no data transmitted externally</li>
         </ul>
-        <p>You choose which AI provider to use. We recommend reviewing the privacy policy of any third-party AI service you configure.</p>
+        <p class="ai-features-outro">You choose which AI provider to use. We recommend reviewing the privacy policy of any third-party AI service you configure.</p>
 
-        <h2>Google Calendar Integration</h2>
-        <p>mono offers optional Google Calendar integration to help you prepare for meetings. When enabled:</p>
-        <ul>
+        <h2 class="google-calendar-title">Google Calendar Integration</h2>
+        <p class="google-calendar-intro">mono offers optional Google Calendar integration to help you prepare for meetings. When enabled:</p>
+        <ul class="google-calendar-list">
             <li>We request <strong>read-only</strong> access to your calendar</li>
             <li>We only read upcoming meeting titles and times</li>
             <li>Calendar data is used locally to display meeting notifications</li>
@@ -270,39 +400,39 @@
             <li>You can disconnect your calendar at any time in Settings</li>
         </ul>
 
-        <h2>Data We Collect</h2>
-        <p><strong>We do not collect personal data.</strong> The app operates entirely on your device. We do not have access to:</p>
-        <ul>
+        <h2 class="data-collect-title">Data We Collect</h2>
+        <p class="data-collect-intro"><strong>We do not collect personal data.</strong> The app operates entirely on your device. We do not have access to:</p>
+        <ul class="data-collect-list">
             <li>Your recordings</li>
             <li>Your transcriptions or summaries</li>
             <li>Your calendar events</li>
             <li>Your usage patterns</li>
         </ul>
 
-        <h2>Third-Party Services</h2>
-        <p>The app may interact with third-party services only when you explicitly configure them:</p>
-        <ul>
+        <h2 class="third-party-title">Third-Party Services</h2>
+        <p class="third-party-intro">The app may interact with third-party services only when you explicitly configure them:</p>
+        <ul class="third-party-list">
             <li><strong>AI Providers</strong>: Only when you add an API key and use AI features</li>
             <li><strong>Google Calendar</strong>: Only when you connect your account</li>
         </ul>
-        <p>Each third-party service has its own privacy policy governing how they handle data.</p>
+        <p class="third-party-outro">Each third-party service has its own privacy policy governing how they handle data.</p>
 
-        <h2>Data Security</h2>
-        <p>Your data security depends on your device security. We recommend:</p>
-        <ul>
+        <h2 class="data-security-title">Data Security</h2>
+        <p class="data-security-intro">Your data security depends on your device security. We recommend:</p>
+        <ul class="data-security-list">
             <li>Using device encryption</li>
             <li>Keeping your operating system updated</li>
             <li>Using strong passwords</li>
         </ul>
 
-        <h2>Children's Privacy</h2>
-        <p>mono is not intended for use by children under 13. We do not knowingly collect information from children.</p>
+        <h2 class="children-title">Children's Privacy</h2>
+        <p class="children-text">mono is not intended for use by children under 13. We do not knowingly collect information from children.</p>
 
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last updated" date.</p>
+        <h2 class="changes-title">Changes to This Policy</h2>
+        <p class="changes-text">We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last updated" date.</p>
 
-        <h2>Contact</h2>
-        <p>If you have questions about this Privacy Policy, please contact us at:</p>
+        <h2 class="contact-title">Contact</h2>
+        <p class="contact-intro">If you have questions about this Privacy Policy, please contact us at:</p>
         <p><a href="mailto:d.lefanov.work@gmail.com">d.lefanov.work@gmail.com</a></p>
 
         <a href="index.html" class="back-link">Back to Home</a>
@@ -326,6 +456,324 @@
                 root.classList.remove('dark');
                 root.classList.add('light');
             }
+        });
+
+        // Language selector
+        const langSelector = document.querySelector('.lang-selector');
+        const langButton = document.querySelector('.lang-button');
+        const langOptions = document.querySelectorAll('.lang-option');
+
+        const translations = {
+            en: {
+                code: "EN",
+                title: "Privacy Policy",
+                lastUpdated: "Last updated: January 2, 2025",
+                intro: "This Privacy Policy describes how mono (\"we\", \"our\", or \"the app\") handles your information when you use our audio recording application.",
+                dataStorageTitle: "Data Storage",
+                dataStorageIntro: "<strong>All your data stays on your device.</strong> mono is designed with privacy in mind:",
+                dataStorageList: ["Audio recordings are stored locally on your computer", "Transcriptions and summaries are saved locally", "Application settings are stored locally", "We do not operate servers that store your personal data"],
+                audioRecordingTitle: "Audio Recording",
+                audioRecordingIntro: "mono captures audio from applications and microphones on your device. This audio is:",
+                audioRecordingList: ["Saved only to your local storage", "Never uploaded to our servers", "Under your complete control to delete at any time"],
+                aiFeaturesTitle: "AI Features",
+                aiFeaturesIntro: "When you use AI-powered features (transcription, summarization), your audio or text may be sent to third-party AI providers you configure:",
+                aiFeaturesList: ["<strong>Cloud AI providers</strong> (OpenAI, Anthropic, Google, etc.): If you configure a cloud AI provider, relevant data is sent to that provider according to their privacy policies", "<strong>Local AI models</strong>: If you use local models, all processing happens on your device with no data transmitted externally"],
+                aiFeaturesOutro: "You choose which AI provider to use. We recommend reviewing the privacy policy of any third-party AI service you configure.",
+                googleCalendarTitle: "Google Calendar Integration",
+                googleCalendarIntro: "mono offers optional Google Calendar integration to help you prepare for meetings. When enabled:",
+                googleCalendarList: ["We request <strong>read-only</strong> access to your calendar", "We only read upcoming meeting titles and times", "Calendar data is used locally to display meeting notifications", "We do not store, share, or transmit your calendar data to any server", "You can disconnect your calendar at any time in Settings"],
+                dataCollectTitle: "Data We Collect",
+                dataCollectIntro: "<strong>We do not collect personal data.</strong> The app operates entirely on your device. We do not have access to:",
+                dataCollectList: ["Your recordings", "Your transcriptions or summaries", "Your calendar events", "Your usage patterns"],
+                thirdPartyTitle: "Third-Party Services",
+                thirdPartyIntro: "The app may interact with third-party services only when you explicitly configure them:",
+                thirdPartyList: ["<strong>AI Providers</strong>: Only when you add an API key and use AI features", "<strong>Google Calendar</strong>: Only when you connect your account"],
+                thirdPartyOutro: "Each third-party service has its own privacy policy governing how they handle data.",
+                dataSecurityTitle: "Data Security",
+                dataSecurityIntro: "Your data security depends on your device security. We recommend:",
+                dataSecurityList: ["Using device encryption", "Keeping your operating system updated", "Using strong passwords"],
+                childrenTitle: "Children's Privacy",
+                childrenText: "mono is not intended for use by children under 13. We do not knowingly collect information from children.",
+                changesTitle: "Changes to This Policy",
+                changesText: "We may update this Privacy Policy from time to time. We will notify you of any changes by updating the \"Last updated\" date.",
+                contactTitle: "Contact",
+                contactIntro: "If you have questions about this Privacy Policy, please contact us at:",
+                backLink: "Back to Home"
+            },
+            es: {
+                code: "ES",
+                title: "Política de Privacidad",
+                lastUpdated: "Última actualización: 2 de enero de 2025",
+                intro: "Esta Política de Privacidad describe cómo mono (\"nosotros\" o \"la aplicación\") maneja tu información cuando utilizas nuestra aplicación de grabación de audio.",
+                dataStorageTitle: "Almacenamiento de Datos",
+                dataStorageIntro: "<strong>Todos tus datos permanecen en tu dispositivo.</strong> mono está diseñado con la privacidad en mente:",
+                dataStorageList: ["Las grabaciones de audio se almacenan localmente en tu ordenador", "Las transcripciones y resúmenes se guardan localmente", "La configuración de la aplicación se almacena localmente", "No operamos servidores que almacenen tus datos personales"],
+                audioRecordingTitle: "Grabación de Audio",
+                audioRecordingIntro: "mono captura audio de aplicaciones y micrófonos en tu dispositivo. Este audio:",
+                audioRecordingList: ["Se guarda solo en tu almacenamiento local", "Nunca se sube a nuestros servidores", "Está bajo tu control total para eliminarlo en cualquier momento"],
+                aiFeaturesTitle: "Funciones de IA",
+                aiFeaturesIntro: "Cuando utilizas funciones con IA (transcripción, resumen), tu audio o texto puede enviarse a proveedores de IA de terceros que configures:",
+                aiFeaturesList: ["<strong>Proveedores de IA en la nube</strong> (OpenAI, Anthropic, Google, etc.): Si configuras un proveedor de IA en la nube, los datos relevantes se envían a ese proveedor según sus políticas de privacidad", "<strong>Modelos de IA locales</strong>: Si usas modelos locales, todo el procesamiento ocurre en tu dispositivo sin transmitir datos externamente"],
+                aiFeaturesOutro: "Tú eliges qué proveedor de IA usar. Recomendamos revisar la política de privacidad de cualquier servicio de IA de terceros que configures.",
+                googleCalendarTitle: "Integración con Google Calendar",
+                googleCalendarIntro: "mono ofrece integración opcional con Google Calendar para ayudarte a preparar tus reuniones. Cuando está habilitada:",
+                googleCalendarList: ["Solicitamos acceso <strong>solo de lectura</strong> a tu calendario", "Solo leemos los títulos y horarios de próximas reuniones", "Los datos del calendario se usan localmente para mostrar notificaciones de reuniones", "No almacenamos, compartimos ni transmitimos los datos de tu calendario a ningún servidor", "Puedes desconectar tu calendario en cualquier momento en Configuración"],
+                dataCollectTitle: "Datos que Recopilamos",
+                dataCollectIntro: "<strong>No recopilamos datos personales.</strong> La aplicación funciona completamente en tu dispositivo. No tenemos acceso a:",
+                dataCollectList: ["Tus grabaciones", "Tus transcripciones o resúmenes", "Tus eventos de calendario", "Tus patrones de uso"],
+                thirdPartyTitle: "Servicios de Terceros",
+                thirdPartyIntro: "La aplicación puede interactuar con servicios de terceros solo cuando los configuras explícitamente:",
+                thirdPartyList: ["<strong>Proveedores de IA</strong>: Solo cuando agregas una clave API y usas funciones de IA", "<strong>Google Calendar</strong>: Solo cuando conectas tu cuenta"],
+                thirdPartyOutro: "Cada servicio de terceros tiene su propia política de privacidad que rige cómo manejan los datos.",
+                dataSecurityTitle: "Seguridad de Datos",
+                dataSecurityIntro: "La seguridad de tus datos depende de la seguridad de tu dispositivo. Recomendamos:",
+                dataSecurityList: ["Usar cifrado de dispositivo", "Mantener tu sistema operativo actualizado", "Usar contraseñas seguras"],
+                childrenTitle: "Privacidad de Menores",
+                childrenText: "mono no está destinado para uso de menores de 13 años. No recopilamos información de niños conscientemente.",
+                changesTitle: "Cambios a Esta Política",
+                changesText: "Podemos actualizar esta Política de Privacidad de vez en cuando. Te notificaremos de cualquier cambio actualizando la fecha de \"Última actualización\".",
+                contactTitle: "Contacto",
+                contactIntro: "Si tienes preguntas sobre esta Política de Privacidad, contáctanos en:",
+                backLink: "Volver al Inicio"
+            },
+            fr: {
+                code: "FR",
+                title: "Politique de Confidentialité",
+                lastUpdated: "Dernière mise à jour : 2 janvier 2025",
+                intro: "Cette Politique de Confidentialité décrit comment mono (« nous » ou « l'application ») gère vos informations lorsque vous utilisez notre application d'enregistrement audio.",
+                dataStorageTitle: "Stockage des Données",
+                dataStorageIntro: "<strong>Toutes vos données restent sur votre appareil.</strong> mono est conçu avec la confidentialité à l'esprit :",
+                dataStorageList: ["Les enregistrements audio sont stockés localement sur votre ordinateur", "Les transcriptions et résumés sont sauvegardés localement", "Les paramètres de l'application sont stockés localement", "Nous n'exploitons pas de serveurs qui stockent vos données personnelles"],
+                audioRecordingTitle: "Enregistrement Audio",
+                audioRecordingIntro: "mono capture l'audio des applications et microphones de votre appareil. Cet audio est :",
+                audioRecordingList: ["Sauvegardé uniquement sur votre stockage local", "Jamais téléchargé sur nos serveurs", "Sous votre contrôle total pour le supprimer à tout moment"],
+                aiFeaturesTitle: "Fonctionnalités IA",
+                aiFeaturesIntro: "Lorsque vous utilisez des fonctionnalités alimentées par l'IA (transcription, résumé), votre audio ou texte peut être envoyé aux fournisseurs d'IA tiers que vous configurez :",
+                aiFeaturesList: ["<strong>Fournisseurs d'IA cloud</strong> (OpenAI, Anthropic, Google, etc.) : Si vous configurez un fournisseur d'IA cloud, les données pertinentes sont envoyées à ce fournisseur selon leurs politiques de confidentialité", "<strong>Modèles d'IA locaux</strong> : Si vous utilisez des modèles locaux, tout le traitement se fait sur votre appareil sans transmission externe de données"],
+                aiFeaturesOutro: "Vous choisissez quel fournisseur d'IA utiliser. Nous recommandons de consulter la politique de confidentialité de tout service d'IA tiers que vous configurez.",
+                googleCalendarTitle: "Intégration Google Calendar",
+                googleCalendarIntro: "mono offre une intégration optionnelle avec Google Calendar pour vous aider à préparer vos réunions. Lorsqu'elle est activée :",
+                googleCalendarList: ["Nous demandons un accès <strong>en lecture seule</strong> à votre calendrier", "Nous lisons uniquement les titres et horaires des réunions à venir", "Les données du calendrier sont utilisées localement pour afficher les notifications de réunion", "Nous ne stockons, partageons ni transmettons vos données de calendrier à aucun serveur", "Vous pouvez déconnecter votre calendrier à tout moment dans les Paramètres"],
+                dataCollectTitle: "Données que Nous Collectons",
+                dataCollectIntro: "<strong>Nous ne collectons pas de données personnelles.</strong> L'application fonctionne entièrement sur votre appareil. Nous n'avons pas accès à :",
+                dataCollectList: ["Vos enregistrements", "Vos transcriptions ou résumés", "Vos événements de calendrier", "Vos habitudes d'utilisation"],
+                thirdPartyTitle: "Services Tiers",
+                thirdPartyIntro: "L'application peut interagir avec des services tiers uniquement lorsque vous les configurez explicitement :",
+                thirdPartyList: ["<strong>Fournisseurs d'IA</strong> : Uniquement lorsque vous ajoutez une clé API et utilisez les fonctionnalités IA", "<strong>Google Calendar</strong> : Uniquement lorsque vous connectez votre compte"],
+                thirdPartyOutro: "Chaque service tiers a sa propre politique de confidentialité régissant la gestion des données.",
+                dataSecurityTitle: "Sécurité des Données",
+                dataSecurityIntro: "La sécurité de vos données dépend de la sécurité de votre appareil. Nous recommandons :",
+                dataSecurityList: ["D'utiliser le chiffrement de l'appareil", "De maintenir votre système d'exploitation à jour", "D'utiliser des mots de passe forts"],
+                childrenTitle: "Confidentialité des Enfants",
+                childrenText: "mono n'est pas destiné aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations auprès des enfants.",
+                changesTitle: "Modifications de Cette Politique",
+                changesText: "Nous pouvons mettre à jour cette Politique de Confidentialité de temps en temps. Nous vous informerons de tout changement en mettant à jour la date de « Dernière mise à jour ».",
+                contactTitle: "Contact",
+                contactIntro: "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à :",
+                backLink: "Retour à l'Accueil"
+            },
+            de: {
+                code: "DE",
+                title: "Datenschutzrichtlinie",
+                lastUpdated: "Zuletzt aktualisiert: 2. Januar 2025",
+                intro: "Diese Datenschutzrichtlinie beschreibt, wie mono („wir" oder „die App") Ihre Informationen verarbeitet, wenn Sie unsere Audioaufnahme-Anwendung nutzen.",
+                dataStorageTitle: "Datenspeicherung",
+                dataStorageIntro: "<strong>Alle Ihre Daten bleiben auf Ihrem Gerät.</strong> mono wurde mit Datenschutz im Fokus entwickelt:",
+                dataStorageList: ["Audioaufnahmen werden lokal auf Ihrem Computer gespeichert", "Transkriptionen und Zusammenfassungen werden lokal gespeichert", "Anwendungseinstellungen werden lokal gespeichert", "Wir betreiben keine Server, die Ihre persönlichen Daten speichern"],
+                audioRecordingTitle: "Audioaufnahme",
+                audioRecordingIntro: "mono nimmt Audio von Anwendungen und Mikrofonen auf Ihrem Gerät auf. Dieses Audio wird:",
+                audioRecordingList: ["Nur auf Ihrem lokalen Speicher gespeichert", "Niemals auf unsere Server hochgeladen", "Steht unter Ihrer vollständigen Kontrolle zum jederzeitigen Löschen"],
+                aiFeaturesTitle: "KI-Funktionen",
+                aiFeaturesIntro: "Wenn Sie KI-gestützte Funktionen (Transkription, Zusammenfassung) nutzen, kann Ihr Audio oder Text an von Ihnen konfigurierte Drittanbieter-KI-Dienste gesendet werden:",
+                aiFeaturesList: ["<strong>Cloud-KI-Anbieter</strong> (OpenAI, Anthropic, Google, etc.): Wenn Sie einen Cloud-KI-Anbieter konfigurieren, werden relevante Daten gemäß deren Datenschutzrichtlinien an diesen Anbieter gesendet", "<strong>Lokale KI-Modelle</strong>: Wenn Sie lokale Modelle verwenden, erfolgt die gesamte Verarbeitung auf Ihrem Gerät ohne externe Datenübertragung"],
+                aiFeaturesOutro: "Sie wählen, welchen KI-Anbieter Sie verwenden. Wir empfehlen, die Datenschutzrichtlinie jedes Drittanbieter-KI-Dienstes zu prüfen, den Sie konfigurieren.",
+                googleCalendarTitle: "Google Calendar Integration",
+                googleCalendarIntro: "mono bietet eine optionale Google Calendar-Integration, um Sie bei der Vorbereitung auf Meetings zu unterstützen. Wenn aktiviert:",
+                googleCalendarList: ["Fordern wir <strong>nur Lesezugriff</strong> auf Ihren Kalender an", "Lesen wir nur Titel und Zeiten bevorstehender Meetings", "Kalenderdaten werden lokal verwendet, um Meeting-Benachrichtigungen anzuzeigen", "Wir speichern, teilen oder übertragen Ihre Kalenderdaten nicht an Server", "Sie können Ihren Kalender jederzeit in den Einstellungen trennen"],
+                dataCollectTitle: "Daten, die Wir Erheben",
+                dataCollectIntro: "<strong>Wir erheben keine persönlichen Daten.</strong> Die App arbeitet vollständig auf Ihrem Gerät. Wir haben keinen Zugriff auf:",
+                dataCollectList: ["Ihre Aufnahmen", "Ihre Transkriptionen oder Zusammenfassungen", "Ihre Kalendertermine", "Ihre Nutzungsmuster"],
+                thirdPartyTitle: "Drittanbieter-Dienste",
+                thirdPartyIntro: "Die App kann nur dann mit Drittanbieter-Diensten interagieren, wenn Sie diese explizit konfigurieren:",
+                thirdPartyList: ["<strong>KI-Anbieter</strong>: Nur wenn Sie einen API-Schlüssel hinzufügen und KI-Funktionen nutzen", "<strong>Google Calendar</strong>: Nur wenn Sie Ihr Konto verbinden"],
+                thirdPartyOutro: "Jeder Drittanbieter-Dienst hat seine eigene Datenschutzrichtlinie, die den Umgang mit Daten regelt.",
+                dataSecurityTitle: "Datensicherheit",
+                dataSecurityIntro: "Ihre Datensicherheit hängt von der Sicherheit Ihres Geräts ab. Wir empfehlen:",
+                dataSecurityList: ["Geräteverschlüsselung zu verwenden", "Ihr Betriebssystem aktuell zu halten", "Starke Passwörter zu verwenden"],
+                childrenTitle: "Datenschutz für Kinder",
+                childrenText: "mono ist nicht für die Nutzung durch Kinder unter 13 Jahren bestimmt. Wir erheben wissentlich keine Informationen von Kindern.",
+                changesTitle: "Änderungen dieser Richtlinie",
+                changesText: "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über Änderungen informieren, indem wir das Datum „Zuletzt aktualisiert" aktualisieren.",
+                contactTitle: "Kontakt",
+                contactIntro: "Bei Fragen zu dieser Datenschutzrichtlinie kontaktieren Sie uns unter:",
+                backLink: "Zurück zur Startseite"
+            },
+            zh: {
+                code: "中",
+                title: "隐私政策",
+                lastUpdated: "最后更新：2025年1月2日",
+                intro: "本隐私政策描述了 mono（"我们"或"本应用"）在您使用我们的音频录制应用程序时如何处理您的信息。",
+                dataStorageTitle: "数据存储",
+                dataStorageIntro: "<strong>您的所有数据都保留在您的设备上。</strong> mono 的设计以隐私为核心：",
+                dataStorageList: ["音频录制文件存储在您的本地计算机上", "转录和摘要保存在本地", "应用程序设置存储在本地", "我们不运营存储您个人数据的服务器"],
+                audioRecordingTitle: "音频录制",
+                audioRecordingIntro: "mono 从您设备上的应用程序和麦克风捕获音频。此音频：",
+                audioRecordingList: ["仅保存到您的本地存储", "永远不会上传到我们的服务器", "完全由您控制，可随时删除"],
+                aiFeaturesTitle: "AI 功能",
+                aiFeaturesIntro: "当您使用 AI 驱动的功能（转录、摘要）时，您的音频或文本可能会发送到您配置的第三方 AI 提供商：",
+                aiFeaturesList: ["<strong>云端 AI 提供商</strong>（OpenAI、Anthropic、Google 等）：如果您配置了云端 AI 提供商，相关数据将根据其隐私政策发送给该提供商", "<strong>本地 AI 模型</strong>：如果您使用本地模型，所有处理都在您的设备上进行，不会向外部传输数据"],
+                aiFeaturesOutro: "您可以选择使用哪个 AI 提供商。我们建议您查看您配置的任何第三方 AI 服务的隐私政策。",
+                googleCalendarTitle: "Google 日历集成",
+                googleCalendarIntro: "mono 提供可选的 Google 日历集成，帮助您准备会议。启用后：",
+                googleCalendarList: ["我们请求对您日历的<strong>只读</strong>访问权限", "我们只读取即将到来的会议标题和时间", "日历数据在本地用于显示会议通知", "我们不会将您的日历数据存储、共享或传输到任何服务器", "您可以随时在设置中断开日历连接"],
+                dataCollectTitle: "我们收集的数据",
+                dataCollectIntro: "<strong>我们不收集个人数据。</strong>该应用完全在您的设备上运行。我们无法访问：",
+                dataCollectList: ["您的录音", "您的转录或摘要", "您的日历事件", "您的使用模式"],
+                thirdPartyTitle: "第三方服务",
+                thirdPartyIntro: "只有当您明确配置时，应用程序才会与第三方服务交互：",
+                thirdPartyList: ["<strong>AI 提供商</strong>：仅当您添加 API 密钥并使用 AI 功能时", "<strong>Google 日历</strong>：仅当您连接您的账户时"],
+                thirdPartyOutro: "每个第三方服务都有自己的隐私政策来管理数据处理方式。",
+                dataSecurityTitle: "数据安全",
+                dataSecurityIntro: "您的数据安全取决于您的设备安全。我们建议：",
+                dataSecurityList: ["使用设备加密", "保持操作系统更新", "使用强密码"],
+                childrenTitle: "儿童隐私",
+                childrenText: "mono 不适用于 13 岁以下的儿童。我们不会故意收集儿童的信息。",
+                changesTitle: "本政策的变更",
+                changesText: "我们可能会不时更新本隐私政策。我们将通过更新"最后更新"日期来通知您任何变更。",
+                contactTitle: "联系方式",
+                contactIntro: "如果您对本隐私政策有任何疑问，请通过以下方式联系我们：",
+                backLink: "返回首页"
+            },
+            ru: {
+                code: "RU",
+                title: "Политика конфиденциальности",
+                lastUpdated: "Последнее обновление: 2 января 2025 г.",
+                intro: "Настоящая Политика конфиденциальности описывает, как mono («мы» или «приложение») обрабатывает вашу информацию при использовании нашего приложения для записи аудио.",
+                dataStorageTitle: "Хранение данных",
+                dataStorageIntro: "<strong>Все ваши данные остаются на вашем устройстве.</strong> mono разработан с учётом конфиденциальности:",
+                dataStorageList: ["Аудиозаписи хранятся локально на вашем компьютере", "Транскрипции и резюме сохраняются локально", "Настройки приложения хранятся локально", "Мы не используем серверы для хранения ваших личных данных"],
+                audioRecordingTitle: "Запись аудио",
+                audioRecordingIntro: "mono записывает аудио из приложений и микрофонов на вашем устройстве. Это аудио:",
+                audioRecordingList: ["Сохраняется только в вашем локальном хранилище", "Никогда не загружается на наши серверы", "Полностью под вашим контролем для удаления в любое время"],
+                aiFeaturesTitle: "Функции ИИ",
+                aiFeaturesIntro: "При использовании функций на основе ИИ (транскрипция, резюмирование) ваше аудио или текст может отправляться сторонним провайдерам ИИ, которые вы настроите:",
+                aiFeaturesList: ["<strong>Облачные провайдеры ИИ</strong> (OpenAI, Anthropic, Google и др.): Если вы настроите облачного провайдера ИИ, соответствующие данные отправляются этому провайдеру в соответствии с их политикой конфиденциальности", "<strong>Локальные модели ИИ</strong>: При использовании локальных моделей вся обработка происходит на вашем устройстве без передачи данных вовне"],
+                aiFeaturesOutro: "Вы сами выбираете, какого провайдера ИИ использовать. Мы рекомендуем ознакомиться с политикой конфиденциальности любого стороннего сервиса ИИ, который вы настраиваете.",
+                googleCalendarTitle: "Интеграция с Google Календарём",
+                googleCalendarIntro: "mono предлагает опциональную интеграцию с Google Календарём для подготовки к встречам. При включении:",
+                googleCalendarList: ["Мы запрашиваем доступ <strong>только для чтения</strong> к вашему календарю", "Мы читаем только названия и время предстоящих встреч", "Данные календаря используются локально для отображения уведомлений о встречах", "Мы не храним, не передаём и не отправляем данные вашего календаря на какие-либо серверы", "Вы можете отключить календарь в любое время в Настройках"],
+                dataCollectTitle: "Данные, которые мы собираем",
+                dataCollectIntro: "<strong>Мы не собираем личные данные.</strong> Приложение работает полностью на вашем устройстве. У нас нет доступа к:",
+                dataCollectList: ["Вашим записям", "Вашим транскрипциям или резюме", "Вашим событиям календаря", "Вашим паттернам использования"],
+                thirdPartyTitle: "Сторонние сервисы",
+                thirdPartyIntro: "Приложение может взаимодействовать со сторонними сервисами только когда вы явно их настроите:",
+                thirdPartyList: ["<strong>Провайдеры ИИ</strong>: Только когда вы добавите API-ключ и используете функции ИИ", "<strong>Google Календарь</strong>: Только когда вы подключите свой аккаунт"],
+                thirdPartyOutro: "У каждого стороннего сервиса есть собственная политика конфиденциальности, регулирующая обработку данных.",
+                dataSecurityTitle: "Безопасность данных",
+                dataSecurityIntro: "Безопасность ваших данных зависит от безопасности вашего устройства. Мы рекомендуем:",
+                dataSecurityList: ["Использовать шифрование устройства", "Поддерживать операционную систему в актуальном состоянии", "Использовать надёжные пароли"],
+                childrenTitle: "Конфиденциальность детей",
+                childrenText: "mono не предназначен для использования детьми младше 13 лет. Мы сознательно не собираем информацию от детей.",
+                changesTitle: "Изменения в этой политике",
+                changesText: "Мы можем время от времени обновлять эту Политику конфиденциальности. Мы уведомим вас о любых изменениях, обновив дату «Последнее обновление».",
+                contactTitle: "Контакты",
+                contactIntro: "Если у вас есть вопросы по этой Политике конфиденциальности, свяжитесь с нами:",
+                backLink: "Вернуться на главную"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateContent(lang) {
+            const t = translations[lang];
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('.last-updated').textContent = t.lastUpdated;
+
+            const sections = document.querySelectorAll('.content-section');
+
+            // Intro
+            document.querySelector('.intro').textContent = t.intro;
+
+            // Data Storage
+            document.querySelector('.data-storage-title').textContent = t.dataStorageTitle;
+            document.querySelector('.data-storage-intro').innerHTML = t.dataStorageIntro;
+            document.querySelectorAll('.data-storage-list li').forEach((li, i) => li.textContent = t.dataStorageList[i]);
+
+            // Audio Recording
+            document.querySelector('.audio-recording-title').textContent = t.audioRecordingTitle;
+            document.querySelector('.audio-recording-intro').textContent = t.audioRecordingIntro;
+            document.querySelectorAll('.audio-recording-list li').forEach((li, i) => li.textContent = t.audioRecordingList[i]);
+
+            // AI Features
+            document.querySelector('.ai-features-title').textContent = t.aiFeaturesTitle;
+            document.querySelector('.ai-features-intro').textContent = t.aiFeaturesIntro;
+            document.querySelectorAll('.ai-features-list li').forEach((li, i) => li.innerHTML = t.aiFeaturesList[i]);
+            document.querySelector('.ai-features-outro').textContent = t.aiFeaturesOutro;
+
+            // Google Calendar
+            document.querySelector('.google-calendar-title').textContent = t.googleCalendarTitle;
+            document.querySelector('.google-calendar-intro').textContent = t.googleCalendarIntro;
+            document.querySelectorAll('.google-calendar-list li').forEach((li, i) => li.innerHTML = t.googleCalendarList[i]);
+
+            // Data Collect
+            document.querySelector('.data-collect-title').textContent = t.dataCollectTitle;
+            document.querySelector('.data-collect-intro').innerHTML = t.dataCollectIntro;
+            document.querySelectorAll('.data-collect-list li').forEach((li, i) => li.textContent = t.dataCollectList[i]);
+
+            // Third Party
+            document.querySelector('.third-party-title').textContent = t.thirdPartyTitle;
+            document.querySelector('.third-party-intro').textContent = t.thirdPartyIntro;
+            document.querySelectorAll('.third-party-list li').forEach((li, i) => li.innerHTML = t.thirdPartyList[i]);
+            document.querySelector('.third-party-outro').textContent = t.thirdPartyOutro;
+
+            // Data Security
+            document.querySelector('.data-security-title').textContent = t.dataSecurityTitle;
+            document.querySelector('.data-security-intro').textContent = t.dataSecurityIntro;
+            document.querySelectorAll('.data-security-list li').forEach((li, i) => li.textContent = t.dataSecurityList[i]);
+
+            // Children
+            document.querySelector('.children-title').textContent = t.childrenTitle;
+            document.querySelector('.children-text').textContent = t.childrenText;
+
+            // Changes
+            document.querySelector('.changes-title').textContent = t.changesTitle;
+            document.querySelector('.changes-text').textContent = t.changesText;
+
+            // Contact
+            document.querySelector('.contact-title').textContent = t.contactTitle;
+            document.querySelector('.contact-intro').textContent = t.contactIntro;
+
+            // Back link
+            document.querySelector('.back-link').textContent = t.backLink;
+        }
+
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langSelector.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => {
+            langSelector.classList.remove('open');
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lang = option.dataset.lang;
+                if (lang === currentLang) {
+                    langSelector.classList.remove('open');
+                    return;
+                }
+
+                currentLang = lang;
+                langButton.textContent = translations[lang].code;
+                updateContent(lang);
+
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+
+                langSelector.classList.remove('open');
+            });
         });
     </script>
 </body>
