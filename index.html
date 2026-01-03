@@ -233,7 +233,7 @@
 
         @media (max-width: 768px) {
             .scroll-indicator {
-                bottom: 40%;
+                bottom: 20%;
             }
         }
 
@@ -567,6 +567,38 @@
             padding: 0 20px;
         }
 
+        /* Comparison table */
+        .compare-table {
+            margin-top: 24px;
+            border-collapse: collapse;
+            font-size: clamp(12px, 2.5vw, 16px);
+        }
+
+        .compare-table td {
+            padding: 8px 12px;
+            vertical-align: middle;
+        }
+
+        .compare-table .them {
+            color: var(--text-secondary);
+            text-align: right;
+            opacity: 0.6;
+            text-decoration: line-through;
+            text-decoration-color: var(--text-secondary);
+        }
+
+        .compare-table .vs {
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            opacity: 0.4;
+        }
+
+        .compare-table .us {
+            color: var(--text-primary);
+            text-align: left;
+            font-weight: 500;
+        }
+
     </style>
 </head>
 <body>
@@ -626,6 +658,36 @@
                     <p class="tagline">No-subscription culture:</p>
                     <p class="tagline">AI features with one-time payment</p>
                 </div>
+                <div class="tagline-group group-3">
+                    <p class="tagline">Unlike other meeting tools</p>
+                    <table class="compare-table">
+                        <tr>
+                            <td class="them">Cloud processing</td>
+                            <td class="vs">→</td>
+                            <td class="us">On your device</td>
+                        </tr>
+                        <tr>
+                            <td class="them">Monthly subscription</td>
+                            <td class="vs">→</td>
+                            <td class="us">One-time payment</td>
+                        </tr>
+                        <tr>
+                            <td class="them">Bot joins your call</td>
+                            <td class="vs">→</td>
+                            <td class="us">Invisible recording</td>
+                        </tr>
+                        <tr>
+                            <td class="them">Minute limits</td>
+                            <td class="vs">→</td>
+                            <td class="us">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="them">One app per tool</td>
+                            <td class="vs">→</td>
+                            <td class="us">All apps in one place</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -681,6 +743,7 @@
 
         const group1 = document.querySelector('.group-1');
         const group2 = document.querySelector('.group-2');
+        const group3 = document.querySelector('.group-3');
         const scrollIndicator = document.querySelector('.scroll-indicator');
         const logoGroup = document.querySelector('.logo-group');
         const logoSubtitle = document.querySelector('.logo-subtitle');
@@ -701,7 +764,7 @@
             updateVisibility();
         });
 
-        // States: 0 = nothing, 1 = group1, 2 = group2, 3 = video, 4 = form
+        // States: 0 = nothing, 1 = group1, 2 = group2, 3 = group3 (positioning), 4 = video, 5 = form
         let currentState = 0;
         let isLocked = false;
         let settleTimeout = null;
@@ -711,12 +774,13 @@
         function updateVisibility() {
             group1.classList.remove('visible');
             group2.classList.remove('visible');
+            group3.classList.remove('visible');
             scrollIndicator.classList.remove('visible');
             videoContainer.classList.remove('visible');
             formContainer.classList.remove('visible');
 
             // Update body class for CSS state targeting
-            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4');
+            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4', 'state-5');
             document.body.classList.add('state-' + currentState);
 
             if (currentState === 0) {
@@ -733,10 +797,15 @@
                 logoGroup.classList.remove('hidden');
                 logoGroup.classList.add('at-top');
             } else if (currentState === 3) {
+                scrollIndicator.classList.add('visible');
+                group3.classList.add('visible');
+                logoGroup.classList.remove('hidden');
+                logoGroup.classList.add('at-top');
+            } else if (currentState === 4) {
                 logoGroup.classList.remove('hidden');
                 logoGroup.classList.add('at-top');
                 videoContainer.classList.add('visible');
-            } else if (currentState === 4) {
+            } else if (currentState === 5) {
                 logoGroup.classList.remove('hidden');
                 logoGroup.classList.add('at-top');
                 // Reload iframe to reset scroll position on mobile
@@ -768,7 +837,7 @@
             }
 
             // Change state
-            if (e.deltaY > 5 && currentState < 4) {
+            if (e.deltaY > 5 && currentState < 5) {
                 currentState++;
                 updateVisibility();
                 isLocked = true;
@@ -799,7 +868,7 @@
 
         window.addEventListener('touchend', (e) => {
             const deltaY = touchStartY - e.changedTouches[0].clientY;
-            if (deltaY > 50 && currentState < 4) {
+            if (deltaY > 50 && currentState < 5) {
                 currentState++;
                 updateVisibility();
             } else if (deltaY < -50 && currentState > 0) {
@@ -815,7 +884,7 @@
 
             if (isLocked) return;
 
-            if (currentState < 4) {
+            if (currentState < 5) {
                 currentState++;
                 updateVisibility();
                 isLocked = true;
@@ -832,7 +901,7 @@
 
             e.preventDefault();
 
-            if (e.key === 'ArrowDown' && currentState < 4) {
+            if (e.key === 'ArrowDown' && currentState < 5) {
                 currentState++;
                 updateVisibility();
                 isLocked = true;
@@ -857,6 +926,14 @@
                 tagline1b: "and manage recordings in one place",
                 tagline2a: "No-subscription culture:",
                 tagline2b: "AI features with one-time payment",
+                tagline3header: "Unlike other meeting tools",
+                compare: [
+                    { them: "Cloud processing", us: "On your device" },
+                    { them: "Monthly subscription", us: "One-time payment" },
+                    { them: "Bot joins your call", us: "Invisible recording" },
+                    { them: "Minute limits", us: "Unlimited" },
+                    { them: "One app per tool", us: "All apps in one place" }
+                ],
                 code: "EN",
                 video: "Imy_H4gUr8I",
                 form: "https://docs.google.com/forms/d/e/1FAIpQLScNRNtOBAqSddr2QdIzM4lp0kgbmqkk8jys9NxMUHI474dEOg/viewform?embedded=true"
@@ -867,6 +944,14 @@
                 tagline1b: "y gestionar todo en un solo lugar",
                 tagline2a: "Sin suscripciones:",
                 tagline2b: "Funciones IA con pago único",
+                tagline3header: "A diferencia de otras herramientas",
+                compare: [
+                    { them: "Procesamiento en la nube", us: "En tu dispositivo" },
+                    { them: "Suscripción mensual", us: "Pago único" },
+                    { them: "Bot en tu llamada", us: "Grabación invisible" },
+                    { them: "Límite de minutos", us: "Ilimitado" },
+                    { them: "Una app por herramienta", us: "Todas las apps en un lugar" }
+                ],
                 code: "ES",
                 video: "-wmQvwh6vqc",
                 form: null
@@ -877,6 +962,14 @@
                 tagline1b: "и хранить всё в одном месте",
                 tagline2a: "Без подписок:",
                 tagline2b: "ИИ-функции за разовый платёж",
+                tagline3header: "В отличие от других",
+                compare: [
+                    { them: "Обработка в облаке", us: "На вашем устройстве" },
+                    { them: "Ежемесячная подписка", us: "Разовый платёж" },
+                    { them: "Бот в звонке", us: "Невидимая запись" },
+                    { them: "Лимит минут", us: "Без ограничений" },
+                    { them: "Отдельное приложение", us: "Все приложения в одном" }
+                ],
                 code: "RU",
                 video: "nmVnfocQYQA",
                 form: "https://docs.google.com/forms/d/e/1FAIpQLScA8fL2bafFns89Bj_AMxNWCUrw4Cwn5FixRJeQ9Xs29zJGMQ/viewform?embedded=true"
@@ -887,6 +980,14 @@
                 tagline1b: "et tout gérer au même endroit",
                 tagline2a: "Zéro abonnement :",
                 tagline2b: "Fonctions IA pour un paiement unique",
+                tagline3header: "Contrairement aux autres outils",
+                compare: [
+                    { them: "Traitement cloud", us: "Sur votre appareil" },
+                    { them: "Abonnement mensuel", us: "Paiement unique" },
+                    { them: "Bot dans l'appel", us: "Enregistrement invisible" },
+                    { them: "Limite de minutes", us: "Illimité" },
+                    { them: "Une app par outil", us: "Toutes les apps au même endroit" }
+                ],
                 code: "FR",
                 video: "Nv6x_nkKlN8",
                 form: null
@@ -897,6 +998,14 @@
                 tagline1b: "und alles an einem Ort verwalten",
                 tagline2a: "Ohne Abo:",
                 tagline2b: "KI-Funktionen zum Einmalpreis",
+                tagline3header: "Anders als andere Tools",
+                compare: [
+                    { them: "Cloud-Verarbeitung", us: "Auf deinem Gerät" },
+                    { them: "Monatsabo", us: "Einmalzahlung" },
+                    { them: "Bot im Anruf", us: "Unsichtbare Aufnahme" },
+                    { them: "Minutenlimit", us: "Unbegrenzt" },
+                    { them: "Eine App pro Tool", us: "Alle Apps an einem Ort" }
+                ],
                 code: "DE",
                 video: "XK5-sXCDfl4",
                 form: null
@@ -907,6 +1016,14 @@
                 tagline1b: "一处管理，井井有条",
                 tagline2a: "告别订阅：",
                 tagline2b: "AI功能，一次付费",
+                tagline3header: "与其他工具不同",
+                compare: [
+                    { them: "云端处理", us: "本地设备" },
+                    { them: "按月订阅", us: "一次付费" },
+                    { them: "机器人入会", us: "无感录制" },
+                    { them: "时长限制", us: "无限制" },
+                    { them: "每个工具一个应用", us: "所有应用集于一处" }
+                ],
                 code: "中",
                 video: "iVJtTuE7H7Q",
                 form: null
@@ -920,6 +1037,8 @@
         const tagline1b = group1.querySelector('.tagline:last-child');
         const tagline2a = group2.querySelector('.tagline:first-child');
         const tagline2b = group2.querySelector('.tagline:last-child');
+        const tagline3header = group3.querySelector('.tagline');
+        const compareTable = group3.querySelector('.compare-table');
         const videoIframe = videoContainer.querySelector('iframe');
 
         let currentLang = 'en';
@@ -951,6 +1070,15 @@
                 tagline1b.textContent = t.tagline1b;
                 tagline2a.textContent = t.tagline2a;
                 tagline2b.textContent = t.tagline2b;
+                tagline3header.textContent = t.tagline3header;
+                // Update comparison table
+                const rows = compareTable.querySelectorAll('tr');
+                t.compare.forEach((item, i) => {
+                    if (rows[i]) {
+                        rows[i].querySelector('.them').textContent = item.them;
+                        rows[i].querySelector('.us').textContent = item.us;
+                    }
+                });
                 langButton.textContent = t.code;
 
                 // Update video (fallback to English if no video for this language)
