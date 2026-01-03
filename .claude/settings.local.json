@@ -25,7 +25,8 @@
       "WebFetch(domain:developers.google.com)",
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Add subtitle, logo slide animation, and keyboard navigation\n\n- Add ''Record meetings from any app'' subtitle below logo\n- Logo and subtitle slide to top when scrolling to screen 1+\n- Center taglines in viewport\n- Add up/down arrow keyboard navigation\n- Make all text non-selectable\n- Add translations for subtitle in all languages\")",
       "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Move scroll indicator higher on mobile\")",
-      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Move scroll indicator even higher on mobile\")"
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Move scroll indicator even higher on mobile\")",
+      "Bash(git -C \"C:\\\\Users\\\\d.lefanov\\\\Mono\\\\website\" commit -m \"Add nav bar to privacy policy page\")"
     ]
   }
 }
