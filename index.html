@@ -233,7 +233,12 @@
 
         @media (max-width: 768px) {
             .scroll-indicator {
-                bottom: 20%;
+                bottom: 28%;
+            }
+
+            /* Shift content up to visually center below nav bar */
+            .logo-group {
+                margin-top: -15vh;
             }
         }
 
@@ -766,10 +771,9 @@
 
         // States: 0 = nothing, 1 = group1, 2 = group2, 3 = group3 (positioning), 4 = video, 5 = form
         let currentState = 0;
-        let isLocked = false;
-        let settleTimeout = null;
-        const animationTime = 600; // ms - matches CSS transition
-        const settleTime = 100; // ms - wait for kinetic scroll to stop
+
+        // Scroll cooldown - prevents multiple triggers from one gesture
+        let scrollSessionActive = false;
 
         function updateVisibility() {
             group1.classList.remove('visible');
@@ -823,98 +827,83 @@
             updateVisibility();
         });
 
-        // Scroll handling: lock during animation, then wait for scroll to settle
+        // Scroll handling: one state change, then fixed cooldown (not reset by kinetic scroll)
         window.addEventListener('wheel', (e) => {
             e.preventDefault();
+            if (scrollSessionActive) return; // Ignore during cooldown
 
-            // During lock, reset settle timer (kinetic scroll still happening)
-            if (isLocked) {
-                if (settleTimeout) clearTimeout(settleTimeout);
-                settleTimeout = setTimeout(() => {
-                    isLocked = false;
-                }, settleTime);
-                return;
-            }
+            // Need minimum delta to trigger
+            if (Math.abs(e.deltaY) < 10) return;
 
-            // Change state
-            if (e.deltaY > 5 && currentState < 5) {
+            if (e.deltaY > 0 && currentState < 5) {
                 currentState++;
                 updateVisibility();
-                isLocked = true;
-                // After animation, start watching for settle
-                setTimeout(() => {
-                    settleTimeout = setTimeout(() => {
-                        isLocked = false;
-                    }, settleTime);
-                }, animationTime);
-            } else if (e.deltaY < -5 && currentState > 0) {
+                scrollSessionActive = true;
+                setTimeout(() => { scrollSessionActive = false; }, 350);
+            } else if (e.deltaY < 0 && currentState > 0) {
                 currentState--;
                 updateVisibility();
-                isLocked = true;
-                setTimeout(() => {
-                    settleTimeout = setTimeout(() => {
-                        isLocked = false;
-                    }, settleTime);
-                }, animationTime);
+                scrollSessionActive = true;
+                setTimeout(() => { scrollSessionActive = false; }, 350);
             }
         }, { passive: false });
 
         // Touch support for mobile
         let touchStartY = 0;
+        let touchLocked = false;
 
         window.addEventListener('touchstart', (e) => {
             touchStartY = e.touches[0].clientY;
         }, { passive: true });
 
         window.addEventListener('touchend', (e) => {
+            if (touchLocked) return;
             const deltaY = touchStartY - e.changedTouches[0].clientY;
             if (deltaY > 50 && currentState < 5) {
                 currentState++;
                 updateVisibility();
+                touchLocked = true;
+                setTimeout(() => { touchLocked = false; }, 400);
             } else if (deltaY < -50 && currentState > 0) {
                 currentState--;
                 updateVisibility();
+                touchLocked = true;
+                setTimeout(() => { touchLocked = false; }, 400);
             }
         }, { passive: true });
 
         // Click to advance (like scrolling down)
+        let clickLocked = false;
         document.addEventListener('click', (e) => {
             // Don't trigger on buttons or iframes
             if (e.target.closest('button, iframe, a, .lang-selector')) return;
-
-            if (isLocked) return;
+            if (clickLocked) return;
 
             if (currentState < 5) {
                 currentState++;
                 updateVisibility();
-                isLocked = true;
-                setTimeout(() => {
-                    isLocked = false;
-                }, animationTime);
+                clickLocked = true;
+                setTimeout(() => { clickLocked = false; }, 400);
             }
         });
 
         // Keyboard navigation (up/down arrows)
+        let keyLocked = false;
         document.addEventListener('keydown', (e) => {
             if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-            if (isLocked) return;
-
+            if (keyLocked) return;
             e.preventDefault();
 
             if (e.key === 'ArrowDown' && currentState < 5) {
                 currentState++;
                 updateVisibility();
-                isLocked = true;
-                setTimeout(() => {
-                    isLocked = false;
-                }, animationTime);
+                keyLocked = true;
+                setTimeout(() => { keyLocked = false; }, 400);
             } else if (e.key === 'ArrowUp' && currentState > 0) {
                 currentState--;
                 updateVisibility();
-                isLocked = true;
-                setTimeout(() => {
-                    isLocked = false;
-                }, animationTime);
+                keyLocked = true;
+                setTimeout(() => { keyLocked = false; }, 400);
             }
         });
 
