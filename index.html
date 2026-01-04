@@ -714,7 +714,7 @@
                             <td class="category" colspan="3">Zoom, Google Meet, MS Teams</td>
                         </tr>
                         <tr>
-                            <td class="them">One app per tool</td>
+                            <td class="them">Record in each app</td>
                             <td class="vs">→</td>
                             <td class="us">All apps in one place</td>
                         </tr>
@@ -985,7 +985,8 @@
                 ],
                 code: "EN",
                 video: "Imy_H4gUr8I",
-                form: "https://docs.google.com/forms/d/e/1FAIpQLScNRNtOBAqSddr2QdIzM4lp0kgbmqkk8jys9NxMUHI474dEOg/viewform?embedded=true"
+                form: "https://docs.google.com/forms/d/e/1FAIpQLScNRNtOBAqSddr2QdIzM4lp0kgbmqkk8jys9NxMUHI474dEOg/viewform?embedded=true",
+                privacyPolicy: "Privacy Policy"
             },
             es: {
                 subtitle: "Graba reuniones desde cualquier app",
@@ -1006,7 +1007,8 @@
                 ],
                 code: "ES",
                 video: "-wmQvwh6vqc",
-                form: null
+                form: null,
+                privacyPolicy: "Política de Privacidad"
             },
             ru: {
                 subtitle: "Записывай встречи из любого приложения",
@@ -1027,7 +1029,8 @@
                 ],
                 code: "RU",
                 video: "nmVnfocQYQA",
-                form: "https://docs.google.com/forms/d/e/1FAIpQLScA8fL2bafFns89Bj_AMxNWCUrw4Cwn5FixRJeQ9Xs29zJGMQ/viewform?embedded=true"
+                form: "https://docs.google.com/forms/d/e/1FAIpQLScA8fL2bafFns89Bj_AMxNWCUrw4Cwn5FixRJeQ9Xs29zJGMQ/viewform?embedded=true",
+                privacyPolicy: "Политика конфиденциальности"
             },
             fr: {
                 subtitle: "Enregistrez vos réunions depuis n'importe quelle app",
@@ -1048,7 +1051,8 @@
                 ],
                 code: "FR",
                 video: "Nv6x_nkKlN8",
-                form: null
+                form: null,
+                privacyPolicy: "Politique de confidentialité"
             },
             de: {
                 subtitle: "Meetings aus jeder App aufnehmen",
@@ -1069,7 +1073,8 @@
                 ],
                 code: "DE",
                 video: "XK5-sXCDfl4",
-                form: null
+                form: null,
+                privacyPolicy: "Datenschutzrichtlinie"
             },
             zh: {
                 subtitle: "录制会议，来自任何应用",
@@ -1090,7 +1095,8 @@
                 ],
                 code: "中",
                 video: "iVJtTuE7H7Q",
-                form: null
+                form: null,
+                privacyPolicy: "隐私政策"
             }
         };
 
@@ -1103,6 +1109,7 @@
         const tagline2b = group2.querySelector('.tagline:last-child');
         const compareTable = group3.querySelector('.compare-table');
         const videoIframe = videoContainer.querySelector('iframe');
+        const privacyLink = document.querySelector('.privacy-link');
 
         let currentLang = 'en';
 
@@ -1146,6 +1153,7 @@
                     compareTable.appendChild(tr);
                 });
                 langButton.textContent = t.code;
+                privacyLink.textContent = t.privacyPolicy;
 
                 // Update video (fallback to English if no video for this language)
                 const videoId = t.video || translations.en.video;
