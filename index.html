@@ -463,42 +463,6 @@
             text-align: center;
         }
 
-        .download-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .download-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: clamp(9px, 2.5vw, 13px);
-            font-weight: 400;
-            color: var(--text-secondary);
-            background: transparent;
-            border: 1px solid var(--text-secondary);
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            opacity: 0.7;
-            transition: opacity 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-        }
-
-        .download-button:hover {
-            opacity: 1;
-            color: var(--text-primary);
-            border-color: var(--text-primary);
-        }
-
-        @media (max-width: 480px) {
-            .download-buttons {
-                flex-direction: column;
-                gap: 8px;
-            }
-        }
 
         /* Home button - always visible, centered between theme and language */
         .home-button {
@@ -816,19 +780,6 @@
             </a>
             <p class="buy-price" id="buyPrice">$50 · One-time payment</p>
 
-            <!-- Download buttons -->
-            <div class="download-buttons">
-                <a href="https://github.com/user/mono/releases/latest/download/Mono-Setup.exe"
-                   class="download-button"
-                   id="downloadWindows">
-                    <span class="download-text">Download for Windows</span>
-                </a>
-                <a href="https://github.com/user/mono/releases/latest/download/Mono.dmg"
-                   class="download-button"
-                   id="downloadMac">
-                    <span class="download-text">Download for macOS</span>
-                </a>
-            </div>
 
             <div class="buy-notes" id="buyNotes">
                 <p class="buy-note">Lifetime updates</p>
@@ -1044,7 +995,7 @@
                 video: "Imy_H4gUr8I",
                 buyText: "Buy Mono",
                 buyPrice: "$50 · One-time payment",
-                buyNotes: ["Windows & macOS", "Lifetime updates"],
+                buyNotes: ["Lifetime updates"],
                 privacyPolicy: "Privacy Policy"
             },
             es: {
@@ -1069,7 +1020,7 @@
                 video: "-wmQvwh6vqc",
                 buyText: "Comprar Mono",
                 buyPrice: "$50 · Pago único",
-                buyNotes: ["Windows y macOS", "Actualizaciones de por vida"],
+                buyNotes: ["Actualizaciones de por vida"],
                 privacyPolicy: "Política de Privacidad"
             },
             ru: {
@@ -1094,7 +1045,7 @@
                 video: "nmVnfocQYQA",
                 buyText: "Купить Mono",
                 buyPrice: "$50 · Разовый платёж",
-                buyNotes: ["Windows и macOS", "Обновления навсегда"],
+                buyNotes: ["Обновления навсегда"],
                 privacyPolicy: "Политика конфиденциальности"
             },
             fr: {
@@ -1119,7 +1070,7 @@
                 video: "Nv6x_nkKlN8",
                 buyText: "Acheter Mono",
                 buyPrice: "50 $ · Paiement unique",
-                buyNotes: ["Windows et macOS", "Mises à jour à vie"],
+                buyNotes: ["Mises à jour à vie"],
                 privacyPolicy: "Politique de confidentialité"
             },
             de: {
@@ -1144,7 +1095,7 @@
                 video: "XK5-sXCDfl4",
                 buyText: "Mono kaufen",
                 buyPrice: "$50 · Einmalzahlung",
-                buyNotes: ["Windows & macOS", "Lebenslange Updates"],
+                buyNotes: ["Lebenslange Updates"],
                 privacyPolicy: "Datenschutzrichtlinie"
             },
             zh: {
@@ -1169,7 +1120,7 @@
                 video: "iVJtTuE7H7Q",
                 buyText: "购买 Mono",
                 buyPrice: "$50 · 一次付费",
-                buyNotes: ["Windows 和 macOS", "终身更新"],
+                buyNotes: ["终身更新"],
                 privacyPolicy: "隐私政策"
             }
         };
