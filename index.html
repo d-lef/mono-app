@@ -444,6 +444,11 @@
             transform: scale(0.98);
         }
 
+        .brand-name {
+            font-family: 'MuseoModerno', sans-serif;
+            font-weight: 300;
+        }
+
         .buy-price {
             font-size: clamp(10px, 3.5vw, 20px);
             color: var(--text-secondary);
@@ -776,7 +781,7 @@
                id="buyButton"
                target="_blank"
                rel="noopener">
-                <span class="buy-text">Buy mono</span>
+                <span class="buy-text">Buy <span class="brand-name">mono</span></span>
             </a>
             <p class="buy-price" id="buyPrice">$50 · One-time payment</p>
 
@@ -993,7 +998,7 @@
                 ],
                 code: "EN",
                 video: "Imy_H4gUr8I",
-                buyText: "Buy mono",
+                buyText: "Buy <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · One-time payment",
                 buyNotes: ["Lifetime updates"],
                 privacyPolicy: "Privacy Policy"
@@ -1018,7 +1023,7 @@
                 ],
                 code: "ES",
                 video: "-wmQvwh6vqc",
-                buyText: "Comprar mono",
+                buyText: "Comprar <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · Pago único",
                 buyNotes: ["Actualizaciones de por vida"],
                 privacyPolicy: "Política de Privacidad"
@@ -1043,7 +1048,7 @@
                 ],
                 code: "RU",
                 video: "nmVnfocQYQA",
-                buyText: "Купить mono",
+                buyText: "Купить <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · Разовый платёж",
                 buyNotes: ["Пожизненные обновления"],
                 privacyPolicy: "Политика конфиденциальности"
@@ -1068,7 +1073,7 @@
                 ],
                 code: "FR",
                 video: "Nv6x_nkKlN8",
-                buyText: "Acheter mono",
+                buyText: "Acheter <span class=\"brand-name\">mono</span>",
                 buyPrice: "50 $ · Paiement unique",
                 buyNotes: ["Mises à jour à vie"],
                 privacyPolicy: "Politique de confidentialité"
@@ -1093,7 +1098,7 @@
                 ],
                 code: "DE",
                 video: "XK5-sXCDfl4",
-                buyText: "mono kaufen",
+                buyText: "<span class=\"brand-name\">mono</span> kaufen",
                 buyPrice: "$50 · Einmalzahlung",
                 buyNotes: ["Lebenslange Updates"],
                 privacyPolicy: "Datenschutzrichtlinie"
@@ -1118,7 +1123,7 @@
                 ],
                 code: "中",
                 video: "iVJtTuE7H7Q",
-                buyText: "购买 mono",
+                buyText: "购买 <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · 一次付费",
                 buyNotes: ["终身更新"],
                 privacyPolicy: "隐私政策"
@@ -1185,7 +1190,7 @@
                 videoIframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
 
                 // Update buy button text
-                buyText.textContent = t.buyText;
+                buyText.innerHTML = t.buyText;
                 buyPrice.textContent = t.buyPrice;
                 const noteElements = buyNotesContainer.querySelectorAll('.buy-note');
                 t.buyNotes.forEach((note, i) => {
