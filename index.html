@@ -136,13 +136,8 @@
 
         /* Logo */
         .logo {
-            display: flex;
-            align-items: flex-end;
-            font-family: 'MuseoModerno', sans-serif;
-            font-size: clamp(72px, 20vw, 120px);
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
+            height: clamp(36px, 10vw, 60px);
+            width: auto;
             user-select: none;
             opacity: 0;
             transition: opacity 0.8s ease;
@@ -152,10 +147,18 @@
             opacity: 1;
         }
 
-        .logo-char {
-            display: flex;
-            align-items: flex-end;
-            line-height: 1;
+        /* Dark theme (default): show white logo */
+        .logo-dark { display: block; }
+        .logo-light { display: none; }
+
+        /* Light theme - manual override */
+        :root.light .logo-dark { display: none; }
+        :root.light .logo-light { display: block; }
+
+        /* Light theme - system preference */
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .logo-dark { display: none; }
+            :root:not(.dark) .logo-light { display: block; }
         }
 
         .logo-subtitle {
@@ -174,14 +177,6 @@
         .logo-subtitle.hidden {
             opacity: 0;
             pointer-events: none;
-        }
-
-        .filled-o {
-            width: 0.52em;
-            height: 0.52em;
-            background-color: var(--text-primary);
-            border-radius: 50%;
-            margin-bottom: 0.14em;
         }
 
         /* Tagline container - holds swappable groups */
@@ -362,11 +357,6 @@
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-        }
-
-        /* Logo */
-        .logo {
-            transition: opacity 0.3s ease;
         }
 
         /* YouTube container */
@@ -695,12 +685,8 @@
     <section class="hero">
         <div class="content">
             <div class="logo-group">
-                <div class="logo">
-                    <div class="logo-char">m</div>
-                    <div class="logo-char"><span class="filled-o"></span></div>
-                    <div class="logo-char">n</div>
-                    <div class="logo-char"><span class="filled-o"></span></div>
-                </div>
+                <img src="logo-white.png" alt="mono" class="logo logo-dark">
+                <img src="logo-black.png" alt="mono" class="logo logo-light">
                 <p class="logo-subtitle">Record meetings from any app</p>
             </div>
 
