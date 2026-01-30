@@ -80,29 +80,23 @@
         }
 
         .logo {
-            display: flex;
-            align-items: flex-end;
-            font-family: 'MuseoModerno', sans-serif;
-            font-size: 48px;
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
-            text-decoration: none;
+            height: 36px;
+            width: auto;
             margin-bottom: 40px;
         }
 
-        .logo-char {
-            display: flex;
-            align-items: flex-end;
-            line-height: 1;
-        }
+        /* Dark theme (default): show white logo */
+        .logo-dark { display: inline; }
+        .logo-light { display: none; }
 
-        .filled-o {
-            width: 0.52em;
-            height: 0.52em;
-            background-color: var(--text-primary);
-            border-radius: 50%;
-            margin-bottom: 0.14em;
+        /* Light theme - manual override */
+        :root.light .logo-dark { display: none; }
+        :root.light .logo-light { display: inline; }
+
+        /* Light theme - system preference */
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .logo-dark { display: none; }
+            :root:not(.dark) .logo-light { display: inline; }
         }
 
         h1 {
@@ -371,11 +365,9 @@
     </div>
 
     <div class="container">
-        <a href="index.html" class="logo">
-            <div class="logo-char">m</div>
-            <div class="logo-char"><span class="filled-o"></span></div>
-            <div class="logo-char">n</div>
-            <div class="logo-char"><span class="filled-o"></span></div>
+        <a href="index.html">
+            <img src="logo-white.png" alt="mono" class="logo logo-dark">
+            <img src="logo-black.png" alt="mono" class="logo logo-light">
         </a>
 
         <h1>Privacy Policy</h1>
