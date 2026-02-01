@@ -520,7 +520,7 @@
         .lang-selector {
             position: fixed;
             top: 20px;
-            left: calc(50% + 44px);
+            left: calc(50% + 66px);
             transform: translateX(-50%);
             z-index: 100;
         }
@@ -611,9 +611,50 @@
             opacity: 1;
         }
 
-        /* Move theme toggle left to make room */
+        /* Move theme toggle left to make room for 4 buttons */
         .theme-toggle {
-            left: calc(50% - 44px);
+            left: calc(50% - 66px);
+        }
+
+        /* Adjust home button position */
+        .home-button {
+            left: calc(50% - 22px);
+        }
+
+        /* Nav buy button */
+        .nav-buy-button {
+            position: fixed;
+            top: 20px;
+            left: calc(50% + 22px);
+            transform: translateX(-50%);
+            z-index: 100;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-buy-button:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .nav-buy-button:active {
+            background-color: var(--bg-pressed);
+        }
+
+        .nav-buy-button svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         /* Allow wrapping only for overflowing taglines */
@@ -687,6 +728,14 @@
         <svg viewBox="0 0 24 24">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+    </button>
+
+    <button class="nav-buy-button" aria-label="Buy">
+        <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
         </svg>
     </button>
 
@@ -852,10 +901,17 @@
         const buyPrice = document.getElementById('buyPrice');
         const buyNotesContainer = document.getElementById('buyNotes');
 
-        // Home button (mobile only)
+        // Home button
         const homeButton = document.querySelector('.home-button');
         homeButton.addEventListener('click', () => {
             currentState = 0;
+            updateVisibility();
+        });
+
+        // Nav buy button - scroll to buy screen
+        const navBuyButton = document.querySelector('.nav-buy-button');
+        navBuyButton.addEventListener('click', () => {
+            currentState = 5;
             updateVisibility();
         });
 
