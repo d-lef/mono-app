@@ -479,7 +479,55 @@
             gap: 10px;
         }
 
+        /* Download buttons */
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
 
+        .download-label {
+            font-size: clamp(11px, 2.5vw, 14px);
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .download-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: clamp(10px, 2.5vw, 13px);
+            color: var(--text-secondary);
+            background-color: transparent;
+            border: 1px solid var(--text-secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.15s ease, color 0.15s ease;
+            opacity: 0.7;
+        }
+
+        .download-button:hover {
+            background-color: var(--bg-hover);
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .download-button svg {
+            width: 14px;
+            height: 14px;
+        }
 
         /* Home button - always visible, centered between theme and language */
         .home-button {
@@ -842,6 +890,36 @@
             </a>
             <p class="buy-price" id="buyPrice">$50 · One-time payment</p>
 
+            <!-- Free download buttons -->
+            <div class="download-buttons" id="downloadButtons">
+                <p class="download-label" id="downloadLabel">or try free (1 recording limit)</p>
+                <div class="download-row">
+                    <a href="https://github.com/d-lef/mono/releases/latest/download/mono-windows.exe"
+                       class="download-button"
+                       id="downloadWindows">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                        </svg>
+                        <span>Windows</span>
+                    </a>
+                    <a href="https://github.com/d-lef/mono/releases/latest/download/mono-mac-silicon.dmg"
+                       class="download-button"
+                       id="downloadMacSilicon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span>Mac (Apple Silicon)</span>
+                    </a>
+                    <a href="https://github.com/d-lef/mono/releases/latest/download/mono-mac-intel.dmg"
+                       class="download-button"
+                       id="downloadMacIntel">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span>Mac (Intel)</span>
+                    </a>
+                </div>
+            </div>
 
             <div class="buy-notes" id="buyNotes">
                 <div class="buy-note-group">
@@ -1080,7 +1158,11 @@
                 buyText: "Buy <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · One-time payment",
                 buyNotes: ["For Mac and Windows", "Lifetime updates", "On lower-end hardware, local AI may run slowly. You can use the app without AI, or connect external providers (OpenAI, Google Gemini) via API.", "Your purchase supports independent development. Your system may ask for permission to run an unverified app."],
-                privacyPolicy: "Privacy Policy"
+                privacyPolicy: "Privacy Policy",
+                downloadLabel: "or try free (1 recording limit)",
+                downloadWindows: "Windows",
+                downloadMacSilicon: "Mac (Apple Silicon)",
+                downloadMacIntel: "Mac (Intel)"
             },
             es: {
                 subtitle: "Graba reuniones desde cualquier app",
@@ -1105,7 +1187,11 @@
                 buyText: "Comprar <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · Pago único",
                 buyNotes: ["Para Mac y Windows", "Actualizaciones de por vida", "En hardware básico, la IA local puede ser lenta. Puedes usar la app sin IA, o conectar proveedores externos (OpenAI, Google Gemini) vía API.", "Tu compra apoya el desarrollo independiente. Tu sistema puede pedir permiso para ejecutar una app no verificada."],
-                privacyPolicy: "Política de Privacidad"
+                privacyPolicy: "Política de Privacidad",
+                downloadLabel: "o prueba gratis (límite 1 grabación)",
+                downloadWindows: "Windows",
+                downloadMacSilicon: "Mac (Apple Silicon)",
+                downloadMacIntel: "Mac (Intel)"
             },
             ru: {
                 subtitle: "Записывай встречи из любого приложения",
@@ -1130,7 +1216,11 @@
                 buyText: "Купить <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · Разовый платёж",
                 buyNotes: ["Для Mac и Windows", "Пожизненные обновления", "На слабом железе локальный ИИ может работать медленно. Можно использовать приложение без ИИ или подключить внешние сервисы (OpenAI, Google Gemini) через API.", "Ваша покупка поддерживает независимую разработку. Система может запросить разрешение на запуск непроверенного приложения."],
-                privacyPolicy: "Политика конфиденциальности"
+                privacyPolicy: "Политика конфиденциальности",
+                downloadLabel: "или попробуйте бесплатно (лимит 1 запись)",
+                downloadWindows: "Windows",
+                downloadMacSilicon: "Mac (Apple Silicon)",
+                downloadMacIntel: "Mac (Intel)"
             },
             fr: {
                 subtitle: "Enregistrez vos réunions depuis n'importe quelle app",
@@ -1155,7 +1245,11 @@
                 buyText: "Acheter <span class=\"brand-name\">mono</span>",
                 buyPrice: "50 $ · Paiement unique",
                 buyNotes: ["Pour Mac et Windows", "Mises à jour à vie", "Sur du matériel modeste, l'IA locale peut être lente. Vous pouvez utiliser l'app sans IA, ou connecter des fournisseurs externes (OpenAI, Google Gemini) via API.", "Votre achat soutient le développement indépendant. Votre système peut demander l'autorisation d'exécuter une app non vérifiée."],
-                privacyPolicy: "Politique de confidentialité"
+                privacyPolicy: "Politique de confidentialité",
+                downloadLabel: "ou essayez gratuitement (limite 1 enregistrement)",
+                downloadWindows: "Windows",
+                downloadMacSilicon: "Mac (Apple Silicon)",
+                downloadMacIntel: "Mac (Intel)"
             },
             de: {
                 subtitle: "Meetings aus jeder App aufnehmen",
@@ -1180,7 +1274,11 @@
                 buyText: "<span class=\"brand-name\">mono</span> kaufen",
                 buyPrice: "$50 · Einmalzahlung",
                 buyNotes: ["Für Mac und Windows", "Lebenslange Updates", "Auf schwächerer Hardware kann die lokale KI langsam laufen. Sie können die App ohne KI nutzen oder externe Anbieter (OpenAI, Google Gemini) per API verbinden.", "Ihr Kauf unterstützt unabhängige Entwicklung. Ihr System kann um Erlaubnis bitten, eine nicht verifizierte App auszuführen."],
-                privacyPolicy: "Datenschutzrichtlinie"
+                privacyPolicy: "Datenschutzrichtlinie",
+                downloadLabel: "oder kostenlos testen (1 Aufnahme Limit)",
+                downloadWindows: "Windows",
+                downloadMacSilicon: "Mac (Apple Silicon)",
+                downloadMacIntel: "Mac (Intel)"
             },
             zh: {
                 subtitle: "录制会议，来自任何应用",
@@ -1205,7 +1303,11 @@
                 buyText: "购买 <span class=\"brand-name\">mono</span>",
                 buyPrice: "$50 · 一次付费",
                 buyNotes: ["支持 Mac 和 Windows", "终身更新", "在低配硬件上，本地AI可能运行较慢。您可以在不使用AI的情况下使用应用，或通过API连接外部服务商（OpenAI、Google Gemini）。", "您的购买支持独立开发。您的系统可能会要求允许运行未验证的应用。"],
-                privacyPolicy: "隐私政策"
+                privacyPolicy: "隐私政策",
+                downloadLabel: "或免费试用（限1个录音）",
+                downloadWindows: "Windows",
+                downloadMacSilicon: "Mac (Apple Silicon)",
+                downloadMacIntel: "Mac (Intel)"
             }
         };
 
@@ -1219,6 +1321,10 @@
         const compareTable = group3.querySelector('.compare-table');
         const videoIframe = videoContainer.querySelector('iframe');
         const privacyLink = document.querySelector('.privacy-link');
+        const downloadLabel = document.getElementById('downloadLabel');
+        const downloadWindows = document.getElementById('downloadWindows').querySelector('span');
+        const downloadMacSilicon = document.getElementById('downloadMacSilicon').querySelector('span');
+        const downloadMacIntel = document.getElementById('downloadMacIntel').querySelector('span');
 
         let currentLang = 'en';
 
@@ -1275,6 +1381,12 @@
                 t.buyNotes.forEach((note, i) => {
                     if (noteElements[i]) noteElements[i].textContent = note;
                 });
+
+                // Update download labels
+                downloadLabel.textContent = t.downloadLabel;
+                downloadWindows.textContent = t.downloadWindows;
+                downloadMacSilicon.textContent = t.downloadMacSilicon;
+                downloadMacIntel.textContent = t.downloadMacIntel;
 
                 // Update active state
                 langOptions.forEach(opt => opt.classList.remove('active'));
