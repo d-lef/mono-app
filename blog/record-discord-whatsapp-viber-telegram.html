@@ -385,6 +385,49 @@
             :root:not(.dark) .compare-table tr.mono-row td { background: rgba(0,0,0,0.03); }
         }
 
+        /* Steps list */
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+            padding: 0;
+            margin-bottom: 24px;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding: 10px 0 10px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 22px;
+            height: 22px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+
+        .steps-list li:last-child { border-bottom: none; }
+
+        :root.light .steps-list li { border-bottom-color: rgba(0,0,0,0.06); }
+        :root.light .steps-list li::before { background: rgba(0,0,0,0.06); }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .steps-list li { border-bottom-color: rgba(0,0,0,0.06); }
+            :root:not(.dark) .steps-list li::before { background: rgba(0,0,0,0.06); }
+        }
+
         /* Decision list */
         .decision-list { list-style: none; padding: 0; margin-bottom: 24px; }
 
@@ -474,6 +517,7 @@
         .article-body h2,
         .article-body .table-wrap,
         .article-body .tldr,
+        .article-body .steps-list li,
         .article-body .decision-list li,
         .article-body .cta-card {
             transition: transform 0.05s linear, opacity 0.05s linear;
@@ -558,14 +602,14 @@
 
         <div class="article-body">
 
-            <p data-i18n="intro">If you're trying to record Discord, WhatsApp, Viber or Telegram calls on desktop, you've already hit the same wall: none of these apps have a Record button. Unlike Zoom or Teams — which at least offer native recording — messaging apps treat voice as ephemeral by design. That's a problem if you're capturing interviews, community sessions, client calls, or anything else you need to revisit. This guide covers what actually works, what's overkill, and what to reach for if you record regularly across more than one of these apps.</p>
+            <p data-i18n="intro">Discord, WhatsApp, Viber, and Telegram have one thing in common: none of them have a Record button for voice calls. This guide shows you three ways to actually record these calls on desktop — step by step, with no assumptions about your setup.</p>
 
             <div class="tldr">
                 <p class="tldr-label" data-i18n="tldr-label">TL;DR</p>
                 <ul>
-                    <li data-i18n="tldr-1"><strong>Quick, Discord only:</strong> Craig Bot — free, per-speaker tracks, no desktop setup</li>
-                    <li data-i18n="tldr-2"><strong>Free for all four:</strong> OBS Studio — powerful but needs configuration before each call</li>
-                    <li data-i18n="tldr-3"><strong>All four, no setup, with transcription:</strong> Mono — $50 once, records system audio locally</li>
+                    <li data-i18n="tldr-1"><strong>Quick, Discord only:</strong> Craig Bot — free, per-speaker tracks, server voice channels only</li>
+                    <li data-i18n="tldr-2"><strong>Free for all four:</strong> OBS Studio — capture system audio, ~5 minutes to set up</li>
+                    <li data-i18n="tldr-3"><strong>All four, no per-call setup, with transcription:</strong> Mono — $50 once</li>
                 </ul>
             </div>
 
@@ -604,40 +648,60 @@
                 </table>
             </div>
 
-            <h2 data-i18n="h2-obs">OBS Studio</h2>
+            <h2 data-i18n="h2-obs">Method 1: OBS Studio (free, all four apps)</h2>
 
-            <p data-i18n="obs-p1">OBS is a free, open-source recording and streaming tool originally built for gamers and content creators. It can capture system audio — anything playing through your speakers or headphones — which makes it technically capable of recording calls from any desktop app, including all four of these.</p>
+            <p data-i18n="obs-p1">OBS Studio is a free open-source recorder. The steps below are the minimal setup — you don't need scenes, streaming config, or any of the video stuff. Just the audio output capture.</p>
 
-            <p data-i18n="obs-p2">The catch: OBS is built for streamers and video producers, not for people who need a quick call recording. Getting it right means configuring audio sources, choosing output formats, and launching it manually before every session. There's no transcription, no speaker labels, no search. If you already use OBS for streaming or content work, it's a reasonable choice — you already know the interface. If you're installing it specifically to record a WhatsApp call, it's a lot of software for a simple job.</p>
+            <ol class="steps-list" data-i18n="obs-steps">
+                <li>Download and install <strong>OBS Studio</strong> from obsproject.com</li>
+                <li>Open <strong>Settings → Output → Recording</strong>. Set a Recording Path and choose <strong>MKV</strong> or <strong>MP4</strong> as the format</li>
+                <li>Open <strong>Settings → Audio</strong>. Set <strong>Desktop Audio</strong> to your playback device (headphones or speakers). Optionally add your microphone under Mic/Auxiliary if you want to capture yourself too</li>
+                <li>Close Settings. In the OBS main window, find the Desktop Audio level meter at the bottom. Play any audio — the meter should move. If it doesn't, right-click the meter → <strong>Properties</strong> and select the correct device</li>
+                <li>Before your call: click <strong>Start Recording</strong></li>
+                <li>Make your call in Discord, WhatsApp Desktop, Viber, or Telegram Desktop as normal</li>
+                <li>When done: click <strong>Stop Recording</strong>. The file saves to your output folder</li>
+            </ol>
 
-            <p data-i18n="obs-p3"><strong>Best for:</strong> people who already run OBS for other purposes and want one tool to cover everything.</p>
+            <p data-i18n="obs-note">No scenes or streaming setup needed. The audio level meter at the bottom of OBS is all you're using.</p>
 
-            <h2 data-i18n="h2-craig">Craig Bot (Discord only)</h2>
+            <h2 data-i18n="h2-craig">Method 2: Craig Bot (Discord voice channels only)</h2>
 
-            <p data-i18n="craig-p1">Craig is a Discord bot built specifically for recording voice channels. You invite it to your server once, tell it to join a channel, and it records each participant on a separate audio track — genuinely useful for podcasts, community events, or any situation where you'll want to edit individual speakers later.</p>
+            <p data-i18n="craig-p1">Craig records each person in a Discord voice channel on a separate audio track — useful if you want to edit speakers individually afterward. It only works in server voice channels, not private calls.</p>
 
-            <p data-i18n="craig-p2">The limitations are real: Craig only works with Discord voice channels, not private calls. Everyone in the channel sees the bot in the participant list. Recordings are processed on Craig's servers and you download them from a web link. The free tier caps recording length and how long files are kept. And if your calls aren't on Discord, Craig doesn't help at all.</p>
+            <ol class="steps-list" data-i18n="craig-steps">
+                <li>Go to <strong>craig.horse</strong> and click "Add to Discord"</li>
+                <li>Select your server from the dropdown and authorize Craig</li>
+                <li>On your Discord server, join a voice channel</li>
+                <li>In any text channel, type <strong>/join</strong> — Craig will join your current voice channel and post a download link in chat. Save it</li>
+                <li>Record your session normally</li>
+                <li>When done, type <strong>/stop</strong>. Craig leaves the channel</li>
+                <li>Use the link from step 4 (or Craig's DM to you) to download the recordings. You'll get a separate audio file per speaker</li>
+            </ol>
 
-            <p data-i18n="craig-p3"><strong>Best for:</strong> Discord communities, podcasters, and gaming groups who want per-speaker tracks and don't mind a visible bot.</p>
+            <p data-i18n="craig-note"><strong>Note:</strong> Craig doesn't work with Discord private calls (server voice channels only), and has no support for WhatsApp, Viber, or Telegram.</p>
 
-            <h2 data-i18n="h2-mono">Mono</h2>
+            <h2 data-i18n="h2-mono">Method 3: Mono (all four apps, no per-call setup)</h2>
 
-            <p data-i18n="mono-p1">Mono takes a different approach to all of the above. Instead of adding a bot to a channel or running a full production suite, it records audio directly from your computer's audio output — invisibly, without joining any call or channel as a participant. Because it captures at the system level, Discord, WhatsApp Desktop, Viber, and Telegram Desktop all work identically. No per-app configuration. No per-call setup. If it makes sound on your computer, Mono can record it.</p>
+            <p data-i18n="mono-p1">Mono records system audio directly from your computer's audio output. It doesn't join any call as a participant — completely invisible to everyone else. Works with Discord, WhatsApp Desktop, Viber, and Telegram Desktop without any per-app or per-call configuration. Transcription and speaker identification run locally on your device using Whisper.</p>
 
-            <p data-i18n="mono-p2">After the call you get a local audio file, AI transcription, speaker identification, and semantic search — all processed on your device using Whisper. Your audio never leaves your computer, and there's no cloud account to manage.</p>
+            <ol class="steps-list" data-i18n="mono-steps">
+                <li>Download Mono and install it</li>
+                <li>Open Mono, click <strong>Record</strong></li>
+                <li>Start your call in whichever app you're using — Discord, WhatsApp, Viber, or Telegram</li>
+                <li>Talk normally. Mono captures everything playing through your computer</li>
+                <li>When done, click <strong>Stop</strong></li>
+                <li>Mono transcribes the recording locally and shows you a searchable transcript with speaker labels</li>
+            </ol>
 
-            <p data-i18n="mono-p3">The pricing is a one-time $50. No subscription, no monthly fee, no per-minute charge.</p>
+            <p data-i18n="mono-note">The same steps work for all four apps. No setup before each call. The free download allows one recording; $50 unlocks everything.</p>
 
-            <p data-i18n="mono-p4"><strong>Best for:</strong> anyone who records across multiple apps, needs transcription, or wants nothing to configure before each call.</p>
-
-            <h2 data-i18n="h2-which">Which should you use?</h2>
+            <h2 data-i18n="h2-which">Which method?</h2>
 
             <ul class="decision-list" data-i18n="decision">
-                <li><strong>Free and Discord only?</strong> → Craig Bot</li>
-                <li><strong>Already use OBS for other things?</strong> → OBS Studio</li>
-                <li><strong>Need to record WhatsApp, Viber or Telegram?</strong> → OBS (free) or Mono</li>
-                <li><strong>Record across multiple apps regularly?</strong> → Mono</li>
-                <li><strong>Need transcription + search on top of the recording?</strong> → Mono</li>
+                <li><strong>Using Discord server voice channels only?</strong> → Craig Bot (free, per-speaker tracks)</li>
+                <li><strong>Need it free and don't mind the setup?</strong> → OBS Studio</li>
+                <li><strong>Recording WhatsApp, Viber, or Telegram?</strong> → OBS or Mono</li>
+                <li><strong>Recording across multiple apps or need transcription?</strong> → Mono</li>
             </ul>
 
             <div class="cta-card">
@@ -653,7 +717,6 @@
         </div>
     </main>
 
-    <a href="../privacy.html" class="privacy-link" data-i18n="privacy">Privacy Policy</a>
 
     <script>
         // Theme toggle
@@ -690,21 +753,29 @@
                 '.article-wrap .back-link, .article-wrap header, ' +
                 '.article-body p, .article-body h2, ' +
                 '.article-body .table-wrap, .article-body .tldr, ' +
-                '.article-body .decision-list li, .article-body .cta-card'
+                '.article-body .steps-list li, .article-body .decision-list li, .article-body .cta-card'
             );
+        const isMobile = () => window.innerWidth < 768;
+
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 const elementTop = rect.top;
                 if (elementTop <= foldZoneEnd - rect.height) {
-                    el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
-                    el.style.transformOrigin = 'center top';
+                    if (!isMobile()) {
+                        el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
+                        el.style.transformOrigin = 'center top';
+                    }
                     el.style.opacity = '0';
                 } else if (elementTop < foldZoneStart) {
                     let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
                     progress = Math.max(0, Math.min(1, progress));
                     progress = progress * progress;
-                    el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
-                    el.style.transformOrigin = 'center top';
+                    if (!isMobile()) {
+                        el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
+                        el.style.transformOrigin = 'center top';
+                    } else {
+                        el.style.transform = '';
+                    }
                     el.style.opacity = 1 - (progress * 0.85);
                 } else {
                     el.style.transform = '';
@@ -728,35 +799,50 @@
                 title: 'How to Record Discord, WhatsApp, Viber or Telegram Calls on Desktop',
                 meta: 'Feb 21, 2026 · 6 min read · By Daniil Lefanov',
                 disclosure: 'Disclosure: Mono is our own product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
-                intro: 'If you\'re trying to record Discord, WhatsApp, Viber or Telegram calls on desktop, you\'ve already hit the same wall: none of these apps have a Record button. Unlike Zoom or Teams — which at least offer native recording — messaging apps treat voice as ephemeral by design. That\'s a problem if you\'re capturing interviews, community sessions, client calls, or anything else you need to revisit. This guide covers what actually works, what\'s overkill, and what to reach for if you record regularly across more than one of these apps.',
+                intro: 'Discord, WhatsApp, Viber, and Telegram have one thing in common: none of them have a Record button for voice calls. This guide shows you three ways to actually record these calls on desktop — step by step, with no assumptions about your setup.',
                 'tldr-label': 'TL;DR',
-                'tldr-1': '<strong>Quick, Discord only:</strong> Craig Bot — free, per-speaker tracks, no desktop setup',
-                'tldr-2': '<strong>Free for all four:</strong> OBS Studio — powerful but needs configuration before each call',
-                'tldr-3': '<strong>All four, no setup, with transcription:</strong> Mono — $50 once, records system audio locally',
+                'tldr-1': '<strong>Quick, Discord only:</strong> Craig Bot — free, per-speaker tracks, server voice channels only',
+                'tldr-2': '<strong>Free for all four:</strong> OBS Studio — capture system audio, ~5 minutes to set up',
+                'tldr-3': '<strong>All four, no per-call setup, with transcription:</strong> Mono — $50 once',
                 'h2-quick': 'Quick comparison',
                 'th-tool': 'Tool', 'th-works': 'Works with', 'th-bot': 'Bot visible?', 'th-free': 'Free?',
                 tbody: `<tr><td>OBS Studio</td><td>All four</td><td>No</td><td>Yes</td></tr>
 <tr><td>Craig Bot</td><td>Discord only</td><td>Yes</td><td>Free tier</td></tr>
 <tr class="mono-row"><td>Mono</td><td>All four</td><td>No</td><td>$50 one-time</td></tr>`,
-                'h2-obs': 'OBS Studio',
-                'obs-p1': 'OBS is a free, open-source recording and streaming tool originally built for gamers and content creators. It can capture system audio — anything playing through your speakers or headphones — which makes it technically capable of recording calls from any desktop app, including all four of these.',
-                'obs-p2': 'The catch: OBS is built for streamers and video producers, not for people who need a quick call recording. Getting it right means configuring audio sources, choosing output formats, and launching it manually before every session. There\'s no transcription, no speaker labels, no search. If you already use OBS for streaming or content work, it\'s a reasonable choice — you already know the interface. If you\'re installing it specifically to record a WhatsApp call, it\'s a lot of software for a simple job.',
-                'obs-p3': '<strong>Best for:</strong> people who already run OBS for other purposes and want one tool to cover everything.',
-                'h2-craig': 'Craig Bot (Discord only)',
-                'craig-p1': 'Craig is a Discord bot built specifically for recording voice channels. You invite it to your server once, tell it to join a channel, and it records each participant on a separate audio track — genuinely useful for podcasts, community events, or any situation where you\'ll want to edit individual speakers later.',
-                'craig-p2': 'The limitations are real: Craig only works with Discord voice channels, not private calls. Everyone in the channel sees the bot in the participant list. Recordings are processed on Craig\'s servers and you download them from a web link. The free tier caps recording length and how long files are kept. And if your calls aren\'t on Discord, Craig doesn\'t help at all.',
-                'craig-p3': '<strong>Best for:</strong> Discord communities, podcasters, and gaming groups who want per-speaker tracks and don\'t mind a visible bot.',
-                'h2-mono': 'Mono',
-                'mono-p1': 'Mono takes a different approach to all of the above. Instead of adding a bot to a channel or running a full production suite, it records audio directly from your computer\'s audio output — invisibly, without joining any call or channel as a participant. Because it captures at the system level, Discord, WhatsApp Desktop, Viber, and Telegram Desktop all work identically. No per-app configuration. No per-call setup. If it makes sound on your computer, Mono can record it.',
-                'mono-p2': 'After the call you get a local audio file, AI transcription, speaker identification, and semantic search — all processed on your device using Whisper. Your audio never leaves your computer, and there\'s no cloud account to manage.',
-                'mono-p3': 'The pricing is a one-time $50. No subscription, no monthly fee, no per-minute charge.',
-                'mono-p4': '<strong>Best for:</strong> anyone who records across multiple apps, needs transcription, or wants nothing to configure before each call.',
-                'h2-which': 'Which should you use?',
-                decision: `<li><strong>Free and Discord only?</strong> → Craig Bot</li>
-<li><strong>Already use OBS for other things?</strong> → OBS Studio</li>
-<li><strong>Need to record WhatsApp, Viber or Telegram?</strong> → OBS (free) or Mono</li>
-<li><strong>Record across multiple apps regularly?</strong> → Mono</li>
-<li><strong>Need transcription + search on top of the recording?</strong> → Mono</li>`,
+                'h2-obs': 'Method 1: OBS Studio (free, all four apps)',
+                'obs-p1': 'OBS Studio is a free open-source recorder. The steps below are the minimal setup — you don\'t need scenes, streaming config, or any of the video stuff. Just the audio output capture.',
+                'obs-steps': `<li>Download and install <strong>OBS Studio</strong> from obsproject.com</li>
+<li>Open <strong>Settings → Output → Recording</strong>. Set a Recording Path and choose <strong>MKV</strong> or <strong>MP4</strong> as the format</li>
+<li>Open <strong>Settings → Audio</strong>. Set <strong>Desktop Audio</strong> to your playback device (headphones or speakers). Optionally add your microphone under Mic/Auxiliary if you want to capture yourself too</li>
+<li>Close Settings. In the OBS main window, find the Desktop Audio level meter at the bottom. Play any audio — the meter should move. If it doesn't, right-click the meter → <strong>Properties</strong> and select the correct device</li>
+<li>Before your call: click <strong>Start Recording</strong></li>
+<li>Make your call in Discord, WhatsApp Desktop, Viber, or Telegram Desktop as normal</li>
+<li>When done: click <strong>Stop Recording</strong>. The file saves to your output folder</li>`,
+                'obs-note': 'No scenes or streaming setup needed. The audio level meter at the bottom of OBS is all you\'re using.',
+                'h2-craig': 'Method 2: Craig Bot (Discord voice channels only)',
+                'craig-p1': 'Craig records each person in a Discord voice channel on a separate audio track — useful if you want to edit speakers individually afterward. It only works in server voice channels, not private calls.',
+                'craig-steps': `<li>Go to <strong>craig.horse</strong> and click "Add to Discord"</li>
+<li>Select your server from the dropdown and authorize Craig</li>
+<li>On your Discord server, join a voice channel</li>
+<li>In any text channel, type <strong>/join</strong> — Craig will join your current voice channel and post a download link in chat. Save it</li>
+<li>Record your session normally</li>
+<li>When done, type <strong>/stop</strong>. Craig leaves the channel</li>
+<li>Use the link from step 4 (or Craig's DM to you) to download the recordings. You'll get a separate audio file per speaker</li>`,
+                'craig-note': '<strong>Note:</strong> Craig doesn\'t work with Discord private calls (server voice channels only), and has no support for WhatsApp, Viber, or Telegram.',
+                'h2-mono': 'Method 3: Mono (all four apps, no per-call setup)',
+                'mono-p1': 'Mono records system audio directly from your computer\'s audio output. It doesn\'t join any call as a participant — completely invisible to everyone else. Works with Discord, WhatsApp Desktop, Viber, and Telegram Desktop without any per-app or per-call configuration. Transcription and speaker identification run locally on your device using Whisper.',
+                'mono-steps': `<li>Download Mono and install it</li>
+<li>Open Mono, click <strong>Record</strong></li>
+<li>Start your call in whichever app you're using — Discord, WhatsApp, Viber, or Telegram</li>
+<li>Talk normally. Mono captures everything playing through your computer</li>
+<li>When done, click <strong>Stop</strong></li>
+<li>Mono transcribes the recording locally and shows you a searchable transcript with speaker labels</li>`,
+                'mono-note': 'The same steps work for all four apps. No setup before each call. The free download allows one recording; $50 unlocks everything.',
+                'h2-which': 'Which method?',
+                decision: `<li><strong>Using Discord server voice channels only?</strong> → Craig Bot (free, per-speaker tracks)</li>
+<li><strong>Need it free and don't mind the setup?</strong> → OBS Studio</li>
+<li><strong>Recording WhatsApp, Viber, or Telegram?</strong> → OBS or Mono</li>
+<li><strong>Recording across multiple apps or need transcription?</strong> → Mono</li>`,
                 'cta-title': 'Try Mono free',
                 'cta-sub': 'One recording limit, no account needed. $50 to unlock everything — all four apps, local AI, no subscription.',
                 'cta-buy': 'Buy Mono — $50',
@@ -769,35 +855,50 @@
                 title: 'Cómo grabar llamadas de Discord, WhatsApp, Viber o Telegram en el escritorio',
                 meta: '21 feb. 2026 · 6 min de lectura · Por Daniil Lefanov',
                 disclosure: 'Aviso: Mono es nuestro propio producto. Lo hemos incluido en esta guía e intentamos ser objetivos, pero debes saber que tenemos interés en él.',
-                intro: 'Si quieres grabar llamadas de Discord, WhatsApp, Viber o Telegram en el escritorio, ya habrás dado con el mismo obstáculo: ninguna de estas apps tiene un botón de Grabar. A diferencia de Zoom o Teams — que al menos ofrecen grabación nativa — las apps de mensajería tratan las llamadas de voz como algo efímero por diseño. Es un problema si grabas entrevistas, sesiones de comunidad, llamadas con clientes o cualquier cosa que necesites revisar más tarde. Esta guía cubre lo que funciona de verdad, lo que es desproporcionado para el objetivo y qué elegir si grabas con regularidad en más de una de estas apps.',
+                intro: 'Discord, WhatsApp, Viber y Telegram tienen algo en común: ninguna tiene botón de Grabar en las llamadas de voz. Esta guía muestra tres formas de grabarlas en el escritorio — paso a paso, sin asumir nada sobre tu configuración.',
                 'tldr-label': 'En resumen',
-                'tldr-1': '<strong>Rápido, solo Discord:</strong> Craig Bot — gratis, pistas por hablante, sin instalación adicional',
-                'tldr-2': '<strong>Gratis para las cuatro apps:</strong> OBS Studio — potente pero requiere configuración antes de cada llamada',
-                'tldr-3': '<strong>Las cuatro apps, sin configuración, con transcripción:</strong> Mono — $50 único, graba el audio del sistema de forma local',
+                'tldr-1': '<strong>Rápido, solo Discord:</strong> Craig Bot — gratis, pistas por hablante, solo canales de voz del servidor',
+                'tldr-2': '<strong>Gratis para las cuatro:</strong> OBS Studio — captura el audio del sistema, ~5 minutos de configuración',
+                'tldr-3': '<strong>Las cuatro apps, sin preparación previa, con transcripción:</strong> Mono — $50 único',
                 'h2-quick': 'Comparativa rápida',
                 'th-tool': 'Herramienta', 'th-works': 'Compatible con', 'th-bot': '¿Bot visible?', 'th-free': '¿Gratis?',
                 tbody: `<tr><td>OBS Studio</td><td>Las cuatro</td><td>No</td><td>Sí</td></tr>
 <tr><td>Craig Bot</td><td>Solo Discord</td><td>Sí</td><td>Plan gratuito</td></tr>
 <tr class="mono-row"><td>Mono</td><td>Las cuatro</td><td>No</td><td>$50 único</td></tr>`,
-                'h2-obs': 'OBS Studio',
-                'obs-p1': 'OBS es una herramienta gratuita y de código abierto para grabar y hacer streaming, creada originalmente para jugadores y creadores de contenido. Puede capturar el audio del sistema — todo lo que suene por los altavoces o auriculares — lo que la hace técnicamente capaz de grabar llamadas de cualquier app de escritorio, incluidas estas cuatro.',
-                'obs-p2': 'El problema: OBS está pensado para streamers y productores de vídeo, no para quien necesita grabar una llamada rápida. Ponerlo a punto implica configurar fuentes de audio, elegir formatos de salida y arrancarlo manualmente antes de cada sesión. Sin transcripción, sin etiquetas de hablante, sin búsqueda. Si ya usas OBS para otras cosas, es una opción razonable. Si lo vas a instalar solo para grabar una llamada de WhatsApp, es mucho software para tan poco.',
-                'obs-p3': '<strong>Ideal para:</strong> quienes ya usan OBS para streaming u otras tareas y quieren una sola herramienta para todo.',
-                'h2-craig': 'Craig Bot (solo Discord)',
-                'craig-p1': 'Craig es un bot de Discord diseñado específicamente para grabar canales de voz. Lo invitas una vez a tu servidor, le dices que se una a un canal y graba a cada participante en una pista de audio separada — muy útil para pódcasts, eventos de comunidad o cualquier situación en la que quieras editar voces por separado.',
-                'craig-p2': 'Las limitaciones son reales: Craig solo funciona en canales de voz de Discord, no en llamadas directas. Todo el mundo ve el bot en la lista de participantes. Las grabaciones se procesan en los servidores de Craig y las descargas desde un enlace web. El plan gratuito limita la duración de la grabación y el tiempo de retención. Y si tus llamadas no son en Discord, Craig no te sirve.',
-                'craig-p3': '<strong>Ideal para:</strong> comunidades de Discord, podcasters y grupos de juego que quieren pistas por hablante y no les importa el bot visible.',
-                'h2-mono': 'Mono',
-                'mono-p1': 'Mono tiene un enfoque diferente al de los anteriores. En lugar de añadir un bot al canal o ejecutar una suite de producción completa, graba el audio directamente de la salida de audio del ordenador — de forma invisible, sin unirse a ninguna llamada ni canal como participante. Como captura a nivel del sistema, Discord, WhatsApp Desktop, Viber y Telegram Desktop funcionan exactamente igual. Sin configuración por app. Sin preparación por llamada. Si suena en tu ordenador, Mono lo puede grabar.',
-                'mono-p2': 'Tras la llamada obtienes un archivo de audio local, transcripción con IA, identificación de hablantes y búsqueda semántica — todo procesado en tu dispositivo con Whisper. Tu audio nunca sale de tu ordenador y no hay ninguna cuenta en la nube que gestionar.',
-                'mono-p3': 'El precio es de $50 una sola vez. Sin suscripción, sin cuota mensual, sin coste por minuto.',
-                'mono-p4': '<strong>Ideal para:</strong> cualquiera que grabe en varias apps, necesite transcripción o no quiera configurar nada antes de cada llamada.',
+                'h2-obs': 'Método 1: OBS Studio (gratis, las cuatro apps)',
+                'obs-p1': 'OBS Studio es un grabador gratuito y de código abierto. La configuración mínima es la de abajo — no necesitas escenas, ajustes de streaming ni nada de vídeo. Solo la captura de audio.',
+                'obs-steps': `<li>Descarga e instala <strong>OBS Studio</strong> desde obsproject.com</li>
+<li>Ve a <strong>Configuración → Salida → Grabación</strong>. Elige una ruta de guardado y el formato <strong>MKV</strong> o <strong>MP4</strong></li>
+<li>Ve a <strong>Configuración → Audio</strong>. Pon <strong>Audio de escritorio</strong> en tu dispositivo de reproducción (auriculares o altavoces). Si también quieres grabarte, añade el micrófono en Mic/Aux</li>
+<li>Cierra la configuración. En la ventana principal de OBS, mira el medidor de nivel de Audio de escritorio. Reproduce cualquier sonido — el medidor debe moverse. Si no, haz clic derecho → <strong>Propiedades</strong> y elige el dispositivo correcto</li>
+<li>Antes de tu llamada: haz clic en <strong>Iniciar grabación</strong></li>
+<li>Haz tu llamada en Discord, WhatsApp Desktop, Viber o Telegram Desktop con normalidad</li>
+<li>Al terminar: clic en <strong>Detener grabación</strong>. El archivo se guarda en la carpeta de salida</li>`,
+                'obs-note': 'No necesitas escenas ni configuración de streaming. El medidor de audio en la parte inferior de OBS es todo lo que usas.',
+                'h2-craig': 'Método 2: Craig Bot (solo canales de voz de Discord)',
+                'craig-p1': 'Craig graba a cada persona del canal de voz en una pista de audio separada — útil si luego quieres editar hablantes por separado. Solo funciona en canales de voz de servidor, no en llamadas privadas.',
+                'craig-steps': `<li>Ve a <strong>craig.horse</strong> y haz clic en "Add to Discord"</li>
+<li>Selecciona tu servidor y autoriza a Craig</li>
+<li>Únete a un canal de voz en tu servidor de Discord</li>
+<li>En cualquier canal de texto, escribe <strong>/join</strong> — Craig se unirá al canal y publicará un enlace de descarga en el chat. Guárdalo</li>
+<li>Graba tu sesión con normalidad</li>
+<li>Al terminar, escribe <strong>/stop</strong>. Craig abandona el canal</li>
+<li>Usa el enlace del paso 4 (o el mensaje directo de Craig) para descargar las grabaciones. Obtendrás un archivo por hablante</li>`,
+                'craig-note': '<strong>Nota:</strong> Craig no funciona en llamadas privadas de Discord (solo canales de voz de servidor), ni admite WhatsApp, Viber ni Telegram.',
+                'h2-mono': 'Método 3: Mono (las cuatro apps, sin preparación por llamada)',
+                'mono-p1': 'Mono graba el audio del sistema directamente desde la salida de audio del ordenador. No se une a ninguna llamada como participante — completamente invisible. Funciona con Discord, WhatsApp Desktop, Viber y Telegram Desktop sin configuración por app ni por llamada. La transcripción e identificación de hablantes se procesan localmente con Whisper.',
+                'mono-steps': `<li>Descarga Mono e instálalo</li>
+<li>Abre Mono, haz clic en <strong>Grabar</strong></li>
+<li>Inicia tu llamada en la app que uses — Discord, WhatsApp, Viber o Telegram</li>
+<li>Habla con normalidad. Mono captura todo lo que suene en tu ordenador</li>
+<li>Al terminar, haz clic en <strong>Detener</strong></li>
+<li>Mono transcribe la grabación localmente y muestra un transcript con etiquetas de hablante y búsqueda</li>`,
+                'mono-note': 'Los mismos pasos sirven para las cuatro apps. Sin preparación antes de cada llamada. La descarga gratuita permite una grabación de prueba; $50 desbloquea todo.',
                 'h2-which': '¿Cuál elegir?',
-                decision: `<li><strong>¿Gratis y solo Discord?</strong> → Craig Bot</li>
-<li><strong>¿Ya usas OBS para otras cosas?</strong> → OBS Studio</li>
-<li><strong>¿Necesitas grabar WhatsApp, Viber o Telegram?</strong> → OBS (gratis) o Mono</li>
-<li><strong>¿Grabas en varias apps con regularidad?</strong> → Mono</li>
-<li><strong>¿Necesitas transcripción y búsqueda además de la grabación?</strong> → Mono</li>`,
+                decision: `<li><strong>¿Solo canales de voz de Discord?</strong> → Craig Bot (gratis, pistas por hablante)</li>
+<li><strong>¿Gratis y no te importa configurarlo?</strong> → OBS Studio</li>
+<li><strong>¿Grabas WhatsApp, Viber o Telegram?</strong> → OBS o Mono</li>
+<li><strong>¿Grabas en varias apps o necesitas transcripción?</strong> → Mono</li>`,
                 'cta-title': 'Prueba Mono gratis',
                 'cta-sub': 'Una grabación de prueba, sin cuenta. $50 para desbloquear todo — las cuatro apps, IA local, sin suscripción.',
                 'cta-buy': 'Comprar Mono — $50',
@@ -810,35 +911,50 @@
                 title: 'Comment enregistrer des appels Discord, WhatsApp, Viber ou Telegram sur ordinateur',
                 meta: '21 fév. 2026 · 6 min de lecture · Par Daniil Lefanov',
                 disclosure: 'Avertissement : Mono est notre propre produit. Nous l\'avons inclus dans ce guide en essayant d\'être objectifs, mais sachez que nous ne sommes pas neutres.',
-                intro: 'Si vous cherchez à enregistrer des appels Discord, WhatsApp, Viber ou Telegram sur ordinateur, vous avez déjà buté sur le même obstacle : aucune de ces apps n\'a de bouton Enregistrer. Contrairement à Zoom ou Teams — qui proposent au moins un enregistrement natif — les apps de messagerie traitent les appels vocaux comme éphémères par conception. C\'est un problème si vous capturez des interviews, des sessions de communauté, des appels clients ou tout ce que vous voulez réécouter. Ce guide couvre ce qui fonctionne vraiment, ce qui est surdimensionné, et quoi utiliser si vous enregistrez régulièrement sur plusieurs de ces apps.',
+                intro: 'Discord, WhatsApp, Viber et Telegram ont un point commun : aucune n\'a de bouton Enregistrer pour les appels vocaux. Ce guide présente trois façons de les enregistrer sur ordinateur — étape par étape, sans suppositions sur votre configuration.',
                 'tldr-label': 'En bref',
-                'tldr-1': '<strong>Rapide, Discord uniquement :</strong> Craig Bot — gratuit, pistes par interlocuteur, sans configuration',
-                'tldr-2': '<strong>Gratuit pour les quatre apps :</strong> OBS Studio — puissant mais à configurer avant chaque appel',
-                'tldr-3': '<strong>Les quatre apps, sans configuration, avec transcription :</strong> Mono — 50 $ une fois, enregistre l\'audio système en local',
+                'tldr-1': '<strong>Rapide, Discord uniquement :</strong> Craig Bot — gratuit, pistes par interlocuteur, salons vocaux de serveur seulement',
+                'tldr-2': '<strong>Gratuit pour les quatre :</strong> OBS Studio — capture audio système, ~5 minutes de configuration',
+                'tldr-3': '<strong>Les quatre apps, sans configuration avant chaque appel, avec transcription :</strong> Mono — 50 $ une fois',
                 'h2-quick': 'Comparatif rapide',
                 'th-tool': 'Outil', 'th-works': 'Compatible avec', 'th-bot': 'Bot visible ?', 'th-free': 'Gratuit ?',
                 tbody: `<tr><td>OBS Studio</td><td>Les quatre</td><td>Non</td><td>Oui</td></tr>
 <tr><td>Craig Bot</td><td>Discord uniquement</td><td>Oui</td><td>Offre gratuite</td></tr>
 <tr class="mono-row"><td>Mono</td><td>Les quatre</td><td>Non</td><td>50 $ unique</td></tr>`,
-                'h2-obs': 'OBS Studio',
-                'obs-p1': 'OBS est un logiciel gratuit et open-source d\'enregistrement et de streaming, créé à l\'origine pour les joueurs et créateurs de contenu. Il peut capturer l\'audio système — tout ce qui sort par vos enceintes ou votre casque — ce qui le rend techniquement capable d\'enregistrer les appels de n\'importe quelle app de bureau, y compris ces quatre-là.',
-                'obs-p2': 'Le problème : OBS est pensé pour les streamers et les producteurs vidéo, pas pour quelqu\'un qui veut juste enregistrer un appel rapide. Le paramétrer correctement implique de configurer les sources audio, choisir les formats de sortie, et le lancer manuellement avant chaque session. Pas de transcription, pas d\'identification des interlocuteurs, pas de recherche. Si vous utilisez déjà OBS pour autre chose, c\'est un choix raisonnable. Si vous l\'installez uniquement pour enregistrer un appel WhatsApp, c\'est beaucoup d\'outil pour peu.',
-                'obs-p3': '<strong>Idéal pour :</strong> ceux qui utilisent déjà OBS pour du streaming ou autre et veulent un seul outil pour tout.',
-                'h2-craig': 'Craig Bot (Discord uniquement)',
-                'craig-p1': 'Craig est un bot Discord conçu spécifiquement pour enregistrer les salons vocaux. Vous l\'invitez une fois sur votre serveur, lui demandez de rejoindre un salon, et il enregistre chaque participant sur une piste audio séparée — très utile pour les podcasts, événements communautaires ou toute situation où vous voudrez éditer les voix individuellement.',
-                'craig-p2': 'Les limites sont bien réelles : Craig ne fonctionne qu\'avec les salons vocaux Discord, pas les appels privés. Tout le monde voit le bot dans la liste des participants. Les enregistrements sont traités sur les serveurs de Craig et téléchargés via un lien web. L\'offre gratuite limite la durée d\'enregistrement et la rétention des fichiers. Et si vos appels ne se passent pas sur Discord, Craig ne vous aidera pas.',
-                'craig-p3': '<strong>Idéal pour :</strong> les communautés Discord, podcasters et groupes de joueurs qui veulent des pistes par interlocuteur et ne sont pas gênés par un bot visible.',
-                'h2-mono': 'Mono',
-                'mono-p1': 'Mono adopte une approche radicalement différente. Plutôt que d\'ajouter un bot à un salon ou de lancer une suite de production complète, il enregistre l\'audio directement depuis la sortie audio de l\'ordinateur — invisiblement, sans rejoindre aucun appel ni salon en tant que participant. Comme il capture au niveau système, Discord, WhatsApp Desktop, Viber et Telegram Desktop fonctionnent tous de la même façon. Aucune configuration par app. Aucune préparation avant l\'appel. Si ça sonne sur votre ordinateur, Mono peut l\'enregistrer.',
-                'mono-p2': 'Après l\'appel, vous obtenez un fichier audio local, la transcription IA, l\'identification des interlocuteurs et la recherche sémantique — le tout traité sur votre appareil avec Whisper. Votre audio ne quitte jamais votre ordinateur, et il n\'y a pas de compte cloud à gérer.',
-                'mono-p3': 'Le prix : 50 $ une seule fois. Pas d\'abonnement, pas de mensualité, pas de facturation à la minute.',
-                'mono-p4': '<strong>Idéal pour :</strong> ceux qui enregistrent sur plusieurs apps, ont besoin de transcription, ou ne veulent rien configurer avant chaque appel.',
-                'h2-which': 'Quel outil choisir ?',
-                decision: `<li><strong>Gratuit et Discord uniquement ?</strong> → Craig Bot</li>
-<li><strong>Vous utilisez déjà OBS pour autre chose ?</strong> → OBS Studio</li>
-<li><strong>Besoin d'enregistrer WhatsApp, Viber ou Telegram ?</strong> → OBS (gratuit) ou Mono</li>
-<li><strong>Vous enregistrez régulièrement sur plusieurs apps ?</strong> → Mono</li>
-<li><strong>Vous avez besoin de transcription + recherche en plus ?</strong> → Mono</li>`,
+                'h2-obs': 'Méthode 1 : OBS Studio (gratuit, les quatre apps)',
+                'obs-p1': 'OBS Studio est un enregistreur gratuit et open-source. Voici la configuration minimale — pas besoin de scènes, de streaming ou de réglages vidéo. Juste la capture audio.',
+                'obs-steps': `<li>Téléchargez et installez <strong>OBS Studio</strong> depuis obsproject.com</li>
+<li>Ouvrez <strong>Paramètres → Sortie → Enregistrement</strong>. Choisissez un dossier de destination et le format <strong>MKV</strong> ou <strong>MP4</strong></li>
+<li>Ouvrez <strong>Paramètres → Audio</strong>. Réglez <strong>Audio du bureau</strong> sur votre périphérique de lecture (casque ou enceintes). Ajoutez votre micro dans Mic/Auxiliaire si vous voulez aussi vous enregistrer</li>
+<li>Fermez les paramètres. Sur la fenêtre principale d'OBS, regardez le vumètre Audio du bureau en bas. Lancez un son — le vumètre doit bouger. Sinon, clic droit → <strong>Propriétés</strong> et sélectionnez le bon périphérique</li>
+<li>Avant votre appel : cliquez sur <strong>Démarrer l'enregistrement</strong></li>
+<li>Passez votre appel dans Discord, WhatsApp Desktop, Viber ou Telegram Desktop normalement</li>
+<li>Quand c'est fini : cliquez sur <strong>Arrêter l'enregistrement</strong>. Le fichier est sauvegardé dans votre dossier de sortie</li>`,
+                'obs-note': 'Aucune scène ni configuration streaming nécessaire. Le vumètre en bas d\'OBS est tout ce dont vous avez besoin.',
+                'h2-craig': 'Méthode 2 : Craig Bot (salons vocaux Discord uniquement)',
+                'craig-p1': 'Craig enregistre chaque personne d\'un salon vocal Discord sur une piste audio séparée — utile pour éditer les voix individuellement après coup. Ne fonctionne que dans les salons vocaux de serveur, pas les appels privés.',
+                'craig-steps': `<li>Rendez-vous sur <strong>craig.horse</strong> et cliquez sur « Add to Discord »</li>
+<li>Sélectionnez votre serveur et autorisez Craig</li>
+<li>Rejoignez un salon vocal sur votre serveur Discord</li>
+<li>Dans n'importe quel salon textuel, tapez <strong>/join</strong> — Craig rejoindra votre salon et publiera un lien de téléchargement. Sauvegardez-le</li>
+<li>Enregistrez votre session normalement</li>
+<li>Quand c'est fini, tapez <strong>/stop</strong>. Craig quitte le salon</li>
+<li>Utilisez le lien de l'étape 4 (ou le message privé de Craig) pour télécharger. Vous obtiendrez un fichier distinct par interlocuteur</li>`,
+                'craig-note': '<strong>Remarque :</strong> Craig ne fonctionne pas avec les appels privés Discord (salons vocaux de serveur uniquement) et ne prend pas en charge WhatsApp, Viber ou Telegram.',
+                'h2-mono': 'Méthode 3 : Mono (les quatre apps, sans configuration par appel)',
+                'mono-p1': 'Mono enregistre l\'audio système directement depuis la sortie audio de l\'ordinateur. Il ne rejoint aucun appel en tant que participant — totalement invisible. Fonctionne avec Discord, WhatsApp Desktop, Viber et Telegram Desktop sans aucune configuration par app ou par appel. La transcription et l\'identification des interlocuteurs s\'effectuent localement avec Whisper.',
+                'mono-steps': `<li>Téléchargez et installez Mono</li>
+<li>Ouvrez Mono, cliquez sur <strong>Enregistrer</strong></li>
+<li>Lancez votre appel dans l'app de votre choix — Discord, WhatsApp, Viber ou Telegram</li>
+<li>Parlez normalement. Mono capture tout ce qui passe par votre ordinateur</li>
+<li>Quand c'est fini, cliquez sur <strong>Arrêter</strong></li>
+<li>Mono transcrit l'enregistrement localement et affiche une transcription consultable avec étiquettes d'interlocuteurs</li>`,
+                'mono-note': 'Les mêmes étapes fonctionnent pour les quatre apps. Aucune configuration avant chaque appel. Le téléchargement gratuit permet un enregistrement d\'essai ; 50 $ déverrouille tout.',
+                'h2-which': 'Quelle méthode choisir ?',
+                decision: `<li><strong>Salons vocaux Discord uniquement ?</strong> → Craig Bot (gratuit, pistes par interlocuteur)</li>
+<li><strong>Besoin de gratuit et pas rebuté par la configuration ?</strong> → OBS Studio</li>
+<li><strong>Vous enregistrez WhatsApp, Viber ou Telegram ?</strong> → OBS ou Mono</li>
+<li><strong>Plusieurs apps ou besoin de transcription ?</strong> → Mono</li>`,
                 'cta-title': 'Essayez Mono gratuitement',
                 'cta-sub': 'Un enregistrement d\'essai, sans compte. 50 $ pour tout déverrouiller — les quatre apps, IA locale, sans abonnement.',
                 'cta-buy': 'Acheter Mono — 50 $',
@@ -851,35 +967,50 @@
                 title: 'Anrufe in Discord, WhatsApp, Viber oder Telegram am PC aufnehmen',
                 meta: '21. Feb. 2026 · 6 Min. Lesezeit · Von Daniil Lefanov',
                 disclosure: 'Hinweis: Mono ist unser eigenes Produkt. Wir haben es in diesen Leitfaden aufgenommen und versucht, fair zu sein — aber ihr solltet wissen, dass wir nicht neutral sind.',
-                intro: 'Wer Anrufe in Discord, WhatsApp, Viber oder Telegram am Desktop aufnehmen will, stößt schnell auf dasselbe Problem: Keine dieser Apps hat eine Aufnahme-Schaltfläche. Anders als Zoom oder Teams — die zumindest eine native Aufnahmefunktion bieten — behandeln Messaging-Apps Sprachkommunikation als flüchtig, von Haus aus. Das ist ein Problem, wenn ihr Interviews, Community-Sessions, Kundengespräche oder sonstiges festhalten wollt. Dieser Leitfaden erklärt, was wirklich funktioniert, was überdimensioniert ist und was sinnvoll ist, wenn ihr regelmäßig aus mehreren dieser Apps aufnehmt.',
+                intro: 'Discord, WhatsApp, Viber und Telegram haben eines gemeinsam: Keine dieser Apps hat einen Aufnahme-Knopf für Sprachanrufe. Diese Anleitung zeigt drei Wege, solche Anrufe am Desktop aufzunehmen — Schritt für Schritt, ohne Annahmen über euer Setup.',
                 'tldr-label': 'Kurzfassung',
-                'tldr-1': '<strong>Schnell, nur Discord:</strong> Craig Bot — kostenlos, separate Sprecherspuren, kein Desktop-Setup',
-                'tldr-2': '<strong>Kostenlos für alle vier Apps:</strong> OBS Studio — mächtig, aber vor jedem Anruf zu konfigurieren',
-                'tldr-3': '<strong>Alle vier Apps, kein Setup, mit Transkription:</strong> Mono — einmalig $50, nimmt System-Audio lokal auf',
+                'tldr-1': '<strong>Schnell, nur Discord:</strong> Craig Bot — kostenlos, separate Sprecherspuren, nur Server-Sprachkanäle',
+                'tldr-2': '<strong>Kostenlos für alle vier:</strong> OBS Studio — System-Audio aufnehmen, ~5 Minuten Einrichtung',
+                'tldr-3': '<strong>Alle vier Apps, kein Setup vor jedem Anruf, mit Transkription:</strong> Mono — einmalig $50',
                 'h2-quick': 'Schnellvergleich',
                 'th-tool': 'Tool', 'th-works': 'Funktioniert mit', 'th-bot': 'Bot sichtbar?', 'th-free': 'Kostenlos?',
                 tbody: `<tr><td>OBS Studio</td><td>Alle vier</td><td>Nein</td><td>Ja</td></tr>
 <tr><td>Craig Bot</td><td>Nur Discord</td><td>Ja</td><td>Gratis-Tarif</td></tr>
 <tr class="mono-row"><td>Mono</td><td>Alle vier</td><td>Nein</td><td>$50 einmalig</td></tr>`,
-                'h2-obs': 'OBS Studio',
-                'obs-p1': 'OBS ist ein kostenloses Open-Source-Tool für Aufnahmen und Streaming, ursprünglich für Gamer und Content Creator entwickelt. Es kann System-Audio aufnehmen — alles, was über Lautsprecher oder Kopfhörer ausgegeben wird — und ist damit technisch in der Lage, Anrufe aus jeder Desktop-App aufzunehmen, einschließlich dieser vier.',
-                'obs-p2': 'Der Haken: OBS ist für Streamer und Video-Produzenten gemacht, nicht für jemanden, der schnell einen Anruf mitschneiden will. Es richtig einzustellen bedeutet, Audioquellen zu konfigurieren, Ausgabeformate zu wählen und es vor jeder Session manuell zu starten. Keine Transkription, keine Sprecherbeschriftung, keine Suche. Wenn ihr OBS bereits für anderes nutzt, ist es eine vernünftige Wahl — ihr kennt das Interface. Wenn ihr es nur für einen WhatsApp-Anruf installiert, ist das viel Tool für eine einfache Aufgabe.',
-                'obs-p3': '<strong>Ideal für:</strong> alle, die OBS bereits für andere Zwecke nutzen und ein einziges Tool für alles wollen.',
-                'h2-craig': 'Craig Bot (nur Discord)',
-                'craig-p1': 'Craig ist ein Discord-Bot, der speziell für die Aufnahme von Sprachkanälen gebaut wurde. Ihr ladet ihn einmal auf euren Server ein, sagt ihm, er soll einem Kanal beitreten, und er nimmt jeden Teilnehmer auf einer separaten Audiospur auf — echten Mehrwert für Podcasts, Community-Events oder Situationen, in denen ihr einzelne Sprecher später schneiden wollt.',
-                'craig-p2': 'Die Einschränkungen sind real: Craig funktioniert nur in Discord-Sprachkanälen, nicht bei Direktanrufen. Alle Teilnehmer sehen den Bot in der Teilnehmerliste. Aufnahmen werden auf Craigs Servern verarbeitet und über einen Web-Link heruntergeladen. Der Gratis-Tarif begrenzt die Aufnahmelänge und wie lange Dateien aufbewahrt werden. Und wenn eure Anrufe nicht auf Discord stattfinden, hilft Craig gar nicht.',
-                'craig-p3': '<strong>Ideal für:</strong> Discord-Communities, Podcaster und Gaming-Gruppen, die separate Sprecherspuren wollen und einen sichtbaren Bot akzeptieren.',
-                'h2-mono': 'Mono',
-                'mono-p1': 'Mono verfolgt einen grundlegend anderen Ansatz. Statt einen Bot in einen Kanal einzuladen oder eine vollständige Produktionssuite zu starten, nimmt es Audio direkt vom Audioausgang des Computers auf — unsichtbar, ohne einem Anruf oder Kanal als Teilnehmer beizutreten. Da es auf Systemebene aufnimmt, funktionieren Discord, WhatsApp Desktop, Viber und Telegram Desktop alle identisch. Keine App-spezifische Konfiguration. Keine Vorbereitung vor dem Anruf. Wenn euer Computer Ton ausgibt, kann Mono es aufnehmen.',
-                'mono-p2': 'Nach dem Anruf erhaltet ihr eine lokale Audiodatei, KI-Transkription, Sprechererkennung und semantische Suche — alles lokal auf eurem Gerät mit Whisper verarbeitet. Euer Audio verlässt den Computer nie, und es gibt kein Cloud-Konto zu verwalten.',
-                'mono-p3': 'Der Preis: einmalig $50. Kein Abo, keine Monatsgebühr, kein Preis pro Minute.',
-                'mono-p4': '<strong>Ideal für:</strong> alle, die aus mehreren Apps aufnehmen, Transkription brauchen oder nichts vor jedem Anruf konfigurieren wollen.',
-                'h2-which': 'Welches Tool passt zu euch?',
-                decision: `<li><strong>Kostenlos und nur Discord?</strong> → Craig Bot</li>
-<li><strong>Ihr nutzt OBS bereits für anderes?</strong> → OBS Studio</li>
-<li><strong>Ihr müsst WhatsApp, Viber oder Telegram aufnehmen?</strong> → OBS (kostenlos) oder Mono</li>
-<li><strong>Ihr nehmt regelmäßig aus mehreren Apps auf?</strong> → Mono</li>
-<li><strong>Ihr braucht Transkription + Suche zusätzlich zur Aufnahme?</strong> → Mono</li>`,
+                'h2-obs': 'Methode 1: OBS Studio (kostenlos, alle vier Apps)',
+                'obs-p1': 'OBS Studio ist ein kostenloser Open-Source-Recorder. Die folgenden Schritte sind das Minimum — keine Szenen, kein Streaming-Setup, kein Video-Kram. Nur die Audio-Aufnahme.',
+                'obs-steps': `<li>Ladet <strong>OBS Studio</strong> von obsproject.com herunter und installiert es</li>
+<li>Öffnet <strong>Einstellungen → Ausgabe → Aufnahme</strong>. Wählt einen Ausgabepfad und das Format <strong>MKV</strong> oder <strong>MP4</strong></li>
+<li>Öffnet <strong>Einstellungen → Audio</strong>. Stellt <strong>Desktop-Audio</strong> auf euer Wiedergabegerät (Kopfhörer oder Lautsprecher). Optional: Mikrofon unter Audio-Eingang eintragen, wenn ihr euch selbst aufnehmen wollt</li>
+<li>Schließt die Einstellungen. Im OBS-Hauptfenster seht ihr unten die Pegelanzeige für Desktop-Audio. Spielt einen beliebigen Ton ab — der Pegel sollte sich bewegen. Falls nicht: Rechtsklick auf die Anzeige → <strong>Eigenschaften</strong> → richtiges Gerät wählen</li>
+<li>Vor eurem Anruf: <strong>Aufnahme starten</strong> klicken</li>
+<li>Führt euren Anruf in Discord, WhatsApp Desktop, Viber oder Telegram Desktop ganz normal durch</li>
+<li>Wenn fertig: <strong>Aufnahme stoppen</strong> klicken. Die Datei erscheint im Ausgabeordner</li>`,
+                'obs-note': 'Keine Szenen oder Streaming-Setup nötig. Die Audio-Pegelanzeige unten in OBS ist alles, was ihr braucht.',
+                'h2-craig': 'Methode 2: Craig Bot (nur Discord-Server-Sprachkanäle)',
+                'craig-p1': 'Craig nimmt jeden Teilnehmer in einem Discord-Sprachkanal auf einer eigenen Spur auf — nützlich, wenn ihr Sprecher einzeln schneiden wollt. Funktioniert nur in Server-Sprachkanälen, nicht bei Direktanrufen.',
+                'craig-steps': `<li>Geht auf <strong>craig.horse</strong> und klickt auf „Add to Discord"</li>
+<li>Wählt euren Server aus der Liste und autorisiert Craig</li>
+<li>Tretet einem Sprachkanal auf eurem Discord-Server bei</li>
+<li>Schreibt in einem beliebigen Textkanal <strong>/join</strong> — Craig tritt eurem Kanal bei und postet einen Download-Link. Speichert ihn</li>
+<li>Nehmt eure Session ganz normal auf</li>
+<li>Wenn fertig: <strong>/stop</strong> eingeben. Craig verlässt den Kanal</li>
+<li>Nutzt den Link aus Schritt 4 (oder Craigs Direktnachricht) zum Herunterladen. Ihr bekommt eine separate Audiodatei pro Sprecher</li>`,
+                'craig-note': '<strong>Hinweis:</strong> Craig funktioniert nicht mit Discord-Direktanrufen (nur Server-Sprachkanäle) und hat keine Unterstützung für WhatsApp, Viber oder Telegram.',
+                'h2-mono': 'Methode 3: Mono (alle vier Apps, kein Setup vor jedem Anruf)',
+                'mono-p1': 'Mono nimmt System-Audio direkt vom Audioausgang des Computers auf. Es tritt keinem Anruf als Teilnehmer bei — für alle anderen unsichtbar. Funktioniert mit Discord, WhatsApp Desktop, Viber und Telegram Desktop ohne per-App- oder per-Anruf-Konfiguration. Transkription und Sprechererkennung laufen lokal auf eurem Gerät mit Whisper.',
+                'mono-steps': `<li>Ladet Mono herunter und installiert es</li>
+<li>Öffnet Mono, klickt auf <strong>Aufnehmen</strong></li>
+<li>Startet euren Anruf in der gewünschten App — Discord, WhatsApp, Viber oder Telegram</li>
+<li>Redet normal. Mono erfasst alles, was euer Computer ausgibt</li>
+<li>Wenn fertig: <strong>Stopp</strong> klicken</li>
+<li>Mono transkribiert die Aufnahme lokal und zeigt eine durchsuchbare Abschrift mit Sprecherbeschriftung</li>`,
+                'mono-note': 'Die gleichen Schritte funktionieren für alle vier Apps. Kein Setup vor jedem Anruf. Der kostenlose Download erlaubt eine Testaufnahme; $50 schaltet alles frei.',
+                'h2-which': 'Welche Methode passt?',
+                decision: `<li><strong>Nur Discord-Server-Sprachkanäle?</strong> → Craig Bot (kostenlos, separate Sprecherspuren)</li>
+<li><strong>Kostenlos, Konfiguration kein Problem?</strong> → OBS Studio</li>
+<li><strong>Ihr nehmt WhatsApp, Viber oder Telegram auf?</strong> → OBS oder Mono</li>
+<li><strong>Mehrere Apps oder Transkription nötig?</strong> → Mono</li>`,
                 'cta-title': 'Mono kostenlos testen',
                 'cta-sub': 'Eine Testaufnahme, kein Account nötig. $50 für alles — alle vier Apps, lokale KI, kein Abo.',
                 'cta-buy': 'Mono kaufen — $50',
@@ -892,35 +1023,50 @@
                 title: '如何在电脑上录制Discord、WhatsApp、Viber或Telegram通话',
                 meta: '2026年2月21日 · 阅读约6分钟 · 作者：Daniil Lefanov',
                 disclosure: '说明：Mono 是我们自己的产品。我们将其纳入本文并尽力保持客观，但请知悉我们并非中立方。',
-                intro: '如果你想在桌面端录制Discord、WhatsApp、Viber或Telegram的通话，你大概已经发现了问题：这些应用都没有"录音"按钮。与Zoom或Teams不同——它们至少提供原生录制功能——即时通讯应用在设计上将语音通话视为临时的、无需存档的。但如果你需要录制采访、社群会议、客户通话或任何需要回溯的内容，这就成了问题。本文介绍哪些方案真正有效、哪些过于繁琐，以及如果你经常跨多个应用录音该如何选择。',
+                intro: 'Discord、WhatsApp、Viber和Telegram有一个共同点：它们都没有语音通话录音按钮。本指南介绍三种在桌面端录制这些通话的方法——手把手教学，无需假设你的配置。',
                 'tldr-label': '快速总结',
-                'tldr-1': '<strong>快速，仅Discord：</strong>Craig Bot — 免费，按说话人分轨，无需桌面配置',
-                'tldr-2': '<strong>四款应用均免费：</strong>OBS Studio — 功能强大，但每次通话前需要配置',
-                'tldr-3': '<strong>四款应用，无需配置，含转录：</strong>Mono — 一次性$50，本地录制系统音频',
+                'tldr-1': '<strong>快速，仅Discord：</strong>Craig Bot — 免费，按说话人分轨，仅支持服务器语音频道',
+                'tldr-2': '<strong>四款应用均免费：</strong>OBS Studio — 录制系统音频，约5分钟配置',
+                'tldr-3': '<strong>四款应用，无需每次配置，含转录：</strong>Mono — 一次性$50',
                 'h2-quick': '快速对比',
                 'th-tool': '工具', 'th-works': '支持平台', 'th-bot': '机器人可见?', 'th-free': '免费?',
                 tbody: `<tr><td>OBS Studio</td><td>全部四款</td><td>否</td><td>是</td></tr>
 <tr><td>Craig Bot</td><td>仅Discord</td><td>是</td><td>免费套餐</td></tr>
 <tr class="mono-row"><td>Mono</td><td>全部四款</td><td>否</td><td>$50一次性</td></tr>`,
-                'h2-obs': 'OBS Studio',
-                'obs-p1': 'OBS是一款免费开源的录制和直播工具，最初为游戏玩家和内容创作者而设计。它可以捕获系统音频——任何通过扬声器或耳机播放的声音——因此理论上可以录制任何桌面应用的通话，包括这四款应用。',
-                'obs-p2': '问题在于：OBS是为主播和视频制作者设计的，而不是为需要快速录制通话的人。正确配置意味着设置音频源、选择输出格式，并在每次通话前手动启动。没有转录，没有说话人标注，没有搜索功能。如果你已经在用OBS做其他事情，这是个合理选择。但如果你专门为了录制一次WhatsApp通话而安装它，那就大材小用了。',
-                'obs-p3': '<strong>适合：</strong>已经在使用OBS进行直播或其他工作、希望一个工具搞定所有需求的用户。',
-                'h2-craig': 'Craig Bot（仅Discord）',
-                'craig-p1': 'Craig是一个专为录制Discord语音频道而设计的机器人。你只需邀请它加入你的服务器，让它进入一个频道，它就会为每位参与者分别录制一条独立音轨——对播客、社群活动或任何需要后期单独编辑各位发言者的场景非常实用。',
-                'craig-p2': '限制同样明显：Craig只支持Discord语音频道，不支持私人通话。频道内所有人都能看到这个机器人。录音在Craig的服务器上处理，通过网页链接下载。免费套餐对录音时长和文件保留时间有限制。而如果你的通话不在Discord上，Craig完全帮不上忙。',
-                'craig-p3': '<strong>适合：</strong>希望按说话人分轨、不介意机器人出现的Discord社群、播客制作者和游戏玩家群体。',
-                'h2-mono': 'Mono',
-                'mono-p1': 'Mono采用了与上述工具完全不同的方式。它不是向频道添加机器人，也不是运行完整的制作套件，而是直接从电脑音频输出录制音频——无声无息，不以任何形式加入通话或频道。由于它在系统层面捕获音频，Discord、WhatsApp桌面版、Viber和Telegram桌面版的录制方式完全相同。无需针对每款应用配置，无需在每次通话前做准备。只要你的电脑发出声音，Mono就能录制它。',
-                'mono-p2': '通话结束后，你将获得本地音频文件、AI转录、说话人识别以及语义搜索——全部通过Whisper在本地设备上处理。你的录音永远不会离开你的电脑，也没有云端账号需要管理。',
-                'mono-p3': '价格是一次性$50，无订阅费、无月费、无按分钟计费。',
-                'mono-p4': '<strong>适合：</strong>跨多个应用录制、需要转录功能、或不希望在每次通话前进行任何配置的用户。',
+                'h2-obs': '方法一：OBS Studio（免费，四款应用均支持）',
+                'obs-p1': 'OBS Studio是一款免费开源录制工具。以下是最简配置——不需要场景、直播设置或视频相关内容，只需配置音频捕获。',
+                'obs-steps': `<li>从obsproject.com下载并安装<strong>OBS Studio</strong></li>
+<li>打开<strong>设置 → 输出 → 录制</strong>，设置录制路径，选择<strong>MKV</strong>或<strong>MP4</strong>格式</li>
+<li>打开<strong>设置 → 音频</strong>，将<strong>桌面音频</strong>设置为你的播放设备（耳机或扬声器）。如需同时录制自己的声音，在麦克风/辅助中添加麦克风</li>
+<li>关闭设置。在OBS主界面底部查看桌面音频电平表。播放任意声音——电平应有变化。若无变化，右键电平表 → <strong>属性</strong>，选择正确设备</li>
+<li>通话前：点击<strong>开始录制</strong></li>
+<li>正常在Discord、WhatsApp桌面版、Viber或Telegram桌面版中进行通话</li>
+<li>结束后：点击<strong>停止录制</strong>，文件保存到输出文件夹</li>`,
+                'obs-note': '无需场景或直播配置。OBS底部的音频电平表就是你需要的全部。',
+                'h2-craig': '方法二：Craig Bot（仅支持Discord服务器语音频道）',
+                'craig-p1': 'Craig将语音频道中的每个人录制到独立音轨——适合后期需要单独编辑各位发言者的场景。仅支持服务器语音频道，不支持私人通话。',
+                'craig-steps': `<li>访问<strong>craig.horse</strong>，点击"Add to Discord"</li>
+<li>从下拉菜单选择你的服务器并授权Craig</li>
+<li>加入Discord服务器中的一个语音频道</li>
+<li>在任意文字频道输入<strong>/join</strong>——Craig将加入你的语音频道，并在聊天中发布下载链接。请保存好</li>
+<li>正常进行录制</li>
+<li>结束后输入<strong>/stop</strong>，Craig退出频道</li>
+<li>使用第4步的链接（或Craig私信给你的链接）下载录音。每位说话人对应一个独立音频文件</li>`,
+                'craig-note': '<strong>注意：</strong>Craig不支持Discord私人通话（仅限服务器语音频道），也不支持WhatsApp、Viber或Telegram。',
+                'h2-mono': '方法三：Mono（四款应用均支持，无需每次配置）',
+                'mono-p1': 'Mono直接从电脑音频输出录制系统音频。它不以参与者身份加入任何通话——对其他人完全不可见。无需针对每款应用或每次通话配置，即可支持Discord、WhatsApp桌面版、Viber和Telegram桌面版。转录和说话人识别通过Whisper在本地设备上运行。',
+                'mono-steps': `<li>下载并安装Mono</li>
+<li>打开Mono，点击<strong>录制</strong></li>
+<li>在任意应用中开始通话——Discord、WhatsApp、Viber或Telegram均可</li>
+<li>正常通话。Mono自动捕获电脑播放的所有声音</li>
+<li>结束后点击<strong>停止</strong></li>
+<li>Mono在本地完成转录，并显示带有说话人标注的可搜索文字记录</li>`,
+                'mono-note': '四款应用均使用相同步骤。无需在每次通话前进行任何配置。免费下载可试录一次；$50解锁所有功能。',
                 'h2-which': '如何选择？',
-                decision: `<li><strong>免费且只用Discord？</strong> → Craig Bot</li>
-<li><strong>已经在用OBS做其他事情？</strong> → OBS Studio</li>
-<li><strong>需要录制WhatsApp、Viber或Telegram？</strong> → OBS（免费）或Mono</li>
-<li><strong>经常跨多个应用录制？</strong> → Mono</li>
-<li><strong>需要在录音基础上加转录和搜索功能？</strong> → Mono</li>`,
+                decision: `<li><strong>只使用Discord服务器语音频道？</strong> → Craig Bot（免费，按说话人分轨）</li>
+<li><strong>需要免费且不介意配置？</strong> → OBS Studio</li>
+<li><strong>需要录制WhatsApp、Viber或Telegram？</strong> → OBS或Mono</li>
+<li><strong>跨多个应用录制或需要转录功能？</strong> → Mono</li>`,
                 'cta-title': '免费试用Mono',
                 'cta-sub': '可试录一次，无需注册账号。解锁全部功能——四款应用、本地AI、无订阅——只需$50。',
                 'cta-buy': '购买Mono — $50',
@@ -933,35 +1079,50 @@
                 title: 'Как записать звонки в Discord, WhatsApp, Viber или Telegram на компьютере',
                 meta: '21 февраля 2026 · 6 мин чтения · Даниил Лефанов',
                 disclosure: 'Примечание: Mono — наш собственный продукт. Мы включили его в это руководство и постарались быть объективными, но имейте в виду, что мы в нём заинтересованы.',
-                intro: 'Если вы хотите записывать звонки в Discord, WhatsApp, Viber или Telegram на десктопе, вы уже столкнулись с одной и той же проблемой: ни в одном из этих приложений нет кнопки «Записать». В отличие от Zoom или Teams — где хотя бы есть встроенная запись — мессенджеры по умолчанию относятся к голосовым звонкам как к чему-то временному и не требующему архивирования. Это проблема, если вы записываете интервью, сессии сообщества, разговоры с клиентами или что угодно, к чему нужно возвращаться. В этом руководстве — что реально работает, что избыточно и что выбрать, если вы регулярно записываете в нескольких из этих приложений.',
+                intro: 'У Discord, WhatsApp, Viber и Telegram есть кое-что общее: ни в одном из них нет кнопки «Записать» для голосовых звонков. Это руководство показывает три способа записать такие звонки на десктопе — шаг за шагом, без каких-либо предположений о вашей настройке.',
                 'tldr-label': 'Вкратце',
-                'tldr-1': '<strong>Быстро, только Discord:</strong> Craig Bot — бесплатно, отдельные дорожки по спикерам, без настройки десктопа',
-                'tldr-2': '<strong>Бесплатно для всех четырёх:</strong> OBS Studio — мощно, но нужна настройка перед каждым звонком',
-                'tldr-3': '<strong>Все четыре, без настройки, с транскрипцией:</strong> Mono — $50 один раз, пишет системный звук локально',
+                'tldr-1': '<strong>Быстро, только Discord:</strong> Craig Bot — бесплатно, отдельные дорожки по спикерам, только голосовые каналы серверов',
+                'tldr-2': '<strong>Бесплатно для всех четырёх:</strong> OBS Studio — запись системного звука, ~5 минут настройки',
+                'tldr-3': '<strong>Все четыре, без настройки перед каждым звонком, с транскрипцией:</strong> Mono — $50 единожды',
                 'h2-quick': 'Быстрое сравнение',
                 'th-tool': 'Инструмент', 'th-works': 'Работает с', 'th-bot': 'Бот виден?', 'th-free': 'Бесплатно?',
                 tbody: `<tr><td>OBS Studio</td><td>Все четыре</td><td>Нет</td><td>Да</td></tr>
 <tr><td>Craig Bot</td><td>Только Discord</td><td>Да</td><td>Бесплатный тариф</td></tr>
 <tr class="mono-row"><td>Mono</td><td>Все четыре</td><td>Нет</td><td>$50 единожды</td></tr>`,
-                'h2-obs': 'OBS Studio',
-                'obs-p1': 'OBS — бесплатный open-source инструмент для записи и стриминга, изначально созданный для геймеров и контент-мейкеров. Он умеет захватывать системный звук — всё, что выходит через колонки или наушники — что технически позволяет ему записывать звонки из любого десктопного приложения, включая все четыре.',
-                'obs-p2': 'Проблема в том, что OBS создан для стримеров и видеопродюсеров, а не для тех, кому нужно просто записать звонок. Настроить его правильно — значит сконфигурировать источники звука, выбрать форматы вывода и запустить вручную перед каждой сессией. Никакой транскрипции, никаких меток спикеров, никакого поиска. Если вы уже используете OBS для других целей — разумный выбор, интерфейс знаком. Если вы устанавливаете его специально ради одного звонка в WhatsApp — это слишком много инструмента для простой задачи.',
-                'obs-p3': '<strong>Подойдёт:</strong> тем, кто уже использует OBS для стриминга или другой работы и хочет один инструмент для всего.',
-                'h2-craig': 'Craig Bot (только Discord)',
-                'craig-p1': 'Craig — Discord-бот, созданный специально для записи голосовых каналов. Вы один раз приглашаете его на сервер, просите зайти в канал, и он записывает каждого участника на отдельную аудиодорожку — это реально полезно для подкастов, мероприятий сообщества или ситуаций, когда потом нужно резать отдельных спикеров.',
-                'craig-p2': 'Ограничения настоящие: Craig работает только с голосовыми каналами Discord, а не с личными звонками. Все участники видят бота в списке. Записи обрабатываются на серверах Craig и скачиваются по веб-ссылке. Бесплатный тариф ограничивает длину записи и срок хранения файлов. И если ваши звонки не в Discord — Craig никак не поможет.',
-                'craig-p3': '<strong>Подойдёт:</strong> Discord-сообществам, подкастерам и игровым группам, которым нужны отдельные дорожки по спикерам и которые не против видимого бота.',
-                'h2-mono': 'Mono',
-                'mono-p1': 'Mono работает принципиально иначе. Вместо того чтобы добавлять бота в канал или запускать целую продакшн-сюиту, он пишет звук напрямую с аудиовыхода компьютера — незаметно, не заходя ни в какой звонок или канал как участник. Поскольку захват происходит на системном уровне, Discord, WhatsApp Desktop, Viber и Telegram Desktop работают абсолютно одинаково. Никакой настройки под каждое приложение. Никакой подготовки перед каждым звонком. Если ваш компьютер воспроизводит звук — Mono может его записать.',
-                'mono-p2': 'После звонка вы получаете локальный аудиофайл, ИИ-транскрипцию, определение говорящих и семантический поиск — всё обрабатывается на вашем устройстве с помощью Whisper. Ваш звук никогда не покидает компьютер, облачных аккаунтов нет.',
-                'mono-p3': 'Цена — разовые $50. Без подписки, без ежемесячной оплаты, без тарификации по минутам.',
-                'mono-p4': '<strong>Подойдёт:</strong> тем, кто записывает из нескольких приложений, нуждается в транскрипции или не хочет ничего настраивать перед каждым звонком.',
-                'h2-which': 'Что выбрать?',
-                decision: `<li><strong>Бесплатно и только Discord?</strong> → Craig Bot</li>
-<li><strong>Уже используете OBS для других целей?</strong> → OBS Studio</li>
-<li><strong>Нужно записать WhatsApp, Viber или Telegram?</strong> → OBS (бесплатно) или Mono</li>
-<li><strong>Регулярно записываете из нескольких приложений?</strong> → Mono</li>
-<li><strong>Нужна транскрипция и поиск в дополнение к записи?</strong> → Mono</li>`,
+                'h2-obs': 'Способ 1: OBS Studio (бесплатно, все четыре приложения)',
+                'obs-p1': 'OBS Studio — бесплатный open-source рекордер. Ниже минимальная настройка — сцены, стриминг и видео не нужны. Только захват звука.',
+                'obs-steps': `<li>Скачайте и установите <strong>OBS Studio</strong> с obsproject.com</li>
+<li>Откройте <strong>Настройки → Вывод → Запись</strong>. Выберите папку сохранения и формат <strong>MKV</strong> или <strong>MP4</strong></li>
+<li>Откройте <strong>Настройки → Звук</strong>. Укажите в поле <strong>Звук рабочего стола</strong> ваш воспроизводящий девайс (наушники или колонки). При желании добавьте микрофон в Микрофон/Вспомогательный</li>
+<li>Закройте настройки. В главном окне OBS найдите индикатор уровня «Звук рабочего стола» внизу. Включите любой звук — индикатор должен шевелиться. Если нет: правый клик по индикатору → <strong>Свойства</strong>, выберите нужное устройство</li>
+<li>Перед звонком: нажмите <strong>Начать запись</strong></li>
+<li>Звоните в Discord, WhatsApp Desktop, Viber или Telegram Desktop как обычно</li>
+<li>Когда закончите: нажмите <strong>Остановить запись</strong>. Файл появится в папке вывода</li>`,
+                'obs-note': 'Сцены и настройки стрима не нужны. Индикатор звука в нижней части OBS — это всё, что вы используете.',
+                'h2-craig': 'Способ 2: Craig Bot (только голосовые каналы серверов Discord)',
+                'craig-p1': 'Craig записывает каждого участника голосового канала Discord на отдельную дорожку — удобно для подкастов и сессий, где нужно резать отдельных спикеров. Работает только в голосовых каналах серверов, не в личных звонках.',
+                'craig-steps': `<li>Перейдите на <strong>craig.horse</strong> и нажмите «Add to Discord»</li>
+<li>Выберите свой сервер из списка и авторизуйте Craig</li>
+<li>Зайдите в голосовой канал на вашем Discord-сервере</li>
+<li>В любом текстовом канале напишите <strong>/join</strong> — Craig присоединится к вашему каналу и опубликует ссылку для скачивания. Сохраните её</li>
+<li>Проводите сессию как обычно</li>
+<li>Когда закончите, напишите <strong>/stop</strong>. Craig покинет канал</li>
+<li>Используйте ссылку из шага 4 (или личное сообщение от Craig) для скачивания. Вы получите отдельный файл для каждого спикера</li>`,
+                'craig-note': '<strong>Ограничение:</strong> Craig не работает с личными звонками Discord (только голосовые каналы серверов) и не поддерживает WhatsApp, Viber и Telegram.',
+                'h2-mono': 'Способ 3: Mono (все четыре приложения, без настройки перед каждым звонком)',
+                'mono-p1': 'Mono пишет системный звук напрямую с аудиовыхода компьютера. Оно не присоединяется к звонку как участник — полностью невидимо для остальных. Работает с Discord, WhatsApp Desktop, Viber и Telegram Desktop без какой-либо настройки под приложение или звонок. Транскрипция и определение спикеров выполняются локально с помощью Whisper.',
+                'mono-steps': `<li>Скачайте и установите Mono</li>
+<li>Откройте Mono, нажмите <strong>Запись</strong></li>
+<li>Начните звонок в нужном приложении — Discord, WhatsApp, Viber или Telegram</li>
+<li>Говорите как обычно. Mono захватывает всё, что воспроизводит ваш компьютер</li>
+<li>Когда закончите, нажмите <strong>Стоп</strong></li>
+<li>Mono транскрибирует запись локально и показывает доступный для поиска транскрипт с метками спикеров</li>`,
+                'mono-note': 'Одни и те же шаги работают для всех четырёх приложений. Никакой настройки перед каждым звонком. Бесплатная версия позволяет сделать одну запись; $50 разблокирует всё.',
+                'h2-which': 'Какой способ выбрать?',
+                decision: `<li><strong>Только голосовые каналы Discord-серверов?</strong> → Craig Bot (бесплатно, отдельные дорожки по спикерам)</li>
+<li><strong>Нужно бесплатно, настройка не пугает?</strong> → OBS Studio</li>
+<li><strong>Записываете WhatsApp, Viber или Telegram?</strong> → OBS или Mono</li>
+<li><strong>Несколько приложений или нужна транскрипция?</strong> → Mono</li>`,
                 'cta-title': 'Попробуйте Mono бесплатно',
                 'cta-sub': 'Одна тестовая запись, без аккаунта. $50 — чтобы разблокировать всё: все четыре приложения, локальный ИИ, без подписки.',
                 'cta-buy': 'Купить Mono — $50',

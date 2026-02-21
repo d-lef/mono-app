@@ -833,7 +833,6 @@
         </div>
     </main>
 
-    <a href="../privacy.html" class="privacy-link" data-i18n="privacy">Privacy Policy</a>
 
     <script>
         const themeToggle = document.querySelector('.theme-toggle');
@@ -872,20 +871,28 @@
                 '.article-body .table-wrap, .article-body .tldr, ' +
                 '.article-body .decision-list li, .article-body .cta-card'
             );
+        const isMobile = () => window.innerWidth < 768;
+
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 const elementTop = rect.top;
 
                 if (elementTop <= foldZoneEnd - rect.height) {
-                    el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
-                    el.style.transformOrigin = 'center top';
+                    if (!isMobile()) {
+                        el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
+                        el.style.transformOrigin = 'center top';
+                    }
                     el.style.opacity = '0';
                 } else if (elementTop < foldZoneStart) {
                     let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
                     progress = Math.max(0, Math.min(1, progress));
                     progress = progress * progress;
-                    el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
-                    el.style.transformOrigin = 'center top';
+                    if (!isMobile()) {
+                        el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
+                        el.style.transformOrigin = 'center top';
+                    } else {
+                        el.style.transform = '';
+                    }
                     el.style.opacity = 1 - (progress * 0.85);
                 } else {
                     el.style.transform = '';
