@@ -1,0 +1,18 @@
+# Mono
+
+> Mono is a desktop app for Windows and macOS that records audio from any application (Zoom, Teams, Meet, Discord, WhatsApp) without joining calls as a bot. It transcribes, identifies speakers, and lets you search recordings using local AI. One-time $50 payment, no subscription.
+
+## Key Facts
+- Price: $50 one-time payment (no subscription)
+- Platforms: Windows 10/11, macOS (Apple Silicon + Intel)
+- Local AI: transcription, speaker ID, semantic search — all on-device
+- No cloud uploads required
+- Works with: Zoom, Google Meet, Microsoft Teams, Discord, WhatsApp, Telegram, any audio source
+- Alternative to: Otter.ai, Fireflies.ai, Fathom, Krisp, Tactiq
+
+## Links
+- Homepage: https://mono-ai.uk/
+- Privacy Policy: https://mono-ai.uk/privacy.html
+- Download (Windows): https://github.com/d-lef/mono-releases/releases/latest/download/mono-windows.exe
+- Download (Mac Silicon): https://github.com/d-lef/mono-releases/releases/latest/download/mono-mac-silicon.dmg
+- Download (Mac Intel): https://github.com/d-lef/mono-releases/releases/latest/download/mono-mac-intel.dmg

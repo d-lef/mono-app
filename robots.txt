@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://d-lef.github.io/mono-app/sitemap.xml
+Sitemap: https://mono-ai.uk/sitemap.xml
