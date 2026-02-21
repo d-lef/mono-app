@@ -1262,8 +1262,11 @@
             }
         }
 
-        // Set initial state on load
+        // Set initial state on load; jump to buy screen if #buy hash present
         document.fonts.ready.then(() => {
+            if (window.location.hash === '#buy') {
+                currentState = 5;
+            }
             updateVisibility();
         });
 
