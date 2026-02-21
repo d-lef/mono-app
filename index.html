@@ -1262,14 +1262,11 @@
             }
         }
 
-        // Jump to buy screen if arriving from blog CTA
-        if (sessionStorage.getItem('goto') === 'buy') {
-            sessionStorage.removeItem('goto');
-            currentState = 5;
-        }
-
-        // Set initial state on load
+        // Set initial state on load; jump to buy screen if ?buy param present
         document.fonts.ready.then(() => {
+            if (location.search.includes('buy')) {
+                currentState = 5;
+            }
             updateVisibility();
         });
 
