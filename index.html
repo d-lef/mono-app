@@ -1262,8 +1262,9 @@
             }
         }
 
-        // Jump to buy screen if #buy hash present (check immediately, synchronously)
-        if (window.location.hash === '#buy') {
+        // Jump to buy screen if arriving from blog CTA
+        if (sessionStorage.getItem('goto') === 'buy') {
+            sessionStorage.removeItem('goto');
             currentState = 5;
         }
 
