@@ -507,6 +507,7 @@
         .article-body h2,
         .article-body h3,
         .article-body .table-wrap,
+        .article-body .tldr,
         .article-body .decision-list li,
         .article-body .cta-card {
             transition: transform 0.05s linear, opacity 0.05s linear;
@@ -809,8 +810,8 @@
             const elements = document.querySelectorAll(
                 '.article-wrap .back-link, .article-wrap header, ' +
                 '.article-body p, .article-body h2, .article-body h3, ' +
-                '.article-body .table-wrap, .article-body .decision-list li, ' +
-                '.article-body .cta-card'
+                '.article-body .table-wrap, .article-body .tldr, ' +
+                '.article-body .decision-list li, .article-body .cta-card'
             );
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
