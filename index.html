@@ -1262,11 +1262,13 @@
             }
         }
 
-        // Set initial state on load; jump to buy screen if #buy hash present
+        // Jump to buy screen if #buy hash present (check immediately, synchronously)
+        if (window.location.hash === '#buy') {
+            currentState = 5;
+        }
+
+        // Set initial state on load
         document.fonts.ready.then(() => {
-            if (window.location.hash === '#buy') {
-                currentState = 5;
-            }
             updateVisibility();
         });
 
