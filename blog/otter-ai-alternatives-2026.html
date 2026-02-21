@@ -76,6 +76,12 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
         }
 
         body {
@@ -87,6 +93,24 @@
             user-select: text;
             -webkit-user-select: text;
             min-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        body.fonts-loaded {
+            opacity: 1;
+        }
+
+        /* Top fade gradient */
+        .top-fade {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-primary) 30%, transparent 100%);
+            pointer-events: none;
+            z-index: 99;
         }
 
         /* Nav buttons base */
@@ -421,6 +445,18 @@
             }
         }
 
+        /* 3D fold effect */
+        .article-wrap .back-link,
+        .article-wrap header,
+        .article-body p,
+        .article-body h2,
+        .article-body h3,
+        .article-body .table-wrap,
+        .article-body .decision-list li,
+        .article-body .cta-card {
+            transition: transform 0.05s linear, opacity 0.05s linear;
+        }
+
         /* Privacy link */
         .privacy-link {
             position: fixed;
@@ -442,6 +478,7 @@
     </style>
 </head>
 <body>
+    <div class="top-fade"></div>
 
     <!-- Theme toggle -->
     <button class="nav-btn theme-toggle" aria-label="Toggle theme">
@@ -627,6 +664,48 @@
                 root.classList.add('light');
             }
         });
+
+        // Fade in on font load
+        document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
+        });
+
+        // 3D fold effect on scroll
+        const foldZoneStart = 140;
+        const foldZoneEnd = 60;
+        const maxRotation = 25;
+
+        function updateFoldEffect() {
+            const elements = document.querySelectorAll(
+                '.article-wrap .back-link, .article-wrap header, ' +
+                '.article-body p, .article-body h2, .article-body h3, ' +
+                '.article-body .table-wrap, .article-body .decision-list li, ' +
+                '.article-body .cta-card'
+            );
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const elementTop = rect.top;
+
+                if (elementTop <= foldZoneEnd - rect.height) {
+                    el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
+                    el.style.transformOrigin = 'center top';
+                    el.style.opacity = '0';
+                } else if (elementTop < foldZoneStart) {
+                    let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
+                    progress = Math.max(0, Math.min(1, progress));
+                    progress = progress * progress;
+                    el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
+                    el.style.transformOrigin = 'center top';
+                    el.style.opacity = 1 - (progress * 0.85);
+                } else {
+                    el.style.transform = '';
+                    el.style.opacity = '';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateFoldEffect, { passive: true });
+        updateFoldEffect();
     </script>
 </body>
 </html>
