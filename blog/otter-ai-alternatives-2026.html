@@ -235,6 +235,55 @@
             text-transform: uppercase;
         }
 
+        /* Language selector dropdown */
+        .lang-selector {
+            position: fixed;
+            top: 20px;
+            left: calc(50% + 88px);
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+        .lang-selector .nav-btn {
+            position: relative;
+            left: auto;
+            top: auto;
+            transform: none;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .lang-selector.open .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lang-option {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 13px;
+            color: var(--text-primary);
+            text-align: left;
+            white-space: nowrap;
+        }
+        .lang-option:hover { background-color: var(--bg-hover); }
+        .lang-option.active { color: var(--text-secondary); }
+
         /* Article layout */
         .article-wrap {
             max-width: 720px;
@@ -624,8 +673,18 @@
         </svg>
     </a>
 
-    <!-- Language selector (decorative) -->
-    <button class="nav-btn lang-btn" aria-label="Language">EN</button>
+    <!-- Language selector -->
+    <div class="lang-selector">
+        <button class="nav-btn lang-btn" aria-label="Select language">EN</button>
+        <div class="lang-dropdown">
+            <button class="lang-option active" data-lang="en">English</button>
+            <button class="lang-option" data-lang="es">Español</button>
+            <button class="lang-option" data-lang="fr">Français</button>
+            <button class="lang-option" data-lang="de">Deutsch</button>
+            <button class="lang-option" data-lang="zh">中文</button>
+            <button class="lang-option" data-lang="ru">Русский</button>
+        </div>
+    </div>
 
     <!-- Article -->
     <main class="article-wrap">
@@ -633,40 +692,40 @@
         <a href="./" class="back-link">← blog</a>
 
         <header>
-            <span class="article-category">[Comparison]</span>
-            <h1 class="article-title">Otter.ai Alternatives in 2026: Which Meeting Recorder Actually Works?</h1>
-            <p class="article-meta">Feb 21, 2026 · 8 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure">Disclosure: Mono is our own product. We've included it in this comparison and tried to be fair, but you should know we have a stake in it.</p>
+            <span class="article-category" data-i18n="category">[Comparison]</span>
+            <h1 class="article-title" data-i18n="title">Otter.ai Alternatives in 2026: Which Meeting Recorder Actually Works?</h1>
+            <p class="article-meta" data-i18n="meta">Feb 21, 2026 · 8 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our own product. We've included it in this comparison and tried to be fair, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
 
-            <p>If you're looking for Otter.ai alternatives in 2026, the market has genuinely good options — but they're not all the same. Otter.ai is the name everyone knows, yet bots that join your calls visibly, audio uploaded to the cloud, and monthly fees that compound fast are all reasons people look elsewhere. This guide covers Otter.ai itself plus the five strongest alternatives, with honest takes on price, privacy, and what each tool actually does well.</p>
+            <p data-i18n="intro">If you're looking for Otter.ai alternatives in 2026, the market has genuinely good options — but they're not all the same. Otter.ai is the name everyone knows, yet bots that join your calls visibly, audio uploaded to the cloud, and monthly fees that compound fast are all reasons people look elsewhere. This guide covers Otter.ai itself plus the five strongest alternatives, with honest takes on price, privacy, and what each tool actually does well.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr-label">TL;DR</p>
                 <ul>
-                    <li><strong>Best free:</strong> Fathom — unlimited recordings, no credit card needed</li>
-                    <li><strong>Best for teams:</strong> Fireflies.ai — CRM integrations, shared workspace</li>
-                    <li><strong>Best privacy / any app / no subscription:</strong> Mono — $50 once, local AI, no cloud</li>
-                    <li><strong>Browser-only / lightweight:</strong> Tactiq — $12/mo, Chrome extension</li>
+                    <li data-i18n="tldr-1"><strong>Best free:</strong> Fathom — unlimited recordings, no credit card needed</li>
+                    <li data-i18n="tldr-2"><strong>Best for teams:</strong> Fireflies.ai — CRM integrations, shared workspace</li>
+                    <li data-i18n="tldr-3"><strong>Best privacy / any app / no subscription:</strong> Mono — $50 once, local AI, no cloud</li>
+                    <li data-i18n="tldr-4"><strong>Browser-only / lightweight:</strong> Tactiq — $12/mo, Chrome extension</li>
                 </ul>
             </div>
 
-            <h2>Quick comparison</h2>
+            <h2 data-i18n="h2-quick">Quick comparison</h2>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Tool</th>
-                            <th>Price</th>
-                            <th>Bot?</th>
-                            <th>Cloud?</th>
-                            <th>Works with</th>
+                            <th data-i18n="th-tool">Tool</th>
+                            <th data-i18n="th-price">Price</th>
+                            <th data-i18n="th-bot">Bot?</th>
+                            <th data-i18n="th-cloud">Cloud?</th>
+                            <th data-i18n="th-works">Works with</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody data-i18n="tbody">
                         <tr>
                             <td>Otter.ai</td>
                             <td>Free / $16.99/mo</td>
@@ -713,47 +772,47 @@
                 </table>
             </div>
 
-            <h2>Otter.ai</h2>
+            <h2 data-i18n="h2-otter">Otter.ai</h2>
 
-            <p>Otter.ai is the category-defining tool — transcription is accurate, the UI is polished, and the free tier gives you 300 minutes per month. The problems: every call gets a visible bot that other participants can see, all audio is processed in the cloud, and the Pro plan runs $16.99 per user per month. If any of those are dealbreakers, that's exactly why you're reading this.</p>
+            <p data-i18n="otter-p1">Otter.ai is the category-defining tool — transcription is accurate, the UI is polished, and the free tier gives you 300 minutes per month. The problems: every call gets a visible bot that other participants can see, all audio is processed in the cloud, and the Pro plan runs $16.99 per user per month. If any of those are dealbreakers, that's exactly why you're reading this.</p>
 
-            <p><strong>Best for:</strong> people who primarily use Zoom or Google Meet, don't mind the bot, and want a polished product with a mobile app.</p>
+            <p data-i18n="otter-p2"><strong>Best for:</strong> people who primarily use Zoom or Google Meet, don't mind the bot, and want a polished product with a mobile app.</p>
 
-            <h2>Fireflies.ai</h2>
+            <h2 data-i18n="h2-fireflies">Fireflies.ai</h2>
 
-            <p>One of the most feature-rich options in this space. Fireflies joins your Zoom or Google Meet as a visible bot, records both sides, and gives you a transcript plus AI summaries. The free tier is very limited — you get 800 minutes of storage and AI features require a paid plan. At $10–19 per user per month, costs stack up for teams.</p>
+            <p data-i18n="fireflies-p1">One of the most feature-rich options in this space. Fireflies joins your Zoom or Google Meet as a visible bot, records both sides, and gives you a transcript plus AI summaries. The free tier is very limited — you get 800 minutes of storage and AI features require a paid plan. At $10–19 per user per month, costs stack up for teams.</p>
 
-            <p><strong>Best for:</strong> sales teams who want CRM integration and team-level access.</p>
+            <p data-i18n="fireflies-p2"><strong>Best for:</strong> sales teams who want CRM integration and team-level access.</p>
 
-            <h2>Fathom</h2>
+            <h2 data-i18n="h2-fathom">Fathom</h2>
 
-            <p>Fathom is arguably the best free meeting recorder available right now. The free tier is genuinely useful — unlimited recordings, automatic summaries, and solid Zoom support. The paid plan ($29/mo) adds CRM sync and team features. Like Fireflies, it joins as a bot, so everyone in the call can see it.</p>
+            <p data-i18n="fathom-p1">Fathom is arguably the best free meeting recorder available right now. The free tier is genuinely useful — unlimited recordings, automatic summaries, and solid Zoom support. The paid plan ($29/mo) adds CRM sync and team features. Like Fireflies, it joins as a bot, so everyone in the call can see it.</p>
 
-            <p><strong>Best for:</strong> individuals on a budget who primarily use Zoom and don't mind the bot.</p>
+            <p data-i18n="fathom-p2"><strong>Best for:</strong> individuals on a budget who primarily use Zoom and don't mind the bot.</p>
 
-            <h2>Krisp</h2>
+            <h2 data-i18n="h2-krisp">Krisp</h2>
 
-            <p>Krisp is primarily a noise-cancellation tool that added meeting recording as a secondary feature. It works as a virtual audio device rather than a bot, so it doesn't join calls visibly — but transcription and notes are processed in the cloud. At $16/month it's mid-priced.</p>
+            <p data-i18n="krisp-p1">Krisp is primarily a noise-cancellation tool that added meeting recording as a secondary feature. It works as a virtual audio device rather than a bot, so it doesn't join calls visibly — but transcription and notes are processed in the cloud. At $16/month it's mid-priced.</p>
 
-            <p><strong>Best for:</strong> people who need noise suppression and want basic transcription as a bonus.</p>
+            <p data-i18n="krisp-p2"><strong>Best for:</strong> people who need noise suppression and want basic transcription as a bonus.</p>
 
-            <h2>Tactiq</h2>
+            <h2 data-i18n="h2-tactiq">Tactiq</h2>
 
-            <p>Tactiq is a Chrome extension that captures captions from Google Meet, Zoom Web, and Teams Web — it doesn't record audio at all. It reads the auto-generated captions on-screen and compiles them into a transcript. This means it's limited to browser-based meetings and depends entirely on the quality of the platform's auto-captions. At $12/month it's affordable.</p>
+            <p data-i18n="tactiq-p1">Tactiq is a Chrome extension that captures captions from Google Meet, Zoom Web, and Teams Web — it doesn't record audio at all. It reads the auto-generated captions on-screen and compiles them into a transcript. This means it's limited to browser-based meetings and depends entirely on the quality of the platform's auto-captions. At $12/month it's affordable.</p>
 
-            <p><strong>Best for:</strong> people who only do browser-based meetings and want a lightweight, no-install option.</p>
+            <p data-i18n="tactiq-p2"><strong>Best for:</strong> people who only do browser-based meetings and want a lightweight, no-install option.</p>
 
-            <h2>Mono</h2>
+            <h2 data-i18n="h2-mono">Mono</h2>
 
-            <p>Mono takes a different approach. Instead of joining calls as a bot or depending on browser captions, it records audio directly from your computer's audio output — completely invisibly to other participants. Transcription, speaker identification, and search all happen locally on your device using Whisper. Your audio never leaves your computer.</p>
+            <p data-i18n="mono-p1">Mono takes a different approach. Instead of joining calls as a bot or depending on browser captions, it records audio directly from your computer's audio output — completely invisibly to other participants. Transcription, speaker identification, and search all happen locally on your device using Whisper. Your audio never leaves your computer.</p>
 
-            <p>The unusual pricing: $50 once, no subscription, works with every app that plays audio (Zoom, Teams, Meet, Discord, WhatsApp, Telegram, anything).</p>
+            <p data-i18n="mono-p2">The unusual pricing: $50 once, no subscription, works with every app that plays audio (Zoom, Teams, Meet, Discord, WhatsApp, Telegram, anything).</p>
 
-            <p><strong>Best for:</strong> people who care about privacy, record from multiple apps, or are tired of subscriptions.</p>
+            <p data-i18n="mono-p3"><strong>Best for:</strong> people who care about privacy, record from multiple apps, or are tired of subscriptions.</p>
 
-            <h2>Which should you choose?</h2>
+            <h2 data-i18n="h2-which">Which should you choose?</h2>
 
-            <ul class="decision-list">
+            <ul class="decision-list" data-i18n="decision">
                 <li><strong>Free and just need Zoom?</strong> → Fathom free tier</li>
                 <li><strong>Team with CRM needs?</strong> → Fireflies.ai</li>
                 <li><strong>Noise cancellation first?</strong> → Krisp</li>
@@ -762,19 +821,19 @@
             </ul>
 
             <div class="cta-card">
-                <p class="cta-title">Try Mono free</p>
-                <p class="cta-sub">One recording limit, no account needed. $50 to unlock everything.</p>
+                <p class="cta-title" data-i18n="cta-title">Try Mono free</p>
+                <p class="cta-sub" data-i18n="cta-sub">One recording limit, no account needed. $50 to unlock everything.</p>
                 <div class="cta-buttons">
                     <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
-                       class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
-                    <a href="../?buy" class="cta-btn-secondary">Download free</a>
+                       class="cta-btn-primary" data-i18n="cta-buy" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
+                    <a href="../?buy" class="cta-btn-secondary" data-i18n="cta-download">Download free</a>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <a href="../privacy.html" class="privacy-link">Privacy Policy</a>
+    <a href="../privacy.html" class="privacy-link" data-i18n="privacy">Privacy Policy</a>
 
     <script>
         const themeToggle = document.querySelector('.theme-toggle');
@@ -837,6 +896,347 @@
 
         window.addEventListener('scroll', updateFoldEffect, { passive: true });
         updateFoldEffect();
+
+        // ── Language switcher ──────────────────────────────────────────────────
+        const _langSel = document.querySelector('.lang-selector');
+        const _langBtn = document.querySelector('.lang-btn');
+        const _langOpts = document.querySelectorAll('.lang-option');
+
+        const _tr = {
+            en: {
+                code: 'EN',
+                category: '[Comparison]',
+                title: 'Otter.ai Alternatives in 2026: Which Meeting Recorder Actually Works?',
+                meta: 'Feb 21, 2026 · 8 min read · By Daniil Lefanov',
+                disclosure: 'Disclosure: Mono is our own product. We\'ve included it in this comparison and tried to be fair, but you should know we have a stake in it.',
+                intro: 'If you\'re looking for Otter.ai alternatives in 2026, the market has genuinely good options — but they\'re not all the same. Otter.ai is the name everyone knows, yet bots that join your calls visibly, audio uploaded to the cloud, and monthly fees that compound fast are all reasons people look elsewhere. This guide covers Otter.ai itself plus the five strongest alternatives, with honest takes on price, privacy, and what each tool actually does well.',
+                'tldr-label': 'TL;DR',
+                'tldr-1': '<strong>Best free:</strong> Fathom — unlimited recordings, no credit card needed',
+                'tldr-2': '<strong>Best for teams:</strong> Fireflies.ai — CRM integrations, shared workspace',
+                'tldr-3': '<strong>Best privacy / any app / no subscription:</strong> Mono — $50 once, local AI, no cloud',
+                'tldr-4': '<strong>Browser-only / lightweight:</strong> Tactiq — $12/mo, Chrome extension',
+                'h2-quick': 'Quick comparison',
+                'th-tool': 'Tool', 'th-price': 'Price', 'th-bot': 'Bot?', 'th-cloud': 'Cloud?', 'th-works': 'Works with',
+                tbody: `<tr><td>Otter.ai</td><td>Free / $16.99/mo</td><td>Yes</td><td>Yes</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fireflies.ai</td><td>$10–19/mo</td><td>Yes</td><td>Yes</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fathom</td><td>Free / $29/mo</td><td>Yes</td><td>Yes</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Krisp</td><td>$16/mo</td><td>No</td><td>Yes</td><td>Any app</td></tr>
+<tr><td>Tactiq</td><td>$12/mo</td><td>No</td><td>No (captions)</td><td>Chrome only</td></tr>
+<tr class="mono-row"><td>Mono</td><td>$50 one-time</td><td>No</td><td>No</td><td>Any app</td></tr>`,
+                'h2-otter': 'Otter.ai',
+                'otter-p1': 'Otter.ai is the category-defining tool — transcription is accurate, the UI is polished, and the free tier gives you 300 minutes per month. The problems: every call gets a visible bot that other participants can see, all audio is processed in the cloud, and the Pro plan runs $16.99 per user per month. If any of those are dealbreakers, that\'s exactly why you\'re reading this.',
+                'otter-p2': '<strong>Best for:</strong> people who primarily use Zoom or Google Meet, don\'t mind the bot, and want a polished product with a mobile app.',
+                'h2-fireflies': 'Fireflies.ai',
+                'fireflies-p1': 'One of the most feature-rich options in this space. Fireflies joins your Zoom or Google Meet as a visible bot, records both sides, and gives you a transcript plus AI summaries. The free tier is very limited — you get 800 minutes of storage and AI features require a paid plan. At $10–19 per user per month, costs stack up for teams.',
+                'fireflies-p2': '<strong>Best for:</strong> sales teams who want CRM integration and team-level access.',
+                'h2-fathom': 'Fathom',
+                'fathom-p1': 'Fathom is arguably the best free meeting recorder available right now. The free tier is genuinely useful — unlimited recordings, automatic summaries, and solid Zoom support. The paid plan ($29/mo) adds CRM sync and team features. Like Fireflies, it joins as a bot, so everyone in the call can see it.',
+                'fathom-p2': '<strong>Best for:</strong> individuals on a budget who primarily use Zoom and don\'t mind the bot.',
+                'h2-krisp': 'Krisp',
+                'krisp-p1': 'Krisp is primarily a noise-cancellation tool that added meeting recording as a secondary feature. It works as a virtual audio device rather than a bot, so it doesn\'t join calls visibly — but transcription and notes are processed in the cloud. At $16/month it\'s mid-priced.',
+                'krisp-p2': '<strong>Best for:</strong> people who need noise suppression and want basic transcription as a bonus.',
+                'h2-tactiq': 'Tactiq',
+                'tactiq-p1': 'Tactiq is a Chrome extension that captures captions from Google Meet, Zoom Web, and Teams Web — it doesn\'t record audio at all. It reads the auto-generated captions on-screen and compiles them into a transcript. This means it\'s limited to browser-based meetings and depends entirely on the quality of the platform\'s auto-captions. At $12/month it\'s affordable.',
+                'tactiq-p2': '<strong>Best for:</strong> people who only do browser-based meetings and want a lightweight, no-install option.',
+                'h2-mono': 'Mono',
+                'mono-p1': 'Mono takes a different approach. Instead of joining calls as a bot or depending on browser captions, it records audio directly from your computer\'s audio output — completely invisibly to other participants. Transcription, speaker identification, and search all happen locally on your device using Whisper. Your audio never leaves your computer.',
+                'mono-p2': 'The unusual pricing: $50 once, no subscription, works with every app that plays audio (Zoom, Teams, Meet, Discord, WhatsApp, Telegram, anything).',
+                'mono-p3': '<strong>Best for:</strong> people who care about privacy, record from multiple apps, or are tired of subscriptions.',
+                'h2-which': 'Which should you choose?',
+                decision: `<li><strong>Free and just need Zoom?</strong> → Fathom free tier</li>
+<li><strong>Team with CRM needs?</strong> → Fireflies.ai</li>
+<li><strong>Noise cancellation first?</strong> → Krisp</li>
+<li><strong>Browser-only, lightweight?</strong> → Tactiq</li>
+<li><strong>Privacy matters / record any app / hate subscriptions?</strong> → Mono</li>`,
+                'cta-title': 'Try Mono free',
+                'cta-sub': 'One recording limit, no account needed. $50 to unlock everything.',
+                'cta-buy': 'Buy Mono — $50',
+                'cta-download': 'Download free',
+                privacy: 'Privacy Policy'
+            },
+            es: {
+                code: 'ES',
+                category: '[Comparativa]',
+                title: 'Alternativas a Otter.ai en 2026: la comparativa honesta',
+                meta: '21 feb. 2026 · 8 min de lectura · Por Daniil Lefanov',
+                disclosure: 'Aviso: Mono es nuestro propio producto. Lo hemos incluido en esta comparativa e intentamos ser justos, pero debes saber que no somos neutrales.',
+                intro: 'Si buscas alternativas a Otter.ai en 2026, el mercado tiene opciones realmente buenas, aunque no todas son iguales. Otter.ai es el nombre que todo el mundo conoce, pero los bots visibles en las llamadas, el audio subido a la nube y las cuotas mensuales que se acumulan llevan a mucha gente a buscar algo diferente. Esta guía cubre el propio Otter.ai y las cinco alternativas más sólidas, con una valoración honesta del precio, la privacidad y en qué destaca cada herramienta.',
+                'tldr-label': 'En resumen',
+                'tldr-1': '<strong>Lo mejor gratis:</strong> Fathom — grabaciones ilimitadas, sin tarjeta de crédito',
+                'tldr-2': '<strong>Lo mejor para equipos:</strong> Fireflies.ai — integraciones CRM, espacio de trabajo compartido',
+                'tldr-3': '<strong>Mejor privacidad / cualquier app / sin suscripción:</strong> Mono — $50 único, IA local, sin nube',
+                'tldr-4': '<strong>Solo navegador / ligero:</strong> Tactiq — $12/mes, extensión de Chrome',
+                'h2-quick': 'Comparativa rápida',
+                'th-tool': 'Herramienta', 'th-price': 'Precio', 'th-bot': '¿Bot?', 'th-cloud': '¿Nube?', 'th-works': 'Compatible con',
+                tbody: `<tr><td>Otter.ai</td><td>Gratis / $16.99/mes</td><td>Sí</td><td>Sí</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fireflies.ai</td><td>$10–19/mes</td><td>Sí</td><td>Sí</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fathom</td><td>Gratis / $29/mes</td><td>Sí</td><td>Sí</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Krisp</td><td>$16/mes</td><td>No</td><td>Sí</td><td>Cualquier app</td></tr>
+<tr><td>Tactiq</td><td>$12/mes</td><td>No</td><td>No (subtítulos)</td><td>Solo Chrome</td></tr>
+<tr class="mono-row"><td>Mono</td><td>$50 único</td><td>No</td><td>No</td><td>Cualquier app</td></tr>`,
+                'h2-otter': 'Otter.ai',
+                'otter-p1': 'Otter.ai es la herramienta que definió esta categoría: transcripción precisa, interfaz cuidada y plan gratuito de 300 minutos al mes. Los problemas: un bot visible entra en cada llamada, el audio se procesa en la nube y el plan Pro cuesta $16,99 por usuario al mes. Si alguno de esos puntos te resulta inaceptable, exactamente por eso estás leyendo esto.',
+                'otter-p2': '<strong>Ideal para:</strong> quienes usan principalmente Zoom o Google Meet, no les molesta el bot y buscan un producto pulido con app móvil.',
+                'h2-fireflies': 'Fireflies.ai',
+                'fireflies-p1': 'Una de las opciones más completas del mercado. Fireflies se une a tu Zoom o Google Meet como un bot visible, graba las dos partes y genera transcripciones con resúmenes de IA. El plan gratuito es muy limitado: 800 minutos de almacenamiento y las funciones de IA requieren suscripción de pago. A $10–19 por usuario al mes, los costes se disparan en equipos.',
+                'fireflies-p2': '<strong>Ideal para:</strong> equipos de ventas que necesitan integración CRM y acceso compartido.',
+                'h2-fathom': 'Fathom',
+                'fathom-p1': 'Fathom es probablemente el mejor grabador de reuniones gratuito ahora mismo. El plan gratuito es genuinamente útil: grabaciones ilimitadas, resúmenes automáticos y buen soporte para Zoom. El plan de pago ($29/mes) añade sincronización CRM y funciones de equipo. Como Fireflies, entra como bot, visible para todos en la llamada.',
+                'fathom-p2': '<strong>Ideal para:</strong> personas con presupuesto ajustado que usan principalmente Zoom y no les importa el bot.',
+                'h2-krisp': 'Krisp',
+                'krisp-p1': 'Krisp nació como herramienta de cancelación de ruido y añadió la grabación de reuniones como función secundaria. Funciona como un dispositivo de audio virtual, no como un bot, por lo que no entra en las llamadas de forma visible; pero la transcripción y las notas se procesan en la nube. A $16/mes, tiene un precio intermedio.',
+                'krisp-p2': '<strong>Ideal para:</strong> quienes necesitan supresión de ruido y quieren transcripción básica de regalo.',
+                'h2-tactiq': 'Tactiq',
+                'tactiq-p1': 'Tactiq es una extensión de Chrome que captura los subtítulos de Google Meet, Zoom Web y Teams Web; no graba audio en absoluto. Lee los subtítulos generados automáticamente en pantalla y los compila en un texto. Eso la limita a las reuniones en el navegador y la hace totalmente dependiente de la calidad de los subtítulos automáticos de la plataforma. A $12/mes, es asequible.',
+                'tactiq-p2': '<strong>Ideal para:</strong> quienes solo hacen reuniones en el navegador y quieren algo ligero sin instalación.',
+                'h2-mono': 'Mono',
+                'mono-p1': 'Mono tiene un enfoque diferente. En lugar de unirse a las llamadas como un bot o depender de los subtítulos del navegador, graba el audio directamente de la salida de audio del ordenador, completamente invisible para los demás participantes. La transcripción, la identificación de hablantes y la búsqueda funcionan de forma local en tu dispositivo usando Whisper. Tu audio nunca sale de tu ordenador.',
+                'mono-p2': 'El precio es inusual: $50 una vez, sin suscripción, compatible con cualquier app que reproduzca audio (Zoom, Teams, Meet, Discord, WhatsApp, Telegram, lo que sea).',
+                'mono-p3': '<strong>Ideal para:</strong> quienes se preocupan por la privacidad, graban desde varias apps o están hartos de las suscripciones.',
+                'h2-which': '¿Cuál elegir?',
+                decision: `<li><strong>¿Gratis y solo necesitas Zoom?</strong> → Plan gratuito de Fathom</li>
+<li><strong>¿Equipo con necesidades CRM?</strong> → Fireflies.ai</li>
+<li><strong>¿Cancelación de ruido ante todo?</strong> → Krisp</li>
+<li><strong>¿Solo navegador, lo más ligero posible?</strong> → Tactiq</li>
+<li><strong>¿Privacidad / grabar cualquier app / harto de suscripciones?</strong> → Mono</li>`,
+                'cta-title': 'Prueba Mono gratis',
+                'cta-sub': 'Una grabación de prueba, sin cuenta. $50 para desbloquear todo.',
+                'cta-buy': 'Comprar Mono — $50',
+                'cta-download': 'Descargar gratis',
+                privacy: 'Política de Privacidad'
+            },
+            fr: {
+                code: 'FR',
+                category: '[Comparatif]',
+                title: 'Alternatives à Otter.ai en 2026 : le comparatif honnête',
+                meta: '21 fév. 2026 · 8 min de lecture · Par Daniil Lefanov',
+                disclosure: 'Avertissement : Mono est notre propre produit. Nous l\'avons inclus dans ce comparatif en essayant d\'être objectifs, mais sachez que nous ne sommes pas neutres.',
+                intro: 'Si vous cherchez des alternatives à Otter.ai en 2026, le marché propose de vraies bonnes options — mais elles ne se valent pas toutes. Otter.ai est le nom que tout le monde connaît, pourtant ses bots visibles dans les appels, l\'audio envoyé dans le cloud et les abonnements qui s\'accumulent poussent beaucoup de gens à chercher autre chose. Ce guide passe en revue Otter.ai lui-même ainsi que les cinq alternatives les plus solides, avec un avis honnête sur les prix, la confidentialité et ce que chaque outil fait vraiment bien.',
+                'tldr-label': 'En bref',
+                'tldr-1': '<strong>Meilleur gratuit :</strong> Fathom — enregistrements illimités, sans carte bancaire',
+                'tldr-2': '<strong>Meilleur pour les équipes :</strong> Fireflies.ai — intégrations CRM, espace de travail partagé',
+                'tldr-3': '<strong>Meilleure confidentialité / toutes apps / sans abonnement :</strong> Mono — 50 $ une fois, IA locale, aucun cloud',
+                'tldr-4': '<strong>Navigateur uniquement / léger :</strong> Tactiq — 12 $/mois, extension Chrome',
+                'h2-quick': 'Comparatif rapide',
+                'th-tool': 'Outil', 'th-price': 'Prix', 'th-bot': 'Bot ?', 'th-cloud': 'Cloud ?', 'th-works': 'Compatible avec',
+                tbody: `<tr><td>Otter.ai</td><td>Gratuit / 16,99 $/mois</td><td>Oui</td><td>Oui</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fireflies.ai</td><td>10–19 $/mois</td><td>Oui</td><td>Oui</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fathom</td><td>Gratuit / 29 $/mois</td><td>Oui</td><td>Oui</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Krisp</td><td>16 $/mois</td><td>Non</td><td>Oui</td><td>Toutes apps</td></tr>
+<tr><td>Tactiq</td><td>12 $/mois</td><td>Non</td><td>Non (sous-titres)</td><td>Chrome uniquement</td></tr>
+<tr class="mono-row"><td>Mono</td><td>50 $ unique</td><td>Non</td><td>Non</td><td>Toutes apps</td></tr>`,
+                'h2-otter': 'Otter.ai',
+                'otter-p1': 'Otter.ai est l\'outil qui a défini la catégorie : transcription précise, interface soignée et 300 minutes par mois sur l\'offre gratuite. Les problèmes : un bot visible rejoint chaque appel, l\'audio est traité dans le cloud, et le plan Pro revient à 16,99 $ par utilisateur et par mois. Si l\'un de ces points est rédhibitoire, c\'est exactement pour ça que vous lisez cet article.',
+                'otter-p2': '<strong>Idéal pour :</strong> ceux qui utilisent principalement Zoom ou Google Meet, ne sont pas gênés par le bot et veulent un produit soigné avec une app mobile.',
+                'h2-fireflies': 'Fireflies.ai',
+                'fireflies-p1': 'L\'une des options les plus complètes du marché. Fireflies rejoint votre Zoom ou Google Meet en tant que bot visible, enregistre les deux côtés et vous fournit transcription et résumés IA. L\'offre gratuite est très limitée — 800 minutes de stockage et les fonctions IA nécessitent un abonnement payant. À 10–19 $ par utilisateur et par mois, la facture grimpe vite pour les équipes.',
+                'fireflies-p2': '<strong>Idéal pour :</strong> les équipes commerciales qui ont besoin d\'intégrations CRM et d\'un accès partagé.',
+                'h2-fathom': 'Fathom',
+                'fathom-p1': 'Fathom est sans doute le meilleur enregistreur de réunions gratuit du moment. L\'offre gratuite est vraiment utile — enregistrements illimités, résumés automatiques et bon support Zoom. Le plan payant (29 $/mois) ajoute la synchronisation CRM et des fonctions d\'équipe. Comme Fireflies, il rejoint l\'appel en tant que bot, visible de tous les participants.',
+                'fathom-p2': '<strong>Idéal pour :</strong> les particuliers avec un petit budget qui utilisent principalement Zoom et ne sont pas gênés par le bot.',
+                'h2-krisp': 'Krisp',
+                'krisp-p1': 'Krisp est avant tout un outil de suppression de bruit qui a ajouté l\'enregistrement de réunions en option secondaire. Il fonctionne comme un périphérique audio virtuel et non comme un bot, il ne rejoint donc pas les appels de manière visible — mais la transcription et les notes sont traitées dans le cloud. À 16 $/mois, il se situe dans le milieu de gamme.',
+                'krisp-p2': '<strong>Idéal pour :</strong> ceux qui ont besoin de suppression de bruit et veulent la transcription en prime.',
+                'h2-tactiq': 'Tactiq',
+                'tactiq-p1': 'Tactiq est une extension Chrome qui capture les sous-titres de Google Meet, Zoom Web et Teams Web — elle n\'enregistre pas du tout l\'audio. Elle lit les sous-titres générés automatiquement à l\'écran et les compile en transcription. Résultat : elle est limitée aux réunions en navigateur et dépend entièrement de la qualité des sous-titres automatiques de la plateforme. À 12 $/mois, c\'est abordable.',
+                'tactiq-p2': '<strong>Idéal pour :</strong> ceux qui font uniquement des réunions en navigateur et veulent quelque chose de léger sans installation.',
+                'h2-mono': 'Mono',
+                'mono-p1': 'Mono adopte une approche différente. Plutôt que de rejoindre les appels comme un bot ou de s\'appuyer sur les sous-titres du navigateur, il enregistre l\'audio directement depuis la sortie audio de l\'ordinateur — complètement invisible pour les autres participants. La transcription, l\'identification des interlocuteurs et la recherche se font entièrement en local sur votre appareil via Whisper. Votre audio ne quitte jamais votre ordinateur.',
+                'mono-p2': 'Le prix est original : 50 $ une fois, sans abonnement, compatible avec toutes les apps qui produisent du son (Zoom, Teams, Meet, Discord, WhatsApp, Telegram, et bien d\'autres).',
+                'mono-p3': '<strong>Idéal pour :</strong> ceux qui tiennent à leur confidentialité, enregistrent depuis plusieurs apps, ou en ont assez des abonnements.',
+                'h2-which': 'Quel outil choisir ?',
+                decision: `<li><strong>Gratuit et surtout Zoom ?</strong> → Fathom (offre gratuite)</li>
+<li><strong>Équipe avec des besoins CRM ?</strong> → Fireflies.ai</li>
+<li><strong>La suppression de bruit d'abord ?</strong> → Krisp</li>
+<li><strong>Navigateur uniquement, le plus léger possible ?</strong> → Tactiq</li>
+<li><strong>Confidentialité / toutes apps / fini les abonnements ?</strong> → Mono</li>`,
+                'cta-title': 'Essayez Mono gratuitement',
+                'cta-sub': 'Un enregistrement d\'essai, sans compte. 50 $ pour tout déverrouiller.',
+                'cta-buy': 'Acheter Mono — 50 $',
+                'cta-download': 'Télécharger gratuitement',
+                privacy: 'Politique de confidentialité'
+            },
+            de: {
+                code: 'DE',
+                category: '[Vergleich]',
+                title: 'Otter.ai-Alternativen 2026: der ehrliche Vergleich',
+                meta: '21. Feb. 2026 · 8 Min. Lesezeit · Von Daniil Lefanov',
+                disclosure: 'Hinweis: Mono ist unser eigenes Produkt. Wir haben es in diesen Vergleich aufgenommen und versucht, fair zu sein — aber ihr solltet wissen, dass wir nicht neutral sind.',
+                intro: 'Wer 2026 nach Otter.ai-Alternativen sucht, findet wirklich gute Optionen — aber sie sind nicht alle gleich. Otter.ai kennt jeder, doch sichtbare Bots in Anrufen, Audio in der Cloud und Monatsgebühren, die sich summieren, treiben viele dazu, sich anderswo umzuschauen. Dieser Leitfaden behandelt Otter.ai selbst sowie die fünf stärksten Alternativen — mit ehrlicher Einschätzung zu Preis, Datenschutz und den echten Stärken jedes Tools.',
+                'tldr-label': 'Kurzfassung',
+                'tldr-1': '<strong>Bestes Gratis-Tool:</strong> Fathom — unbegrenzte Aufnahmen, keine Kreditkarte nötig',
+                'tldr-2': '<strong>Bestes für Teams:</strong> Fireflies.ai — CRM-Integration, gemeinsamer Workspace',
+                'tldr-3': '<strong>Bestes für Datenschutz / jede App / kein Abo:</strong> Mono — einmalig $50, lokale KI, keine Cloud',
+                'tldr-4': '<strong>Nur Browser / leichtgewichtig:</strong> Tactiq — $12/Monat, Chrome-Extension',
+                'h2-quick': 'Schnellvergleich',
+                'th-tool': 'Tool', 'th-price': 'Preis', 'th-bot': 'Bot?', 'th-cloud': 'Cloud?', 'th-works': 'Funktioniert mit',
+                tbody: `<tr><td>Otter.ai</td><td>Gratis / $16,99/Mo.</td><td>Ja</td><td>Ja</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fireflies.ai</td><td>$10–19/Mo.</td><td>Ja</td><td>Ja</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fathom</td><td>Gratis / $29/Mo.</td><td>Ja</td><td>Ja</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Krisp</td><td>$16/Mo.</td><td>Nein</td><td>Ja</td><td>Jede App</td></tr>
+<tr><td>Tactiq</td><td>$12/Mo.</td><td>Nein</td><td>Nein (Untertitel)</td><td>Nur Chrome</td></tr>
+<tr class="mono-row"><td>Mono</td><td>$50 einmalig</td><td>Nein</td><td>Nein</td><td>Jede App</td></tr>`,
+                'h2-otter': 'Otter.ai',
+                'otter-p1': 'Otter.ai ist das Tool, das die Kategorie geprägt hat — genaue Transkription, aufgeräumtes Interface, 300 Minuten pro Monat im Gratis-Tarif. Die Probleme: Jeder Anruf bekommt einen sichtbaren Bot, Audio wird in der Cloud verarbeitet, und der Pro-Tarif kostet $16,99 pro Nutzer und Monat. Wenn eines davon für euch ein No-Go ist — genau deshalb lest ihr das hier.',
+                'otter-p2': '<strong>Ideal für:</strong> alle, die hauptsächlich Zoom oder Google Meet nutzen, den Bot akzeptieren und ein ausgereiftes Produkt mit mobiler App wollen.',
+                'h2-fireflies': 'Fireflies.ai',
+                'fireflies-p1': 'Eine der funktionsreichsten Optionen am Markt. Fireflies nimmt als sichtbarer Bot an Zoom- oder Google-Meet-Terminen teil, nimmt beide Seiten auf und liefert Transkripte plus KI-Zusammenfassungen. Der Gratis-Tarif ist sehr begrenzt — 800 Minuten Speicher, KI-Funktionen nur im Bezahltarif. Bei $10–19 pro Nutzer und Monat summieren sich die Kosten in Teams schnell.',
+                'fireflies-p2': '<strong>Ideal für:</strong> Vertriebsteams mit CRM-Bedarf und geteiltem Workspace.',
+                'h2-fathom': 'Fathom',
+                'fathom-p1': 'Fathom ist aktuell wohl der beste kostenlose Meeting-Recorder. Der Gratis-Tarif ist wirklich nützlich: unbegrenzte Aufnahmen, automatische Zusammenfassungen und solide Zoom-Unterstützung. Der Bezahltarif ($29/Monat) ergänzt CRM-Sync und Teamfunktionen. Wie Fireflies nimmt er als Bot teil — alle im Call sehen ihn.',
+                'fathom-p2': '<strong>Ideal für:</strong> Einzelpersonen mit kleinem Budget, die hauptsächlich Zoom nutzen und den Bot akzeptieren.',
+                'h2-krisp': 'Krisp',
+                'krisp-p1': 'Krisp ist in erster Linie ein Rauschunterdrückungstool, das die Meeting-Aufnahme als Zusatzfunktion ergänzt hat. Es arbeitet als virtuelles Audiogerät statt als Bot — also kein sichtbarer Beitritt — aber Transkription und Notizen werden in der Cloud verarbeitet. Mit $16/Monat liegt es im mittleren Preissegment.',
+                'krisp-p2': '<strong>Ideal für:</strong> alle, die Rauschunterdrückung brauchen und Transkription als Bonus mitnehmen wollen.',
+                'h2-tactiq': 'Tactiq',
+                'tactiq-p1': 'Tactiq ist eine Chrome-Extension, die Untertitel aus Google Meet, Zoom Web und Teams Web abgreift — Audio wird überhaupt nicht aufgenommen. Sie liest die automatisch generierten Untertitel auf dem Bildschirm und bündelt sie zu einem Transkript. Das begrenzt sie auf browserbasierte Meetings und macht sie vollständig abhängig von der Qualität der automatischen Untertitel der jeweiligen Plattform. Mit $12/Monat ist sie günstig.',
+                'tactiq-p2': '<strong>Ideal für:</strong> alle, die nur browserbasierte Meetings haben und eine leichtgewichtige Option ohne Installation suchen.',
+                'h2-mono': 'Mono',
+                'mono-p1': 'Mono verfolgt einen anderen Ansatz. Statt als Bot in Anrufe einzutreten oder auf Browser-Untertitel angewiesen zu sein, nimmt es Audio direkt vom Audioausgang des Computers auf — völlig unsichtbar für andere Teilnehmer. Transkription, Sprechererkennung und Suche laufen komplett lokal auf dem Gerät mit Whisper. Das Audio verlässt den Computer nie.',
+                'mono-p2': 'Das ungewöhnliche Preismodell: einmalig $50, kein Abo, funktioniert mit jeder App, die Audio ausgibt (Zoom, Teams, Meet, Discord, WhatsApp, Telegram — alles).',
+                'mono-p3': '<strong>Ideal für:</strong> alle, denen Datenschutz wichtig ist, die aus mehreren Apps aufnehmen oder Abos satt haben.',
+                'h2-which': 'Welches Tool passt zu euch?',
+                decision: `<li><strong>Kostenlos und hauptsächlich Zoom?</strong> → Fathom Gratis-Tarif</li>
+<li><strong>Team mit CRM-Bedarf?</strong> → Fireflies.ai</li>
+<li><strong>Rauschunterdrückung an erster Stelle?</strong> → Krisp</li>
+<li><strong>Nur Browser, so leicht wie möglich?</strong> → Tactiq</li>
+<li><strong>Datenschutz / jede App / keine Abos mehr?</strong> → Mono</li>`,
+                'cta-title': 'Mono kostenlos testen',
+                'cta-sub': 'Eine Testaufnahme, kein Account nötig. $50 für alles.',
+                'cta-buy': 'Mono kaufen — $50',
+                'cta-download': 'Kostenlos herunterladen',
+                privacy: 'Datenschutzrichtlinie'
+            },
+            zh: {
+                code: '中',
+                category: '[对比评测]',
+                title: '2026年Otter.ai替代品：最诚实的横向对比',
+                meta: '2026年2月21日 · 阅读约8分钟 · 作者：Daniil Lefanov',
+                disclosure: '说明：Mono 是我们自己的产品。我们将其纳入本次对比，已尽力保持客观，但请知悉我们并非中立方。',
+                intro: '如果你在2026年寻找Otter.ai的替代产品，市场上确实有不少好选择——但各有差异。Otter.ai是大家耳熟能详的名字，但会议中显眼的机器人、上传至云端的录音，以及每月累积的订阅费，让越来越多人另寻出路。本文涵盖Otter.ai本身及五款最值得关注的替代品，从价格、隐私保护到各工具的真正优势，给你最诚实的评价。',
+                'tldr-label': '快速总结',
+                'tldr-1': '<strong>最佳免费方案：</strong>Fathom — 无限录音，无需信用卡',
+                'tldr-2': '<strong>最适合团队：</strong>Fireflies.ai — CRM集成，共享工作区',
+                'tldr-3': '<strong>隐私最佳 / 支持任意应用 / 无需订阅：</strong>Mono — 一次性$50，本地AI，无云端',
+                'tldr-4': '<strong>仅限浏览器 / 轻量级：</strong>Tactiq — $12/月，Chrome扩展',
+                'h2-quick': '快速对比',
+                'th-tool': '工具', 'th-price': '价格', 'th-bot': '机器人?', 'th-cloud': '云端?', 'th-works': '支持平台',
+                tbody: `<tr><td>Otter.ai</td><td>免费 / $16.99/月</td><td>是</td><td>是</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fireflies.ai</td><td>$10–19/月</td><td>是</td><td>是</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fathom</td><td>免费 / $29/月</td><td>是</td><td>是</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Krisp</td><td>$16/月</td><td>否</td><td>是</td><td>任意应用</td></tr>
+<tr><td>Tactiq</td><td>$12/月</td><td>否</td><td>否（字幕）</td><td>仅Chrome</td></tr>
+<tr class="mono-row"><td>Mono</td><td>$50一次性</td><td>否</td><td>否</td><td>任意应用</td></tr>`,
+                'h2-otter': 'Otter.ai',
+                'otter-p1': 'Otter.ai是这一品类的开创者：转录准确，界面精致，免费套餐每月300分钟。问题在于：每次通话都有显眼的机器人加入，录音在云端处理，Pro套餐每位用户每月$16.99。如果这些对你来说是硬伤，那你来对地方了。',
+                'otter-p2': '<strong>适合：</strong>主要使用Zoom或Google Meet、不介意机器人出现、希望有精良移动端的用户。',
+                'h2-fireflies': 'Fireflies.ai',
+                'fireflies-p1': '功能最丰富的选项之一。Fireflies以可见机器人的形式加入你的Zoom或Google Meet，录制双方音频，并提供转录和AI摘要。免费套餐非常有限——800分钟存储空间，AI功能需付费解锁。按每人每月$10–19计费，团队成本叠加很快。',
+                'fireflies-p2': '<strong>适合：</strong>需要CRM集成和团队共享功能的销售团队。',
+                'h2-fathom': 'Fathom',
+                'fathom-p1': 'Fathom目前可能是最好的免费会议录制工具。其免费套餐真正实用——无限录音、自动摘要、良好的Zoom支持。付费套餐（$29/月）增加了CRM同步和团队功能。与Fireflies一样，它以机器人身份加入，所有与会者均可看到。',
+                'fathom-p2': '<strong>适合：</strong>预算有限、主要使用Zoom且不介意机器人的个人用户。',
+                'h2-krisp': 'Krisp',
+                'krisp-p1': 'Krisp本质上是一款噪音消除工具，会议录制是其附加功能。它以虚拟音频设备而非机器人的方式运行，因此不会显眼地加入通话——但转录和笔记仍在云端处理。$16/月，价格适中。',
+                'krisp-p2': '<strong>适合：</strong>有噪音消除需求，同时希望附带基础转录功能的用户。',
+                'h2-tactiq': 'Tactiq',
+                'tactiq-p1': 'Tactiq是一款Chrome扩展，通过捕获Google Meet、Zoom Web和Teams Web的字幕来生成文字稿——根本不录制音频。它读取屏幕上自动生成的字幕并整合成文档，因此只支持浏览器端会议，且完全依赖平台自动字幕的质量。$12/月，价格实惠。',
+                'tactiq-p2': '<strong>适合：</strong>只使用浏览器开会、希望轻量免安装方案的用户。',
+                'h2-mono': 'Mono',
+                'mono-p1': 'Mono采用截然不同的方式。它不以机器人身份加入通话，也不依赖浏览器字幕，而是直接从电脑音频输出录制——对其他参与者完全不可见。转录、说话人识别和搜索全部在本地设备上通过Whisper完成，录音永远不会离开你的电脑。',
+                'mono-p2': '定价方式独特：一次性$50，无需订阅，支持任何能播放音频的应用（Zoom、Teams、Meet、Discord、WhatsApp、Telegram，一个都不少）。',
+                'mono-p3': '<strong>适合：</strong>注重隐私、需要录制多个应用、或已厌倦订阅制度的用户。',
+                'h2-which': '如何选择？',
+                decision: `<li><strong>免费且主要用Zoom？</strong> → Fathom免费套餐</li>
+<li><strong>有CRM需求的团队？</strong> → Fireflies.ai</li>
+<li><strong>首要需求是噪音消除？</strong> → Krisp</li>
+<li><strong>仅限浏览器，越轻越好？</strong> → Tactiq</li>
+<li><strong>注重隐私 / 录制任意应用 / 不想订阅？</strong> → Mono</li>`,
+                'cta-title': '免费试用Mono',
+                'cta-sub': '可试录一次，无需注册账号。解锁全部功能只需$50。',
+                'cta-buy': '购买Mono — $50',
+                'cta-download': '免费下载',
+                privacy: '隐私政策'
+            },
+            ru: {
+                code: 'RU',
+                category: '[Сравнение]',
+                title: 'Альтернативы Otter.ai в 2026: честный разбор',
+                meta: '21 февраля 2026 · 8 мин чтения · Даниил Лефанов',
+                disclosure: 'Примечание: Mono — наш собственный продукт. Мы включили его в это сравнение и постарались быть объективными, но имейте в виду, что мы в нём заинтересованы.',
+                intro: 'Если в 2026 году вы ищете альтернативы Otter.ai, хороших вариантов на рынке немало — но они все разные. Otter.ai знают все, однако видимый бот в звонках, загрузка аудио в облако и ежемесячные платежи, которые накапливаются, заставляют людей смотреть по сторонам. В этом обзоре — сам Otter.ai и пять самых сильных альтернатив: честно о цене, приватности и реальных преимуществах каждого инструмента.',
+                'tldr-label': 'Вкратце',
+                'tldr-1': '<strong>Лучший бесплатный:</strong> Fathom — неограниченные записи, без банковской карты',
+                'tldr-2': '<strong>Лучший для команд:</strong> Fireflies.ai — интеграции с CRM, общий воркспейс',
+                'tldr-3': '<strong>Лучший по приватности / для любых приложений / без подписки:</strong> Mono — $50 раз и навсегда, локальный ИИ, без облака',
+                'tldr-4': '<strong>Только браузер / лёгкий вариант:</strong> Tactiq — $12/мес, расширение для Chrome',
+                'h2-quick': 'Быстрое сравнение',
+                'th-tool': 'Сервис', 'th-price': 'Цена', 'th-bot': 'Бот?', 'th-cloud': 'Облако?', 'th-works': 'Работает с',
+                tbody: `<tr><td>Otter.ai</td><td>Бесплатно / $16,99/мес</td><td>Да</td><td>Да</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fireflies.ai</td><td>$10–19/мес</td><td>Да</td><td>Да</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Fathom</td><td>Бесплатно / $29/мес</td><td>Да</td><td>Да</td><td>Zoom, Meet, Teams</td></tr>
+<tr><td>Krisp</td><td>$16/мес</td><td>Нет</td><td>Да</td><td>Любое приложение</td></tr>
+<tr><td>Tactiq</td><td>$12/мес</td><td>Нет</td><td>Нет (субтитры)</td><td>Только Chrome</td></tr>
+<tr class="mono-row"><td>Mono</td><td>$50 единожды</td><td>Нет</td><td>Нет</td><td>Любое приложение</td></tr>`,
+                'h2-otter': 'Otter.ai',
+                'otter-p1': 'Otter.ai — инструмент, определивший эту категорию: точная транскрипция, аккуратный интерфейс, бесплатный тариф даёт 300 минут в месяц. Но есть проблемы: на каждом звонке появляется видимый бот, аудио обрабатывается в облаке, а Pro-тариф стоит $16,99 в месяц на пользователя. Если хоть один из этих пунктов для вас критичен — вот почему вы здесь.',
+                'otter-p2': '<strong>Подойдёт:</strong> тем, кто в основном использует Zoom или Google Meet, не против бота и хочет полированный продукт с мобильным приложением.',
+                'h2-fireflies': 'Fireflies.ai',
+                'fireflies-p1': 'Один из самых функциональных инструментов в этом сегменте. Fireflies заходит на ваш Zoom или Google Meet видимым ботом, записывает обе стороны и отдаёт транскрипт с ИИ-резюме. Бесплатный тариф очень ограничен — 800 минут хранения, ИИ-функции только на платных тарифах. При $10–19 в месяц за пользователя расходы в команде быстро растут.',
+                'fireflies-p2': '<strong>Подойдёт:</strong> отделам продаж, которым нужна интеграция с CRM и командный доступ.',
+                'h2-fathom': 'Fathom',
+                'fathom-p1': 'Fathom — пожалуй, лучший бесплатный рекордер встреч прямо сейчас. Бесплатный тариф реально полезен: неограниченные записи, автоматические резюме, хорошая работа с Zoom. Платный план ($29/мес) добавляет синхронизацию с CRM и командные функции. Как и Fireflies, заходит ботом — все в звонке его видят.',
+                'fathom-p2': '<strong>Подойдёт:</strong> тем, у кого ограниченный бюджет, кто в основном сидит в Zoom и не против бота.',
+                'h2-krisp': 'Krisp',
+                'krisp-p1': 'Krisp изначально задумывался как инструмент шумоподавления и добавил запись встреч как дополнительную функцию. Работает как виртуальное аудиоустройство, а не как бот, поэтому в звонок видимо не заходит — но транскрипция и заметки обрабатываются в облаке. При $16/мес — средний ценовой диапазон.',
+                'krisp-p2': '<strong>Подойдёт:</strong> тем, кому нужно шумоподавление и хочется базовую транскрипцию в придачу.',
+                'h2-tactiq': 'Tactiq',
+                'tactiq-p1': 'Tactiq — это расширение Chrome, которое захватывает субтитры из Google Meet, Zoom Web и Teams Web; оно не записывает аудио вообще. Оно считывает автосубтитры на экране и собирает их в транскрипт, то есть работает только с браузерными встречами и полностью зависит от качества автосубтитров на платформе. При $12/мес — доступно.',
+                'tactiq-p2': '<strong>Подойдёт:</strong> тем, у кого все встречи в браузере и кто хочет лёгкий вариант без установки.',
+                'h2-mono': 'Mono',
+                'mono-p1': 'Mono работает иначе. Вместо того чтобы заходить на звонки ботом или зависеть от субтитров браузера, он записывает аудио прямо с аудиовыхода компьютера — полностью невидимо для других участников. Транскрипция, определение говорящих и поиск — всё происходит локально на устройстве с помощью Whisper. Аудио не покидает компьютер.',
+                'mono-p2': 'Необычная цена: $50 один раз, без подписки, работает с любым приложением, которое воспроизводит аудио (Zoom, Teams, Meet, Discord, WhatsApp, Telegram — что угодно).',
+                'mono-p3': '<strong>Подойдёт:</strong> тем, кому важна приватность, кто пишет из нескольких приложений или устал от подписок.',
+                'h2-which': 'Что выбрать?',
+                decision: `<li><strong>Бесплатно и только Zoom?</strong> → Бесплатный тариф Fathom</li>
+<li><strong>Команда с CRM-потребностями?</strong> → Fireflies.ai</li>
+<li><strong>Сначала шумоподавление?</strong> → Krisp</li>
+<li><strong>Только браузер, максимально легко?</strong> → Tactiq</li>
+<li><strong>Приватность / любые приложения / надоели подписки?</strong> → Mono</li>`,
+                'cta-title': 'Попробуйте Mono бесплатно',
+                'cta-sub': 'Одна тестовая запись, без аккаунта. $50 — чтобы разблокировать всё.',
+                'cta-buy': 'Купить Mono — $50',
+                'cta-download': 'Скачать бесплатно',
+                privacy: 'Политика конфиденциальности'
+            }
+        };
+
+        let _curLang = 'en';
+
+        _langBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            _langSel.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => _langSel.classList.remove('open'));
+
+        _langOpts.forEach(opt => {
+            opt.addEventListener('click', e => {
+                e.stopPropagation();
+                const lang = opt.dataset.lang;
+                if (lang === _curLang) { _langSel.classList.remove('open'); return; }
+                _curLang = lang;
+                const t = _tr[lang];
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.dataset.i18n;
+                    if (t[key] !== undefined) el.innerHTML = t[key];
+                });
+                _langBtn.textContent = t.code;
+                _langOpts.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+                _langSel.classList.remove('open');
+            });
+        });
     </script>
 </body>
 </html>

@@ -170,6 +170,54 @@
             text-transform: uppercase;
         }
 
+        .lang-selector {
+            position: fixed;
+            top: 20px;
+            left: calc(50% + 88px);
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+        .lang-selector .nav-btn {
+            position: relative;
+            left: auto;
+            top: auto;
+            transform: none;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .lang-selector.open .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lang-option {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 13px;
+            color: var(--text-primary);
+            text-align: left;
+            white-space: nowrap;
+        }
+        .lang-option:hover { background-color: var(--bg-hover); }
+        .lang-option.active { color: var(--text-secondary); }
+
         /* Main content */
         .main {
             max-width: 900px;
@@ -356,8 +404,18 @@
         </svg>
     </a>
 
-    <!-- Language selector (decorative) -->
-    <button class="nav-btn lang-btn" aria-label="Language">EN</button>
+    <!-- Language selector -->
+    <div class="lang-selector">
+        <button class="nav-btn lang-btn" aria-label="Select language">EN</button>
+        <div class="lang-dropdown">
+            <button class="lang-option active" data-lang="en">English</button>
+            <button class="lang-option" data-lang="es">Español</button>
+            <button class="lang-option" data-lang="fr">Français</button>
+            <button class="lang-option" data-lang="de">Deutsch</button>
+            <button class="lang-option" data-lang="zh">中文</button>
+            <button class="lang-option" data-lang="ru">Русский</button>
+        </div>
+    </div>
 
     <!-- Main content -->
     <main class="main">
@@ -365,13 +423,13 @@
 
         <!-- Featured post -->
         <a href="otter-ai-alternatives-2026.html" class="featured-card">
-            <span class="card-category">[Comparison]</span>
-            <h2 class="card-title">Otter.ai Alternatives in 2026: Which Meeting Recorder Actually Works?</h2>
-            <p class="card-excerpt">We compared Otter.ai, Fireflies, Fathom, Krisp, Tactiq and Mono side-by-side. Real prices, honest pros and cons, and which one to actually pick.</p>
+            <span class="card-category" data-i18n="card-category">[Comparison]</span>
+            <h2 class="card-title" data-i18n="card-title">Otter.ai Alternatives in 2026: Which Meeting Recorder Actually Works?</h2>
+            <p class="card-excerpt" data-i18n="card-excerpt">We compared Otter.ai, Fireflies, Fathom, Krisp, Tactiq and Mono side-by-side. Real prices, honest pros and cons, and which one to actually pick.</p>
             <div class="card-meta">
-                <span>Feb 21, 2026</span>
+                <span data-i18n="card-date">Feb 21, 2026</span>
                 <span class="sep">·</span>
-                <span>8 min read</span>
+                <span data-i18n="card-read">8 min read</span>
             </div>
         </a>
 
@@ -382,7 +440,7 @@
         </div>
     </main>
 
-    <a href="../privacy.html" class="privacy-link">Privacy Policy</a>
+    <a href="../privacy.html" class="privacy-link" data-i18n="privacy">Privacy Policy</a>
 
     <script>
         const themeToggle = document.querySelector('.theme-toggle');
@@ -440,6 +498,95 @@
 
         window.addEventListener('scroll', updateFoldEffect, { passive: true });
         updateFoldEffect();
+
+        // Language switcher
+        const langSel = document.querySelector('.lang-selector');
+        const langBtn = document.querySelector('.lang-btn');
+        const langOpts = document.querySelectorAll('.lang-option');
+
+        const translations = {
+            en: {
+                code: 'EN',
+                'card-category': '[Comparison]',
+                'card-title': 'Otter.ai Alternatives in 2026: Which Meeting Recorder Actually Works?',
+                'card-excerpt': 'We compared Otter.ai, Fireflies, Fathom, Krisp, Tactiq and Mono side-by-side. Real prices, honest pros and cons, and which one to actually pick.',
+                'card-date': 'Feb 21, 2026',
+                'card-read': '8 min read',
+                'privacy': 'Privacy Policy'
+            },
+            es: {
+                code: 'ES',
+                'card-category': '[Comparativa]',
+                'card-title': 'Alternativas a Otter.ai en 2026: la comparativa honesta',
+                'card-excerpt': 'Comparamos Otter.ai, Fireflies, Fathom, Krisp, Tactiq y Mono cara a cara. Precios reales, pros y contras sin filtros, y cuál elegir de verdad.',
+                'card-date': '21 feb. 2026',
+                'card-read': '8 min de lectura',
+                'privacy': 'Política de Privacidad'
+            },
+            fr: {
+                code: 'FR',
+                'card-category': '[Comparatif]',
+                'card-title': 'Alternatives à Otter.ai en 2026 : le comparatif honnête',
+                'card-excerpt': 'On a comparé Otter.ai, Fireflies, Fathom, Krisp, Tactiq et Mono côte à côte. Vrais prix, pour/contre sans langue de bois, et lequel choisir.',
+                'card-date': '21 fév. 2026',
+                'card-read': '8 min de lecture',
+                'privacy': 'Politique de confidentialité'
+            },
+            de: {
+                code: 'DE',
+                'card-category': '[Vergleich]',
+                'card-title': 'Otter.ai-Alternativen 2026: der ehrliche Vergleich',
+                'card-excerpt': 'Wir haben Otter.ai, Fireflies, Fathom, Krisp, Tactiq und Mono direkt verglichen. Echte Preise, ehrliches Fazit und welches Tool wirklich passt.',
+                'card-date': '21. Feb. 2026',
+                'card-read': '8 Min. Lesezeit',
+                'privacy': 'Datenschutzrichtlinie'
+            },
+            zh: {
+                code: '中',
+                'card-category': '[对比评测]',
+                'card-title': '2026年Otter.ai替代品：最诚实的横向对比',
+                'card-excerpt': '我们横向对比了Otter.ai、Fireflies、Fathom、Krisp、Tactiq和Mono。真实价格、真实优缺点，帮你选出最合适的那款。',
+                'card-date': '2026年2月21日',
+                'card-read': '约8分钟',
+                'privacy': '隐私政策'
+            },
+            ru: {
+                code: 'RU',
+                'card-category': '[Сравнение]',
+                'card-title': 'Альтернативы Otter.ai в 2026: честный разбор',
+                'card-excerpt': 'Сравнили Otter.ai, Fireflies, Fathom, Krisp, Tactiq и Mono без прикрас. Реальные цены, плюсы и минусы, и что выбрать.',
+                'card-date': '21 февраля 2026',
+                'card-read': '8 мин чтения',
+                'privacy': 'Политика конфиденциальности'
+            }
+        };
+
+        let currentLang = 'en';
+
+        langBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            langSel.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => langSel.classList.remove('open'));
+
+        langOpts.forEach(opt => {
+            opt.addEventListener('click', e => {
+                e.stopPropagation();
+                const lang = opt.dataset.lang;
+                if (lang === currentLang) { langSel.classList.remove('open'); return; }
+                currentLang = lang;
+                const t = translations[lang];
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.dataset.i18n;
+                    if (t[key] !== undefined) el.innerHTML = t[key];
+                });
+                langBtn.textContent = t.code;
+                langOpts.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+                langSel.classList.remove('open');
+            });
+        });
     </script>
 </body>
 </html>
