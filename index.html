@@ -665,7 +665,7 @@
         .lang-selector {
             position: fixed;
             top: 20px;
-            left: calc(50% + 66px);
+            left: calc(50% + 88px);
             transform: translateX(-50%);
             z-index: 100;
         }
@@ -756,21 +756,57 @@
             opacity: 1;
         }
 
-        /* Move theme toggle left to make room for 4 buttons */
+        /* Move theme toggle left to make room for 5 buttons */
         .theme-toggle {
-            left: calc(50% - 66px);
+            left: calc(50% - 88px);
         }
 
         /* Adjust home button position */
         .home-button {
-            left: calc(50% - 22px);
+            left: calc(50% - 44px);
+        }
+
+        /* Nav blog button */
+        .nav-blog-button {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-blog-button:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .nav-blog-button:active {
+            background-color: var(--bg-pressed);
+        }
+
+        .nav-blog-button svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         /* Nav buy button */
         .nav-buy-button {
             position: fixed;
             top: 20px;
-            left: calc(50% + 22px);
+            left: calc(50% + 44px);
             transform: translateX(-50%);
             z-index: 100;
             width: 36px;
@@ -905,6 +941,13 @@
         <svg viewBox="0 0 24 24">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+    </button>
+
+    <button class="nav-blog-button" aria-label="Blog">
+        <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
         </svg>
     </button>
 
@@ -1159,6 +1202,12 @@
         homeButton.addEventListener('click', () => {
             currentState = 0;
             updateVisibility();
+        });
+
+        // Nav blog button - navigate to blog
+        const navBlogButton = document.querySelector('.nav-blog-button');
+        navBlogButton.addEventListener('click', () => {
+            window.location.href = 'blog/';
         });
 
         // Nav buy button - scroll to buy screen
