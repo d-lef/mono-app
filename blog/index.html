@@ -481,6 +481,7 @@
         const maxRotation = 25;
 
         const isMobile = () => window.innerWidth < 768;
+        const canSlide = el => !isMobile() && el.tagName === 'P';
 
         function updateFoldEffect() {
             const elements = document.querySelectorAll('.main h1, .main .featured-card, .main .cards-grid, .main .placeholder-card');
@@ -489,7 +490,7 @@
                 const elementTop = rect.top;
 
                 if (elementTop <= foldZoneEnd - rect.height) {
-                    if (!isMobile()) {
+                    if (canSlide(el)) {
                         el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
                         el.style.transformOrigin = 'center top';
                     }
@@ -498,7 +499,7 @@
                     let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
                     progress = Math.max(0, Math.min(1, progress));
                     progress = progress * progress;
-                    if (!isMobile()) {
+                    if (canSlide(el)) {
                         el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
                         el.style.transformOrigin = 'center top';
                     } else {

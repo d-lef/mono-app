@@ -872,13 +872,14 @@
                 '.article-body .decision-list li, .article-body .cta-card'
             );
         const isMobile = () => window.innerWidth < 768;
+        const canSlide = el => !isMobile() && el.tagName === 'P';
 
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 const elementTop = rect.top;
 
                 if (elementTop <= foldZoneEnd - rect.height) {
-                    if (!isMobile()) {
+                    if (canSlide(el)) {
                         el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
                         el.style.transformOrigin = 'center top';
                     }
@@ -887,7 +888,7 @@
                     let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
                     progress = Math.max(0, Math.min(1, progress));
                     progress = progress * progress;
-                    if (!isMobile()) {
+                    if (canSlide(el)) {
                         el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
                         el.style.transformOrigin = 'center top';
                     } else {
