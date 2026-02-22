@@ -320,6 +320,15 @@
             line-height: 1.3;
         }
 
+        /* Comfortaa 700 uses cursive Cyrillic letterforms (т→m, п→n).
+           Override to system font for Cyrillic so bold labels render correctly. */
+        @font-face {
+            font-family: 'Comfortaa';
+            font-weight: 700;
+            src: local('Segoe UI'), local('Helvetica Neue'), local('Arial');
+            unicode-range: U+0400-04FF;
+        }
+
         .article-body strong { color: var(--text-primary); font-weight: 700; }
 
         /* TL;DR */
