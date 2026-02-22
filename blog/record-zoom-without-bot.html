@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Record Zoom Without a Bot Joining Your Meeting — Mono</title>
+    <meta name="description" content="Bot-based recorders join as a visible participant and upload your audio to third-party servers. Three ways to record Zoom locally — no bot, no cloud.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/record-zoom-without-bot">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Record Zoom Without a Bot Joining Your Meeting">
+    <meta property="og:description" content="Bot-based recorders join as a visible participant and upload your audio to third-party servers. Three ways to record Zoom locally — no bot, no cloud.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/record-zoom-without-bot">
+    <meta property="og:site_name" content="Mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-02-22T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Record Zoom Without a Bot Joining Your Meeting">
+    <meta name="twitter:description" content="Three ways to record Zoom calls locally — no bot, no cloud, no subscription.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Record Zoom Without a Bot Joining Your Meeting",
+      "description": "Three ways to record Zoom calls without a bot — Zoom native recording, OBS Studio, and Mono compared.",
+      "datePublished": "2026-02-22",
+      "dateModified": "2026-02-22",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "Mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "image": { "@type": "ImageObject", "url": "https://mono-ai.uk/og-image.png", "width": 1200, "height": 630 },
+      "url": "https://mono-ai.uk/blog/record-zoom-without-bot",
+      "mainEntityOfPage": "https://mono-ai.uk/blog/record-zoom-without-bot"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mono-ai.uk/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://mono-ai.uk/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Record Zoom Without a Bot", "item": "https://mono-ai.uk/blog/record-zoom-without-bot" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you record Zoom without a bot?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Zoom has built-in local recording for hosts (Record → Record on this Computer). Tools like OBS Studio and Mono also capture system audio directly without joining the call as a participant." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need to be a host to record a Zoom call?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For Zoom's built-in recording, yes — you need host permissions. Third-party tools like OBS Studio and Mono capture system audio directly from your computer, so they work regardless of your role in the meeting." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI note-takers join Zoom as a participant?",
+          "acceptedAnswer": { "@type": "Answer", "text": "AI note-taking tools like Otter.ai and Fireflies join as a bot because they access meeting audio via Zoom's API. This makes them visible to all participants and requires sending audio to their servers." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a Zoom transcript without a bot?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Mono records system audio locally and transcribes it on your device using Whisper. No bot joins the call, no audio is uploaded anywhere. You get speaker labels, clickable timestamps, and an AI summary." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #252525;
+            --bg-secondary: #2D2D2D;
+            --bg-hover: #3A3A3A;
+            --bg-pressed: #454545;
+            --accent: #E0E0E0;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) {
+                --bg-primary: #F5F5F5;
+                --bg-secondary: #FFFFFF;
+                --bg-hover: #E0E0E0;
+                --bg-pressed: #D0D0D0;
+                --accent: #424242;
+                --text-primary: #212121;
+                --text-secondary: #757575;
+            }
+        }
+
+        :root.light {
+            --bg-primary: #F5F5F5;
+            --bg-secondary: #FFFFFF;
+            --bg-hover: #E0E0E0;
+            --bg-pressed: #D0D0D0;
+            --accent: #424242;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
+        html::-webkit-scrollbar { display: none; }
+
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            user-select: text;
+            -webkit-user-select: text;
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        body.fonts-loaded { opacity: 1; }
+
+        .top-fade {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-primary) 30%, transparent 100%);
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        .nav-btn {
+            position: fixed;
+            top: 20px;
+            z-index: 100;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            transition: background-color 0.15s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover { background-color: var(--bg-hover); }
+        .nav-btn:active { background-color: var(--bg-pressed); }
+
+        .nav-btn svg {
+            width: 20px; height: 20px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .theme-toggle { left: calc(50% - 88px); }
+        .theme-toggle .icon-sun { display: block; }
+        .theme-toggle .icon-moon { display: none; }
+        :root.light .theme-toggle .icon-sun { display: none; }
+        :root.light .theme-toggle .icon-moon { display: block; }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .theme-toggle .icon-sun { display: none; }
+            :root:not(.dark) .theme-toggle .icon-moon { display: block; }
+        }
+
+        .home-btn { left: calc(50% - 44px); }
+        .blog-btn { left: 50%; }
+        .buy-btn  { left: calc(50% + 44px); }
+
+        .lang-btn {
+            left: calc(50% + 88px);
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .lang-selector {
+            position: fixed;
+            top: 20px;
+            left: calc(50% + 88px);
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        .lang-selector .nav-btn {
+            position: relative;
+            left: auto;
+            top: auto;
+            transform: none;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .lang-selector.open .lang-dropdown { opacity: 1; visibility: visible; }
+
+        .lang-option {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 13px;
+            color: var(--text-primary);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .lang-option:hover { background-color: var(--bg-hover); }
+        .lang-option.active { color: var(--text-secondary); }
+
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 24px 120px;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.15s ease;
+            margin-bottom: 32px;
+        }
+
+        .back-link:hover { opacity: 1; }
+
+        .article-category {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-title {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 500;
+            font-size: clamp(28px, 5vw, 42px);
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .article-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            margin-bottom: 0;
+        }
+
+        .article-disclosure {
+            font-size: 12px;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            font-style: italic;
+            margin-top: 8px;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .article-body { font-size: 16px; line-height: 1.75; color: var(--text-primary); }
+        .article-body p { margin-bottom: 24px; }
+
+        .article-body h2 {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 500;
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-top: 48px;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        @font-face {
+            font-family: 'Comfortaa';
+            font-weight: 700;
+            src: local('Segoe UI'), local('Helvetica Neue'), local('Arial');
+            unicode-range: U+0400-04FF;
+        }
+
+        .article-body strong { color: var(--text-primary); font-weight: 700; }
+
+        .tldr {
+            background: var(--bg-secondary);
+            border-left: 3px solid rgba(255,255,255,0.15);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 32px;
+        }
+
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr ul li { font-size: 15px; line-height: 1.6; padding: 4px 0; }
+
+        .tldr-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        :root.light .tldr { border-left-color: rgba(0,0,0,0.12); }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .tldr { border-left-color: rgba(0,0,0,0.12); }
+        }
+
+        .table-wrap { overflow-x: auto; margin-bottom: 24px; -webkit-overflow-scrolling: touch; }
+
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 420px; }
+
+        .compare-table th {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .compare-table td {
+            font-size: 14px;
+            padding: 10px 12px;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            vertical-align: middle;
+        }
+
+        .compare-table tr.mono-row td { background: rgba(255,255,255,0.04); font-weight: 700; }
+
+        :root.light .compare-table th { border-bottom-color: rgba(0,0,0,0.1); }
+        :root.light .compare-table td { border-bottom-color: rgba(0,0,0,0.06); }
+        :root.light .compare-table tr.mono-row td { background: rgba(0,0,0,0.03); }
+
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .compare-table th { border-bottom-color: rgba(0,0,0,0.1); }
+            :root:not(.dark) .compare-table td { border-bottom-color: rgba(0,0,0,0.06); }
+            :root:not(.dark) .compare-table tr.mono-row td { background: rgba(0,0,0,0.03); }
+        }
+
+        .article-body h3 {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .result-list { list-style: none; padding: 0; margin-bottom: 24px; }
+        .result-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .result-list li:last-child { border-bottom: none; }
+        :root.light .result-list li { border-bottom-color: rgba(0,0,0,0.06); }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .result-list li { border-bottom-color: rgba(0,0,0,0.06); }
+        }
+
+        .decision-list { list-style: none; padding: 0; margin-bottom: 24px; }
+
+        .decision-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .decision-list li:last-child { border-bottom: none; }
+
+        :root.light .decision-list li { border-bottom-color: rgba(0,0,0,0.06); }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .decision-list li { border-bottom-color: rgba(0,0,0,0.06); }
+        }
+
+        .cta-card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        :root.light .cta-card { border-color: rgba(0,0,0,0.08); }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .cta-card { border-color: rgba(0,0,0,0.08); }
+        }
+
+        .cta-title {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 500;
+            font-size: 22px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
+
+        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+        .cta-btn-primary {
+            display: inline-block;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+
+        .cta-btn-primary:hover { opacity: 0.88; transform: scale(1.02); }
+
+        .cta-btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            transition: border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .cta-btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--text-primary); }
+
+        :root.light .cta-btn-secondary { border-color: rgba(0,0,0,0.2); }
+        :root.light .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .cta-btn-secondary { border-color: rgba(0,0,0,0.2); }
+            :root:not(.dark) .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); }
+        }
+
+        .article-wrap .back-link,
+        .article-wrap header,
+        .article-body p,
+        .article-body h2,
+        .article-body h3,
+        .article-body .table-wrap,
+        .article-body .tldr,
+        .article-body .result-list li,
+        .article-body .decision-list li,
+        .article-body .cta-card {
+            transition: transform 0.05s linear, opacity 0.05s linear;
+        }
+
+        .privacy-link {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .privacy-link:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="top-fade"></div>
+
+    <button class="nav-btn theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
+
+    <a href="../" class="nav-btn home-btn" aria-label="Home">
+        <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+    </a>
+
+    <a href="./" class="nav-btn blog-btn" aria-label="Blog">
+        <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+    </a>
+
+    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
+       class="nav-btn buy-btn" aria-label="Buy" target="_blank" rel="noopener sponsored">
+        <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+    </a>
+
+    <div class="lang-selector">
+        <button class="nav-btn lang-btn" aria-label="Select language">EN</button>
+        <div class="lang-dropdown">
+            <button class="lang-option active" data-lang="en">English</button>
+            <button class="lang-option" data-lang="es">Español</button>
+            <button class="lang-option" data-lang="fr">Français</button>
+            <button class="lang-option" data-lang="de">Deutsch</button>
+            <button class="lang-option" data-lang="zh">中文</button>
+            <button class="lang-option" data-lang="ru">Русский</button>
+        </div>
+    </div>
+
+    <main class="article-wrap">
+
+        <a href="./" class="back-link">← blog</a>
+
+        <header>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Record Zoom Without a Bot Joining Your Meeting</h1>
+            <p class="article-meta" data-i18n="meta">Feb 22, 2026 · 4 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our own product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+        </header>
+
+        <div class="article-body">
+
+            <p data-i18n="intro-p1">You're on a Zoom call and "Fireflies Notetaker" joins as a participant. Everyone notices. Someone asks who that is. You explain it's just an AI recorder. The vibe shifts.</p>
+
+            <p data-i18n="intro-p2">Bot-based recorders work — but they're visible to everyone in the meeting, your audio goes to third-party servers, and the host can remove the bot mid-call. For client meetings, legal calls, or anything confidential, that's a problem. Here are three ways to record Zoom without one.</p>
+
+            <div class="tldr">
+                <p class="tldr-label" data-i18n="tldr-label">TL;DR</p>
+                <ul>
+                    <li data-i18n="tldr-1"><strong>Free, hosts only, no transcript:</strong> Zoom native recording</li>
+                    <li data-i18n="tldr-2"><strong>Free, fully local, no transcript:</strong> OBS Studio — ~5 min setup</li>
+                    <li data-i18n="tldr-3"><strong>Local + AI transcript, any role:</strong> Mono — $50 one-time</li>
+                </ul>
+            </div>
+
+            <h2 data-i18n="h2-quick">Quick comparison</h2>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th-tool">Tool</th>
+                            <th data-i18n="th-transcript">Transcript</th>
+                            <th data-i18n="th-bot">Bot visible?</th>
+                            <th data-i18n="th-cost">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody data-i18n="tbody">
+                        <tr>
+                            <td>Zoom native</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>Free (host only)</td>
+                        </tr>
+                        <tr>
+                            <td>OBS Studio</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>Free</td>
+                        </tr>
+                        <tr class="mono-row">
+                            <td>Mono</td>
+                            <td>Yes + speaker ID</td>
+                            <td>No</td>
+                            <td>$50 one-time</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 data-i18n="h2-zoom">Zoom's built-in recording</h2>
+
+            <p data-i18n="zoom-p1">Zoom has local recording built in. Click <strong>Record → Record on this Computer</strong> and a video file saves locally when the call ends. No bot, nothing sent to Zoom's cloud.</p>
+
+            <p data-i18n="zoom-p2">The catch: you need host permissions. Participants can only record if the host explicitly enables it for them. And the output is a video file — no transcript, no speaker labels, no way to search for something said 40 minutes in.</p>
+
+            <p data-i18n="zoom-best"><strong>Best for:</strong> hosts who just need a video file of the call.</p>
+
+            <h2 data-i18n="h2-obs">OBS Studio</h2>
+
+            <p data-i18n="obs-p1">OBS captures screen and system audio. Free, open source, nothing leaves your machine.</p>
+
+            <p data-i18n="obs-p2">Setup: open OBS → Sources → add <strong>Display Capture</strong> for screen and <strong>Audio Output Capture</strong> for call audio. Hit Start Recording before the call, Stop when done. You get a local video file.</p>
+
+            <p data-i18n="obs-p3">Same limitations as Zoom native: no transcript, no search. OBS also captures your entire screen — switching windows mid-call will show in the recording.</p>
+
+            <p data-i18n="obs-best"><strong>Best for:</strong> people who already use OBS, or want something fully free with no data leaving the machine.</p>
+
+            <h2 data-i18n="h2-mono">Mono</h2>
+
+            <p data-i18n="mono-disclosure">Full disclosure: this is our product.</p>
+
+            <p data-i18n="mono-p1">Mono records audio directly from your computer's sound output. No participant joins the Zoom call — other people in the meeting see nothing. Audio stays on your machine. After the call, it transcribes locally using Whisper: speaker labels, clickable timestamps, AI summary. All your recordings are searchable by meaning, not just keywords.</p>
+
+            <p data-i18n="mono-p2">Works the same for Teams, Meet, Discord, WhatsApp — anything playing audio through your system. You don't configure anything per call.</p>
+
+            <p data-i18n="mono-best"><strong>Best for:</strong> anyone who needs a transcript, or records calls regularly and wants a searchable archive. Works regardless of whether you're the host.</p>
+
+            <h2 data-i18n="h2-which">Which one?</h2>
+
+            <ul class="decision-list" data-i18n="decision">
+                <li><strong>You're the host and just need a video file</strong> → Zoom native recording</li>
+                <li><strong>Free and local, no transcript needed</strong> → OBS Studio</li>
+                <li><strong>You need a transcript, speaker labels, or searchable archive</strong> → Mono</li>
+            </ul>
+
+            <div class="cta-card">
+                <p class="cta-title" data-i18n="cta-title">Try Mono free</p>
+                <p class="cta-sub" data-i18n="cta-sub">One recording limit, no account needed. $50 to unlock everything — local AI transcription, no bot, no subscription.</p>
+                <div class="cta-buttons">
+                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
+                       class="cta-btn-primary" target="_blank" rel="noopener sponsored" data-i18n="cta-buy">Buy Mono — $50</a>
+                    <a href="../?buy" class="cta-btn-secondary" data-i18n="cta-download">Download free</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <a href="../privacy.html" class="privacy-link" data-i18n="privacy">Privacy Policy</a>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const root = document.documentElement;
+
+        function isLightMode() {
+            if (root.classList.contains('light')) return true;
+            if (root.classList.contains('dark')) return false;
+            return window.matchMedia('(prefers-color-scheme: light)').matches;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (isLightMode()) {
+                root.classList.remove('light');
+                root.classList.add('dark');
+            } else {
+                root.classList.remove('dark');
+                root.classList.add('light');
+            }
+        });
+
+        document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
+        });
+
+        // 3D fold effect on scroll
+        const foldZoneStart = 140;
+        const foldZoneEnd = 60;
+        const maxRotation = 25;
+
+        function updateFoldEffect() {
+            const elements = document.querySelectorAll(
+                '.article-wrap .back-link, .article-wrap header, ' +
+                '.article-body p, .article-body h2, .article-body h3, ' +
+                '.article-body .table-wrap, .article-body .tldr, ' +
+                '.article-body .result-list li, ' +
+                '.article-body .decision-list li, .article-body .cta-card'
+            );
+            const isMobile = () => window.innerWidth < 768;
+            const canSlide = el => !isMobile() && el.tagName === 'P';
+
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const elementTop = rect.top;
+                if (elementTop <= foldZoneEnd - rect.height) {
+                    if (canSlide(el)) {
+                        el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
+                        el.style.transformOrigin = 'center top';
+                    }
+                    el.style.opacity = '0';
+                } else if (elementTop < foldZoneStart) {
+                    let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
+                    progress = Math.max(0, Math.min(1, progress));
+                    progress = progress * progress;
+                    if (canSlide(el)) {
+                        el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
+                        el.style.transformOrigin = 'center top';
+                    } else {
+                        el.style.transform = '';
+                    }
+                    el.style.opacity = 1 - (progress * 0.85);
+                } else {
+                    el.style.transform = '';
+                    el.style.opacity = '';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateFoldEffect, { passive: true });
+        updateFoldEffect();
+
+        // ── Language switcher ──────────────────────────────────────────
+        const _langSel = document.querySelector('.lang-selector');
+        const _langBtn = document.querySelector('.lang-btn');
+        const _langOpts = document.querySelectorAll('.lang-option');
+
+        const _tr = {
+            en: {
+                code: 'EN',
+                category: '[Guide]',
+                title: 'How to Record Zoom Without a Bot Joining Your Meeting',
+                meta: 'Feb 22, 2026 · 4 min read · By Daniil Lefanov',
+                disclosure: 'Disclosure: Mono is our own product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+                'intro-p1': 'You\'re on a Zoom call and "Fireflies Notetaker" joins as a participant. Everyone notices. Someone asks who that is. You explain it\'s just an AI recorder. The vibe shifts.',
+                'intro-p2': 'Bot-based recorders work — but they\'re visible to everyone in the meeting, your audio goes to third-party servers, and the host can remove the bot mid-call. For client meetings, legal calls, or anything confidential, that\'s a problem. Here are three ways to record Zoom without one.',
+                'tldr-label': 'TL;DR',
+                'tldr-1': '<strong>Free, hosts only, no transcript:</strong> Zoom native recording',
+                'tldr-2': '<strong>Free, fully local, no transcript:</strong> OBS Studio — ~5 min setup',
+                'tldr-3': '<strong>Local + AI transcript, any role:</strong> Mono — $50 one-time',
+                'h2-quick': 'Quick comparison',
+                'th-tool': 'Tool', 'th-transcript': 'Transcript', 'th-bot': 'Bot visible?', 'th-cost': 'Cost',
+                tbody: `<tr><td>Zoom native</td><td>No</td><td>No</td><td>Free (host only)</td></tr>
+<tr><td>OBS Studio</td><td>No</td><td>No</td><td>Free</td></tr>
+<tr class="mono-row"><td>Mono</td><td>Yes + speaker ID</td><td>No</td><td>$50 one-time</td></tr>`,
+                'h2-zoom': 'Zoom\'s built-in recording',
+                'zoom-p1': 'Zoom has local recording built in. Click <strong>Record → Record on this Computer</strong> and a video file saves locally when the call ends. No bot, nothing sent to Zoom\'s cloud.',
+                'zoom-p2': 'The catch: you need host permissions. Participants can only record if the host explicitly enables it for them. And the output is a video file — no transcript, no speaker labels, no way to search for something said 40 minutes in.',
+                'zoom-best': '<strong>Best for:</strong> hosts who just need a video file of the call.',
+                'h2-obs': 'OBS Studio',
+                'obs-p1': 'OBS captures screen and system audio. Free, open source, nothing leaves your machine.',
+                'obs-p2': 'Setup: open OBS → Sources → add <strong>Display Capture</strong> for screen and <strong>Audio Output Capture</strong> for call audio. Hit Start Recording before the call, Stop when done. You get a local video file.',
+                'obs-p3': 'Same limitations as Zoom native: no transcript, no search. OBS also captures your entire screen — switching windows mid-call will show in the recording.',
+                'obs-best': '<strong>Best for:</strong> people who already use OBS, or want something fully free with no data leaving the machine.',
+                'h2-mono': 'Mono',
+                'mono-disclosure': 'Full disclosure: this is our product.',
+                'mono-p1': 'Mono records audio directly from your computer\'s sound output. No participant joins the Zoom call — other people in the meeting see nothing. Audio stays on your machine. After the call, it transcribes locally using Whisper: speaker labels, clickable timestamps, AI summary. All your recordings are searchable by meaning, not just keywords.',
+                'mono-p2': 'Works the same for Teams, Meet, Discord, WhatsApp — anything playing audio through your system. You don\'t configure anything per call.',
+                'mono-best': '<strong>Best for:</strong> anyone who needs a transcript, or records calls regularly and wants a searchable archive. Works regardless of whether you\'re the host.',
+                'h2-which': 'Which one?',
+                decision: `<li><strong>You're the host and just need a video file</strong> → Zoom native recording</li>
+<li><strong>Free and local, no transcript needed</strong> → OBS Studio</li>
+<li><strong>You need a transcript, speaker labels, or searchable archive</strong> → Mono</li>`,
+                'cta-title': 'Try Mono free',
+                'cta-sub': 'One recording limit, no account needed. $50 to unlock everything — local AI transcription, no bot, no subscription.',
+                'cta-buy': 'Buy Mono — $50',
+                'cta-download': 'Download free',
+                privacy: 'Privacy Policy'
+            },
+            es: {
+                code: 'ES',
+                category: '[Guía]',
+                title: 'Cómo grabar Zoom sin que un bot se una a tu reunión',
+                meta: '22 feb. 2026 · 4 min de lectura · Por Daniil Lefanov',
+                disclosure: 'Aviso: Mono es nuestro propio producto. Lo hemos incluido en esta guía e intentamos ser objetivos, pero debes saber que tenemos interés en él.',
+                'intro-p1': 'Estás en una videollamada de Zoom y "Fireflies Notetaker" se une como participante. Todos lo notan. Alguien pregunta quién es. Explicas que es solo un grabador de IA. El ambiente cambia.',
+                'intro-p2': 'Los grabadores basados en bots funcionan, pero son visibles para todos, tu audio se envía a servidores de terceros y el anfitrión puede eliminar el bot a mitad de la llamada. Para llamadas con clientes, conversaciones legales o cualquier cosa confidencial, eso es un problema. Aquí hay tres formas de grabar Zoom sin uno.',
+                'tldr-label': 'En resumen',
+                'tldr-1': '<strong>Gratis, solo anfitriones, sin transcripción:</strong> Grabación nativa de Zoom',
+                'tldr-2': '<strong>Gratis, completamente local, sin transcripción:</strong> OBS Studio — ~5 min de configuración',
+                'tldr-3': '<strong>Local + transcripción IA, cualquier rol:</strong> Mono — $50 único',
+                'h2-quick': 'Comparativa rápida',
+                'th-tool': 'Herramienta', 'th-transcript': 'Transcripción', 'th-bot': '¿Bot visible?', 'th-cost': 'Precio',
+                tbody: `<tr><td>Zoom nativo</td><td>No</td><td>No</td><td>Gratis (solo anfitrión)</td></tr>
+<tr><td>OBS Studio</td><td>No</td><td>No</td><td>Gratis</td></tr>
+<tr class="mono-row"><td>Mono</td><td>Sí + ID de hablante</td><td>No</td><td>$50 único</td></tr>`,
+                'h2-zoom': 'Grabación integrada de Zoom',
+                'zoom-p1': 'Zoom tiene grabación local integrada. Haz clic en <strong>Grabar → Grabar en este ordenador</strong> y el archivo de vídeo se guarda localmente al finalizar la llamada. Sin bot, nada se envía a la nube de Zoom.',
+                'zoom-p2': 'El problema: necesitas permisos de anfitrión. Los participantes solo pueden grabar si el anfitrión lo habilita expresamente. Y el resultado es un archivo de vídeo — sin transcripción, sin etiquetas de hablante, sin forma de buscar algo dicho 40 minutos antes.',
+                'zoom-best': '<strong>Para:</strong> anfitriones que solo necesitan un archivo de vídeo de la llamada.',
+                'h2-obs': 'OBS Studio',
+                'obs-p1': 'OBS captura pantalla y audio del sistema. Gratuito, de código abierto, nada sale de tu máquina.',
+                'obs-p2': 'Configuración: abre OBS → Fuentes → añade <strong>Captura de pantalla</strong> y <strong>Captura de salida de audio</strong>. Pulsa Iniciar grabación antes de la llamada, Detener cuando termine. Obtienes un archivo de vídeo local.',
+                'obs-p3': 'Las mismas limitaciones que la grabación nativa: sin transcripción, sin búsqueda. OBS también captura toda la pantalla — cambiar de ventana durante la llamada aparecerá en la grabación.',
+                'obs-best': '<strong>Para:</strong> quienes ya usan OBS o quieren algo completamente gratuito sin que ningún dato salga de la máquina.',
+                'h2-mono': 'Mono',
+                'mono-disclosure': 'Aviso: este es nuestro producto.',
+                'mono-p1': 'Mono graba el audio directamente desde la salida de sonido de tu ordenador. Ningún participante se une a la llamada de Zoom — los demás no ven nada. El audio permanece en tu máquina. Tras la llamada, transcribe localmente con Whisper: etiquetas de hablante, marcas de tiempo clicables, resumen IA. Todas tus grabaciones son buscables por significado, no solo por palabras clave.',
+                'mono-p2': 'Funciona igual para Teams, Meet, Discord, WhatsApp — cualquier cosa que reproduzca audio en tu sistema. No configuras nada por llamada.',
+                'mono-best': '<strong>Para:</strong> quienes necesitan transcripción o graban llamadas con regularidad y quieren un archivo de búsqueda. Funciona sin importar si eres el anfitrión.',
+                'h2-which': '¿Cuál elegir?',
+                decision: `<li><strong>Eres el anfitrión y solo necesitas un archivo de vídeo</strong> → Grabación nativa de Zoom</li>
+<li><strong>Gratis y local, sin transcripción</strong> → OBS Studio</li>
+<li><strong>Necesitas transcripción, etiquetas de hablante o archivo de búsqueda</strong> → Mono</li>`,
+                'cta-title': 'Prueba Mono gratis',
+                'cta-sub': 'Una grabación de prueba, sin cuenta. $50 para desbloquear todo — transcripción IA local, sin bot, sin suscripción.',
+                'cta-buy': 'Comprar Mono — $50',
+                'cta-download': 'Descargar gratis',
+                privacy: 'Política de Privacidad'
+            },
+            fr: {
+                code: 'FR',
+                category: '[Guide]',
+                title: 'Comment enregistrer Zoom sans qu\'un bot rejoigne votre réunion',
+                meta: '22 fév. 2026 · 4 min de lecture · Par Daniil Lefanov',
+                disclosure: 'Avertissement : Mono est notre propre produit. Nous l\'avons inclus dans ce guide en essayant d\'être objectifs, mais sachez que nous ne sommes pas neutres.',
+                'intro-p1': 'Vous êtes en réunion Zoom et "Fireflies Notetaker" rejoint la réunion en tant que participant. Tout le monde le remarque. Quelqu\'un demande qui c\'est. Vous expliquez que c\'est juste un enregistreur IA. L\'ambiance change.',
+                'intro-p2': 'Les enregistreurs à base de bots fonctionnent — mais ils sont visibles de tous, votre audio est envoyé sur des serveurs tiers, et l\'hôte peut expulser le bot en pleine réunion. Pour les appels clients, les discussions confidentielles ou tout sujet sensible, c\'est un problème. Voici trois façons d\'enregistrer Zoom sans bot.',
+                'tldr-label': 'En bref',
+                'tldr-1': '<strong>Gratuit, hôtes uniquement, sans transcription :</strong> Enregistrement natif Zoom',
+                'tldr-2': '<strong>Gratuit, entièrement local, sans transcription :</strong> OBS Studio — ~5 min de config',
+                'tldr-3': '<strong>Local + transcript IA, tout rôle :</strong> Mono — 50 $ une fois',
+                'h2-quick': 'Comparatif rapide',
+                'th-tool': 'Outil', 'th-transcript': 'Transcription', 'th-bot': 'Bot visible ?', 'th-cost': 'Prix',
+                tbody: `<tr><td>Zoom natif</td><td>Non</td><td>Non</td><td>Gratuit (hôte uniquement)</td></tr>
+<tr><td>OBS Studio</td><td>Non</td><td>Non</td><td>Gratuit</td></tr>
+<tr class="mono-row"><td>Mono</td><td>Oui + ID interlocuteur</td><td>Non</td><td>50 $ unique</td></tr>`,
+                'h2-zoom': 'L\'enregistrement intégré de Zoom',
+                'zoom-p1': 'Zoom dispose d\'un enregistrement local intégré. Cliquez sur <strong>Enregistrer → Enregistrer sur cet ordinateur</strong> et le fichier vidéo est sauvegardé localement à la fin de l\'appel. Pas de bot, rien n\'est envoyé vers le cloud Zoom.',
+                'zoom-p2': 'Le hic : vous avez besoin des permissions d\'hôte. Les participants ne peuvent enregistrer que si l\'hôte l\'active explicitement. Et la sortie est un fichier vidéo — sans transcription, sans étiquettes d\'interlocuteurs, sans moyen de chercher quelque chose dit 40 minutes auparavant.',
+                'zoom-best': '<strong>Idéal pour :</strong> les hôtes qui ont juste besoin d\'un fichier vidéo de l\'appel.',
+                'h2-obs': 'OBS Studio',
+                'obs-p1': 'OBS capture l\'écran et l\'audio système. Gratuit, open source, rien ne quitte votre machine.',
+                'obs-p2': 'Configuration : ouvrez OBS → Sources → ajoutez <strong>Capture d\'écran</strong> et <strong>Capture de sortie audio</strong>. Lancez l\'enregistrement avant l\'appel, arrêtez quand c\'est fini. Vous obtenez un fichier vidéo local.',
+                'obs-p3': 'Mêmes limites que l\'enregistrement natif : pas de transcription, pas de recherche. OBS capture aussi tout l\'écran — changer de fenêtre pendant l\'appel apparaîtra dans l\'enregistrement.',
+                'obs-best': '<strong>Idéal pour :</strong> ceux qui utilisent déjà OBS, ou veulent quelque chose de totalement gratuit sans aucune donnée quittant la machine.',
+                'h2-mono': 'Mono',
+                'mono-disclosure': 'Transparence totale : c\'est notre produit.',
+                'mono-p1': 'Mono enregistre l\'audio directement depuis la sortie son de votre ordinateur. Aucun participant ne rejoint l\'appel Zoom — les autres ne voient rien. L\'audio reste sur votre machine. Après l\'appel, il transcrit localement avec Whisper : étiquettes d\'interlocuteurs, horodatages cliquables, résumé IA. Tous vos enregistrements sont recherchables par sens, pas seulement par mots-clés.',
+                'mono-p2': 'Fonctionne pareil pour Teams, Meet, Discord, WhatsApp — tout ce qui diffuse de l\'audio via votre système. Rien à configurer par appel.',
+                'mono-best': '<strong>Idéal pour :</strong> quiconque a besoin d\'une transcription, ou enregistre régulièrement des appels et veut une archive consultable. Fonctionne quel que soit votre rôle dans la réunion.',
+                'h2-which': 'Lequel choisir ?',
+                decision: `<li><strong>Vous êtes l'hôte et avez juste besoin d'un fichier vidéo</strong> → Enregistrement natif Zoom</li>
+<li><strong>Gratuit et local, sans transcription</strong> → OBS Studio</li>
+<li><strong>Vous avez besoin d'une transcription, d'étiquettes ou d'une archive consultable</strong> → Mono</li>`,
+                'cta-title': 'Essayez Mono gratuitement',
+                'cta-sub': 'Un enregistrement d\'essai, sans compte. 50 $ pour tout déverrouiller — transcription IA locale, sans bot, sans abonnement.',
+                'cta-buy': 'Acheter Mono — 50 $',
+                'cta-download': 'Télécharger gratuitement',
+                privacy: 'Politique de confidentialité'
+            },
+            de: {
+                code: 'DE',
+                category: '[Anleitung]',
+                title: 'Zoom aufnehmen ohne Bot in der Besprechung',
+                meta: '22. Feb. 2026 · 4 Min. Lesezeit · Von Daniil Lefanov',
+                disclosure: 'Hinweis: Mono ist unser eigenes Produkt. Wir haben es in diesen Leitfaden aufgenommen und versucht, fair zu sein — aber ihr solltet wissen, dass wir nicht neutral sind.',
+                'intro-p1': 'Ihr seid in einem Zoom-Meeting und „Fireflies Notetaker" tritt als Teilnehmer bei. Alle bemerken es. Jemand fragt, wer das ist. Ihr erklärt, es sei nur ein KI-Recorder. Die Stimmung ändert sich.',
+                'intro-p2': 'Bot-basierte Recorder funktionieren — aber sie sind für alle sichtbar, euer Audio geht an Drittanbieter-Server, und der Host kann den Bot mitten im Meeting entfernen. Für Kundengespräche, rechtliche Calls oder vertrauliche Themen ist das ein Problem. Hier sind drei Wege, Zoom ohne Bot aufzunehmen.',
+                'tldr-label': 'Kurzfassung',
+                'tldr-1': '<strong>Kostenlos, nur Hosts, kein Transkript:</strong> Zoom-Eigenaufnahme',
+                'tldr-2': '<strong>Kostenlos, lokal, kein Transkript:</strong> OBS Studio — ~5 Min. Einrichtung',
+                'tldr-3': '<strong>Lokal + KI-Transkript, jede Rolle:</strong> Mono — einmalig $50',
+                'h2-quick': 'Schnellvergleich',
+                'th-tool': 'Tool', 'th-transcript': 'Transkript', 'th-bot': 'Bot sichtbar?', 'th-cost': 'Kosten',
+                tbody: `<tr><td>Zoom nativ</td><td>Nein</td><td>Nein</td><td>Kostenlos (nur Host)</td></tr>
+<tr><td>OBS Studio</td><td>Nein</td><td>Nein</td><td>Kostenlos</td></tr>
+<tr class="mono-row"><td>Mono</td><td>Ja + Sprecher-ID</td><td>Nein</td><td>$50 einmalig</td></tr>`,
+                'h2-zoom': 'Zooms eingebaute Aufnahme',
+                'zoom-p1': 'Zoom hat lokale Aufnahme eingebaut. Klickt auf <strong>Aufnehmen → Auf diesem Computer aufnehmen</strong> und eine Videodatei wird lokal gespeichert, wenn das Meeting endet. Kein Bot, nichts wird in Zooms Cloud hochgeladen.',
+                'zoom-p2': 'Der Haken: Ihr braucht Host-Berechtigungen. Teilnehmer können nur aufnehmen, wenn der Host es explizit erlaubt. Und das Ergebnis ist eine Videodatei — kein Transkript, keine Sprechermarkierungen, keine Möglichkeit, etwas zu suchen, das vor 40 Minuten gesagt wurde.',
+                'zoom-best': '<strong>Am besten für:</strong> Hosts, die nur eine Videodatei des Meetings brauchen.',
+                'h2-obs': 'OBS Studio',
+                'obs-p1': 'OBS nimmt Bildschirm und Systemaudio auf. Kostenlos, Open Source, nichts verlässt euren Rechner.',
+                'obs-p2': 'Einrichtung: OBS öffnen → Quellen → <strong>Bildschirmaufnahme</strong> und <strong>Audio-Ausgabe-Aufnahme</strong> hinzufügen. Aufnahme vor dem Call starten, danach stoppen. Ihr erhaltet eine lokale Videodatei.',
+                'obs-p3': 'Gleiche Einschränkungen wie bei Zoom nativ: kein Transkript, keine Suche. OBS nimmt auch den gesamten Bildschirm auf — Fenster wechseln während des Calls ist in der Aufnahme sichtbar.',
+                'obs-best': '<strong>Am besten für:</strong> Leute, die OBS bereits nutzen, oder die etwas völlig Kostenloses wollen, ohne dass Daten das Gerät verlassen.',
+                'h2-mono': 'Mono',
+                'mono-disclosure': 'Offen gesagt: das ist unser Produkt.',
+                'mono-p1': 'Mono nimmt Audio direkt vom Audioausgang eures Computers auf. Kein Teilnehmer tritt dem Zoom-Meeting bei — die anderen sehen nichts. Audio bleibt auf eurer Maschine. Nach dem Call transkribiert es lokal mit Whisper: Sprechermarkierungen, klickbare Zeitstempel, KI-Zusammenfassung. Alle Aufnahmen sind semantisch durchsuchbar.',
+                'mono-p2': 'Funktioniert genauso für Teams, Meet, Discord, WhatsApp — alles, was Audio über euer System abspielt. Keine Einrichtung pro Call nötig.',
+                'mono-best': '<strong>Am besten für:</strong> alle, die ein Transkript brauchen oder regelmäßig Calls aufnehmen und ein durchsuchbares Archiv wollen. Funktioniert unabhängig davon, ob ihr Host seid.',
+                'h2-which': 'Welches nehmen?',
+                decision: `<li><strong>Ihr seid Host und braucht nur eine Videodatei</strong> → Zoom-Eigenaufnahme</li>
+<li><strong>Kostenlos und lokal, kein Transkript nötig</strong> → OBS Studio</li>
+<li><strong>Ihr braucht Transkript, Sprechermarkierungen oder ein durchsuchbares Archiv</strong> → Mono</li>`,
+                'cta-title': 'Mono kostenlos testen',
+                'cta-sub': 'Eine Testaufnahme, kein Account nötig. $50 für alles — lokale KI-Transkription, kein Bot, kein Abo.',
+                'cta-buy': 'Mono kaufen — $50',
+                'cta-download': 'Kostenlos herunterladen',
+                privacy: 'Datenschutzrichtlinie'
+            },
+            zh: {
+                code: '中',
+                category: '[使用指南]',
+                title: '如何在不让机器人加入会议的情况下录制Zoom通话',
+                meta: '2026年2月22日 · 阅读约4分钟 · 作者：Daniil Lefanov',
+                disclosure: '说明：Mono 是我们自己的产品。我们将其纳入本文并尽力保持客观，但请知悉我们并非中立方。',
+                'intro-p1': '你正在Zoom会议中，"Fireflies Notetaker"作为参与者加入了会议。所有人都注意到了。有人问那是谁。你解释说只是个AI录音工具。氛围变了。',
+                'intro-p2': '基于机器人的录音工具确实能用——但它们对所有人可见，你的音频会上传至第三方服务器，而且主持人可以在会议中途将其移除。对于客户会议、法律通话或任何机密内容，这都是个问题。以下是三种不用机器人录制Zoom通话的方法。',
+                'tldr-label': '快速总结',
+                'tldr-1': '<strong>免费，仅限主持人，无转录：</strong>Zoom内置录制',
+                'tldr-2': '<strong>免费，完全本地，无转录：</strong>OBS Studio — 约5分钟配置',
+                'tldr-3': '<strong>本地 + AI转录，任意角色：</strong>Mono — 一次性$50',
+                'h2-quick': '快速对比',
+                'th-tool': '工具', 'th-transcript': '转录', 'th-bot': '机器人可见?', 'th-cost': '费用',
+                tbody: `<tr><td>Zoom内置</td><td>否</td><td>否</td><td>免费（仅主持人）</td></tr>
+<tr><td>OBS Studio</td><td>否</td><td>否</td><td>免费</td></tr>
+<tr class="mono-row"><td>Mono</td><td>是 + 说话人识别</td><td>否</td><td>$50一次性</td></tr>`,
+                'h2-zoom': 'Zoom内置录制功能',
+                'zoom-p1': 'Zoom内置本地录制功能。点击<strong>录制 → 在本机录制</strong>，通话结束后视频文件将保存到本地。无机器人，不上传至Zoom云端。',
+                'zoom-p2': '问题在于：你需要主持人权限。只有主持人明确开启后，参与者才能录制。而且输出的是视频文件——没有转录，没有说话人标注，无法搜索40分钟前说过的内容。',
+                'zoom-best': '<strong>适合：</strong>只需要会议视频文件的主持人。',
+                'h2-obs': 'OBS Studio',
+                'obs-p1': 'OBS可以录制屏幕和系统音频。免费、开源，数据不离开你的设备。',
+                'obs-p2': '配置：打开OBS → 来源 → 添加<strong>显示器采集</strong>和<strong>音频输出采集</strong>。通话前点击开始录制，结束后停止。你将获得一个本地视频文件。',
+                'obs-p3': '与Zoom内置录制有相同的限制：无转录，无搜索功能。OBS还会录制整个屏幕——通话中切换窗口会出现在录像中。',
+                'obs-best': '<strong>适合：</strong>已经使用OBS的用户，或希望完全免费且数据不离开设备的用户。',
+                'h2-mono': 'Mono',
+                'mono-disclosure': '完全透明：这是我们自己的产品。',
+                'mono-p1': 'Mono直接从电脑音频输出录制音频。没有任何参与者加入Zoom通话——其他人什么都看不到。音频保留在你的设备上。通话结束后，它使用Whisper在本地进行转录：说话人标注、可点击时间戳、AI摘要。所有录音都可以按语义搜索，而不仅仅是关键词。',
+                'mono-p2': '同样适用于Teams、Meet、Discord、WhatsApp——任何通过系统播放音频的应用。无需为每次通话单独配置。',
+                'mono-best': '<strong>适合：</strong>需要转录的用户，或经常录制通话并希望建立可搜索档案的用户。无论你是否是主持人都可以使用。',
+                'h2-which': '该选哪个？',
+                decision: `<li><strong>你是主持人，只需要视频文件</strong> → Zoom内置录制</li>
+<li><strong>免费且本地，不需要转录</strong> → OBS Studio</li>
+<li><strong>需要转录、说话人标注或可搜索档案</strong> → Mono</li>`,
+                'cta-title': '免费试用Mono',
+                'cta-sub': '可试录一次，无需注册账号。解锁全部功能——本地AI转录、无机器人、无订阅——只需$50。',
+                'cta-buy': '购买Mono — $50',
+                'cta-download': '免费下载',
+                privacy: '隐私政策'
+            },
+            ru: {
+                code: 'RU',
+                category: '[Руководство]',
+                title: 'Как записать Zoom без бота в конференции',
+                meta: '22 февраля 2026 · 4 мин чтения · Даниил Лефанов',
+                disclosure: 'Примечание: Mono — наш собственный продукт. Мы включили его в это руководство и постарались быть объективными, но имейте в виду, что мы в нём заинтересованы.',
+                'intro-p1': 'Вы на Zoom-конференции, и "Fireflies Notetaker" присоединяется как участник. Все замечают. Кто-то спрашивает, кто это. Вы объясняете, что это AI-рекордер. Атмосфера меняется.',
+                'intro-p2': 'Боты-рекордеры работают — но они видны всем участникам, ваш аудио уходит на сторонние серверы, а хост может выгнать бота прямо во время звонка. Для клиентских встреч, юридических переговоров или чего-то конфиденциального это проблема. Вот три способа записать Zoom без бота.',
+                'tldr-label': 'Вкратце',
+                'tldr-1': '<strong>Бесплатно, только для хостов, без транскрипта:</strong> Встроенная запись Zoom',
+                'tldr-2': '<strong>Бесплатно, полностью локально, без транскрипта:</strong> OBS Studio — ~5 минут настройки',
+                'tldr-3': '<strong>Локально + ИИ-транскрипт, любая роль:</strong> Mono — $50 единожды',
+                'h2-quick': 'Быстрое сравнение',
+                'th-tool': 'Инструмент', 'th-transcript': 'Транскрипт', 'th-bot': 'Бот виден?', 'th-cost': 'Цена',
+                tbody: `<tr><td>Zoom нативно</td><td>Нет</td><td>Нет</td><td>Бесплатно (только хост)</td></tr>
+<tr><td>OBS Studio</td><td>Нет</td><td>Нет</td><td>Бесплатно</td></tr>
+<tr class="mono-row"><td>Mono</td><td>Да + распознавание спикеров</td><td>Нет</td><td>$50 единожды</td></tr>`,
+                'h2-zoom': 'Встроенная запись Zoom',
+                'zoom-p1': 'В Zoom есть встроенная локальная запись. Нажмите <strong>Запись → Запись на этом компьютере</strong> — видеофайл сохранится локально по окончании звонка. Без бота, ничего не отправляется в облако Zoom.',
+                'zoom-p2': 'Но есть нюанс: нужны права хоста. Участники могут записывать только если хост явно это разрешил. И на выходе — видеофайл: без транскрипта, без меток спикеров, без возможности найти что-то сказанное 40 минут назад.',
+                'zoom-best': '<strong>Подходит:</strong> хостам, которым нужен только видеофайл встречи.',
+                'h2-obs': 'OBS Studio',
+                'obs-p1': 'OBS записывает экран и системный звук. Бесплатно, открытый исходный код, ничего не покидает ваш компьютер.',
+                'obs-p2': 'Настройка: откройте OBS → Источники → добавьте <strong>Захват экрана</strong> и <strong>Захват аудиовыхода</strong>. Запустите запись до звонка, остановите по окончании. Вы получите локальный видеофайл.',
+                'obs-p3': 'Те же ограничения, что и у нативной записи Zoom: нет транскрипта, нет поиска. OBS также захватывает весь экран — переключение окон во время звонка будет в записи.',
+                'obs-best': '<strong>Подходит:</strong> тем, кто уже использует OBS, или хочет что-то полностью бесплатное без передачи данных.',
+                'h2-mono': 'Mono',
+                'mono-disclosure': 'Честно: это наш продукт.',
+                'mono-p1': 'Mono записывает аудио напрямую с аудиовыхода компьютера. Никакой участник не присоединяется к Zoom-конференции — другие ничего не видят. Аудио остаётся на вашем устройстве. После звонка оно локально транскрибируется через Whisper: метки спикеров, кликабельные временные метки, ИИ-резюме. Все записи можно искать по смыслу, а не только по ключевым словам.',
+                'mono-p2': 'Работает так же для Teams, Meet, Discord, WhatsApp — всего, что воспроизводит аудио через систему. Ничего не нужно настраивать перед каждым звонком.',
+                'mono-best': '<strong>Подходит:</strong> тем, кому нужен транскрипт, или тем, кто регулярно записывает звонки и хочет архив с поиском. Работает независимо от роли в конференции.',
+                'h2-which': 'Что выбрать?',
+                decision: `<li><strong>Вы хост и нужен только видеофайл</strong> → Встроенная запись Zoom</li>
+<li><strong>Бесплатно и локально, транскрипт не нужен</strong> → OBS Studio</li>
+<li><strong>Нужен транскрипт, метки спикеров или архив с поиском</strong> → Mono</li>`,
+                'cta-title': 'Попробуйте Mono бесплатно',
+                'cta-sub': 'Одна тестовая запись, без аккаунта. $50 — чтобы разблокировать всё: локальная ИИ-транскрипция, без бота, без подписки.',
+                'cta-buy': 'Купить Mono — $50',
+                'cta-download': 'Скачать бесплатно',
+                privacy: 'Политика конфиденциальности'
+            }
+        };
+
+        let _curLang = 'en';
+
+        _langBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            _langSel.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => _langSel.classList.remove('open'));
+
+        _langOpts.forEach(opt => {
+            opt.addEventListener('click', e => {
+                e.stopPropagation();
+                const lang = opt.dataset.lang;
+                if (lang === _curLang) { _langSel.classList.remove('open'); return; }
+                _curLang = lang;
+                const t = _tr[lang];
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.dataset.i18n;
+                    if (t[key] !== undefined) el.innerHTML = t[key];
+                });
+                _langBtn.textContent = t.code;
+                _langOpts.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+                _langSel.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
