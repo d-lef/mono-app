@@ -67,6 +67,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/nav.js" defer></script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -76,20 +77,6 @@
         html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
         html::-webkit-scrollbar { display: none; }
         body { font-family: 'Comfortaa', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
-        .top-fade { position: fixed; top: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-primary) 30%, transparent 100%); pointer-events: none; z-index: 99; }
-        .nav-btn { position: fixed; top: 20px; z-index: 100; width: 36px; height: 36px; border: none; border-radius: 8px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; transform: translateX(-50%); transition: background-color 0.15s ease; text-decoration: none; }
-        .nav-btn:hover { background-color: var(--bg-hover); }
-        .nav-btn:active { background-color: var(--bg-pressed); }
-        .nav-btn svg { width: 20px; height: 20px; stroke: var(--text-secondary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .theme-toggle { left: calc(50% - 66px); }
-        .theme-toggle .icon-sun { display: block; }
-        .theme-toggle .icon-moon { display: none; }
-        :root.light .theme-toggle .icon-sun { display: none; }
-        :root.light .theme-toggle .icon-moon { display: block; }
-        @media (prefers-color-scheme: light) { :root:not(.dark) .theme-toggle .icon-sun { display: none; } :root:not(.dark) .theme-toggle .icon-moon { display: block; } }
-        .home-btn { left: calc(50% - 22px); }
-        .blog-btn { left: calc(50% + 22px); }
-        .buy-btn { left: calc(50% + 66px); }
         .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
         .back-link { display: inline-block; font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; }
         .back-link:hover { color: var(--text-primary); }
@@ -127,24 +114,7 @@
     </style>
 </head>
 <body>
-    <div class="top-fade"></div>
-
-    <button class="nav-btn theme-toggle" aria-label="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-    </button>
-
-    <a href="../" class="nav-btn home-btn" aria-label="Home">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    </a>
-
-    <a href="./" class="nav-btn blog-btn" aria-label="Blog">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-    </a>
-
-    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO" class="nav-btn buy-btn" aria-label="Buy" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    </a>
+    <site-nav base-path="../"></site-nav>
 
     <main class="article-wrap">
         <a href="./" class="back-link">← blog</a>
@@ -292,19 +262,5 @@
 
         </div>
     </main>
-
-    <script>
-        const themeToggle = document.querySelector('.theme-toggle');
-        const root = document.documentElement;
-        function isLightMode() {
-            if (root.classList.contains('light')) return true;
-            if (root.classList.contains('dark')) return false;
-            return window.matchMedia('(prefers-color-scheme: light)').matches;
-        }
-        themeToggle.addEventListener('click', () => {
-            if (isLightMode()) { root.classList.remove('light'); root.classList.add('dark'); }
-            else { root.classList.remove('dark'); root.classList.add('light'); }
-        });
-    </script>
 </body>
 </html>
