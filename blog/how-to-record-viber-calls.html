@@ -69,6 +69,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="/components/nav.js" defer></script>
     <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/cta-card.js" defer></script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -106,12 +107,6 @@
         .steps-list li:last-child { border-bottom: none; }
         .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
         .tip-box p { margin-bottom: 0; }
-        .cta-card { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; margin-top: 48px; text-align: center; }
-        .cta-title { font-weight: 500; font-size: 22px; margin-bottom: 8px; }
-        .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
-        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .cta-btn-primary { display: inline-block; background: var(--text-primary); color: var(--bg-primary); padding: 10px 24px; border-radius: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; }
-        .cta-btn-secondary { display: inline-block; background: transparent; color: var(--text-secondary); padding: 10px 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Comfortaa', sans-serif; font-size: 14px; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -222,14 +217,7 @@
 
             <p><strong>For regular use:</strong> Mono's one-click recording is more convenient than manually starting OBS before each call.</p>
 
-            <div class="cta-card">
-                <p class="cta-title">Try Mono Free</p>
-                <p class="cta-sub">Record Viber calls with automatic transcription. One recording free, then $50 for unlimited.</p>
-                <div class="cta-buttons">
-                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO" class="cta-btn-primary" target="_blank" rel="noopener">Buy Mono — $50</a>
-                    <a href="../" class="cta-btn-secondary">Download Free Trial</a>
-                </div>
-            </div>
+            <cta-card base-path="../"></cta-card>
 
         </div>
     </main>
