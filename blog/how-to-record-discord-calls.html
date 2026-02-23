@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Record Discord Calls in 2026 — 4 Methods That Work</title>
+    <meta name="description" content="How to record Discord calls on desktop. Compare Mono, OBS Studio, and Craig Bot for Discord voice chat recording with transcription.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/how-to-record-discord-calls">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Record Discord Calls in 2026 — 4 Methods That Work">
+    <meta property="og:description" content="How to record Discord calls on desktop. Compare Mono, OBS, and Craig Bot for voice chat recording.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/how-to-record-discord-calls">
+    <meta property="og:site_name" content="Mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-02-23T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Record Discord Calls in 2026">
+    <meta name="twitter:description" content="4 ways to record Discord voice chats and calls on desktop.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Record Discord Calls in 2026 — 4 Methods That Work",
+      "description": "How to record Discord calls on desktop. Compare Mono, OBS Studio, and Craig Bot for Discord voice chat recording.",
+      "datePublished": "2026-02-23",
+      "dateModified": "2026-02-23",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "Mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "image": { "@type": "ImageObject", "url": "https://mono-ai.uk/og-image.png", "width": 1200, "height": 630 },
+      "url": "https://mono-ai.uk/blog/how-to-record-discord-calls",
+      "mainEntityOfPage": "https://mono-ai.uk/blog/how-to-record-discord-calls"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you record Discord calls without a bot?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tools like Mono and OBS Studio record system audio directly from your computer, capturing Discord calls without any bot joining the channel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Discord have built-in call recording?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Discord does not have a built-in recording feature for voice calls or voice chats. You need a third-party tool to record Discord calls." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Craig Bot free for Discord recording?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Craig Bot has a free tier for Discord server voice channels. It joins as a visible bot and records each participant on a separate audio track." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the best way to record Discord calls privately?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Mono records Discord calls by capturing system audio directly — no bot joins and other participants can't detect the recording. It also transcribes locally." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #252525;
+            --bg-secondary: #2D2D2D;
+            --bg-hover: #3A3A3A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) {
+                --bg-primary: #F5F5F5;
+                --bg-secondary: #FFFFFF;
+                --bg-hover: #E0E0E0;
+                --text-primary: #212121;
+                --text-secondary: #757575;
+            }
+        }
+
+        :root.light {
+            --bg-primary: #F5F5F5;
+            --bg-secondary: #FFFFFF;
+            --bg-hover: #E0E0E0;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 120px;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+
+        .article-category {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-title {
+            font-weight: 500;
+            font-size: clamp(28px, 5vw, 42px);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .article-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .article-disclosure {
+            font-size: 12px;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            font-style: italic;
+            margin-bottom: 48px;
+        }
+
+        .article-body { font-size: 16px; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body h2 {
+            font-weight: 500;
+            font-size: 24px;
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+        .article-body h3 {
+            font-weight: 500;
+            font-size: 18px;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        .article-body strong { font-weight: 700; }
+        .article-body a { color: var(--text-primary); }
+
+        .tldr {
+            background: var(--bg-secondary);
+            border-left: 3px solid rgba(255,255,255,0.15);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 32px;
+        }
+        :root.light .tldr, :root:not(.dark) .tldr { border-left-color: rgba(0,0,0,0.1); }
+        .tldr-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr li { font-size: 15px; padding: 4px 0; }
+
+        .table-wrap { overflow-x: auto; margin-bottom: 24px; }
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 400px; }
+        .compare-table th {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+        .compare-table td {
+            font-size: 14px;
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .compare-table tr.mono-row td { background: rgba(255,255,255,0.04); font-weight: 700; }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: step;
+            padding: 0;
+            margin-bottom: 24px;
+        }
+        .steps-list li {
+            counter-increment: step;
+            position: relative;
+            padding: 10px 0 10px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .steps-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 22px;
+            height: 22px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+        .steps-list li:last-child { border-bottom: none; }
+
+        .tip-box {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+        .tip-box p { margin-bottom: 0; }
+
+        .cta-card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 48px;
+            text-align: center;
+        }
+        .cta-title { font-weight: 500; font-size: 22px; margin-bottom: 8px; }
+        .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary {
+            display: inline-block;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .cta-btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <main class="article-wrap">
+        <a href="./" class="back-link">← blog</a>
+
+        <header>
+            <span class="article-category">[Guide]</span>
+            <h1 class="article-title">How to Record Discord Calls in 2026</h1>
+            <p class="article-meta">Feb 23, 2026 · 8 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+        </header>
+
+        <div class="article-body">
+
+            <p>Discord doesn't have a built-in recording feature for voice calls or voice chats. Whether you're recording a podcast, saving a gaming session, or keeping notes from a team discussion, you need a third-party tool to capture Discord calls. Here are four methods that actually work in 2026.</p>
+
+            <div class="tldr">
+                <p class="tldr-label">TL;DR</p>
+                <ul>
+                    <li><strong>Best overall:</strong> Mono — invisible recording, local AI transcription, $50 once</li>
+                    <li><strong>Best free:</strong> OBS Studio — requires setup, no transcription</li>
+                    <li><strong>Best for podcasts:</strong> Craig Bot — per-speaker tracks, visible bot</li>
+                    <li><strong>Built-in:</strong> None — Discord has no native recording</li>
+                </ul>
+            </div>
+
+            <h2>Quick Comparison</h2>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Price</th>
+                            <th>Visible?</th>
+                            <th>Transcription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="mono-row">
+                            <td>Mono</td>
+                            <td>$50 once</td>
+                            <td>No</td>
+                            <td>Yes (local AI)</td>
+                        </tr>
+                        <tr>
+                            <td>OBS Studio</td>
+                            <td>Free</td>
+                            <td>No</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Craig Bot</td>
+                            <td>Free tier</td>
+                            <td>Yes (bot joins)</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Method 1: Mono (Recommended)</h2>
+
+            <p>Mono records Discord calls by capturing audio directly from your computer's sound output. No bot joins the voice channel, no one sees a recording indicator, and the audio never leaves your computer. After recording, Mono transcribes the conversation locally using AI and lets you search through your recordings.</p>
+
+            <h3>How to record Discord with Mono</h3>
+
+            <ol class="steps-list">
+                <li>Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li>Open Mono and click the Record button</li>
+                <li>Join your Discord voice channel or call</li>
+                <li>When finished, click Stop in Mono</li>
+                <li>Mono transcribes the recording automatically</li>
+            </ol>
+
+            <p><strong>Pros:</strong> Invisible to other participants, works with DMs and servers, includes AI transcription and speaker identification, one-time $50 payment.</p>
+
+            <p><strong>Cons:</strong> Paid software (free trial available with one recording limit).</p>
+
+            <h2>Method 2: OBS Studio (Free)</h2>
+
+            <p>OBS Studio is a free, open-source screen recorder that can capture system audio, including Discord calls. It requires some initial setup but works reliably once configured.</p>
+
+            <h3>How to record Discord with OBS</h3>
+
+            <ol class="steps-list">
+                <li>Download OBS Studio from obsproject.com</li>
+                <li>Go to Settings → Audio</li>
+                <li>Set "Desktop Audio" to your playback device</li>
+                <li>Add an Audio Output Capture source</li>
+                <li>Click "Start Recording" before your Discord call</li>
+                <li>Click "Stop Recording" when done</li>
+            </ol>
+
+            <p><strong>Pros:</strong> Completely free, no bot visible, can also record video if needed.</p>
+
+            <p><strong>Cons:</strong> Requires manual setup, must remember to start/stop, no transcription, outputs raw audio file only.</p>
+
+            <h2>Method 3: Craig Bot (Server Channels Only)</h2>
+
+            <p>Craig Bot is a Discord bot specifically designed for recording voice channels. It joins your server's voice channel as a visible bot and records each participant on a separate audio track — ideal for podcasts or interviews where you need to edit speakers individually.</p>
+
+            <h3>How to record Discord with Craig Bot</h3>
+
+            <ol class="steps-list">
+                <li>Invite Craig Bot to your server from craig.chat</li>
+                <li>Join a voice channel</li>
+                <li>Type <code>/join</code> in a text channel</li>
+                <li>Craig joins and starts recording</li>
+                <li>Type <code>/stop</code> when finished</li>
+                <li>Download the recording from the link Craig provides</li>
+            </ol>
+
+            <p><strong>Pros:</strong> Free tier available, multi-track recording (separate file per speaker), good for podcasts.</p>
+
+            <p><strong>Cons:</strong> Only works in server voice channels (not DMs), bot is visible to everyone, no transcription, requires bot permissions on server.</p>
+
+            <h2>Tips for Better Discord Recordings</h2>
+
+            <div class="tip-box">
+                <p><strong>Use headphones</strong> to prevent echo. <strong>Close other audio apps</strong> to avoid capturing unwanted sounds. <strong>Test your setup</strong> with a short recording before important calls.</p>
+            </div>
+
+            <h2>Which Method Should You Use?</h2>
+
+            <p><strong>For private calls or DMs:</strong> Use Mono or OBS — Craig Bot only works in server voice channels.</p>
+
+            <p><strong>For podcast recording:</strong> Craig Bot's multi-track output is ideal for editing. Alternatively, Mono with its speaker identification works well too.</p>
+
+            <p><strong>For regular meeting notes:</strong> Mono's automatic transcription saves time compared to listening back through raw audio.</p>
+
+            <p><strong>For free recording:</strong> OBS Studio works but requires manual effort and doesn't include transcription.</p>
+
+            <div class="cta-card">
+                <p class="cta-title">Try Mono Free</p>
+                <p class="cta-sub">Record Discord calls invisibly with automatic transcription. One recording free, then $50 for unlimited.</p>
+                <div class="cta-buttons">
+                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO" class="cta-btn-primary" target="_blank" rel="noopener">Buy Mono — $50</a>
+                    <a href="../" class="cta-btn-secondary">Download Free Trial</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
