@@ -156,6 +156,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/nav.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -376,59 +377,6 @@
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* Theme toggle button */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            width: 36px;
-            height: 36px;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--bg-hover);
-        }
-
-        .theme-toggle:active {
-            background-color: var(--bg-pressed);
-        }
-
-        .theme-toggle:not(:active):not(:hover) {
-            transition: background-color 0.15s ease;
-        }
-
-        .theme-toggle svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-secondary);
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        /* Show sun in dark mode, moon in light mode */
-        .theme-toggle .icon-sun { display: block; }
-        .theme-toggle .icon-moon { display: none; }
-
-        /* Light theme icons - manual override */
-        :root.light .theme-toggle .icon-sun { display: none; }
-        :root.light .theme-toggle .icon-moon { display: block; }
-
-        /* Light theme icons - system preference */
-        @media (prefers-color-scheme: light) {
-            :root:not(.dark) .theme-toggle .icon-sun { display: none; }
-            :root:not(.dark) .theme-toggle .icon-moon { display: block; }
-        }
 
         /* Logo group - container for logo and subtitle */
         .logo-group {
@@ -624,119 +572,6 @@
             height: 14px;
         }
 
-        /* Home button - always visible, centered between theme and language */
-        .home-button {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            width: 36px;
-            height: 36px;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .home-button:hover {
-            background-color: var(--bg-hover);
-        }
-
-        .home-button:active {
-            background-color: var(--bg-pressed);
-        }
-
-        .home-button svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-secondary);
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        
-        /* Language selector */
-        .lang-selector {
-            position: fixed;
-            top: 20px;
-            left: calc(50% + 88px);
-            transform: translateX(-50%);
-            z-index: 100;
-        }
-
-        .lang-button {
-            width: 36px;
-            height: 36px;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
-
-        .lang-button:hover {
-            background-color: var(--bg-hover);
-        }
-
-        .lang-button:active {
-            background-color: var(--bg-pressed);
-        }
-
-        .lang-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 8px;
-            background-color: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 4px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.15s ease, visibility 0.15s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .lang-selector.open .lang-dropdown {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .lang-option {
-            display: block;
-            width: 100%;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            background: transparent;
-            cursor: pointer;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: 13px;
-            color: var(--text-primary);
-            text-align: left;
-            white-space: nowrap;
-        }
-
-        .lang-option:hover {
-            background-color: var(--bg-hover);
-        }
-
-        .lang-option.active {
-            color: var(--text-secondary);
-        }
 
         /* Privacy link */
         .privacy-link {
@@ -756,87 +591,6 @@
             opacity: 1;
         }
 
-        /* Move theme toggle left to make room for 5 buttons */
-        .theme-toggle {
-            left: calc(50% - 88px);
-        }
-
-        /* Adjust home button position */
-        .home-button {
-            left: calc(50% - 44px);
-        }
-
-        /* Nav blog button */
-        .nav-blog-button {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            width: 36px;
-            height: 36px;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-blog-button:hover {
-            background-color: var(--bg-hover);
-        }
-
-        .nav-blog-button:active {
-            background-color: var(--bg-pressed);
-        }
-
-        .nav-blog-button svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-secondary);
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        /* Nav buy button */
-        .nav-buy-button {
-            position: fixed;
-            top: 20px;
-            left: calc(50% + 44px);
-            transform: translateX(-50%);
-            z-index: 100;
-            width: 36px;
-            height: 36px;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-buy-button:hover {
-            background-color: var(--bg-hover);
-        }
-
-        .nav-buy-button:active {
-            background-color: var(--bg-pressed);
-        }
-
-        .nav-buy-button svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-secondary);
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
 
         /* Allow wrapping only for overflowing taglines */
         .tagline.wrap-text {
@@ -927,49 +681,7 @@
     </style>
 </head>
 <body>
-    <button class="theme-toggle" aria-label="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="5"/>
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-    </button>
-
-    <button class="home-button" aria-label="Go home">
-        <svg viewBox="0 0 24 24">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-    </button>
-
-    <button class="nav-blog-button" aria-label="Blog">
-        <svg viewBox="0 0 24 24">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-        </svg>
-    </button>
-
-    <button class="nav-buy-button" aria-label="Buy">
-        <svg viewBox="0 0 24 24">
-            <circle cx="9" cy="21" r="1"/>
-            <circle cx="20" cy="21" r="1"/>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-        </svg>
-    </button>
-
-    <div class="lang-selector">
-        <button class="lang-button" aria-label="Select language">EN</button>
-        <div class="lang-dropdown">
-            <button class="lang-option active" data-lang="en">English</button>
-            <button class="lang-option" data-lang="es">Español</button>
-            <button class="lang-option" data-lang="fr">Français</button>
-            <button class="lang-option" data-lang="de">Deutsch</button>
-            <button class="lang-option" data-lang="zh">中文</button>
-            <button class="lang-option" data-lang="ru">Русский</button>
-        </div>
-    </div>
+    <site-nav></site-nav>
 
     <section class="hero">
         <div class="content">
@@ -1159,26 +871,6 @@
     <a href="privacy.html" class="privacy-link">Privacy Policy</a>
 
     <script>
-        // Theme toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const root = document.documentElement;
-
-        function isLightMode() {
-            if (root.classList.contains('light')) return true;
-            if (root.classList.contains('dark')) return false;
-            return window.matchMedia('(prefers-color-scheme: light)').matches;
-        }
-
-        themeToggle.addEventListener('click', () => {
-            if (isLightMode()) {
-                root.classList.remove('light');
-                root.classList.add('dark');
-            } else {
-                root.classList.remove('dark');
-                root.classList.add('light');
-            }
-        });
-
         // Wait for font to load before showing content
         document.fonts.ready.then(() => {
             document.body.classList.add('loaded');
@@ -1197,22 +889,16 @@
         const buyPrice = document.getElementById('buyPrice');
         const buyNotesContainer = document.getElementById('buyNotes');
 
-        // Home button
-        const homeButton = document.querySelector('.home-button');
-        homeButton.addEventListener('click', () => {
+        // Listen for nav component events
+        const siteNav = document.querySelector('site-nav');
+        siteNav.addEventListener('nav-home', (e) => {
+            e.preventDefault();
             currentState = 0;
             updateVisibility();
         });
 
-        // Nav blog button - navigate to blog
-        const navBlogButton = document.querySelector('.nav-blog-button');
-        navBlogButton.addEventListener('click', () => {
-            window.location.href = 'blog/';
-        });
-
-        // Nav buy button - scroll to buy screen
-        const navBuyButton = document.querySelector('.nav-buy-button');
-        navBuyButton.addEventListener('click', () => {
+        siteNav.addEventListener('nav-buy', (e) => {
+            e.preventDefault();
             currentState = 5;
             updateVisibility();
         });
@@ -1534,9 +1220,6 @@
             }
         };
 
-        const langSelector = document.querySelector('.lang-selector');
-        const langButton = document.querySelector('.lang-button');
-        const langOptions = document.querySelectorAll('.lang-option');
         const tagline1a = group1.querySelector('.tagline:first-child');
         const tagline1b = group1.querySelector('.tagline:last-child');
         const tagline2a = group2.querySelector('.tagline:first-child');
@@ -1551,75 +1234,54 @@
 
         let currentLang = 'en';
 
-        langButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langSelector.classList.toggle('open');
-        });
+        // Listen for language change from nav component
+        siteNav.addEventListener('language-change', (e) => {
+            const lang = e.detail.language;
+            if (lang === currentLang) return;
 
-        document.addEventListener('click', () => {
-            langSelector.classList.remove('open');
-        });
+            currentLang = lang;
+            const t = translations[lang];
 
-        langOptions.forEach(option => {
-            option.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const lang = option.dataset.lang;
-                if (lang === currentLang) {
-                    langSelector.classList.remove('open');
-                    return;
+            // Update text
+            logoSubtitle.textContent = t.subtitle;
+            tagline1a.textContent = t.tagline1a;
+            tagline1b.textContent = t.tagline1b;
+            tagline2a.textContent = t.tagline2a;
+            tagline2b.textContent = t.tagline2b;
+            // Rebuild comparison table
+            compareTable.innerHTML = '';
+            t.compare.forEach(item => {
+                const tr = document.createElement('tr');
+                if (item.category) {
+                    tr.className = 'category-row';
+                    tr.innerHTML = `<td class="category" colspan="3">${item.category}</td>`;
+                } else {
+                    tr.innerHTML = `<td class="them">${item.them}</td><td class="vs">→</td><td class="us">${item.us}</td>`;
                 }
-
-                currentLang = lang;
-                const t = translations[lang];
-
-                // Update text
-                logoSubtitle.textContent = t.subtitle;
-                tagline1a.textContent = t.tagline1a;
-                tagline1b.textContent = t.tagline1b;
-                tagline2a.textContent = t.tagline2a;
-                tagline2b.textContent = t.tagline2b;
-                // Rebuild comparison table
-                compareTable.innerHTML = '';
-                t.compare.forEach(item => {
-                    const tr = document.createElement('tr');
-                    if (item.category) {
-                        tr.className = 'category-row';
-                        tr.innerHTML = `<td class="category" colspan="3">${item.category}</td>`;
-                    } else {
-                        tr.innerHTML = `<td class="them">${item.them}</td><td class="vs">→</td><td class="us">${item.us}</td>`;
-                    }
-                    compareTable.appendChild(tr);
-                });
-                langButton.textContent = t.code;
-                privacyLink.textContent = t.privacyPolicy;
-
-                // Update video (fallback to English if no video for this language)
-                const videoId = t.video || translations.en.video;
-                videoIframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
-
-                // Update buy button text
-                buyText.innerHTML = t.buyText;
-                buyPrice.textContent = t.buyPrice;
-                const noteElements = buyNotesContainer.querySelectorAll('.buy-note');
-                t.buyNotes.forEach((note, i) => {
-                    if (noteElements[i]) noteElements[i].textContent = note;
-                });
-
-                // Update download labels
-                downloadLabel.textContent = t.downloadLabel;
-                downloadWindows.textContent = t.downloadWindows;
-                downloadMacSilicon.textContent = t.downloadMacSilicon;
-                downloadMacIntel.textContent = t.downloadMacIntel;
-
-                // Update active state
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-
-                langSelector.classList.remove('open');
-
-                // Check for text overflow after language change
-                checkTaglineOverflow();
+                compareTable.appendChild(tr);
             });
+            privacyLink.textContent = t.privacyPolicy;
+
+            // Update video (fallback to English if no video for this language)
+            const videoId = t.video || translations.en.video;
+            videoIframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
+
+            // Update buy button text
+            buyText.innerHTML = t.buyText;
+            buyPrice.textContent = t.buyPrice;
+            const noteElements = buyNotesContainer.querySelectorAll('.buy-note');
+            t.buyNotes.forEach((note, i) => {
+                if (noteElements[i]) noteElements[i].textContent = note;
+            });
+
+            // Update download labels
+            downloadLabel.textContent = t.downloadLabel;
+            downloadWindows.textContent = t.downloadWindows;
+            downloadMacSilicon.textContent = t.downloadMacSilicon;
+            downloadMacIntel.textContent = t.downloadMacIntel;
+
+            // Check for text overflow after language change
+            checkTaglineOverflow();
         });
 
         // Check if taglines overflow the screen and add wrap class

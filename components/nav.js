@@ -223,8 +223,37 @@ class SiteNav extends HTMLElement {
         `;
 
         this.initThemeToggle();
+        this.initNavButtons();
         this.initLanguageSelector();
         this.syncThemeFromDocument();
+    }
+
+    initNavButtons() {
+        // Emit events for nav button clicks so pages can intercept
+        const homeBtn = this.shadowRoot.querySelector('.home-btn');
+        const buyBtn = this.shadowRoot.querySelector('.buy-btn');
+
+        homeBtn.addEventListener('click', (e) => {
+            const event = new CustomEvent('nav-home', {
+                bubbles: true,
+                composed: true,
+                cancelable: true
+            });
+            if (!this.dispatchEvent(event)) {
+                e.preventDefault();
+            }
+        });
+
+        buyBtn.addEventListener('click', (e) => {
+            const event = new CustomEvent('nav-buy', {
+                bubbles: true,
+                composed: true,
+                cancelable: true
+            });
+            if (!this.dispatchEvent(event)) {
+                e.preventDefault();
+            }
+        });
     }
 
     syncThemeFromDocument() {
