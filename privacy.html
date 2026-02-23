@@ -253,9 +253,7 @@
     </div>
 
     <script>
-        var langSelector = document.querySelector(".lang-selector");
-        var langButton = document.querySelector(".lang-button");
-        var langOptions = document.querySelectorAll(".lang-option");
+        var siteNav = document.querySelector("site-nav");
         var currentLang = "en";
 
         var translations = {
@@ -514,30 +512,11 @@
             document.querySelector(".back-link").textContent = t.backLink;
         }
 
-        langButton.addEventListener("click", function(e) {
-            e.stopPropagation();
-            langSelector.classList.toggle("open");
-        });
-
-        document.addEventListener("click", function() {
-            langSelector.classList.remove("open");
-        });
-
-        langOptions.forEach(function(option) {
-            option.addEventListener("click", function(e) {
-                e.stopPropagation();
-                var lang = option.dataset.lang;
-                if (lang === currentLang) {
-                    langSelector.classList.remove("open");
-                    return;
-                }
-                currentLang = lang;
-                langButton.textContent = translations[lang].code;
-                updateContent(lang);
-                langOptions.forEach(function(opt) { opt.classList.remove("active"); });
-                option.classList.add("active");
-                langSelector.classList.remove("open");
-            });
+        siteNav.addEventListener("language-change", function(e) {
+            var lang = e.detail.language;
+            if (lang === currentLang) return;
+            currentLang = lang;
+            updateContent(lang);
         });
 
         // Show content when fonts are loaded
