@@ -128,191 +128,756 @@
     <site-nav base-path="../"></site-nav>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">← blog</a>
+        <a href="./" class="back-link" data-i18n="back-link">&larr; blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to Record WhatsApp Calls in 2026</h1>
-            <p class="article-meta">Feb 23, 2026 · 7 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+            <span class="article-category" data-i18n="article-category">[Guide]</span>
+            <h1 class="article-title" data-i18n="article-title">How to Record WhatsApp Calls in 2026</h1>
+            <p class="article-meta" data-i18n="article-meta">Feb 23, 2026 &middot; 7 min read &middot; By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="article-disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
 
-            <p>WhatsApp Desktop doesn't have a built-in call recording feature. Whether you need to save an important business conversation, keep a record of a family call, or document a discussion, you'll need a third-party screen recorder or audio capture tool to record WhatsApp calls on your computer.</p>
+            <p data-i18n="intro-p1">WhatsApp Desktop doesn't have a built-in call recording feature. Whether you need to save an important business conversation, keep a record of a family call, or document a discussion, you'll need a third-party screen recorder or audio capture tool to record WhatsApp calls on your computer.</p>
 
-            <p>This guide covers how to record WhatsApp voice calls and video calls reliably in 2026, with methods for both audio-only recording and full video recording.</p>
+            <p data-i18n="intro-p2">This guide covers how to record WhatsApp voice calls and video calls reliably in 2026, with methods for both audio-only recording and full video recording.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr-label">TL;DR</p>
                 <ul>
-                    <li><strong>Best overall:</strong> Mono — invisible recording, AI transcription, $50 once</li>
-                    <li><strong>Best free:</strong> OBS Studio — requires setup, no transcription</li>
-                    <li><strong>Built-in:</strong> None — WhatsApp has no native recording</li>
+                    <li data-i18n="tldr-item1"><strong>Best overall:</strong> Mono &mdash; invisible recording, AI transcription, $50 once</li>
+                    <li data-i18n="tldr-item2"><strong>Best free:</strong> OBS Studio &mdash; requires setup, no transcription</li>
+                    <li data-i18n="tldr-item3"><strong>Built-in:</strong> None &mdash; WhatsApp has no native recording</li>
                 </ul>
             </div>
 
-            <h2>Why Record WhatsApp Calls?</h2>
+            <h2 data-i18n="h2-why-record">Why Record WhatsApp Calls?</h2>
 
-            <p>WhatsApp is one of the most popular messaging apps worldwide, handling billions of voice calls and video calls daily. Recording these conversations serves many legitimate purposes:</p>
+            <p data-i18n="why-record-p1">WhatsApp is one of the most popular messaging apps worldwide, handling billions of voice calls and video calls daily. Recording these conversations serves many legitimate purposes:</p>
 
-            <p><strong>Business documentation:</strong> Customer support teams, sales professionals, and consultants often need records of client conversations. Recording WhatsApp business calls creates accountability and helps resolve disputes.</p>
+            <p data-i18n="why-record-p2"><strong>Business documentation:</strong> Customer support teams, sales professionals, and consultants often need records of client conversations. Recording WhatsApp business calls creates accountability and helps resolve disputes.</p>
 
-            <p><strong>Personal memories:</strong> Conversations with elderly relatives, long-distance friends, or family abroad are moments worth preserving. Audio calls can capture stories and voices that matter.</p>
+            <p data-i18n="why-record-p3"><strong>Personal memories:</strong> Conversations with elderly relatives, long-distance friends, or family abroad are moments worth preserving. Audio calls can capture stories and voices that matter.</p>
 
-            <p><strong>Interviews and research:</strong> Journalists, podcasters, and researchers frequently conduct interviews over WhatsApp. Recording ensures accurate quotes and lets you focus on the conversation instead of taking notes.</p>
+            <p data-i18n="why-record-p4"><strong>Interviews and research:</strong> Journalists, podcasters, and researchers frequently conduct interviews over WhatsApp. Recording ensures accurate quotes and lets you focus on the conversation instead of taking notes.</p>
 
-            <h2>Quick Comparison</h2>
+            <h2 data-i18n="h2-comparison">Quick Comparison</h2>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Method</th>
-                            <th>Price</th>
-                            <th>Transcription</th>
-                            <th>Setup</th>
+                            <th data-i18n="th-method">Method</th>
+                            <th data-i18n="th-price">Price</th>
+                            <th data-i18n="th-transcription">Transcription</th>
+                            <th data-i18n="th-setup">Setup</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="mono-row">
                             <td>Mono</td>
-                            <td>$50 once</td>
-                            <td>Yes (local AI)</td>
-                            <td>Easy</td>
+                            <td data-i18n="td-mono-price">$50 once</td>
+                            <td data-i18n="td-mono-transcription">Yes (local AI)</td>
+                            <td data-i18n="td-mono-setup">Easy</td>
                         </tr>
                         <tr>
                             <td>OBS Studio</td>
-                            <td>Free</td>
-                            <td>No</td>
-                            <td>Medium</td>
+                            <td data-i18n="td-obs-price">Free</td>
+                            <td data-i18n="td-obs-transcription">No</td>
+                            <td data-i18n="td-obs-setup">Medium</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>Method 1: Mono (Recommended)</h2>
+            <h2 data-i18n="h2-method1">Method 1: Mono (Recommended)</h2>
 
-            <p>Mono is a desktop application designed for recording and transcribing conversations. It captures internal audio directly from your system's sound output, recording exactly what you hear through your speakers or headphones — including both sides of your WhatsApp call.</p>
+            <p data-i18n="method1-p1">Mono is a desktop application designed for recording and transcribing conversations. It captures internal audio directly from your system's sound output, recording exactly what you hear through your speakers or headphones &mdash; including both sides of your WhatsApp call.</p>
 
-            <p>Because Mono captures system audio rather than joining the call, there's no notification to the other person. After you stop recording, Mono transcribes the conversation locally using AI. The transcription runs entirely on your computer, so your audio isn't uploaded anywhere.</p>
+            <p data-i18n="method1-p2">Because Mono captures system audio rather than joining the call, there's no notification to the other person. After you stop recording, Mono transcribes the conversation locally using AI. The transcription runs entirely on your computer, so your audio isn't uploaded anywhere.</p>
 
-            <h3>How to record WhatsApp calls with Mono</h3>
-
-            <ol class="steps-list">
-                <li>Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li>Ensure WhatsApp Desktop is connected to your phone</li>
-                <li>Open Mono and click the Record button to begin recording</li>
-                <li>Start your WhatsApp call (voice or video)</li>
-                <li>Have your conversation normally</li>
-                <li>When the call ends, click Stop in Mono</li>
-                <li>Wait for the automatic transcription to complete</li>
-                <li>Review your transcript with speaker labels and timestamps</li>
-            </ol>
-
-            <p>Mono's transcription includes speaker identification — it detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations or topics later.</p>
-
-            <p><strong>Pros:</strong> Works with voice and video calls, invisible to other participants, automatic transcription with speaker identification, searchable recordings, good audio quality, one-time $50 payment with no subscription.</p>
-
-            <p><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
-
-            <h2>Method 2: OBS Studio (Free)</h2>
-
-            <p>OBS Studio is free, open-source screen recording software primarily used by streamers and content creators. It can capture system audio and optionally your screen, making it suitable for recording WhatsApp calls. OBS requires initial configuration but works reliably once set up.</p>
-
-            <p>Like Mono, OBS captures audio from your system's output, so the other person won't know you're recording. However, OBS doesn't include transcription — you get a raw audio file that you'll need to process yourself if you want text.</p>
-
-            <h3>How to record WhatsApp calls with OBS</h3>
+            <h3 data-i18n="h3-mono-steps">How to record WhatsApp calls with Mono</h3>
 
             <ol class="steps-list">
-                <li>Download OBS Studio from obsproject.com and install it</li>
-                <li>Open OBS and go to Settings → Audio</li>
-                <li>Set "Desktop Audio" to your playback device (speakers or headphones)</li>
-                <li>In the main window, click + under Sources</li>
-                <li>Add an "Audio Output Capture" source to capture internal audio</li>
-                <li>Click "Start Recording" before making your WhatsApp call</li>
-                <li>Make your call in WhatsApp Desktop</li>
-                <li>Click "Stop Recording" when the call ends</li>
-                <li>Find your recording in the output folder (usually Videos)</li>
+                <li data-i18n="mono-step1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="mono-step2">Ensure WhatsApp Desktop is connected to your phone</li>
+                <li data-i18n="mono-step3">Open Mono and click the Record button to begin recording</li>
+                <li data-i18n="mono-step4">Start your WhatsApp call (voice or video)</li>
+                <li data-i18n="mono-step5">Have your conversation normally</li>
+                <li data-i18n="mono-step6">When the call ends, click Stop in Mono</li>
+                <li data-i18n="mono-step7">Wait for the automatic transcription to complete</li>
+                <li data-i18n="mono-step8">Review your transcript with speaker labels and timestamps</li>
             </ol>
 
-            <p><strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable settings.</p>
+            <p data-i18n="method1-p3">Mono's transcription includes speaker identification &mdash; it detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations or topics later.</p>
 
-            <p><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each call, no transcription — produces raw audio files only.</p>
+            <p data-i18n="method1-pros"><strong>Pros:</strong> Works with voice and video calls, invisible to other participants, automatic transcription with speaker identification, searchable recordings, good audio quality, one-time $50 payment with no subscription.</p>
 
-            <h2>Recording WhatsApp Video Calls</h2>
+            <p data-i18n="method1-cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
-            <p>Both methods work for WhatsApp video calls, but they capture different things:</p>
+            <h2 data-i18n="h2-method2">Method 2: OBS Studio (Free)</h2>
 
-            <p><strong>Audio-only (Mono):</strong> Captures the conversation audio with automatic transcription. This is often sufficient since most people record calls to preserve what was said, not how people looked. Files are small and easy to manage.</p>
+            <p data-i18n="method2-p1">OBS Studio is free, open-source screen recording software primarily used by streamers and content creators. It can capture system audio and optionally your screen, making it suitable for recording WhatsApp calls. OBS requires initial configuration but works reliably once set up.</p>
 
-            <p><strong>Full video recording (OBS):</strong> Captures your screen showing the WhatsApp video call window. Add a "Display Capture" or "Window Capture" source to record video. Be aware that video quality depends on your connection, and video files are much larger than audio files.</p>
+            <p data-i18n="method2-p2">Like Mono, OBS captures audio from your system's output, so the other person won't know you're recording. However, OBS doesn't include transcription &mdash; you get a raw audio file that you'll need to process yourself if you want text.</p>
 
-            <p>For most use cases, audio-only recording with transcription is more practical than video recording. You get searchable text and smaller files.</p>
+            <h3 data-i18n="h3-obs-steps">How to record WhatsApp calls with OBS</h3>
 
-            <h2>Why WhatsApp Doesn't Have Built-in Recording</h2>
+            <ol class="steps-list">
+                <li data-i18n="obs-step1">Download OBS Studio from obsproject.com and install it</li>
+                <li data-i18n="obs-step2">Open OBS and go to Settings &rarr; Audio</li>
+                <li data-i18n="obs-step3">Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li data-i18n="obs-step4">In the main window, click + under Sources</li>
+                <li data-i18n="obs-step5">Add an "Audio Output Capture" source to capture internal audio</li>
+                <li data-i18n="obs-step6">Click "Start Recording" before making your WhatsApp call</li>
+                <li data-i18n="obs-step7">Make your call in WhatsApp Desktop</li>
+                <li data-i18n="obs-step8">Click "Stop Recording" when the call ends</li>
+                <li data-i18n="obs-step9">Find your recording in the output folder (usually Videos)</li>
+            </ol>
 
-            <p>WhatsApp emphasizes privacy as a core feature, with end-to-end encryption on all calls and messages. Adding built-in call recording would create privacy concerns — recordings could be made without the other party's knowledge or consent.</p>
+            <p data-i18n="method2-pros"><strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable settings.</p>
 
-            <p>By not including recording, WhatsApp maintains its privacy-focused positioning. This means users who need recordings for legitimate purposes must use external tools. The advantage is that recordings stay entirely on your computer, under your control, rather than being uploaded to WhatsApp's servers.</p>
+            <p data-i18n="method2-cons"><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each call, no transcription &mdash; produces raw audio files only.</p>
 
-            <h2>Legal Considerations</h2>
+            <h2 data-i18n="h2-video-calls">Recording WhatsApp Video Calls</h2>
 
-            <p>Recording laws vary by jurisdiction. Before recording WhatsApp calls, understand the rules where you are:</p>
+            <p data-i18n="video-calls-p1">Both methods work for WhatsApp video calls, but they capture different things:</p>
 
-            <p><strong>One-party consent:</strong> Many places allow recording calls you're participating in without telling the other person.</p>
+            <p data-i18n="video-calls-p2"><strong>Audio-only (Mono):</strong> Captures the conversation audio with automatic transcription. This is often sufficient since most people record calls to preserve what was said, not how people looked. Files are small and easy to manage.</p>
 
-            <p><strong>All-party consent:</strong> Some jurisdictions require everyone on the call to agree to recording. This includes California, Germany, and other regions.</p>
+            <p data-i18n="video-calls-p3"><strong>Full video recording (OBS):</strong> Captures your screen showing the WhatsApp video call window. Add a "Display Capture" or "Window Capture" source to record video. Be aware that video quality depends on your connection, and video files are much larger than audio files.</p>
 
-            <p>For business calls, consider informing the other party that you're recording. This protects you legally and builds trust with clients and partners.</p>
+            <p data-i18n="video-calls-p4">For most use cases, audio-only recording with transcription is more practical than video recording. You get searchable text and smaller files.</p>
 
-            <h2>Tips for Better WhatsApp Call Recordings</h2>
+            <h2 data-i18n="h2-why-no-builtin">Why WhatsApp Doesn't Have Built-in Recording</h2>
+
+            <p data-i18n="why-no-builtin-p1">WhatsApp emphasizes privacy as a core feature, with end-to-end encryption on all calls and messages. Adding built-in call recording would create privacy concerns &mdash; recordings could be made without the other party's knowledge or consent.</p>
+
+            <p data-i18n="why-no-builtin-p2">By not including recording, WhatsApp maintains its privacy-focused positioning. This means users who need recordings for legitimate purposes must use external tools. The advantage is that recordings stay entirely on your computer, under your control, rather than being uploaded to WhatsApp's servers.</p>
+
+            <h2 data-i18n="h2-legal">Legal Considerations</h2>
+
+            <p data-i18n="legal-p1">Recording laws vary by jurisdiction. Before recording WhatsApp calls, understand the rules where you are:</p>
+
+            <p data-i18n="legal-p2"><strong>One-party consent:</strong> Many places allow recording calls you're participating in without telling the other person.</p>
+
+            <p data-i18n="legal-p3"><strong>All-party consent:</strong> Some jurisdictions require everyone on the call to agree to recording. This includes California, Germany, and other regions.</p>
+
+            <p data-i18n="legal-p4">For business calls, consider informing the other party that you're recording. This protects you legally and builds trust with clients and partners.</p>
+
+            <h2 data-i18n="h2-tips">Tips for Better WhatsApp Call Recordings</h2>
 
             <div class="tip-box">
-                <p><strong>Use headphones</strong> to prevent echo — your microphone won't pick up the other person's voice from your speakers. <strong>Ensure WhatsApp Desktop is connected</strong> to your phone before starting. <strong>Test with a short call</strong> before important conversations.</p>
+                <p data-i18n="tips-box"><strong>Use headphones</strong> to prevent echo &mdash; your microphone won't pick up the other person's voice from your speakers. <strong>Ensure WhatsApp Desktop is connected</strong> to your phone before starting. <strong>Test with a short call</strong> before important conversations.</p>
             </div>
 
-            <p><strong>Check your connection:</strong> WhatsApp call quality depends on internet connection. Use a wired connection for important calls when possible.</p>
+            <p data-i18n="tips-p1"><strong>Check your connection:</strong> WhatsApp call quality depends on internet connection. Use a wired connection for important calls when possible.</p>
 
-            <p><strong>Close other apps:</strong> Applications that produce notification sounds can be captured in your recording. Mute or close them before starting.</p>
+            <p data-i18n="tips-p2"><strong>Close other apps:</strong> Applications that produce notification sounds can be captured in your recording. Mute or close them before starting.</p>
 
-            <p><strong>Verify audio levels:</strong> Make a short test recording to confirm you can hear both yourself and the other person clearly in the playback.</p>
+            <p data-i18n="tips-p3"><strong>Verify audio levels:</strong> Make a short test recording to confirm you can hear both yourself and the other person clearly in the playback.</p>
 
-            <h2>Which Method Should You Use?</h2>
+            <h2 data-i18n="h2-which-method">Which Method Should You Use?</h2>
 
-            <p><strong>If you need transcription:</strong> Mono automatically converts your WhatsApp calls to searchable text with speaker labels. This saves hours compared to manually transcribing recordings.</p>
+            <p data-i18n="which-method-p1"><strong>If you need transcription:</strong> Mono automatically converts your WhatsApp calls to searchable text with speaker labels. This saves hours compared to manually transcribing recordings.</p>
 
-            <p><strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw audio files without transcription.</p>
+            <p data-i18n="which-method-p2"><strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw audio files without transcription.</p>
 
-            <p><strong>For business use:</strong> Mono's organized library and search features make it easier to find specific conversations later. The one-time payment works well for ongoing use.</p>
+            <p data-i18n="which-method-p3"><strong>For business use:</strong> Mono's organized library and search features make it easier to find specific conversations later. The one-time payment works well for ongoing use.</p>
 
-            <p><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with automatic transcription.</p>
+            <p data-i18n="which-method-p4"><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with automatic transcription.</p>
 
             <cta-card base-path="../"></cta-card>
 
             <section class="related-articles">
-                <h2 class="related-title">Related Guides</h2>
+                <h2 class="related-title" data-i18n="related-title">Related Guides</h2>
                 <div class="related-grid">
                     <a href="how-to-record-discord-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Discord Calls</h3>
-                        <p class="related-card-desc">4 methods to record Discord voice calls and video chats.</p>
+                        <h3 class="related-card-title" data-i18n="related-discord-title">How to Record Discord Calls</h3>
+                        <p class="related-card-desc" data-i18n="related-discord-desc">4 methods to record Discord voice calls and video chats.</p>
                     </a>
                     <a href="how-to-record-telegram-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Telegram Calls</h3>
-                        <p class="related-card-desc">3 methods to record Telegram voice calls on desktop.</p>
+                        <h3 class="related-card-title" data-i18n="related-telegram-title">How to Record Telegram Calls</h3>
+                        <p class="related-card-desc" data-i18n="related-telegram-desc">3 methods to record Telegram voice calls on desktop.</p>
                     </a>
                     <a href="how-to-record-viber-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Viber Calls</h3>
-                        <p class="related-card-desc">3 methods to record Viber voice calls on desktop.</p>
+                        <h3 class="related-card-title" data-i18n="related-viber-title">How to Record Viber Calls</h3>
+                        <p class="related-card-desc" data-i18n="related-viber-desc">3 methods to record Viber voice calls on desktop.</p>
                     </a>
                     <a href="record-discord-whatsapp-viber-telegram" class="related-card">
-                        <h3 class="related-card-title">Record Discord, WhatsApp, Viber or Telegram</h3>
-                        <p class="related-card-desc">Complete guide covering all four messaging apps.</p>
+                        <h3 class="related-card-title" data-i18n="related-all-title">Record Discord, WhatsApp, Viber or Telegram</h3>
+                        <p class="related-card-desc" data-i18n="related-all-desc">Complete guide covering all four messaging apps.</p>
                     </a>
                 </div>
             </section>
 
         </div>
     </main>
+
+<script>
+const translations = {
+    en: {
+        'back-link': '&larr; blog',
+        'article-category': '[Guide]',
+        'article-title': 'How to Record WhatsApp Calls in 2026',
+        'article-meta': 'Feb 23, 2026 &middot; 7 min read &middot; By Daniil Lefanov',
+        'article-disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'intro-p1': 'WhatsApp Desktop doesn\'t have a built-in call recording feature. Whether you need to save an important business conversation, keep a record of a family call, or document a discussion, you\'ll need a third-party screen recorder or audio capture tool to record WhatsApp calls on your computer.',
+        'intro-p2': 'This guide covers how to record WhatsApp voice calls and video calls reliably in 2026, with methods for both audio-only recording and full video recording.',
+        'tldr-label': 'TL;DR',
+        'tldr-item1': '<strong>Best overall:</strong> Mono &mdash; invisible recording, AI transcription, $50 once',
+        'tldr-item2': '<strong>Best free:</strong> OBS Studio &mdash; requires setup, no transcription',
+        'tldr-item3': '<strong>Built-in:</strong> None &mdash; WhatsApp has no native recording',
+        'h2-why-record': 'Why Record WhatsApp Calls?',
+        'why-record-p1': 'WhatsApp is one of the most popular messaging apps worldwide, handling billions of voice calls and video calls daily. Recording these conversations serves many legitimate purposes:',
+        'why-record-p2': '<strong>Business documentation:</strong> Customer support teams, sales professionals, and consultants often need records of client conversations. Recording WhatsApp business calls creates accountability and helps resolve disputes.',
+        'why-record-p3': '<strong>Personal memories:</strong> Conversations with elderly relatives, long-distance friends, or family abroad are moments worth preserving. Audio calls can capture stories and voices that matter.',
+        'why-record-p4': '<strong>Interviews and research:</strong> Journalists, podcasters, and researchers frequently conduct interviews over WhatsApp. Recording ensures accurate quotes and lets you focus on the conversation instead of taking notes.',
+        'h2-comparison': 'Quick Comparison',
+        'th-method': 'Method',
+        'th-price': 'Price',
+        'th-transcription': 'Transcription',
+        'th-setup': 'Setup',
+        'td-mono-price': '$50 once',
+        'td-mono-transcription': 'Yes (local AI)',
+        'td-mono-setup': 'Easy',
+        'td-obs-price': 'Free',
+        'td-obs-transcription': 'No',
+        'td-obs-setup': 'Medium',
+        'h2-method1': 'Method 1: Mono (Recommended)',
+        'method1-p1': 'Mono is a desktop application designed for recording and transcribing conversations. It captures internal audio directly from your system\'s sound output, recording exactly what you hear through your speakers or headphones &mdash; including both sides of your WhatsApp call.',
+        'method1-p2': 'Because Mono captures system audio rather than joining the call, there\'s no notification to the other person. After you stop recording, Mono transcribes the conversation locally using AI. The transcription runs entirely on your computer, so your audio isn\'t uploaded anywhere.',
+        'h3-mono-steps': 'How to record WhatsApp calls with Mono',
+        'mono-step1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'mono-step2': 'Ensure WhatsApp Desktop is connected to your phone',
+        'mono-step3': 'Open Mono and click the Record button to begin recording',
+        'mono-step4': 'Start your WhatsApp call (voice or video)',
+        'mono-step5': 'Have your conversation normally',
+        'mono-step6': 'When the call ends, click Stop in Mono',
+        'mono-step7': 'Wait for the automatic transcription to complete',
+        'mono-step8': 'Review your transcript with speaker labels and timestamps',
+        'method1-p3': 'Mono\'s transcription includes speaker identification &mdash; it detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations or topics later.',
+        'method1-pros': '<strong>Pros:</strong> Works with voice and video calls, invisible to other participants, automatic transcription with speaker identification, searchable recordings, good audio quality, one-time $50 payment with no subscription.',
+        'method1-cons': '<strong>Cons:</strong> Paid software (one free recording available to try before purchasing).',
+        'h2-method2': 'Method 2: OBS Studio (Free)',
+        'method2-p1': 'OBS Studio is free, open-source screen recording software primarily used by streamers and content creators. It can capture system audio and optionally your screen, making it suitable for recording WhatsApp calls. OBS requires initial configuration but works reliably once set up.',
+        'method2-p2': 'Like Mono, OBS captures audio from your system\'s output, so the other person won\'t know you\'re recording. However, OBS doesn\'t include transcription &mdash; you get a raw audio file that you\'ll need to process yourself if you want text.',
+        'h3-obs-steps': 'How to record WhatsApp calls with OBS',
+        'obs-step1': 'Download OBS Studio from obsproject.com and install it',
+        'obs-step2': 'Open OBS and go to Settings &rarr; Audio',
+        'obs-step3': 'Set "Desktop Audio" to your playback device (speakers or headphones)',
+        'obs-step4': 'In the main window, click + under Sources',
+        'obs-step5': 'Add an "Audio Output Capture" source to capture internal audio',
+        'obs-step6': 'Click "Start Recording" before making your WhatsApp call',
+        'obs-step7': 'Make your call in WhatsApp Desktop',
+        'obs-step8': 'Click "Stop Recording" when the call ends',
+        'obs-step9': 'Find your recording in the output folder (usually Videos)',
+        'method2-pros': '<strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable settings.',
+        'method2-cons': '<strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each call, no transcription &mdash; produces raw audio files only.',
+        'h2-video-calls': 'Recording WhatsApp Video Calls',
+        'video-calls-p1': 'Both methods work for WhatsApp video calls, but they capture different things:',
+        'video-calls-p2': '<strong>Audio-only (Mono):</strong> Captures the conversation audio with automatic transcription. This is often sufficient since most people record calls to preserve what was said, not how people looked. Files are small and easy to manage.',
+        'video-calls-p3': '<strong>Full video recording (OBS):</strong> Captures your screen showing the WhatsApp video call window. Add a "Display Capture" or "Window Capture" source to record video. Be aware that video quality depends on your connection, and video files are much larger than audio files.',
+        'video-calls-p4': 'For most use cases, audio-only recording with transcription is more practical than video recording. You get searchable text and smaller files.',
+        'h2-why-no-builtin': 'Why WhatsApp Doesn\'t Have Built-in Recording',
+        'why-no-builtin-p1': 'WhatsApp emphasizes privacy as a core feature, with end-to-end encryption on all calls and messages. Adding built-in call recording would create privacy concerns &mdash; recordings could be made without the other party\'s knowledge or consent.',
+        'why-no-builtin-p2': 'By not including recording, WhatsApp maintains its privacy-focused positioning. This means users who need recordings for legitimate purposes must use external tools. The advantage is that recordings stay entirely on your computer, under your control, rather than being uploaded to WhatsApp\'s servers.',
+        'h2-legal': 'Legal Considerations',
+        'legal-p1': 'Recording laws vary by jurisdiction. Before recording WhatsApp calls, understand the rules where you are:',
+        'legal-p2': '<strong>One-party consent:</strong> Many places allow recording calls you\'re participating in without telling the other person.',
+        'legal-p3': '<strong>All-party consent:</strong> Some jurisdictions require everyone on the call to agree to recording. This includes California, Germany, and other regions.',
+        'legal-p4': 'For business calls, consider informing the other party that you\'re recording. This protects you legally and builds trust with clients and partners.',
+        'h2-tips': 'Tips for Better WhatsApp Call Recordings',
+        'tips-box': '<strong>Use headphones</strong> to prevent echo &mdash; your microphone won\'t pick up the other person\'s voice from your speakers. <strong>Ensure WhatsApp Desktop is connected</strong> to your phone before starting. <strong>Test with a short call</strong> before important conversations.',
+        'tips-p1': '<strong>Check your connection:</strong> WhatsApp call quality depends on internet connection. Use a wired connection for important calls when possible.',
+        'tips-p2': '<strong>Close other apps:</strong> Applications that produce notification sounds can be captured in your recording. Mute or close them before starting.',
+        'tips-p3': '<strong>Verify audio levels:</strong> Make a short test recording to confirm you can hear both yourself and the other person clearly in the playback.',
+        'h2-which-method': 'Which Method Should You Use?',
+        'which-method-p1': '<strong>If you need transcription:</strong> Mono automatically converts your WhatsApp calls to searchable text with speaker labels. This saves hours compared to manually transcribing recordings.',
+        'which-method-p2': '<strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw audio files without transcription.',
+        'which-method-p3': '<strong>For business use:</strong> Mono\'s organized library and search features make it easier to find specific conversations later. The one-time payment works well for ongoing use.',
+        'which-method-p4': '<strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with automatic transcription.',
+        'related-title': 'Related Guides',
+        'related-discord-title': 'How to Record Discord Calls',
+        'related-discord-desc': '4 methods to record Discord voice calls and video chats.',
+        'related-telegram-title': 'How to Record Telegram Calls',
+        'related-telegram-desc': '3 methods to record Telegram voice calls on desktop.',
+        'related-viber-title': 'How to Record Viber Calls',
+        'related-viber-desc': '3 methods to record Viber voice calls on desktop.',
+        'related-all-title': 'Record Discord, WhatsApp, Viber or Telegram',
+        'related-all-desc': 'Complete guide covering all four messaging apps.'
+    },
+    es: {
+        'back-link': '&larr; blog',
+        'article-category': '[Guia]',
+        'article-title': 'Como grabar llamadas de WhatsApp en 2026',
+        'article-meta': '23 de febrero de 2026 &middot; 7 min de lectura &middot; Por Daniil Lefanov',
+        'article-disclosure': 'Aviso: Mono es nuestro producto. Lo hemos incluido en esta guia e intentamos ser justos, pero debes saber que tenemos interes en el.',
+        'intro-p1': 'WhatsApp Desktop no tiene una funcion integrada para grabar llamadas. Ya sea que necesites guardar una conversacion de negocios importante, mantener un registro de una llamada familiar o documentar una discusion, necesitaras un grabador de pantalla o herramienta de captura de audio de terceros para grabar llamadas de WhatsApp en tu computadora.',
+        'intro-p2': 'Esta guia cubre como grabar llamadas de voz y videollamadas de WhatsApp de manera confiable en 2026, con metodos para grabacion solo de audio y grabacion de video completo.',
+        'tldr-label': 'RESUMEN',
+        'tldr-item1': '<strong>Mejor en general:</strong> Mono &mdash; grabacion invisible, transcripcion con IA, $50 una vez',
+        'tldr-item2': '<strong>Mejor gratis:</strong> OBS Studio &mdash; requiere configuracion, sin transcripcion',
+        'tldr-item3': '<strong>Integrado:</strong> Ninguno &mdash; WhatsApp no tiene grabacion nativa',
+        'h2-why-record': '¿Por que grabar llamadas de WhatsApp?',
+        'why-record-p1': 'WhatsApp es una de las aplicaciones de mensajeria mas populares del mundo, manejando miles de millones de llamadas de voz y videollamadas diariamente. Grabar estas conversaciones sirve para muchos propositos legitimos:',
+        'why-record-p2': '<strong>Documentacion empresarial:</strong> Los equipos de atencion al cliente, profesionales de ventas y consultores a menudo necesitan registros de conversaciones con clientes. Grabar llamadas comerciales de WhatsApp crea responsabilidad y ayuda a resolver disputas.',
+        'why-record-p3': '<strong>Recuerdos personales:</strong> Las conversaciones con familiares mayores, amigos a distancia o familia en el extranjero son momentos que vale la pena preservar. Las llamadas de audio pueden capturar historias y voces que importan.',
+        'why-record-p4': '<strong>Entrevistas e investigacion:</strong> Periodistas, podcasters e investigadores frecuentemente realizan entrevistas por WhatsApp. Grabar asegura citas precisas y te permite concentrarte en la conversacion en lugar de tomar notas.',
+        'h2-comparison': 'Comparacion rapida',
+        'th-method': 'Metodo',
+        'th-price': 'Precio',
+        'th-transcription': 'Transcripcion',
+        'th-setup': 'Configuracion',
+        'td-mono-price': '$50 una vez',
+        'td-mono-transcription': 'Si (IA local)',
+        'td-mono-setup': 'Facil',
+        'td-obs-price': 'Gratis',
+        'td-obs-transcription': 'No',
+        'td-obs-setup': 'Media',
+        'h2-method1': 'Metodo 1: Mono (Recomendado)',
+        'method1-p1': 'Mono es una aplicacion de escritorio disenada para grabar y transcribir conversaciones. Captura el audio interno directamente de la salida de sonido de tu sistema, grabando exactamente lo que escuchas a traves de tus altavoces o audifonos &mdash; incluyendo ambos lados de tu llamada de WhatsApp.',
+        'method1-p2': 'Debido a que Mono captura el audio del sistema en lugar de unirse a la llamada, no hay notificacion para la otra persona. Despues de detener la grabacion, Mono transcribe la conversacion localmente usando IA. La transcripcion se ejecuta completamente en tu computadora, por lo que tu audio no se sube a ningun lugar.',
+        'h3-mono-steps': 'Como grabar llamadas de WhatsApp con Mono',
+        'mono-step1': 'Descarga Mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instalalo',
+        'mono-step2': 'Asegurate de que WhatsApp Desktop este conectado a tu telefono',
+        'mono-step3': 'Abre Mono y haz clic en el boton Grabar para comenzar la grabacion',
+        'mono-step4': 'Inicia tu llamada de WhatsApp (voz o video)',
+        'mono-step5': 'Ten tu conversacion normalmente',
+        'mono-step6': 'Cuando termine la llamada, haz clic en Detener en Mono',
+        'mono-step7': 'Espera a que se complete la transcripcion automatica',
+        'mono-step8': 'Revisa tu transcripcion con etiquetas de hablantes y marcas de tiempo',
+        'method1-p3': 'La transcripcion de Mono incluye identificacion de hablantes &mdash; detecta diferentes voces y las etiqueta a lo largo de la transcripcion. Puedes buscar en todas tus grabaciones por palabra clave, facilitando encontrar conversaciones o temas especificos mas tarde.',
+        'method1-pros': '<strong>Ventajas:</strong> Funciona con llamadas de voz y video, invisible para otros participantes, transcripcion automatica con identificacion de hablantes, grabaciones con busqueda, buena calidad de audio, pago unico de $50 sin suscripcion.',
+        'method1-cons': '<strong>Desventajas:</strong> Software de pago (una grabacion gratis disponible para probar antes de comprar).',
+        'h2-method2': 'Metodo 2: OBS Studio (Gratis)',
+        'method2-p1': 'OBS Studio es un software gratuito de grabacion de pantalla de codigo abierto utilizado principalmente por streamers y creadores de contenido. Puede capturar audio del sistema y opcionalmente tu pantalla, lo que lo hace adecuado para grabar llamadas de WhatsApp. OBS requiere configuracion inicial pero funciona de manera confiable una vez configurado.',
+        'method2-p2': 'Al igual que Mono, OBS captura audio de la salida de tu sistema, por lo que la otra persona no sabra que estas grabando. Sin embargo, OBS no incluye transcripcion &mdash; obtienes un archivo de audio sin procesar que necesitaras procesar tu mismo si quieres texto.',
+        'h3-obs-steps': 'Como grabar llamadas de WhatsApp con OBS',
+        'obs-step1': 'Descarga OBS Studio desde obsproject.com e instalalo',
+        'obs-step2': 'Abre OBS y ve a Configuracion &rarr; Audio',
+        'obs-step3': 'Configura "Audio de escritorio" a tu dispositivo de reproduccion (altavoces o audifonos)',
+        'obs-step4': 'En la ventana principal, haz clic en + debajo de Fuentes',
+        'obs-step5': 'Agrega una fuente de "Captura de salida de audio" para capturar audio interno',
+        'obs-step6': 'Haz clic en "Iniciar grabacion" antes de hacer tu llamada de WhatsApp',
+        'obs-step7': 'Realiza tu llamada en WhatsApp Desktop',
+        'obs-step8': 'Haz clic en "Detener grabacion" cuando termine la llamada',
+        'obs-step9': 'Encuentra tu grabacion en la carpeta de salida (generalmente Videos)',
+        'method2-pros': '<strong>Ventajas:</strong> Completamente gratuito y de codigo abierto, invisible para otros participantes, puede grabar videollamadas con grabacion de pantalla, configuraciones altamente personalizables.',
+        'method2-cons': '<strong>Desventajas:</strong> Requiere configuracion inicial, debes iniciar y detener manualmente la grabacion para cada llamada, sin transcripcion &mdash; produce solo archivos de audio sin procesar.',
+        'h2-video-calls': 'Grabacion de videollamadas de WhatsApp',
+        'video-calls-p1': 'Ambos metodos funcionan para videollamadas de WhatsApp, pero capturan cosas diferentes:',
+        'video-calls-p2': '<strong>Solo audio (Mono):</strong> Captura el audio de la conversacion con transcripcion automatica. Esto es a menudo suficiente ya que la mayoria de las personas graban llamadas para preservar lo que se dijo, no como se veian las personas. Los archivos son pequenos y faciles de manejar.',
+        'video-calls-p3': '<strong>Grabacion de video completo (OBS):</strong> Captura tu pantalla mostrando la ventana de videollamada de WhatsApp. Agrega una fuente de "Captura de pantalla" o "Captura de ventana" para grabar video. Ten en cuenta que la calidad del video depende de tu conexion, y los archivos de video son mucho mas grandes que los de audio.',
+        'video-calls-p4': 'Para la mayoria de los casos de uso, la grabacion solo de audio con transcripcion es mas practica que la grabacion de video. Obtienes texto con busqueda y archivos mas pequenos.',
+        'h2-why-no-builtin': 'Por que WhatsApp no tiene grabacion integrada',
+        'why-no-builtin-p1': 'WhatsApp enfatiza la privacidad como caracteristica central, con cifrado de extremo a extremo en todas las llamadas y mensajes. Agregar grabacion de llamadas integrada crearia preocupaciones de privacidad &mdash; las grabaciones podrian hacerse sin el conocimiento o consentimiento de la otra parte.',
+        'why-no-builtin-p2': 'Al no incluir grabacion, WhatsApp mantiene su posicionamiento enfocado en la privacidad. Esto significa que los usuarios que necesitan grabaciones para propositos legitimos deben usar herramientas externas. La ventaja es que las grabaciones permanecen completamente en tu computadora, bajo tu control, en lugar de subirse a los servidores de WhatsApp.',
+        'h2-legal': 'Consideraciones legales',
+        'legal-p1': 'Las leyes de grabacion varian segun la jurisdiccion. Antes de grabar llamadas de WhatsApp, comprende las reglas donde te encuentras:',
+        'legal-p2': '<strong>Consentimiento de una parte:</strong> Muchos lugares permiten grabar llamadas en las que participas sin decirle a la otra persona.',
+        'legal-p3': '<strong>Consentimiento de todas las partes:</strong> Algunas jurisdicciones requieren que todos en la llamada acepten la grabacion. Esto incluye California, Alemania y otras regiones.',
+        'legal-p4': 'Para llamadas de negocios, considera informar a la otra parte que estas grabando. Esto te protege legalmente y genera confianza con clientes y socios.',
+        'h2-tips': 'Consejos para mejores grabaciones de llamadas de WhatsApp',
+        'tips-box': '<strong>Usa audifonos</strong> para prevenir el eco &mdash; tu microfono no captara la voz de la otra persona desde tus altavoces. <strong>Asegurate de que WhatsApp Desktop este conectado</strong> a tu telefono antes de comenzar. <strong>Prueba con una llamada corta</strong> antes de conversaciones importantes.',
+        'tips-p1': '<strong>Verifica tu conexion:</strong> La calidad de las llamadas de WhatsApp depende de la conexion a internet. Usa una conexion por cable para llamadas importantes cuando sea posible.',
+        'tips-p2': '<strong>Cierra otras aplicaciones:</strong> Las aplicaciones que producen sonidos de notificacion pueden capturarse en tu grabacion. Silencialas o cierralas antes de comenzar.',
+        'tips-p3': '<strong>Verifica los niveles de audio:</strong> Haz una grabacion de prueba corta para confirmar que puedes escucharte a ti mismo y a la otra persona claramente en la reproduccion.',
+        'h2-which-method': '¿Que metodo deberias usar?',
+        'which-method-p1': '<strong>Si necesitas transcripcion:</strong> Mono convierte automaticamente tus llamadas de WhatsApp a texto con busqueda con etiquetas de hablantes. Esto ahorra horas comparado con transcribir grabaciones manualmente.',
+        'which-method-p2': '<strong>Si quieres gratis:</strong> OBS Studio funciona de manera confiable pero requiere configuracion y produce archivos de audio sin procesar sin transcripcion.',
+        'which-method-p3': '<strong>Para uso empresarial:</strong> La biblioteca organizada y las funciones de busqueda de Mono facilitan encontrar conversaciones especificas mas tarde. El pago unico funciona bien para uso continuo.',
+        'which-method-p4': '<strong>Para grabacion de video:</strong> OBS Studio con grabacion de pantalla captura tanto video como audio. Mono se enfoca en audio con transcripcion automatica.',
+        'related-title': 'Guias relacionadas',
+        'related-discord-title': 'Como grabar llamadas de Discord',
+        'related-discord-desc': '4 metodos para grabar llamadas de voz y videochats de Discord.',
+        'related-telegram-title': 'Como grabar llamadas de Telegram',
+        'related-telegram-desc': '3 metodos para grabar llamadas de voz de Telegram en escritorio.',
+        'related-viber-title': 'Como grabar llamadas de Viber',
+        'related-viber-desc': '3 metodos para grabar llamadas de voz de Viber en escritorio.',
+        'related-all-title': 'Grabar Discord, WhatsApp, Viber o Telegram',
+        'related-all-desc': 'Guia completa que cubre las cuatro aplicaciones de mensajeria.'
+    },
+    fr: {
+        'back-link': '&larr; blog',
+        'article-category': '[Guide]',
+        'article-title': 'Comment enregistrer les appels WhatsApp en 2026',
+        'article-meta': '23 fevrier 2026 &middot; 7 min de lecture &middot; Par Daniil Lefanov',
+        'article-disclosure': 'Divulgation : Mono est notre produit. Nous l\'avons inclus dans ce guide et avons essaye d\'etre justes, mais vous devez savoir que nous avons un interet dans celui-ci.',
+        'intro-p1': 'WhatsApp Desktop n\'a pas de fonction d\'enregistrement d\'appels integree. Que vous ayez besoin de sauvegarder une conversation professionnelle importante, de garder un enregistrement d\'un appel familial ou de documenter une discussion, vous aurez besoin d\'un enregistreur d\'ecran tiers ou d\'un outil de capture audio pour enregistrer les appels WhatsApp sur votre ordinateur.',
+        'intro-p2': 'Ce guide explique comment enregistrer les appels vocaux et video WhatsApp de maniere fiable en 2026, avec des methodes pour l\'enregistrement audio uniquement et l\'enregistrement video complet.',
+        'tldr-label': 'RESUME',
+        'tldr-item1': '<strong>Meilleur global :</strong> Mono &mdash; enregistrement invisible, transcription IA, 50 $ une fois',
+        'tldr-item2': '<strong>Meilleur gratuit :</strong> OBS Studio &mdash; necessite une configuration, pas de transcription',
+        'tldr-item3': '<strong>Integre :</strong> Aucun &mdash; WhatsApp n\'a pas d\'enregistrement natif',
+        'h2-why-record': 'Pourquoi enregistrer les appels WhatsApp ?',
+        'why-record-p1': 'WhatsApp est l\'une des applications de messagerie les plus populaires au monde, gerant des milliards d\'appels vocaux et video quotidiennement. L\'enregistrement de ces conversations sert de nombreux objectifs legitimes :',
+        'why-record-p2': '<strong>Documentation professionnelle :</strong> Les equipes de support client, les professionnels de la vente et les consultants ont souvent besoin d\'enregistrements des conversations avec les clients. L\'enregistrement des appels professionnels WhatsApp cree une responsabilite et aide a resoudre les litiges.',
+        'why-record-p3': '<strong>Souvenirs personnels :</strong> Les conversations avec des parents ages, des amis eloignes ou de la famille a l\'etranger sont des moments qui meritent d\'etre preserves. Les appels audio peuvent capturer des histoires et des voix qui comptent.',
+        'why-record-p4': '<strong>Entretiens et recherche :</strong> Les journalistes, podcasteurs et chercheurs menent frequemment des entretiens via WhatsApp. L\'enregistrement garantit des citations precises et vous permet de vous concentrer sur la conversation au lieu de prendre des notes.',
+        'h2-comparison': 'Comparaison rapide',
+        'th-method': 'Methode',
+        'th-price': 'Prix',
+        'th-transcription': 'Transcription',
+        'th-setup': 'Configuration',
+        'td-mono-price': '50 $ une fois',
+        'td-mono-transcription': 'Oui (IA locale)',
+        'td-mono-setup': 'Facile',
+        'td-obs-price': 'Gratuit',
+        'td-obs-transcription': 'Non',
+        'td-obs-setup': 'Moyenne',
+        'h2-method1': 'Methode 1 : Mono (Recommande)',
+        'method1-p1': 'Mono est une application de bureau concue pour enregistrer et transcrire les conversations. Elle capture l\'audio interne directement depuis la sortie audio de votre systeme, enregistrant exactement ce que vous entendez a travers vos haut-parleurs ou ecouteurs &mdash; y compris les deux cotes de votre appel WhatsApp.',
+        'method1-p2': 'Parce que Mono capture l\'audio systeme plutot que de rejoindre l\'appel, il n\'y a pas de notification pour l\'autre personne. Apres avoir arrete l\'enregistrement, Mono transcrit la conversation localement en utilisant l\'IA. La transcription s\'execute entierement sur votre ordinateur, donc votre audio n\'est telecharge nulle part.',
+        'h3-mono-steps': 'Comment enregistrer les appels WhatsApp avec Mono',
+        'mono-step1': 'Telechargez Mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
+        'mono-step2': 'Assurez-vous que WhatsApp Desktop est connecte a votre telephone',
+        'mono-step3': 'Ouvrez Mono et cliquez sur le bouton Enregistrer pour commencer l\'enregistrement',
+        'mono-step4': 'Demarrez votre appel WhatsApp (vocal ou video)',
+        'mono-step5': 'Ayez votre conversation normalement',
+        'mono-step6': 'Lorsque l\'appel se termine, cliquez sur Arreter dans Mono',
+        'mono-step7': 'Attendez que la transcription automatique soit terminee',
+        'mono-step8': 'Examinez votre transcription avec les etiquettes des intervenants et les horodatages',
+        'method1-p3': 'La transcription de Mono inclut l\'identification des intervenants &mdash; elle detecte differentes voix et les etiquette tout au long de la transcription. Vous pouvez rechercher dans tous vos enregistrements par mot-cle, ce qui facilite la recherche de conversations ou de sujets specifiques plus tard.',
+        'method1-pros': '<strong>Avantages :</strong> Fonctionne avec les appels vocaux et video, invisible pour les autres participants, transcription automatique avec identification des intervenants, enregistrements consultables, bonne qualite audio, paiement unique de 50 $ sans abonnement.',
+        'method1-cons': '<strong>Inconvenients :</strong> Logiciel payant (un enregistrement gratuit disponible pour essayer avant d\'acheter).',
+        'h2-method2': 'Methode 2 : OBS Studio (Gratuit)',
+        'method2-p1': 'OBS Studio est un logiciel gratuit d\'enregistrement d\'ecran open source principalement utilise par les streamers et les createurs de contenu. Il peut capturer l\'audio systeme et eventuellement votre ecran, ce qui le rend adapte a l\'enregistrement des appels WhatsApp. OBS necessite une configuration initiale mais fonctionne de maniere fiable une fois configure.',
+        'method2-p2': 'Comme Mono, OBS capture l\'audio de la sortie de votre systeme, donc l\'autre personne ne saura pas que vous enregistrez. Cependant, OBS n\'inclut pas de transcription &mdash; vous obtenez un fichier audio brut que vous devrez traiter vous-meme si vous voulez du texte.',
+        'h3-obs-steps': 'Comment enregistrer les appels WhatsApp avec OBS',
+        'obs-step1': 'Telechargez OBS Studio depuis obsproject.com et installez-le',
+        'obs-step2': 'Ouvrez OBS et allez dans Parametres &rarr; Audio',
+        'obs-step3': 'Definissez "Audio du bureau" sur votre peripherique de lecture (haut-parleurs ou ecouteurs)',
+        'obs-step4': 'Dans la fenetre principale, cliquez sur + sous Sources',
+        'obs-step5': 'Ajoutez une source "Capture de sortie audio" pour capturer l\'audio interne',
+        'obs-step6': 'Cliquez sur "Demarrer l\'enregistrement" avant de passer votre appel WhatsApp',
+        'obs-step7': 'Passez votre appel dans WhatsApp Desktop',
+        'obs-step8': 'Cliquez sur "Arreter l\'enregistrement" lorsque l\'appel se termine',
+        'obs-step9': 'Trouvez votre enregistrement dans le dossier de sortie (generalement Videos)',
+        'method2-pros': '<strong>Avantages :</strong> Completement gratuit et open source, invisible pour les autres participants, peut enregistrer les appels video avec l\'enregistrement d\'ecran, parametres hautement configurables.',
+        'method2-cons': '<strong>Inconvenients :</strong> Necessite une configuration initiale, vous devez demarrer et arreter manuellement l\'enregistrement pour chaque appel, pas de transcription &mdash; produit uniquement des fichiers audio bruts.',
+        'h2-video-calls': 'Enregistrement des appels video WhatsApp',
+        'video-calls-p1': 'Les deux methodes fonctionnent pour les appels video WhatsApp, mais elles capturent des choses differentes :',
+        'video-calls-p2': '<strong>Audio uniquement (Mono) :</strong> Capture l\'audio de la conversation avec transcription automatique. C\'est souvent suffisant car la plupart des gens enregistrent les appels pour preserver ce qui a ete dit, pas l\'apparence des gens. Les fichiers sont petits et faciles a gerer.',
+        'video-calls-p3': '<strong>Enregistrement video complet (OBS) :</strong> Capture votre ecran montrant la fenetre d\'appel video WhatsApp. Ajoutez une source "Capture d\'ecran" ou "Capture de fenetre" pour enregistrer la video. Sachez que la qualite video depend de votre connexion, et les fichiers video sont beaucoup plus volumineux que les fichiers audio.',
+        'video-calls-p4': 'Pour la plupart des cas d\'utilisation, l\'enregistrement audio uniquement avec transcription est plus pratique que l\'enregistrement video. Vous obtenez du texte consultable et des fichiers plus petits.',
+        'h2-why-no-builtin': 'Pourquoi WhatsApp n\'a pas d\'enregistrement integre',
+        'why-no-builtin-p1': 'WhatsApp met l\'accent sur la confidentialite comme caracteristique principale, avec un chiffrement de bout en bout sur tous les appels et messages. L\'ajout d\'un enregistrement d\'appels integre creerait des problemes de confidentialite &mdash; les enregistrements pourraient etre effectues sans la connaissance ou le consentement de l\'autre partie.',
+        'why-no-builtin-p2': 'En n\'incluant pas l\'enregistrement, WhatsApp maintient son positionnement axe sur la confidentialite. Cela signifie que les utilisateurs qui ont besoin d\'enregistrements a des fins legitimes doivent utiliser des outils externes. L\'avantage est que les enregistrements restent entierement sur votre ordinateur, sous votre controle, plutot que d\'etre telecharges sur les serveurs de WhatsApp.',
+        'h2-legal': 'Considerations legales',
+        'legal-p1': 'Les lois sur l\'enregistrement varient selon la juridiction. Avant d\'enregistrer des appels WhatsApp, comprenez les regles la ou vous etes :',
+        'legal-p2': '<strong>Consentement d\'une partie :</strong> De nombreux endroits permettent d\'enregistrer les appels auxquels vous participez sans le dire a l\'autre personne.',
+        'legal-p3': '<strong>Consentement de toutes les parties :</strong> Certaines juridictions exigent que tout le monde dans l\'appel accepte l\'enregistrement. Cela inclut la Californie, l\'Allemagne et d\'autres regions.',
+        'legal-p4': 'Pour les appels professionnels, envisagez d\'informer l\'autre partie que vous enregistrez. Cela vous protege legalement et renforce la confiance avec les clients et partenaires.',
+        'h2-tips': 'Conseils pour de meilleurs enregistrements d\'appels WhatsApp',
+        'tips-box': '<strong>Utilisez des ecouteurs</strong> pour eviter l\'echo &mdash; votre microphone ne captera pas la voix de l\'autre personne depuis vos haut-parleurs. <strong>Assurez-vous que WhatsApp Desktop est connecte</strong> a votre telephone avant de commencer. <strong>Testez avec un court appel</strong> avant les conversations importantes.',
+        'tips-p1': '<strong>Verifiez votre connexion :</strong> La qualite des appels WhatsApp depend de la connexion Internet. Utilisez une connexion filaire pour les appels importants lorsque c\'est possible.',
+        'tips-p2': '<strong>Fermez les autres applications :</strong> Les applications qui produisent des sons de notification peuvent etre capturees dans votre enregistrement. Mettez-les en sourdine ou fermez-les avant de commencer.',
+        'tips-p3': '<strong>Verifiez les niveaux audio :</strong> Faites un court enregistrement test pour confirmer que vous pouvez vous entendre vous-meme et l\'autre personne clairement dans la lecture.',
+        'h2-which-method': 'Quelle methode devriez-vous utiliser ?',
+        'which-method-p1': '<strong>Si vous avez besoin de transcription :</strong> Mono convertit automatiquement vos appels WhatsApp en texte consultable avec des etiquettes d\'intervenants. Cela permet d\'economiser des heures par rapport a la transcription manuelle des enregistrements.',
+        'which-method-p2': '<strong>Si vous voulez gratuit :</strong> OBS Studio fonctionne de maniere fiable mais necessite une configuration et produit des fichiers audio bruts sans transcription.',
+        'which-method-p3': '<strong>Pour un usage professionnel :</strong> La bibliotheque organisee et les fonctions de recherche de Mono facilitent la recherche de conversations specifiques plus tard. Le paiement unique fonctionne bien pour une utilisation continue.',
+        'which-method-p4': '<strong>Pour l\'enregistrement video :</strong> OBS Studio avec enregistrement d\'ecran capture a la fois la video et l\'audio. Mono se concentre sur l\'audio avec transcription automatique.',
+        'related-title': 'Guides connexes',
+        'related-discord-title': 'Comment enregistrer les appels Discord',
+        'related-discord-desc': '4 methodes pour enregistrer les appels vocaux et les chats video Discord.',
+        'related-telegram-title': 'Comment enregistrer les appels Telegram',
+        'related-telegram-desc': '3 methodes pour enregistrer les appels vocaux Telegram sur ordinateur.',
+        'related-viber-title': 'Comment enregistrer les appels Viber',
+        'related-viber-desc': '3 methodes pour enregistrer les appels vocaux Viber sur ordinateur.',
+        'related-all-title': 'Enregistrer Discord, WhatsApp, Viber ou Telegram',
+        'related-all-desc': 'Guide complet couvrant les quatre applications de messagerie.'
+    },
+    de: {
+        'back-link': '&larr; Blog',
+        'article-category': '[Anleitung]',
+        'article-title': 'So nehmen Sie WhatsApp-Anrufe im Jahr 2026 auf',
+        'article-meta': '23. Februar 2026 &middot; 7 Min. Lesezeit &middot; Von Daniil Lefanov',
+        'article-disclosure': 'Offenlegung: Mono ist unser Produkt. Wir haben es in diesen Leitfaden aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'intro-p1': 'WhatsApp Desktop verfugt uber keine integrierte Anrufaufzeichnungsfunktion. Ob Sie ein wichtiges Geschaftsgesprach speichern, einen Familienanruf aufzeichnen oder eine Diskussion dokumentieren mochten - Sie benotigen einen Bildschirmrekorder oder ein Audio-Aufnahmetool eines Drittanbieters, um WhatsApp-Anrufe auf Ihrem Computer aufzuzeichnen.',
+        'intro-p2': 'Diese Anleitung behandelt, wie Sie WhatsApp-Sprach- und Videoanrufe im Jahr 2026 zuverlassig aufnehmen konnen, mit Methoden sowohl fur reine Audioaufnahmen als auch fur vollstandige Videoaufnahmen.',
+        'tldr-label': 'ZUSAMMENFASSUNG',
+        'tldr-item1': '<strong>Beste Gesamtlosung:</strong> Mono &mdash; unsichtbare Aufnahme, KI-Transkription, einmalig 50 $',
+        'tldr-item2': '<strong>Beste Gratis-Option:</strong> OBS Studio &mdash; erfordert Einrichtung, keine Transkription',
+        'tldr-item3': '<strong>Integriert:</strong> Keine &mdash; WhatsApp hat keine native Aufnahme',
+        'h2-why-record': 'Warum WhatsApp-Anrufe aufnehmen?',
+        'why-record-p1': 'WhatsApp ist eine der beliebtesten Messaging-Apps weltweit und wickelt taglich Milliarden von Sprach- und Videoanrufen ab. Die Aufzeichnung dieser Gesprache dient vielen legitimen Zwecken:',
+        'why-record-p2': '<strong>Geschaftsdokumentation:</strong> Kundensupport-Teams, Vertriebsprofis und Berater benotigen oft Aufzeichnungen von Kundengesprachen. Die Aufzeichnung von WhatsApp-Geschaftsanrufen schafft Verantwortlichkeit und hilft bei der Losung von Streitigkeiten.',
+        'why-record-p3': '<strong>Personliche Erinnerungen:</strong> Gesprache mit alteren Verwandten, Fernfreunden oder Familie im Ausland sind Momente, die es wert sind, bewahrt zu werden. Audioanrufe konnen Geschichten und Stimmen einfangen, die wichtig sind.',
+        'why-record-p4': '<strong>Interviews und Recherche:</strong> Journalisten, Podcaster und Forscher fuhren haufig Interviews uber WhatsApp. Die Aufnahme gewahrleistet genaue Zitate und ermoglicht es Ihnen, sich auf das Gesprach zu konzentrieren, anstatt Notizen zu machen.',
+        'h2-comparison': 'Schnellvergleich',
+        'th-method': 'Methode',
+        'th-price': 'Preis',
+        'th-transcription': 'Transkription',
+        'th-setup': 'Einrichtung',
+        'td-mono-price': 'Einmalig 50 $',
+        'td-mono-transcription': 'Ja (lokale KI)',
+        'td-mono-setup': 'Einfach',
+        'td-obs-price': 'Kostenlos',
+        'td-obs-transcription': 'Nein',
+        'td-obs-setup': 'Mittel',
+        'h2-method1': 'Methode 1: Mono (Empfohlen)',
+        'method1-p1': 'Mono ist eine Desktop-Anwendung, die fur die Aufzeichnung und Transkription von Gesprachen entwickelt wurde. Sie erfasst internes Audio direkt von der Tonausgabe Ihres Systems und nimmt genau das auf, was Sie uber Ihre Lautsprecher oder Kopfhorer horen &mdash; einschliesslich beider Seiten Ihres WhatsApp-Anrufs.',
+        'method1-p2': 'Da Mono Systemaudio erfasst, anstatt dem Anruf beizutreten, gibt es keine Benachrichtigung an die andere Person. Nachdem Sie die Aufnahme beendet haben, transkribiert Mono das Gesprach lokal mit KI. Die Transkription lauft vollstandig auf Ihrem Computer, sodass Ihr Audio nirgendwohin hochgeladen wird.',
+        'h3-mono-steps': 'So nehmen Sie WhatsApp-Anrufe mit Mono auf',
+        'mono-step1': 'Laden Sie Mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
+        'mono-step2': 'Stellen Sie sicher, dass WhatsApp Desktop mit Ihrem Telefon verbunden ist',
+        'mono-step3': 'Offnen Sie Mono und klicken Sie auf die Schaltflache Aufnehmen, um die Aufnahme zu starten',
+        'mono-step4': 'Starten Sie Ihren WhatsApp-Anruf (Sprache oder Video)',
+        'mono-step5': 'Fuhren Sie Ihr Gesprach normal',
+        'mono-step6': 'Wenn der Anruf endet, klicken Sie in Mono auf Stopp',
+        'mono-step7': 'Warten Sie, bis die automatische Transkription abgeschlossen ist',
+        'mono-step8': 'Uberprufen Sie Ihre Transkription mit Sprecherbezeichnungen und Zeitstempeln',
+        'method1-p3': 'Die Transkription von Mono umfasst die Sprecheridentifikation &mdash; sie erkennt verschiedene Stimmen und kennzeichnet sie im gesamten Transkript. Sie konnen alle Ihre Aufnahmen nach Schlusselwortern durchsuchen, was es einfach macht, spezifische Gesprache oder Themen spater zu finden.',
+        'method1-pros': '<strong>Vorteile:</strong> Funktioniert mit Sprach- und Videoanrufen, unsichtbar fur andere Teilnehmer, automatische Transkription mit Sprecheridentifikation, durchsuchbare Aufnahmen, gute Audioqualitat, einmalige Zahlung von 50 $ ohne Abonnement.',
+        'method1-cons': '<strong>Nachteile:</strong> Kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren vor dem Kauf verfugbar).',
+        'h2-method2': 'Methode 2: OBS Studio (Kostenlos)',
+        'method2-p1': 'OBS Studio ist eine kostenlose, quelloffene Bildschirmaufnahmesoftware, die hauptsachlich von Streamern und Content-Erstellern verwendet wird. Sie kann Systemaudio und optional Ihren Bildschirm erfassen, was sie fur die Aufnahme von WhatsApp-Anrufen geeignet macht. OBS erfordert eine anfangliche Konfiguration, funktioniert aber zuverlassig, sobald es eingerichtet ist.',
+        'method2-p2': 'Wie Mono erfasst OBS Audio von der Ausgabe Ihres Systems, sodass die andere Person nicht weiss, dass Sie aufnehmen. OBS enthalt jedoch keine Transkription &mdash; Sie erhalten eine rohe Audiodatei, die Sie selbst verarbeiten mussen, wenn Sie Text wunschen.',
+        'h3-obs-steps': 'So nehmen Sie WhatsApp-Anrufe mit OBS auf',
+        'obs-step1': 'Laden Sie OBS Studio von obsproject.com herunter und installieren Sie es',
+        'obs-step2': 'Offnen Sie OBS und gehen Sie zu Einstellungen &rarr; Audio',
+        'obs-step3': 'Stellen Sie "Desktop-Audio" auf Ihr Wiedergabegerat (Lautsprecher oder Kopfhorer) ein',
+        'obs-step4': 'Klicken Sie im Hauptfenster auf + unter Quellen',
+        'obs-step5': 'Fugen Sie eine "Audioausgabe-Aufnahme"-Quelle hinzu, um internes Audio aufzunehmen',
+        'obs-step6': 'Klicken Sie auf "Aufnahme starten", bevor Sie Ihren WhatsApp-Anruf tatigen',
+        'obs-step7': 'Fuhren Sie Ihren Anruf in WhatsApp Desktop',
+        'obs-step8': 'Klicken Sie auf "Aufnahme stoppen", wenn der Anruf endet',
+        'obs-step9': 'Finden Sie Ihre Aufnahme im Ausgabeordner (normalerweise Videos)',
+        'method2-pros': '<strong>Vorteile:</strong> Vollig kostenlos und quelloffen, unsichtbar fur andere Teilnehmer, kann Videoanrufe mit Bildschirmaufnahme aufzeichnen, hochgradig konfigurierbare Einstellungen.',
+        'method2-cons': '<strong>Nachteile:</strong> Erfordert anfangliche Einrichtung, Sie mussen die Aufnahme fur jeden Anruf manuell starten und stoppen, keine Transkription &mdash; produziert nur rohe Audiodateien.',
+        'h2-video-calls': 'Aufnahme von WhatsApp-Videoanrufen',
+        'video-calls-p1': 'Beide Methoden funktionieren fur WhatsApp-Videoanrufe, aber sie erfassen unterschiedliche Dinge:',
+        'video-calls-p2': '<strong>Nur Audio (Mono):</strong> Erfasst das Gesprachsaudio mit automatischer Transkription. Dies ist oft ausreichend, da die meisten Menschen Anrufe aufnehmen, um zu bewahren, was gesagt wurde, nicht wie die Leute aussahen. Dateien sind klein und einfach zu verwalten.',
+        'video-calls-p3': '<strong>Vollstandige Videoaufnahme (OBS):</strong> Erfasst Ihren Bildschirm, der das WhatsApp-Videoanruffenster zeigt. Fugen Sie eine "Bildschirmaufnahme"- oder "Fensteraufnahme"-Quelle hinzu, um Video aufzunehmen. Beachten Sie, dass die Videoqualitat von Ihrer Verbindung abhangt und Videodateien viel grosser sind als Audiodateien.',
+        'video-calls-p4': 'Fur die meisten Anwendungsfalle ist die reine Audioaufnahme mit Transkription praktischer als Videoaufnahme. Sie erhalten durchsuchbaren Text und kleinere Dateien.',
+        'h2-why-no-builtin': 'Warum WhatsApp keine integrierte Aufnahme hat',
+        'why-no-builtin-p1': 'WhatsApp betont Datenschutz als Kernfunktion, mit Ende-zu-Ende-Verschlusselung bei allen Anrufen und Nachrichten. Das Hinzufugen einer integrierten Anrufaufnahme wurde Datenschutzbedenken aufwerfen &mdash; Aufnahmen konnten ohne Wissen oder Zustimmung der anderen Partei gemacht werden.',
+        'why-no-builtin-p2': 'Indem WhatsApp keine Aufnahme einschliesst, behalt es seine datenschutzorientierte Positionierung bei. Dies bedeutet, dass Benutzer, die Aufnahmen fur legitime Zwecke benotigen, externe Tools verwenden mussen. Der Vorteil ist, dass Aufnahmen vollstandig auf Ihrem Computer bleiben, unter Ihrer Kontrolle, anstatt auf WhatsApp-Server hochgeladen zu werden.',
+        'h2-legal': 'Rechtliche Uberlegungen',
+        'legal-p1': 'Aufnahmegesetze variieren je nach Gerichtsbarkeit. Bevor Sie WhatsApp-Anrufe aufnehmen, verstehen Sie die Regeln, wo Sie sich befinden:',
+        'legal-p2': '<strong>Einparteien-Zustimmung:</strong> Viele Orte erlauben die Aufnahme von Anrufen, an denen Sie teilnehmen, ohne es der anderen Person zu sagen.',
+        'legal-p3': '<strong>Allparteien-Zustimmung:</strong> Einige Gerichtsbarkeiten verlangen, dass alle im Anruf der Aufnahme zustimmen. Dazu gehoren Kalifornien, Deutschland und andere Regionen.',
+        'legal-p4': 'Fur Geschaftsanrufe sollten Sie erwagen, die andere Partei zu informieren, dass Sie aufnehmen. Dies schutzt Sie rechtlich und baut Vertrauen bei Kunden und Partnern auf.',
+        'h2-tips': 'Tipps fur bessere WhatsApp-Anrufaufnahmen',
+        'tips-box': '<strong>Verwenden Sie Kopfhorer</strong>, um Echo zu vermeiden &mdash; Ihr Mikrofon nimmt die Stimme der anderen Person nicht von Ihren Lautsprechern auf. <strong>Stellen Sie sicher, dass WhatsApp Desktop verbunden ist</strong> mit Ihrem Telefon, bevor Sie beginnen. <strong>Testen Sie mit einem kurzen Anruf</strong> vor wichtigen Gesprachen.',
+        'tips-p1': '<strong>Uberprufen Sie Ihre Verbindung:</strong> Die WhatsApp-Anrufqualitat hangt von der Internetverbindung ab. Verwenden Sie wenn moglich eine kabelgebundene Verbindung fur wichtige Anrufe.',
+        'tips-p2': '<strong>Schliessen Sie andere Apps:</strong> Anwendungen, die Benachrichtigungstone erzeugen, konnen in Ihrer Aufnahme erfasst werden. Schalten Sie sie stumm oder schliessen Sie sie, bevor Sie beginnen.',
+        'tips-p3': '<strong>Uberprufen Sie die Audiopegel:</strong> Machen Sie eine kurze Testaufnahme, um zu bestatigen, dass Sie sowohl sich selbst als auch die andere Person in der Wiedergabe klar horen konnen.',
+        'h2-which-method': 'Welche Methode sollten Sie verwenden?',
+        'which-method-p1': '<strong>Wenn Sie Transkription benotigen:</strong> Mono konvertiert Ihre WhatsApp-Anrufe automatisch in durchsuchbaren Text mit Sprecherbezeichnungen. Dies spart Stunden im Vergleich zur manuellen Transkription von Aufnahmen.',
+        'which-method-p2': '<strong>Wenn Sie kostenlos wollen:</strong> OBS Studio funktioniert zuverlassig, erfordert aber Einrichtung und produziert rohe Audiodateien ohne Transkription.',
+        'which-method-p3': '<strong>Fur geschaftliche Nutzung:</strong> Die organisierte Bibliothek und Suchfunktionen von Mono machen es einfacher, spezifische Gesprache spater zu finden. Die einmalige Zahlung funktioniert gut fur die fortlaufende Nutzung.',
+        'which-method-p4': '<strong>Fur Videoaufnahme:</strong> OBS Studio mit Bildschirmaufnahme erfasst sowohl Video als auch Audio. Mono konzentriert sich auf Audio mit automatischer Transkription.',
+        'related-title': 'Verwandte Anleitungen',
+        'related-discord-title': 'So nehmen Sie Discord-Anrufe auf',
+        'related-discord-desc': '4 Methoden zur Aufnahme von Discord-Sprachanrufen und Videochats.',
+        'related-telegram-title': 'So nehmen Sie Telegram-Anrufe auf',
+        'related-telegram-desc': '3 Methoden zur Aufnahme von Telegram-Sprachanrufen auf dem Desktop.',
+        'related-viber-title': 'So nehmen Sie Viber-Anrufe auf',
+        'related-viber-desc': '3 Methoden zur Aufnahme von Viber-Sprachanrufen auf dem Desktop.',
+        'related-all-title': 'Discord, WhatsApp, Viber oder Telegram aufnehmen',
+        'related-all-desc': 'Vollstandiger Leitfaden fur alle vier Messaging-Apps.'
+    },
+    zh: {
+        'back-link': '&larr; 博客',
+        'article-category': '[指南]',
+        'article-title': '如何在2026年录制WhatsApp通话',
+        'article-meta': '2026年2月23日 &middot; 阅读时间7分钟 &middot; 作者：Daniil Lefanov',
+        'article-disclosure': '披露：Mono是我们的产品。我们在本指南中包含了它，并尽量保持公正，但您应该知道我们在其中有利益关系。',
+        'intro-p1': 'WhatsApp桌面版没有内置的通话录制功能。无论您需要保存重要的商务对话、保留家庭通话记录还是记录讨论内容，您都需要第三方屏幕录制器或音频捕获工具来在计算机上录制WhatsApp通话。',
+        'intro-p2': '本指南介绍如何在2026年可靠地录制WhatsApp语音通话和视频通话，包括纯音频录制和完整视频录制的方法。',
+        'tldr-label': '摘要',
+        'tldr-item1': '<strong>最佳整体方案：</strong>Mono &mdash; 隐形录制、AI转录、一次性50美元',
+        'tldr-item2': '<strong>最佳免费方案：</strong>OBS Studio &mdash; 需要设置、无转录',
+        'tldr-item3': '<strong>内置功能：</strong>无 &mdash; WhatsApp没有原生录制功能',
+        'h2-why-record': '为什么要录制WhatsApp通话？',
+        'why-record-p1': 'WhatsApp是全球最受欢迎的即时通讯应用之一，每天处理数十亿次语音和视频通话。录制这些对话有许多正当用途：',
+        'why-record-p2': '<strong>商务文档：</strong>客户支持团队、销售专业人员和顾问经常需要客户对话记录。录制WhatsApp商务通话可以建立责任制并帮助解决争议。',
+        'why-record-p3': '<strong>个人回忆：</strong>与年长亲属、远方朋友或海外家人的对话是值得保存的时刻。音频通话可以捕捉重要的故事和声音。',
+        'why-record-p4': '<strong>采访和研究：</strong>记者、播客主持人和研究人员经常通过WhatsApp进行采访。录制确保准确引用，让您专注于对话而不是做笔记。',
+        'h2-comparison': '快速比较',
+        'th-method': '方法',
+        'th-price': '价格',
+        'th-transcription': '转录',
+        'th-setup': '设置',
+        'td-mono-price': '一次性50美元',
+        'td-mono-transcription': '是（本地AI）',
+        'td-mono-setup': '简单',
+        'td-obs-price': '免费',
+        'td-obs-transcription': '否',
+        'td-obs-setup': '中等',
+        'h2-method1': '方法1：Mono（推荐）',
+        'method1-p1': 'Mono是一款专为录制和转录对话而设计的桌面应用程序。它直接从系统的音频输出捕获内部音频，录制您通过扬声器或耳机听到的所有内容 &mdash; 包括WhatsApp通话的双方。',
+        'method1-p2': '因为Mono捕获的是系统音频而不是加入通话，所以不会向对方发送通知。停止录制后，Mono使用AI在本地转录对话。转录完全在您的计算机上运行，因此您的音频不会上传到任何地方。',
+        'h3-mono-steps': '如何使用Mono录制WhatsApp通话',
+        'mono-step1': '从<a href="https://mono-ai.uk">mono-ai.uk</a>下载Mono并安装',
+        'mono-step2': '确保WhatsApp桌面版已连接到您的手机',
+        'mono-step3': '打开Mono并点击录制按钮开始录制',
+        'mono-step4': '开始您的WhatsApp通话（语音或视频）',
+        'mono-step5': '正常进行您的对话',
+        'mono-step6': '通话结束后，在Mono中点击停止',
+        'mono-step7': '等待自动转录完成',
+        'mono-step8': '查看带有说话者标签和时间戳的转录内容',
+        'method1-p3': 'Mono的转录包括说话者识别 &mdash; 它检测不同的声音并在整个转录中标记它们。您可以按关键词搜索所有录音，方便以后查找特定对话或主题。',
+        'method1-pros': '<strong>优点：</strong>适用于语音和视频通话，对其他参与者不可见，具有说话者识别的自动转录，可搜索的录音，良好的音频质量，一次性支付50美元，无需订阅。',
+        'method1-cons': '<strong>缺点：</strong>付费软件（购买前可免费试用一次录制）。',
+        'h2-method2': '方法2：OBS Studio（免费）',
+        'method2-p1': 'OBS Studio是免费的开源屏幕录制软件，主要供主播和内容创作者使用。它可以捕获系统音频和可选的屏幕，使其适合录制WhatsApp通话。OBS需要初始配置，但设置完成后运行可靠。',
+        'method2-p2': '与Mono一样，OBS从系统输出捕获音频，因此对方不会知道您在录制。但是，OBS不包含转录功能 &mdash; 您获得的是原始音频文件，如果需要文本，您需要自己处理。',
+        'h3-obs-steps': '如何使用OBS录制WhatsApp通话',
+        'obs-step1': '从obsproject.com下载OBS Studio并安装',
+        'obs-step2': '打开OBS并转到设置 &rarr; 音频',
+        'obs-step3': '将"桌面音频"设置为您的播放设备（扬声器或耳机）',
+        'obs-step4': '在主窗口中，点击来源下方的+',
+        'obs-step5': '添加"音频输出捕获"源以捕获内部音频',
+        'obs-step6': '在进行WhatsApp通话之前点击"开始录制"',
+        'obs-step7': '在WhatsApp桌面版中进行通话',
+        'obs-step8': '通话结束时点击"停止录制"',
+        'obs-step9': '在输出文件夹中找到您的录音（通常是视频文件夹）',
+        'method2-pros': '<strong>优点：</strong>完全免费且开源，对其他参与者不可见，可以通过屏幕录制录制视频通话，高度可配置的设置。',
+        'method2-cons': '<strong>缺点：</strong>需要初始设置，您必须为每次通话手动开始和停止录制，无转录功能 &mdash; 仅产生原始音频文件。',
+        'h2-video-calls': '录制WhatsApp视频通话',
+        'video-calls-p1': '两种方法都适用于WhatsApp视频通话，但它们捕获的内容不同：',
+        'video-calls-p2': '<strong>纯音频（Mono）：</strong>捕获带有自动转录的对话音频。这通常就足够了，因为大多数人录制通话是为了保存所说的内容，而不是人们的样子。文件小且易于管理。',
+        'video-calls-p3': '<strong>完整视频录制（OBS）：</strong>捕获显示WhatsApp视频通话窗口的屏幕。添加"显示捕获"或"窗口捕获"源来录制视频。请注意，视频质量取决于您的连接，视频文件比音频文件大得多。',
+        'video-calls-p4': '对于大多数用例，带转录的纯音频录制比视频录制更实用。您可以获得可搜索的文本和更小的文件。',
+        'h2-why-no-builtin': '为什么WhatsApp没有内置录制功能',
+        'why-no-builtin-p1': 'WhatsApp将隐私作为核心功能，所有通话和消息都采用端到端加密。添加内置通话录制会引发隐私问题 &mdash; 录制可能在对方不知情或未同意的情况下进行。',
+        'why-no-builtin-p2': '通过不包含录制功能，WhatsApp保持了其注重隐私的定位。这意味着需要录制以达到正当目的的用户必须使用外部工具。优点是录音完全保存在您的计算机上，由您控制，而不是上传到WhatsApp的服务器。',
+        'h2-legal': '法律考虑',
+        'legal-p1': '录音法律因司法管辖区而异。在录制WhatsApp通话之前，请了解您所在地区的规定：',
+        'legal-p2': '<strong>单方同意：</strong>许多地方允许在不告知对方的情况下录制您参与的通话。',
+        'legal-p3': '<strong>全方同意：</strong>某些司法管辖区要求通话中的所有人都同意录制。这包括加利福尼亚州、德国和其他地区。',
+        'legal-p4': '对于商务通话，请考虑告知对方您正在录制。这可以在法律上保护您，并与客户和合作伙伴建立信任。',
+        'h2-tips': '更好录制WhatsApp通话的技巧',
+        'tips-box': '<strong>使用耳机</strong>以防止回声 &mdash; 您的麦克风不会从扬声器中拾取对方的声音。<strong>确保WhatsApp桌面版已连接</strong>到您的手机后再开始。<strong>在重要对话前用短通话测试</strong>。',
+        'tips-p1': '<strong>检查您的连接：</strong>WhatsApp通话质量取决于互联网连接。重要通话时尽可能使用有线连接。',
+        'tips-p2': '<strong>关闭其他应用：</strong>产生通知声音的应用程序可能会被录入您的录音中。开始前将它们静音或关闭。',
+        'tips-p3': '<strong>验证音频电平：</strong>进行简短的测试录音，确认您可以在回放中清楚地听到自己和对方的声音。',
+        'h2-which-method': '您应该使用哪种方法？',
+        'which-method-p1': '<strong>如果您需要转录：</strong>Mono自动将您的WhatsApp通话转换为带有说话者标签的可搜索文本。与手动转录录音相比，这可以节省数小时。',
+        'which-method-p2': '<strong>如果您想要免费：</strong>OBS Studio运行可靠，但需要设置，并产生没有转录的原始音频文件。',
+        'which-method-p3': '<strong>商务用途：</strong>Mono的组织化库和搜索功能使以后更容易找到特定对话。一次性付款非常适合持续使用。',
+        'which-method-p4': '<strong>视频录制：</strong>带屏幕录制的OBS Studio可以同时捕获视频和音频。Mono专注于带有自动转录的音频。',
+        'related-title': '相关指南',
+        'related-discord-title': '如何录制Discord通话',
+        'related-discord-desc': '录制Discord语音通话和视频聊天的4种方法。',
+        'related-telegram-title': '如何录制Telegram通话',
+        'related-telegram-desc': '在桌面上录制Telegram语音通话的3种方法。',
+        'related-viber-title': '如何录制Viber通话',
+        'related-viber-desc': '在桌面上录制Viber语音通话的3种方法。',
+        'related-all-title': '录制Discord、WhatsApp、Viber或Telegram',
+        'related-all-desc': '涵盖所有四个即时通讯应用的完整指南。'
+    },
+    ru: {
+        'back-link': '&larr; блог',
+        'article-category': '[Руководство]',
+        'article-title': 'Как записывать звонки WhatsApp в 2026 году',
+        'article-meta': '23 февраля 2026 г. &middot; 7 мин чтения &middot; Автор: Daniil Lefanov',
+        'article-disclosure': 'Раскрытие информации: Mono — это наш продукт. Мы включили его в это руководство и старались быть объективными, но вы должны знать, что мы в этом заинтересованы.',
+        'intro-p1': 'WhatsApp Desktop не имеет встроенной функции записи звонков. Если вам нужно сохранить важный деловой разговор, записать семейный звонок или задокументировать обсуждение, вам понадобится сторонний рекордер экрана или инструмент захвата звука для записи звонков WhatsApp на вашем компьютере.',
+        'intro-p2': 'Это руководство охватывает способы надежной записи голосовых и видеозвонков WhatsApp в 2026 году, включая методы записи только аудио и полной видеозаписи.',
+        'tldr-label': 'КРАТКО',
+        'tldr-item1': '<strong>Лучший в целом:</strong> Mono &mdash; невидимая запись, ИИ-транскрипция, единовременно $50',
+        'tldr-item2': '<strong>Лучший бесплатный:</strong> OBS Studio &mdash; требует настройки, без транскрипции',
+        'tldr-item3': '<strong>Встроенный:</strong> Нет &mdash; WhatsApp не имеет встроенной записи',
+        'h2-why-record': 'Зачем записывать звонки WhatsApp?',
+        'why-record-p1': 'WhatsApp — одно из самых популярных приложений для обмена сообщениями в мире, ежедневно обрабатывающее миллиарды голосовых и видеозвонков. Запись этих разговоров служит многим законным целям:',
+        'why-record-p2': '<strong>Деловая документация:</strong> Командам поддержки клиентов, специалистам по продажам и консультантам часто нужны записи разговоров с клиентами. Запись деловых звонков WhatsApp создает подотчетность и помогает разрешать споры.',
+        'why-record-p3': '<strong>Личные воспоминания:</strong> Разговоры с пожилыми родственниками, друзьями на расстоянии или семьей за рубежом — это моменты, которые стоит сохранить. Аудиозвонки могут сохранить истории и голоса, которые важны.',
+        'why-record-p4': '<strong>Интервью и исследования:</strong> Журналисты, подкастеры и исследователи часто проводят интервью через WhatsApp. Запись обеспечивает точные цитаты и позволяет сосредоточиться на разговоре, а не на заметках.',
+        'h2-comparison': 'Быстрое сравнение',
+        'th-method': 'Метод',
+        'th-price': 'Цена',
+        'th-transcription': 'Транскрипция',
+        'th-setup': 'Настройка',
+        'td-mono-price': 'Единовременно $50',
+        'td-mono-transcription': 'Да (локальный ИИ)',
+        'td-mono-setup': 'Простая',
+        'td-obs-price': 'Бесплатно',
+        'td-obs-transcription': 'Нет',
+        'td-obs-setup': 'Средняя',
+        'h2-method1': 'Метод 1: Mono (Рекомендуется)',
+        'method1-p1': 'Mono — это настольное приложение, разработанное для записи и транскрибирования разговоров. Оно захватывает внутренний звук непосредственно с аудиовыхода вашей системы, записывая именно то, что вы слышите через динамики или наушники &mdash; включая обе стороны вашего звонка WhatsApp.',
+        'method1-p2': 'Поскольку Mono захватывает системный звук, а не присоединяется к звонку, другой человек не получает уведомления. После остановки записи Mono транскрибирует разговор локально с помощью ИИ. Транскрипция полностью выполняется на вашем компьютере, поэтому ваш звук никуда не загружается.',
+        'h3-mono-steps': 'Как записывать звонки WhatsApp с помощью Mono',
+        'mono-step1': 'Скачайте Mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите',
+        'mono-step2': 'Убедитесь, что WhatsApp Desktop подключен к вашему телефону',
+        'mono-step3': 'Откройте Mono и нажмите кнопку Запись, чтобы начать запись',
+        'mono-step4': 'Начните звонок WhatsApp (голосовой или видео)',
+        'mono-step5': 'Ведите разговор как обычно',
+        'mono-step6': 'Когда звонок завершится, нажмите Стоп в Mono',
+        'mono-step7': 'Дождитесь завершения автоматической транскрипции',
+        'mono-step8': 'Просмотрите транскрипцию с метками говорящих и временными метками',
+        'method1-p3': 'Транскрипция Mono включает идентификацию говорящих &mdash; она распознает разные голоса и маркирует их по всей транскрипции. Вы можете искать по всем записям по ключевым словам, что позволяет легко находить конкретные разговоры или темы позже.',
+        'method1-pros': '<strong>Преимущества:</strong> Работает с голосовыми и видеозвонками, невидим для других участников, автоматическая транскрипция с идентификацией говорящих, записи с возможностью поиска, хорошее качество звука, единовременный платеж $50 без подписки.',
+        'method1-cons': '<strong>Недостатки:</strong> Платное программное обеспечение (доступна одна бесплатная запись для пробы перед покупкой).',
+        'h2-method2': 'Метод 2: OBS Studio (Бесплатно)',
+        'method2-p1': 'OBS Studio — бесплатное программное обеспечение с открытым исходным кодом для записи экрана, используемое в основном стримерами и создателями контента. Оно может захватывать системный звук и опционально ваш экран, что делает его подходящим для записи звонков WhatsApp. OBS требует начальной настройки, но работает надежно после настройки.',
+        'method2-p2': 'Как и Mono, OBS захватывает звук с выхода вашей системы, поэтому другой человек не узнает, что вы записываете. Однако OBS не включает транскрипцию &mdash; вы получаете необработанный аудиофайл, который вам нужно будет обработать самостоятельно, если вам нужен текст.',
+        'h3-obs-steps': 'Как записывать звонки WhatsApp с помощью OBS',
+        'obs-step1': 'Скачайте OBS Studio с obsproject.com и установите',
+        'obs-step2': 'Откройте OBS и перейдите в Настройки &rarr; Аудио',
+        'obs-step3': 'Установите "Аудио рабочего стола" на ваше устройство воспроизведения (динамики или наушники)',
+        'obs-step4': 'В главном окне нажмите + под Источниками',
+        'obs-step5': 'Добавьте источник "Захват аудиовыхода" для захвата внутреннего звука',
+        'obs-step6': 'Нажмите "Начать запись" перед совершением звонка WhatsApp',
+        'obs-step7': 'Совершите звонок в WhatsApp Desktop',
+        'obs-step8': 'Нажмите "Остановить запись" когда звонок завершится',
+        'obs-step9': 'Найдите запись в папке вывода (обычно Видео)',
+        'method2-pros': '<strong>Преимущества:</strong> Полностью бесплатный и с открытым исходным кодом, невидим для других участников, может записывать видеозвонки с записью экрана, гибкие настройки.',
+        'method2-cons': '<strong>Недостатки:</strong> Требует начальной настройки, вы должны вручную начинать и останавливать запись для каждого звонка, нет транскрипции &mdash; создает только необработанные аудиофайлы.',
+        'h2-video-calls': 'Запись видеозвонков WhatsApp',
+        'video-calls-p1': 'Оба метода работают для видеозвонков WhatsApp, но они захватывают разные вещи:',
+        'video-calls-p2': '<strong>Только аудио (Mono):</strong> Захватывает звук разговора с автоматической транскрипцией. Этого часто достаточно, так как большинство людей записывают звонки, чтобы сохранить сказанное, а не то, как люди выглядели. Файлы маленькие и легко управляемые.',
+        'video-calls-p3': '<strong>Полная видеозапись (OBS):</strong> Захватывает ваш экран с окном видеозвонка WhatsApp. Добавьте источник "Захват экрана" или "Захват окна" для записи видео. Имейте в виду, что качество видео зависит от вашего соединения, и видеофайлы намного больше аудиофайлов.',
+        'video-calls-p4': 'Для большинства случаев запись только аудио с транскрипцией практичнее, чем видеозапись. Вы получаете текст с возможностью поиска и файлы меньшего размера.',
+        'h2-why-no-builtin': 'Почему WhatsApp не имеет встроенной записи',
+        'why-no-builtin-p1': 'WhatsApp делает акцент на конфиденциальности как основной функции, со сквозным шифрованием всех звонков и сообщений. Добавление встроенной записи звонков создало бы проблемы конфиденциальности &mdash; записи могли бы делаться без ведома или согласия другой стороны.',
+        'why-no-builtin-p2': 'Не включая запись, WhatsApp поддерживает свою ориентацию на конфиденциальность. Это означает, что пользователи, которым нужны записи для законных целей, должны использовать внешние инструменты. Преимущество в том, что записи остаются полностью на вашем компьютере, под вашим контролем, а не загружаются на серверы WhatsApp.',
+        'h2-legal': 'Юридические соображения',
+        'legal-p1': 'Законы о записи различаются в зависимости от юрисдикции. Перед записью звонков WhatsApp узнайте правила там, где вы находитесь:',
+        'legal-p2': '<strong>Согласие одной стороны:</strong> Многие места разрешают записывать звонки, в которых вы участвуете, не сообщая другому человеку.',
+        'legal-p3': '<strong>Согласие всех сторон:</strong> Некоторые юрисдикции требуют, чтобы все участники звонка согласились на запись. Это включает Калифорнию, Германию и другие регионы.',
+        'legal-p4': 'Для деловых звонков рассмотрите возможность информирования другой стороны о том, что вы записываете. Это защищает вас юридически и укрепляет доверие с клиентами и партнерами.',
+        'h2-tips': 'Советы для лучшей записи звонков WhatsApp',
+        'tips-box': '<strong>Используйте наушники</strong>, чтобы предотвратить эхо &mdash; ваш микрофон не будет улавливать голос другого человека из динамиков. <strong>Убедитесь, что WhatsApp Desktop подключен</strong> к вашему телефону перед началом. <strong>Протестируйте коротким звонком</strong> перед важными разговорами.',
+        'tips-p1': '<strong>Проверьте соединение:</strong> Качество звонков WhatsApp зависит от интернет-соединения. По возможности используйте проводное соединение для важных звонков.',
+        'tips-p2': '<strong>Закройте другие приложения:</strong> Приложения, издающие звуки уведомлений, могут быть записаны. Отключите их или закройте перед началом.',
+        'tips-p3': '<strong>Проверьте уровни звука:</strong> Сделайте короткую тестовую запись, чтобы убедиться, что вы четко слышите себя и другого человека при воспроизведении.',
+        'h2-which-method': 'Какой метод использовать?',
+        'which-method-p1': '<strong>Если вам нужна транскрипция:</strong> Mono автоматически преобразует ваши звонки WhatsApp в текст с возможностью поиска и метками говорящих. Это экономит часы по сравнению с ручной транскрипцией записей.',
+        'which-method-p2': '<strong>Если хотите бесплатно:</strong> OBS Studio работает надежно, но требует настройки и создает необработанные аудиофайлы без транскрипции.',
+        'which-method-p3': '<strong>Для делового использования:</strong> Организованная библиотека и функции поиска Mono упрощают поиск конкретных разговоров позже. Единовременный платеж хорошо подходит для постоянного использования.',
+        'which-method-p4': '<strong>Для видеозаписи:</strong> OBS Studio с записью экрана захватывает и видео, и аудио. Mono фокусируется на аудио с автоматической транскрипцией.',
+        'related-title': 'Связанные руководства',
+        'related-discord-title': 'Как записывать звонки Discord',
+        'related-discord-desc': '4 метода записи голосовых звонков и видеочатов Discord.',
+        'related-telegram-title': 'Как записывать звонки Telegram',
+        'related-telegram-desc': '3 метода записи голосовых звонков Telegram на компьютере.',
+        'related-viber-title': 'Как записывать звонки Viber',
+        'related-viber-desc': '3 метода записи голосовых звонков Viber на компьютере.',
+        'related-all-title': 'Запись Discord, WhatsApp, Viber или Telegram',
+        'related-all-desc': 'Полное руководство по всем четырем мессенджерам.'
+    }
+};
+
+let currentLang = 'en';
+const siteNav = document.querySelector('site-nav');
+
+siteNav.addEventListener('language-change', (e) => {
+    const lang = e.detail.language;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+});
+</script>
 </body>
 </html>

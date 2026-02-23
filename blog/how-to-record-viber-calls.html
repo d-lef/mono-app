@@ -128,178 +128,701 @@
     <site-nav base-path="../"></site-nav>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">← blog</a>
+        <a href="./" class="back-link" data-i18n="back_link">&larr; blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to Record Viber Calls in 2026</h1>
-            <p class="article-meta">Feb 23, 2026 · 6 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Record Viber Calls in 2026</h1>
+            <p class="article-meta" data-i18n="meta">Feb 23, 2026 · 6 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
 
-            <p>Viber Desktop doesn't include a built-in call recording feature. If you need to save voice calls or video calls from Viber on your computer — whether for business records, interviews, or personal memories — you'll need a third-party screen recorder or audio capture tool.</p>
+            <p data-i18n="intro_1">Viber Desktop doesn't include a built-in call recording feature. If you need to save voice calls or video calls from Viber on your computer — whether for business records, interviews, or personal memories — you'll need a third-party screen recorder or audio capture tool.</p>
 
-            <p>This guide covers how to record Viber calls reliably in 2026, with methods for both audio-only recording and full video recording.</p>
+            <p data-i18n="intro_2">This guide covers how to record Viber calls reliably in 2026, with methods for both audio-only recording and full video recording.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li><strong>Best overall:</strong> Mono — invisible recording, AI transcription, $50 once</li>
-                    <li><strong>Best free:</strong> OBS Studio — requires setup, no transcription</li>
-                    <li><strong>Built-in:</strong> None — Viber has no native recording</li>
+                    <li data-i18n="tldr_1"><strong>Best overall:</strong> Mono — invisible recording, AI transcription, $50 once</li>
+                    <li data-i18n="tldr_2"><strong>Best free:</strong> OBS Studio — requires setup, no transcription</li>
+                    <li data-i18n="tldr_3"><strong>Built-in:</strong> None — Viber has no native recording</li>
                 </ul>
             </div>
 
-            <h2>Why Record Viber Calls?</h2>
+            <h2 data-i18n="why_record_title">Why Record Viber Calls?</h2>
 
-            <p>Viber is widely used for international communication, especially in Eastern Europe, the Middle East, and parts of Asia. Many people use Viber for cross-border business calls because of its good audio quality and free calling between users.</p>
+            <p data-i18n="why_record_1">Viber is widely used for international communication, especially in Eastern Europe, the Middle East, and parts of Asia. Many people use Viber for cross-border business calls because of its good audio quality and free calling between users.</p>
 
-            <p>Recording Viber calls serves several purposes. Business professionals document client conversations for accountability. Families record calls with relatives abroad to preserve memories. Journalists and researchers capture interviews for accurate transcription. Remote teams save important discussions for absent members.</p>
+            <p data-i18n="why_record_2">Recording Viber calls serves several purposes. Business professionals document client conversations for accountability. Families record calls with relatives abroad to preserve memories. Journalists and researchers capture interviews for accurate transcription. Remote teams save important discussions for absent members.</p>
 
-            <p>Since Viber doesn't offer native recording, you'll need external software that can capture your computer's internal audio output.</p>
+            <p data-i18n="why_record_3">Since Viber doesn't offer native recording, you'll need external software that can capture your computer's internal audio output.</p>
 
-            <h2>Quick Comparison</h2>
+            <h2 data-i18n="comparison_title">Quick Comparison</h2>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Method</th>
-                            <th>Price</th>
-                            <th>Transcription</th>
-                            <th>Setup</th>
+                            <th data-i18n="table_method">Method</th>
+                            <th data-i18n="table_price">Price</th>
+                            <th data-i18n="table_transcription">Transcription</th>
+                            <th data-i18n="table_setup">Setup</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="mono-row">
                             <td>Mono</td>
-                            <td>$50 once</td>
-                            <td>Yes (local AI)</td>
-                            <td>Easy</td>
+                            <td data-i18n="table_mono_price">$50 once</td>
+                            <td data-i18n="table_mono_transcription">Yes (local AI)</td>
+                            <td data-i18n="table_mono_setup">Easy</td>
                         </tr>
                         <tr>
                             <td>OBS Studio</td>
-                            <td>Free</td>
-                            <td>No</td>
-                            <td>Medium</td>
+                            <td data-i18n="table_obs_price">Free</td>
+                            <td data-i18n="table_obs_transcription">No</td>
+                            <td data-i18n="table_obs_setup">Medium</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>Method 1: Mono (Recommended)</h2>
+            <h2 data-i18n="method1_title">Method 1: Mono (Recommended)</h2>
 
-            <p>Mono is a desktop app designed for recording and transcribing conversations. It captures internal audio directly from your system's sound output, recording exactly what you hear through your speakers or headphones — including both sides of your Viber call.</p>
+            <p data-i18n="method1_desc_1">Mono is a desktop app designed for recording and transcribing conversations. It captures internal audio directly from your system's sound output, recording exactly what you hear through your speakers or headphones — including both sides of your Viber call.</p>
 
-            <p>Because Mono records system audio rather than joining the call, there's no indication to the other person. After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. Your audio isn't uploaded anywhere.</p>
+            <p data-i18n="method1_desc_2">Because Mono records system audio rather than joining the call, there's no indication to the other person. After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. Your audio isn't uploaded anywhere.</p>
 
-            <h3>How to record Viber calls with Mono</h3>
-
-            <ol class="steps-list">
-                <li>Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li>Open Mono and click the Record button to begin recording</li>
-                <li>Open Viber Desktop and start your call</li>
-                <li>Have your conversation normally</li>
-                <li>When the call ends, click Stop in Mono</li>
-                <li>Wait for the automatic transcription to complete</li>
-                <li>Review your transcript with speaker labels and timestamps</li>
-            </ol>
-
-            <p>Mono's transcription includes speaker identification — it detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations later.</p>
-
-            <p><strong>Pros:</strong> Works with Viber voice and video calls, invisible to other participants, automatic transcription with speaker identification, good audio quality, searchable recordings, one-time $50 payment with no subscription.</p>
-
-            <p><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
-
-            <h2>Method 2: OBS Studio (Free)</h2>
-
-            <p>OBS Studio is free, open-source screen recording software primarily used by streamers. It can capture system audio and optionally your screen, making it suitable for recording Viber audio calls and video calls. OBS requires some initial configuration but works reliably once set up.</p>
-
-            <p>Like Mono, OBS captures audio from your system's output rather than joining the call. The other person won't know you're recording. However, OBS doesn't include transcription — you get raw audio files.</p>
-
-            <h3>How to record Viber calls with OBS</h3>
+            <h3 data-i18n="method1_howto_title">How to record Viber calls with Mono</h3>
 
             <ol class="steps-list">
-                <li>Download OBS Studio from obsproject.com and install it</li>
-                <li>Open OBS and go to Settings → Audio</li>
-                <li>Set "Desktop Audio" to your playback device (speakers or headphones)</li>
-                <li>In the main window, click + under Sources</li>
-                <li>Add an "Audio Output Capture" source to capture internal audio</li>
-                <li>Click "Start Recording" before making your Viber call</li>
-                <li>Make your call in Viber Desktop</li>
-                <li>Click "Stop Recording" when the call ends</li>
-                <li>Find your recording in the output folder (usually Videos)</li>
+                <li data-i18n="method1_step1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="method1_step2">Open Mono and click the Record button to begin recording</li>
+                <li data-i18n="method1_step3">Open Viber Desktop and start your call</li>
+                <li data-i18n="method1_step4">Have your conversation normally</li>
+                <li data-i18n="method1_step5">When the call ends, click Stop in Mono</li>
+                <li data-i18n="method1_step6">Wait for the automatic transcription to complete</li>
+                <li data-i18n="method1_step7">Review your transcript with speaker labels and timestamps</li>
             </ol>
 
-            <p><strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable.</p>
+            <p data-i18n="method1_feature">Mono's transcription includes speaker identification — it detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations later.</p>
 
-            <p><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each call, no transcription — produces raw audio files only.</p>
+            <p data-i18n="method1_pros"><strong>Pros:</strong> Works with Viber voice and video calls, invisible to other participants, automatic transcription with speaker identification, good audio quality, searchable recordings, one-time $50 payment with no subscription.</p>
 
-            <h2>Recording Viber Video Calls</h2>
+            <p data-i18n="method1_cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
-            <p>Both methods work for Viber video calls:</p>
+            <h2 data-i18n="method2_title">Method 2: OBS Studio (Free)</h2>
 
-            <p><strong>Audio-only (Mono):</strong> Captures the conversation audio with automatic transcription. Often sufficient since you're usually recording to preserve what was said. Files are small and searchable.</p>
+            <p data-i18n="method2_desc_1">OBS Studio is free, open-source screen recording software primarily used by streamers. It can capture system audio and optionally your screen, making it suitable for recording Viber audio calls and video calls. OBS requires some initial configuration but works reliably once set up.</p>
 
-            <p><strong>Full video recording (OBS):</strong> Captures your screen showing the Viber video call. Add a "Display Capture" or "Window Capture" source. Video quality depends on your connection, and files are much larger.</p>
+            <p data-i18n="method2_desc_2">Like Mono, OBS captures audio from your system's output rather than joining the call. The other person won't know you're recording. However, OBS doesn't include transcription — you get raw audio files.</p>
 
-            <h2>Legal Considerations</h2>
+            <h3 data-i18n="method2_howto_title">How to record Viber calls with OBS</h3>
 
-            <p>Before recording Viber calls, understand the legal requirements in your jurisdiction:</p>
+            <ol class="steps-list">
+                <li data-i18n="method2_step1">Download OBS Studio from obsproject.com and install it</li>
+                <li data-i18n="method2_step2">Open OBS and go to Settings &rarr; Audio</li>
+                <li data-i18n="method2_step3">Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li data-i18n="method2_step4">In the main window, click + under Sources</li>
+                <li data-i18n="method2_step5">Add an "Audio Output Capture" source to capture internal audio</li>
+                <li data-i18n="method2_step6">Click "Start Recording" before making your Viber call</li>
+                <li data-i18n="method2_step7">Make your call in Viber Desktop</li>
+                <li data-i18n="method2_step8">Click "Stop Recording" when the call ends</li>
+                <li data-i18n="method2_step9">Find your recording in the output folder (usually Videos)</li>
+            </ol>
 
-            <p><strong>One-party consent:</strong> Many regions allow recording calls you're participating in without informing others.</p>
+            <p data-i18n="method2_pros"><strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable.</p>
 
-            <p><strong>All-party consent:</strong> Some jurisdictions require everyone to agree to recording.</p>
+            <p data-i18n="method2_cons"><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each call, no transcription — produces raw audio files only.</p>
 
-            <p>For important business calls, consider informing the other party. This builds trust and protects you legally.</p>
+            <h2 data-i18n="video_title">Recording Viber Video Calls</h2>
 
-            <h2>Tips for Better Viber Call Recordings</h2>
+            <p data-i18n="video_intro">Both methods work for Viber video calls:</p>
+
+            <p data-i18n="video_audio"><strong>Audio-only (Mono):</strong> Captures the conversation audio with automatic transcription. Often sufficient since you're usually recording to preserve what was said. Files are small and searchable.</p>
+
+            <p data-i18n="video_full"><strong>Full video recording (OBS):</strong> Captures your screen showing the Viber video call. Add a "Display Capture" or "Window Capture" source. Video quality depends on your connection, and files are much larger.</p>
+
+            <h2 data-i18n="legal_title">Legal Considerations</h2>
+
+            <p data-i18n="legal_intro">Before recording Viber calls, understand the legal requirements in your jurisdiction:</p>
+
+            <p data-i18n="legal_one_party"><strong>One-party consent:</strong> Many regions allow recording calls you're participating in without informing others.</p>
+
+            <p data-i18n="legal_all_party"><strong>All-party consent:</strong> Some jurisdictions require everyone to agree to recording.</p>
+
+            <p data-i18n="legal_advice">For important business calls, consider informing the other party. This builds trust and protects you legally.</p>
+
+            <h2 data-i18n="tips_title">Tips for Better Viber Call Recordings</h2>
 
             <div class="tip-box">
-                <p><strong>Use headphones</strong> to prevent echo — your microphone won't pick up sound from speakers. <strong>Close unnecessary apps</strong> that might produce notification sounds. <strong>Check your audio levels</strong> with a test recording before important calls.</p>
+                <p data-i18n="tips_box"><strong>Use headphones</strong> to prevent echo — your microphone won't pick up sound from speakers. <strong>Close unnecessary apps</strong> that might produce notification sounds. <strong>Check your audio levels</strong> with a test recording before important calls.</p>
             </div>
 
-            <p><strong>Stable connection:</strong> Viber call quality depends on internet connection. Use a wired connection for important calls when possible to ensure good audio quality.</p>
+            <p data-i18n="tips_connection"><strong>Stable connection:</strong> Viber call quality depends on internet connection. Use a wired connection for important calls when possible to ensure good audio quality.</p>
 
-            <p><strong>Verify setup:</strong> Make a short test recording before critical conversations to confirm both voices are captured clearly.</p>
+            <p data-i18n="tips_verify"><strong>Verify setup:</strong> Make a short test recording before critical conversations to confirm both voices are captured clearly.</p>
 
-            <h2>Which Method Should You Use?</h2>
+            <h2 data-i18n="which_method_title">Which Method Should You Use?</h2>
 
-            <p><strong>If you need transcription:</strong> Mono is the only option that includes automatic speech-to-text conversion with speaker labels. This saves significant time compared to manually transcribing.</p>
+            <p data-i18n="which_transcription"><strong>If you need transcription:</strong> Mono is the only option that includes automatic speech-to-text conversion with speaker labels. This saves significant time compared to manually transcribing.</p>
 
-            <p><strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw files without transcription.</p>
+            <p data-i18n="which_free"><strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw files without transcription.</p>
 
-            <p><strong>For regular use:</strong> Mono's one-click recording is more convenient than configuring OBS before each call.</p>
+            <p data-i18n="which_regular"><strong>For regular use:</strong> Mono's one-click recording is more convenient than configuring OBS before each call.</p>
 
-            <p><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with automatic transcription.</p>
+            <p data-i18n="which_video"><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with automatic transcription.</p>
 
             <cta-card base-path="../"></cta-card>
 
             <section class="related-articles">
-                <h2 class="related-title">Related Guides</h2>
+                <h2 class="related-title" data-i18n="related_title">Related Guides</h2>
                 <div class="related-grid">
                     <a href="how-to-record-discord-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Discord Calls</h3>
-                        <p class="related-card-desc">4 methods to record Discord voice calls and video chats.</p>
+                        <h3 class="related-card-title" data-i18n="related_discord_title">How to Record Discord Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_discord_desc">4 methods to record Discord voice calls and video chats.</p>
                     </a>
                     <a href="how-to-record-telegram-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Telegram Calls</h3>
-                        <p class="related-card-desc">3 methods to record Telegram voice calls on desktop.</p>
+                        <h3 class="related-card-title" data-i18n="related_telegram_title">How to Record Telegram Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_telegram_desc">3 methods to record Telegram voice calls on desktop.</p>
                     </a>
                     <a href="how-to-record-whatsapp-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record WhatsApp Calls</h3>
-                        <p class="related-card-desc">3 methods to record WhatsApp voice and video calls on PC.</p>
+                        <h3 class="related-card-title" data-i18n="related_whatsapp_title">How to Record WhatsApp Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_whatsapp_desc">3 methods to record WhatsApp voice and video calls on PC.</p>
                     </a>
                     <a href="record-discord-whatsapp-viber-telegram" class="related-card">
-                        <h3 class="related-card-title">Record Discord, WhatsApp, Viber or Telegram</h3>
-                        <p class="related-card-desc">Complete guide covering all four messaging apps.</p>
+                        <h3 class="related-card-title" data-i18n="related_all_title">Record Discord, WhatsApp, Viber or Telegram</h3>
+                        <p class="related-card-desc" data-i18n="related_all_desc">Complete guide covering all four messaging apps.</p>
                     </a>
                 </div>
             </section>
 
         </div>
     </main>
+
+<script>
+const translations = {
+    en: {
+        'back_link': '&larr; blog',
+        'category': '[Guide]',
+        'title': 'How to Record Viber Calls in 2026',
+        'meta': 'Feb 23, 2026 · 6 min read · By Daniil Lefanov',
+        'disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'intro_1': 'Viber Desktop doesn\'t include a built-in call recording feature. If you need to save voice calls or video calls from Viber on your computer — whether for business records, interviews, or personal memories — you\'ll need a third-party screen recorder or audio capture tool.',
+        'intro_2': 'This guide covers how to record Viber calls reliably in 2026, with methods for both audio-only recording and full video recording.',
+        'tldr_label': 'TL;DR',
+        'tldr_1': '<strong>Best overall:</strong> Mono — invisible recording, AI transcription, $50 once',
+        'tldr_2': '<strong>Best free:</strong> OBS Studio — requires setup, no transcription',
+        'tldr_3': '<strong>Built-in:</strong> None — Viber has no native recording',
+        'why_record_title': 'Why Record Viber Calls?',
+        'why_record_1': 'Viber is widely used for international communication, especially in Eastern Europe, the Middle East, and parts of Asia. Many people use Viber for cross-border business calls because of its good audio quality and free calling between users.',
+        'why_record_2': 'Recording Viber calls serves several purposes. Business professionals document client conversations for accountability. Families record calls with relatives abroad to preserve memories. Journalists and researchers capture interviews for accurate transcription. Remote teams save important discussions for absent members.',
+        'why_record_3': 'Since Viber doesn\'t offer native recording, you\'ll need external software that can capture your computer\'s internal audio output.',
+        'comparison_title': 'Quick Comparison',
+        'table_method': 'Method',
+        'table_price': 'Price',
+        'table_transcription': 'Transcription',
+        'table_setup': 'Setup',
+        'table_mono_price': '$50 once',
+        'table_mono_transcription': 'Yes (local AI)',
+        'table_mono_setup': 'Easy',
+        'table_obs_price': 'Free',
+        'table_obs_transcription': 'No',
+        'table_obs_setup': 'Medium',
+        'method1_title': 'Method 1: Mono (Recommended)',
+        'method1_desc_1': 'Mono is a desktop app designed for recording and transcribing conversations. It captures internal audio directly from your system\'s sound output, recording exactly what you hear through your speakers or headphones — including both sides of your Viber call.',
+        'method1_desc_2': 'Because Mono records system audio rather than joining the call, there\'s no indication to the other person. After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. Your audio isn\'t uploaded anywhere.',
+        'method1_howto_title': 'How to record Viber calls with Mono',
+        'method1_step1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'method1_step2': 'Open Mono and click the Record button to begin recording',
+        'method1_step3': 'Open Viber Desktop and start your call',
+        'method1_step4': 'Have your conversation normally',
+        'method1_step5': 'When the call ends, click Stop in Mono',
+        'method1_step6': 'Wait for the automatic transcription to complete',
+        'method1_step7': 'Review your transcript with speaker labels and timestamps',
+        'method1_feature': 'Mono\'s transcription includes speaker identification — it detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations later.',
+        'method1_pros': '<strong>Pros:</strong> Works with Viber voice and video calls, invisible to other participants, automatic transcription with speaker identification, good audio quality, searchable recordings, one-time $50 payment with no subscription.',
+        'method1_cons': '<strong>Cons:</strong> Paid software (one free recording available to try before purchasing).',
+        'method2_title': 'Method 2: OBS Studio (Free)',
+        'method2_desc_1': 'OBS Studio is free, open-source screen recording software primarily used by streamers. It can capture system audio and optionally your screen, making it suitable for recording Viber audio calls and video calls. OBS requires some initial configuration but works reliably once set up.',
+        'method2_desc_2': 'Like Mono, OBS captures audio from your system\'s output rather than joining the call. The other person won\'t know you\'re recording. However, OBS doesn\'t include transcription — you get raw audio files.',
+        'method2_howto_title': 'How to record Viber calls with OBS',
+        'method2_step1': 'Download OBS Studio from obsproject.com and install it',
+        'method2_step2': 'Open OBS and go to Settings &rarr; Audio',
+        'method2_step3': 'Set "Desktop Audio" to your playback device (speakers or headphones)',
+        'method2_step4': 'In the main window, click + under Sources',
+        'method2_step5': 'Add an "Audio Output Capture" source to capture internal audio',
+        'method2_step6': 'Click "Start Recording" before making your Viber call',
+        'method2_step7': 'Make your call in Viber Desktop',
+        'method2_step8': 'Click "Stop Recording" when the call ends',
+        'method2_step9': 'Find your recording in the output folder (usually Videos)',
+        'method2_pros': '<strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable.',
+        'method2_cons': '<strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each call, no transcription — produces raw audio files only.',
+        'video_title': 'Recording Viber Video Calls',
+        'video_intro': 'Both methods work for Viber video calls:',
+        'video_audio': '<strong>Audio-only (Mono):</strong> Captures the conversation audio with automatic transcription. Often sufficient since you\'re usually recording to preserve what was said. Files are small and searchable.',
+        'video_full': '<strong>Full video recording (OBS):</strong> Captures your screen showing the Viber video call. Add a "Display Capture" or "Window Capture" source. Video quality depends on your connection, and files are much larger.',
+        'legal_title': 'Legal Considerations',
+        'legal_intro': 'Before recording Viber calls, understand the legal requirements in your jurisdiction:',
+        'legal_one_party': '<strong>One-party consent:</strong> Many regions allow recording calls you\'re participating in without informing others.',
+        'legal_all_party': '<strong>All-party consent:</strong> Some jurisdictions require everyone to agree to recording.',
+        'legal_advice': 'For important business calls, consider informing the other party. This builds trust and protects you legally.',
+        'tips_title': 'Tips for Better Viber Call Recordings',
+        'tips_box': '<strong>Use headphones</strong> to prevent echo — your microphone won\'t pick up sound from speakers. <strong>Close unnecessary apps</strong> that might produce notification sounds. <strong>Check your audio levels</strong> with a test recording before important calls.',
+        'tips_connection': '<strong>Stable connection:</strong> Viber call quality depends on internet connection. Use a wired connection for important calls when possible to ensure good audio quality.',
+        'tips_verify': '<strong>Verify setup:</strong> Make a short test recording before critical conversations to confirm both voices are captured clearly.',
+        'which_method_title': 'Which Method Should You Use?',
+        'which_transcription': '<strong>If you need transcription:</strong> Mono is the only option that includes automatic speech-to-text conversion with speaker labels. This saves significant time compared to manually transcribing.',
+        'which_free': '<strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw files without transcription.',
+        'which_regular': '<strong>For regular use:</strong> Mono\'s one-click recording is more convenient than configuring OBS before each call.',
+        'which_video': '<strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with automatic transcription.',
+        'related_title': 'Related Guides',
+        'related_discord_title': 'How to Record Discord Calls',
+        'related_discord_desc': '4 methods to record Discord voice calls and video chats.',
+        'related_telegram_title': 'How to Record Telegram Calls',
+        'related_telegram_desc': '3 methods to record Telegram voice calls on desktop.',
+        'related_whatsapp_title': 'How to Record WhatsApp Calls',
+        'related_whatsapp_desc': '3 methods to record WhatsApp voice and video calls on PC.',
+        'related_all_title': 'Record Discord, WhatsApp, Viber or Telegram',
+        'related_all_desc': 'Complete guide covering all four messaging apps.'
+    },
+    es: {
+        'back_link': '&larr; blog',
+        'category': '[Guía]',
+        'title': 'Cómo grabar llamadas de Viber en 2026',
+        'meta': '23 de feb. de 2026 · 6 min de lectura · Por Daniil Lefanov',
+        'disclosure': 'Divulgación: Mono es nuestro producto. Lo hemos incluido en esta guía e intentamos ser justos, pero debes saber que tenemos un interés en él.',
+        'intro_1': 'Viber Desktop no incluye una función de grabación de llamadas integrada. Si necesitas guardar llamadas de voz o videollamadas de Viber en tu computadora, ya sea para registros comerciales, entrevistas o recuerdos personales, necesitarás un grabador de pantalla o una herramienta de captura de audio de terceros.',
+        'intro_2': 'Esta guía explica cómo grabar llamadas de Viber de manera confiable en 2026, con métodos tanto para grabación solo de audio como para grabación de video completa.',
+        'tldr_label': 'RESUMEN',
+        'tldr_1': '<strong>Mejor opción general:</strong> Mono — grabación invisible, transcripción con IA, $50 único pago',
+        'tldr_2': '<strong>Mejor opción gratuita:</strong> OBS Studio — requiere configuración, sin transcripción',
+        'tldr_3': '<strong>Integrado:</strong> Ninguno — Viber no tiene grabación nativa',
+        'why_record_title': '¿Por qué grabar llamadas de Viber?',
+        'why_record_1': 'Viber se usa ampliamente para comunicación internacional, especialmente en Europa del Este, Medio Oriente y partes de Asia. Muchas personas usan Viber para llamadas comerciales transfronterizas debido a su buena calidad de audio y las llamadas gratuitas entre usuarios.',
+        'why_record_2': 'Grabar llamadas de Viber sirve para varios propósitos. Los profesionales de negocios documentan conversaciones con clientes para rendición de cuentas. Las familias graban llamadas con familiares en el extranjero para preservar recuerdos. Los periodistas e investigadores capturan entrevistas para transcripción precisa. Los equipos remotos guardan discusiones importantes para miembros ausentes.',
+        'why_record_3': 'Dado que Viber no ofrece grabación nativa, necesitarás software externo que pueda capturar la salida de audio interna de tu computadora.',
+        'comparison_title': 'Comparación rápida',
+        'table_method': 'Método',
+        'table_price': 'Precio',
+        'table_transcription': 'Transcripción',
+        'table_setup': 'Configuración',
+        'table_mono_price': '$50 único pago',
+        'table_mono_transcription': 'Sí (IA local)',
+        'table_mono_setup': 'Fácil',
+        'table_obs_price': 'Gratis',
+        'table_obs_transcription': 'No',
+        'table_obs_setup': 'Media',
+        'method1_title': 'Método 1: Mono (Recomendado)',
+        'method1_desc_1': 'Mono es una aplicación de escritorio diseñada para grabar y transcribir conversaciones. Captura el audio interno directamente desde la salida de sonido de tu sistema, grabando exactamente lo que escuchas a través de tus altavoces o auriculares, incluyendo ambos lados de tu llamada de Viber.',
+        'method1_desc_2': 'Debido a que Mono graba el audio del sistema en lugar de unirse a la llamada, no hay indicación para la otra persona. Después de detener la grabación, Mono transcribe la conversación localmente usando IA que se ejecuta completamente en tu computadora. Tu audio no se sube a ningún lugar.',
+        'method1_howto_title': 'Cómo grabar llamadas de Viber con Mono',
+        'method1_step1': 'Descarga Mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
+        'method1_step2': 'Abre Mono y haz clic en el botón Grabar para comenzar la grabación',
+        'method1_step3': 'Abre Viber Desktop e inicia tu llamada',
+        'method1_step4': 'Ten tu conversación normalmente',
+        'method1_step5': 'Cuando termine la llamada, haz clic en Detener en Mono',
+        'method1_step6': 'Espera a que se complete la transcripción automática',
+        'method1_step7': 'Revisa tu transcripción con etiquetas de hablante y marcas de tiempo',
+        'method1_feature': 'La transcripción de Mono incluye identificación de hablantes: detecta diferentes voces y las etiqueta a lo largo de la transcripción. Puedes buscar en todas tus grabaciones por palabra clave, facilitando encontrar conversaciones específicas posteriormente.',
+        'method1_pros': '<strong>Ventajas:</strong> Funciona con llamadas de voz y video de Viber, invisible para otros participantes, transcripción automática con identificación de hablantes, buena calidad de audio, grabaciones con búsqueda, pago único de $50 sin suscripción.',
+        'method1_cons': '<strong>Desventajas:</strong> Software de pago (una grabación gratuita disponible para probar antes de comprar).',
+        'method2_title': 'Método 2: OBS Studio (Gratis)',
+        'method2_desc_1': 'OBS Studio es un software de grabación de pantalla gratuito y de código abierto utilizado principalmente por streamers. Puede capturar audio del sistema y opcionalmente tu pantalla, haciéndolo adecuado para grabar llamadas de audio y video de Viber. OBS requiere alguna configuración inicial pero funciona de manera confiable una vez configurado.',
+        'method2_desc_2': 'Al igual que Mono, OBS captura audio desde la salida de tu sistema en lugar de unirse a la llamada. La otra persona no sabrá que estás grabando. Sin embargo, OBS no incluye transcripción: obtienes archivos de audio sin procesar.',
+        'method2_howto_title': 'Cómo grabar llamadas de Viber con OBS',
+        'method2_step1': 'Descarga OBS Studio desde obsproject.com e instálalo',
+        'method2_step2': 'Abre OBS y ve a Configuración &rarr; Audio',
+        'method2_step3': 'Configura "Audio de escritorio" a tu dispositivo de reproducción (altavoces o auriculares)',
+        'method2_step4': 'En la ventana principal, haz clic en + debajo de Fuentes',
+        'method2_step5': 'Agrega una fuente de "Captura de salida de audio" para capturar audio interno',
+        'method2_step6': 'Haz clic en "Iniciar grabación" antes de hacer tu llamada de Viber',
+        'method2_step7': 'Realiza tu llamada en Viber Desktop',
+        'method2_step8': 'Haz clic en "Detener grabación" cuando termine la llamada',
+        'method2_step9': 'Encuentra tu grabación en la carpeta de salida (generalmente Videos)',
+        'method2_pros': '<strong>Ventajas:</strong> Completamente gratis y de código abierto, invisible para otros participantes, puede grabar videollamadas con grabación de pantalla, altamente configurable.',
+        'method2_cons': '<strong>Desventajas:</strong> Requiere configuración inicial, debes iniciar y detener manualmente la grabación para cada llamada, sin transcripción: produce solo archivos de audio sin procesar.',
+        'video_title': 'Grabación de videollamadas de Viber',
+        'video_intro': 'Ambos métodos funcionan para videollamadas de Viber:',
+        'video_audio': '<strong>Solo audio (Mono):</strong> Captura el audio de la conversación con transcripción automática. A menudo es suficiente ya que generalmente grabas para preservar lo que se dijo. Los archivos son pequeños y con búsqueda.',
+        'video_full': '<strong>Grabación de video completa (OBS):</strong> Captura tu pantalla mostrando la videollamada de Viber. Agrega una fuente de "Captura de pantalla" o "Captura de ventana". La calidad del video depende de tu conexión, y los archivos son mucho más grandes.',
+        'legal_title': 'Consideraciones legales',
+        'legal_intro': 'Antes de grabar llamadas de Viber, comprende los requisitos legales en tu jurisdicción:',
+        'legal_one_party': '<strong>Consentimiento de una parte:</strong> Muchas regiones permiten grabar llamadas en las que participas sin informar a otros.',
+        'legal_all_party': '<strong>Consentimiento de todas las partes:</strong> Algunas jurisdicciones requieren que todos acepten la grabación.',
+        'legal_advice': 'Para llamadas comerciales importantes, considera informar a la otra parte. Esto genera confianza y te protege legalmente.',
+        'tips_title': 'Consejos para mejores grabaciones de llamadas de Viber',
+        'tips_box': '<strong>Usa auriculares</strong> para evitar eco: tu micrófono no captará el sonido de los altavoces. <strong>Cierra aplicaciones innecesarias</strong> que puedan producir sonidos de notificación. <strong>Verifica tus niveles de audio</strong> con una grabación de prueba antes de llamadas importantes.',
+        'tips_connection': '<strong>Conexión estable:</strong> La calidad de las llamadas de Viber depende de la conexión a internet. Usa una conexión por cable para llamadas importantes cuando sea posible para asegurar buena calidad de audio.',
+        'tips_verify': '<strong>Verifica la configuración:</strong> Haz una grabación de prueba corta antes de conversaciones críticas para confirmar que ambas voces se capturan claramente.',
+        'which_method_title': '¿Qué método deberías usar?',
+        'which_transcription': '<strong>Si necesitas transcripción:</strong> Mono es la única opción que incluye conversión automática de voz a texto con etiquetas de hablante. Esto ahorra tiempo significativo comparado con transcribir manualmente.',
+        'which_free': '<strong>Si quieres gratis:</strong> OBS Studio funciona de manera confiable pero requiere configuración y produce archivos sin procesar sin transcripción.',
+        'which_regular': '<strong>Para uso regular:</strong> La grabación con un clic de Mono es más conveniente que configurar OBS antes de cada llamada.',
+        'which_video': '<strong>Para grabación de video:</strong> OBS Studio con grabación de pantalla captura tanto video como audio. Mono se enfoca en audio con transcripción automática.',
+        'related_title': 'Guías relacionadas',
+        'related_discord_title': 'Cómo grabar llamadas de Discord',
+        'related_discord_desc': '4 métodos para grabar llamadas de voz y videochats de Discord.',
+        'related_telegram_title': 'Cómo grabar llamadas de Telegram',
+        'related_telegram_desc': '3 métodos para grabar llamadas de voz de Telegram en escritorio.',
+        'related_whatsapp_title': 'Cómo grabar llamadas de WhatsApp',
+        'related_whatsapp_desc': '3 métodos para grabar llamadas de voz y video de WhatsApp en PC.',
+        'related_all_title': 'Grabar Discord, WhatsApp, Viber o Telegram',
+        'related_all_desc': 'Guía completa que cubre las cuatro aplicaciones de mensajería.'
+    },
+    fr: {
+        'back_link': '&larr; blog',
+        'category': '[Guide]',
+        'title': 'Comment enregistrer les appels Viber en 2026',
+        'meta': '23 fév. 2026 · 6 min de lecture · Par Daniil Lefanov',
+        'disclosure': 'Divulgation : Mono est notre produit. Nous l\'avons inclus dans ce guide et avons essayé d\'être équitables, mais vous devez savoir que nous avons un intérêt dans celui-ci.',
+        'intro_1': 'Viber Desktop n\'inclut pas de fonction d\'enregistrement d\'appels intégrée. Si vous devez sauvegarder des appels vocaux ou des appels vidéo de Viber sur votre ordinateur — que ce soit pour des dossiers professionnels, des entretiens ou des souvenirs personnels — vous aurez besoin d\'un enregistreur d\'écran tiers ou d\'un outil de capture audio.',
+        'intro_2': 'Ce guide explique comment enregistrer les appels Viber de manière fiable en 2026, avec des méthodes pour l\'enregistrement audio uniquement et l\'enregistrement vidéo complet.',
+        'tldr_label': 'EN BREF',
+        'tldr_1': '<strong>Meilleur choix global :</strong> Mono — enregistrement invisible, transcription IA, 50 $ une fois',
+        'tldr_2': '<strong>Meilleur choix gratuit :</strong> OBS Studio — nécessite une configuration, pas de transcription',
+        'tldr_3': '<strong>Intégré :</strong> Aucun — Viber n\'a pas d\'enregistrement natif',
+        'why_record_title': 'Pourquoi enregistrer les appels Viber ?',
+        'why_record_1': 'Viber est largement utilisé pour la communication internationale, en particulier en Europe de l\'Est, au Moyen-Orient et dans certaines régions d\'Asie. Beaucoup de personnes utilisent Viber pour les appels professionnels transfrontaliers en raison de sa bonne qualité audio et des appels gratuits entre utilisateurs.',
+        'why_record_2': 'L\'enregistrement des appels Viber sert plusieurs objectifs. Les professionnels documentent les conversations avec les clients pour la responsabilité. Les familles enregistrent les appels avec des proches à l\'étranger pour préserver les souvenirs. Les journalistes et chercheurs capturent les entretiens pour une transcription précise. Les équipes distantes sauvegardent les discussions importantes pour les membres absents.',
+        'why_record_3': 'Puisque Viber n\'offre pas d\'enregistrement natif, vous aurez besoin d\'un logiciel externe capable de capturer la sortie audio interne de votre ordinateur.',
+        'comparison_title': 'Comparaison rapide',
+        'table_method': 'Méthode',
+        'table_price': 'Prix',
+        'table_transcription': 'Transcription',
+        'table_setup': 'Configuration',
+        'table_mono_price': '50 $ une fois',
+        'table_mono_transcription': 'Oui (IA locale)',
+        'table_mono_setup': 'Facile',
+        'table_obs_price': 'Gratuit',
+        'table_obs_transcription': 'Non',
+        'table_obs_setup': 'Moyen',
+        'method1_title': 'Méthode 1 : Mono (Recommandé)',
+        'method1_desc_1': 'Mono est une application de bureau conçue pour enregistrer et transcrire les conversations. Elle capture l\'audio interne directement depuis la sortie sonore de votre système, enregistrant exactement ce que vous entendez à travers vos haut-parleurs ou écouteurs — y compris les deux côtés de votre appel Viber.',
+        'method1_desc_2': 'Parce que Mono enregistre l\'audio système plutôt que de rejoindre l\'appel, il n\'y a aucune indication pour l\'autre personne. Après avoir arrêté l\'enregistrement, Mono transcrit la conversation localement en utilisant une IA qui s\'exécute entièrement sur votre ordinateur. Votre audio n\'est téléchargé nulle part.',
+        'method1_howto_title': 'Comment enregistrer les appels Viber avec Mono',
+        'method1_step1': 'Téléchargez Mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
+        'method1_step2': 'Ouvrez Mono et cliquez sur le bouton Enregistrer pour commencer l\'enregistrement',
+        'method1_step3': 'Ouvrez Viber Desktop et démarrez votre appel',
+        'method1_step4': 'Ayez votre conversation normalement',
+        'method1_step5': 'Lorsque l\'appel se termine, cliquez sur Arrêter dans Mono',
+        'method1_step6': 'Attendez que la transcription automatique soit terminée',
+        'method1_step7': 'Consultez votre transcription avec les étiquettes des intervenants et les horodatages',
+        'method1_feature': 'La transcription de Mono inclut l\'identification des intervenants — elle détecte les différentes voix et les étiquette tout au long de la transcription. Vous pouvez rechercher dans tous vos enregistrements par mot-clé, ce qui facilite la recherche de conversations spécifiques ultérieurement.',
+        'method1_pros': '<strong>Avantages :</strong> Fonctionne avec les appels vocaux et vidéo Viber, invisible pour les autres participants, transcription automatique avec identification des intervenants, bonne qualité audio, enregistrements consultables, paiement unique de 50 $ sans abonnement.',
+        'method1_cons': '<strong>Inconvénients :</strong> Logiciel payant (un enregistrement gratuit disponible pour essayer avant l\'achat).',
+        'method2_title': 'Méthode 2 : OBS Studio (Gratuit)',
+        'method2_desc_1': 'OBS Studio est un logiciel d\'enregistrement d\'écran gratuit et open source principalement utilisé par les streamers. Il peut capturer l\'audio système et éventuellement votre écran, ce qui le rend adapté à l\'enregistrement des appels audio et vidéo Viber. OBS nécessite une configuration initiale mais fonctionne de manière fiable une fois configuré.',
+        'method2_desc_2': 'Comme Mono, OBS capture l\'audio depuis la sortie de votre système plutôt que de rejoindre l\'appel. L\'autre personne ne saura pas que vous enregistrez. Cependant, OBS n\'inclut pas de transcription — vous obtenez des fichiers audio bruts.',
+        'method2_howto_title': 'Comment enregistrer les appels Viber avec OBS',
+        'method2_step1': 'Téléchargez OBS Studio depuis obsproject.com et installez-le',
+        'method2_step2': 'Ouvrez OBS et allez dans Paramètres &rarr; Audio',
+        'method2_step3': 'Réglez « Audio du bureau » sur votre périphérique de lecture (haut-parleurs ou écouteurs)',
+        'method2_step4': 'Dans la fenêtre principale, cliquez sur + sous Sources',
+        'method2_step5': 'Ajoutez une source « Capture de sortie audio » pour capturer l\'audio interne',
+        'method2_step6': 'Cliquez sur « Démarrer l\'enregistrement » avant de passer votre appel Viber',
+        'method2_step7': 'Passez votre appel dans Viber Desktop',
+        'method2_step8': 'Cliquez sur « Arrêter l\'enregistrement » lorsque l\'appel se termine',
+        'method2_step9': 'Trouvez votre enregistrement dans le dossier de sortie (généralement Vidéos)',
+        'method2_pros': '<strong>Avantages :</strong> Entièrement gratuit et open source, invisible pour les autres participants, peut enregistrer les appels vidéo avec l\'enregistrement d\'écran, hautement configurable.',
+        'method2_cons': '<strong>Inconvénients :</strong> Nécessite une configuration initiale, vous devez démarrer et arrêter manuellement l\'enregistrement pour chaque appel, pas de transcription — produit uniquement des fichiers audio bruts.',
+        'video_title': 'Enregistrement des appels vidéo Viber',
+        'video_intro': 'Les deux méthodes fonctionnent pour les appels vidéo Viber :',
+        'video_audio': '<strong>Audio uniquement (Mono) :</strong> Capture l\'audio de la conversation avec transcription automatique. Souvent suffisant car vous enregistrez généralement pour préserver ce qui a été dit. Les fichiers sont petits et consultables.',
+        'video_full': '<strong>Enregistrement vidéo complet (OBS) :</strong> Capture votre écran montrant l\'appel vidéo Viber. Ajoutez une source « Capture d\'écran » ou « Capture de fenêtre ». La qualité vidéo dépend de votre connexion, et les fichiers sont beaucoup plus volumineux.',
+        'legal_title': 'Considérations juridiques',
+        'legal_intro': 'Avant d\'enregistrer des appels Viber, comprenez les exigences légales dans votre juridiction :',
+        'legal_one_party': '<strong>Consentement d\'une partie :</strong> De nombreuses régions autorisent l\'enregistrement des appels auxquels vous participez sans en informer les autres.',
+        'legal_all_party': '<strong>Consentement de toutes les parties :</strong> Certaines juridictions exigent que tout le monde accepte l\'enregistrement.',
+        'legal_advice': 'Pour les appels professionnels importants, envisagez d\'informer l\'autre partie. Cela renforce la confiance et vous protège juridiquement.',
+        'tips_title': 'Conseils pour de meilleurs enregistrements d\'appels Viber',
+        'tips_box': '<strong>Utilisez des écouteurs</strong> pour éviter l\'écho — votre microphone ne captera pas le son des haut-parleurs. <strong>Fermez les applications inutiles</strong> qui pourraient produire des sons de notification. <strong>Vérifiez vos niveaux audio</strong> avec un enregistrement test avant les appels importants.',
+        'tips_connection': '<strong>Connexion stable :</strong> La qualité des appels Viber dépend de la connexion internet. Utilisez une connexion filaire pour les appels importants lorsque c\'est possible pour assurer une bonne qualité audio.',
+        'tips_verify': '<strong>Vérifiez la configuration :</strong> Faites un court enregistrement test avant les conversations critiques pour confirmer que les deux voix sont capturées clairement.',
+        'which_method_title': 'Quelle méthode devriez-vous utiliser ?',
+        'which_transcription': '<strong>Si vous avez besoin de transcription :</strong> Mono est la seule option qui inclut la conversion automatique de la parole en texte avec des étiquettes d\'intervenants. Cela permet de gagner un temps considérable par rapport à la transcription manuelle.',
+        'which_free': '<strong>Si vous voulez gratuit :</strong> OBS Studio fonctionne de manière fiable mais nécessite une configuration et produit des fichiers bruts sans transcription.',
+        'which_regular': '<strong>Pour une utilisation régulière :</strong> L\'enregistrement en un clic de Mono est plus pratique que de configurer OBS avant chaque appel.',
+        'which_video': '<strong>Pour l\'enregistrement vidéo :</strong> OBS Studio avec enregistrement d\'écran capture à la fois la vidéo et l\'audio. Mono se concentre sur l\'audio avec transcription automatique.',
+        'related_title': 'Guides connexes',
+        'related_discord_title': 'Comment enregistrer les appels Discord',
+        'related_discord_desc': '4 méthodes pour enregistrer les appels vocaux et les chats vidéo Discord.',
+        'related_telegram_title': 'Comment enregistrer les appels Telegram',
+        'related_telegram_desc': '3 méthodes pour enregistrer les appels vocaux Telegram sur ordinateur.',
+        'related_whatsapp_title': 'Comment enregistrer les appels WhatsApp',
+        'related_whatsapp_desc': '3 méthodes pour enregistrer les appels vocaux et vidéo WhatsApp sur PC.',
+        'related_all_title': 'Enregistrer Discord, WhatsApp, Viber ou Telegram',
+        'related_all_desc': 'Guide complet couvrant les quatre applications de messagerie.'
+    },
+    de: {
+        'back_link': '&larr; Blog',
+        'category': '[Anleitung]',
+        'title': 'So nehmen Sie Viber-Anrufe im Jahr 2026 auf',
+        'meta': '23. Feb. 2026 · 6 Min. Lesezeit · Von Daniil Lefanov',
+        'disclosure': 'Offenlegung: Mono ist unser Produkt. Wir haben es in diese Anleitung aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'intro_1': 'Viber Desktop enthält keine integrierte Anrufaufnahmefunktion. Wenn Sie Sprachanrufe oder Videoanrufe von Viber auf Ihrem Computer speichern müssen — sei es für Geschäftsunterlagen, Interviews oder persönliche Erinnerungen — benötigen Sie einen Bildschirmrekorder oder ein Audio-Aufnahme-Tool eines Drittanbieters.',
+        'intro_2': 'Diese Anleitung erklärt, wie Sie Viber-Anrufe zuverlässig im Jahr 2026 aufnehmen können, mit Methoden sowohl für reine Audioaufnahmen als auch für vollständige Videoaufnahmen.',
+        'tldr_label': 'KURZFASSUNG',
+        'tldr_1': '<strong>Beste Gesamtwahl:</strong> Mono — unsichtbare Aufnahme, KI-Transkription, einmalig 50 $',
+        'tldr_2': '<strong>Beste kostenlose Option:</strong> OBS Studio — erfordert Einrichtung, keine Transkription',
+        'tldr_3': '<strong>Integriert:</strong> Keine — Viber hat keine native Aufnahme',
+        'why_record_title': 'Warum Viber-Anrufe aufnehmen?',
+        'why_record_1': 'Viber wird häufig für internationale Kommunikation genutzt, besonders in Osteuropa, im Nahen Osten und in Teilen Asiens. Viele Menschen nutzen Viber für grenzüberschreitende Geschäftsanrufe wegen der guten Audioqualität und der kostenlosen Anrufe zwischen Nutzern.',
+        'why_record_2': 'Das Aufnehmen von Viber-Anrufen dient mehreren Zwecken. Geschäftsleute dokumentieren Kundengespräche zur Rechenschaftslegung. Familien nehmen Anrufe mit Verwandten im Ausland auf, um Erinnerungen zu bewahren. Journalisten und Forscher erfassen Interviews für genaue Transkription. Remote-Teams speichern wichtige Diskussionen für abwesende Mitglieder.',
+        'why_record_3': 'Da Viber keine native Aufnahme bietet, benötigen Sie externe Software, die die interne Audioausgabe Ihres Computers erfassen kann.',
+        'comparison_title': 'Schneller Vergleich',
+        'table_method': 'Methode',
+        'table_price': 'Preis',
+        'table_transcription': 'Transkription',
+        'table_setup': 'Einrichtung',
+        'table_mono_price': 'Einmalig 50 $',
+        'table_mono_transcription': 'Ja (lokale KI)',
+        'table_mono_setup': 'Einfach',
+        'table_obs_price': 'Kostenlos',
+        'table_obs_transcription': 'Nein',
+        'table_obs_setup': 'Mittel',
+        'method1_title': 'Methode 1: Mono (Empfohlen)',
+        'method1_desc_1': 'Mono ist eine Desktop-App, die für das Aufnehmen und Transkribieren von Gesprächen entwickelt wurde. Sie erfasst internes Audio direkt von der Tonausgabe Ihres Systems und nimmt genau das auf, was Sie über Ihre Lautsprecher oder Kopfhörer hören — einschließlich beider Seiten Ihres Viber-Anrufs.',
+        'method1_desc_2': 'Da Mono Systemaudio aufnimmt, anstatt dem Anruf beizutreten, gibt es keinen Hinweis für die andere Person. Nachdem Sie die Aufnahme beendet haben, transkribiert Mono das Gespräch lokal mit KI, die vollständig auf Ihrem Computer läuft. Ihr Audio wird nirgendwo hochgeladen.',
+        'method1_howto_title': 'So nehmen Sie Viber-Anrufe mit Mono auf',
+        'method1_step1': 'Laden Sie Mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
+        'method1_step2': 'Öffnen Sie Mono und klicken Sie auf die Aufnahme-Schaltfläche, um die Aufnahme zu starten',
+        'method1_step3': 'Öffnen Sie Viber Desktop und starten Sie Ihren Anruf',
+        'method1_step4': 'Führen Sie Ihr Gespräch normal',
+        'method1_step5': 'Wenn der Anruf endet, klicken Sie auf Stopp in Mono',
+        'method1_step6': 'Warten Sie, bis die automatische Transkription abgeschlossen ist',
+        'method1_step7': 'Überprüfen Sie Ihre Transkription mit Sprecherbezeichnungen und Zeitstempeln',
+        'method1_feature': 'Die Transkription von Mono umfasst Sprecheridentifikation — sie erkennt verschiedene Stimmen und kennzeichnet sie während der gesamten Transkription. Sie können in allen Ihren Aufnahmen nach Schlüsselwörtern suchen, was es einfach macht, bestimmte Gespräche später zu finden.',
+        'method1_pros': '<strong>Vorteile:</strong> Funktioniert mit Viber-Sprach- und Videoanrufen, unsichtbar für andere Teilnehmer, automatische Transkription mit Sprecheridentifikation, gute Audioqualität, durchsuchbare Aufnahmen, einmalige Zahlung von 50 $ ohne Abonnement.',
+        'method1_cons': '<strong>Nachteile:</strong> Kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren vor dem Kauf verfügbar).',
+        'method2_title': 'Methode 2: OBS Studio (Kostenlos)',
+        'method2_desc_1': 'OBS Studio ist eine kostenlose, Open-Source-Bildschirmaufnahmesoftware, die hauptsächlich von Streamern verwendet wird. Sie kann Systemaudio und optional Ihren Bildschirm erfassen, was sie für die Aufnahme von Viber-Audio- und Videoanrufen geeignet macht. OBS erfordert eine anfängliche Konfiguration, funktioniert aber zuverlässig nach der Einrichtung.',
+        'method2_desc_2': 'Wie Mono erfasst OBS Audio von der Systemausgabe, anstatt dem Anruf beizutreten. Die andere Person wird nicht wissen, dass Sie aufnehmen. OBS enthält jedoch keine Transkription — Sie erhalten rohe Audiodateien.',
+        'method2_howto_title': 'So nehmen Sie Viber-Anrufe mit OBS auf',
+        'method2_step1': 'Laden Sie OBS Studio von obsproject.com herunter und installieren Sie es',
+        'method2_step2': 'Öffnen Sie OBS und gehen Sie zu Einstellungen &rarr; Audio',
+        'method2_step3': 'Stellen Sie „Desktop-Audio" auf Ihr Wiedergabegerät (Lautsprecher oder Kopfhörer) ein',
+        'method2_step4': 'Klicken Sie im Hauptfenster auf + unter Quellen',
+        'method2_step5': 'Fügen Sie eine „Audioausgabe-Aufnahme"-Quelle hinzu, um internes Audio zu erfassen',
+        'method2_step6': 'Klicken Sie auf „Aufnahme starten", bevor Sie Ihren Viber-Anruf tätigen',
+        'method2_step7': 'Führen Sie Ihren Anruf in Viber Desktop',
+        'method2_step8': 'Klicken Sie auf „Aufnahme beenden", wenn der Anruf endet',
+        'method2_step9': 'Finden Sie Ihre Aufnahme im Ausgabeordner (normalerweise Videos)',
+        'method2_pros': '<strong>Vorteile:</strong> Vollständig kostenlos und Open Source, unsichtbar für andere Teilnehmer, kann Videoanrufe mit Bildschirmaufnahme aufnehmen, hochgradig konfigurierbar.',
+        'method2_cons': '<strong>Nachteile:</strong> Erfordert anfängliche Einrichtung, Sie müssen die Aufnahme für jeden Anruf manuell starten und stoppen, keine Transkription — erzeugt nur rohe Audiodateien.',
+        'video_title': 'Aufnahme von Viber-Videoanrufen',
+        'video_intro': 'Beide Methoden funktionieren für Viber-Videoanrufe:',
+        'video_audio': '<strong>Nur Audio (Mono):</strong> Erfasst das Gesprächsaudio mit automatischer Transkription. Oft ausreichend, da Sie normalerweise aufnehmen, um das Gesagte zu bewahren. Dateien sind klein und durchsuchbar.',
+        'video_full': '<strong>Vollständige Videoaufnahme (OBS):</strong> Erfasst Ihren Bildschirm mit dem Viber-Videoanruf. Fügen Sie eine „Bildschirmaufnahme"- oder „Fensteraufnahme"-Quelle hinzu. Die Videoqualität hängt von Ihrer Verbindung ab, und die Dateien sind viel größer.',
+        'legal_title': 'Rechtliche Überlegungen',
+        'legal_intro': 'Bevor Sie Viber-Anrufe aufnehmen, verstehen Sie die rechtlichen Anforderungen in Ihrer Gerichtsbarkeit:',
+        'legal_one_party': '<strong>Einparteienzustimmung:</strong> Viele Regionen erlauben die Aufnahme von Anrufen, an denen Sie teilnehmen, ohne andere zu informieren.',
+        'legal_all_party': '<strong>Zustimmung aller Parteien:</strong> Einige Gerichtsbarkeiten verlangen, dass alle der Aufnahme zustimmen.',
+        'legal_advice': 'Für wichtige Geschäftsanrufe sollten Sie in Betracht ziehen, die andere Partei zu informieren. Dies schafft Vertrauen und schützt Sie rechtlich.',
+        'tips_title': 'Tipps für bessere Viber-Anrufaufnahmen',
+        'tips_box': '<strong>Verwenden Sie Kopfhörer</strong>, um Echo zu verhindern — Ihr Mikrofon nimmt keinen Ton von Lautsprechern auf. <strong>Schließen Sie unnötige Apps</strong>, die Benachrichtigungstöne erzeugen könnten. <strong>Überprüfen Sie Ihre Audiopegel</strong> mit einer Testaufnahme vor wichtigen Anrufen.',
+        'tips_connection': '<strong>Stabile Verbindung:</strong> Die Qualität von Viber-Anrufen hängt von der Internetverbindung ab. Verwenden Sie für wichtige Anrufe nach Möglichkeit eine Kabelverbindung, um eine gute Audioqualität zu gewährleisten.',
+        'tips_verify': '<strong>Einrichtung überprüfen:</strong> Machen Sie eine kurze Testaufnahme vor kritischen Gesprächen, um zu bestätigen, dass beide Stimmen klar erfasst werden.',
+        'which_method_title': 'Welche Methode sollten Sie verwenden?',
+        'which_transcription': '<strong>Wenn Sie Transkription benötigen:</strong> Mono ist die einzige Option, die automatische Sprache-zu-Text-Konvertierung mit Sprecherbezeichnungen enthält. Dies spart erheblich Zeit im Vergleich zur manuellen Transkription.',
+        'which_free': '<strong>Wenn Sie kostenlos möchten:</strong> OBS Studio funktioniert zuverlässig, erfordert aber Einrichtung und erzeugt Rohdateien ohne Transkription.',
+        'which_regular': '<strong>Für regelmäßige Nutzung:</strong> Die Ein-Klick-Aufnahme von Mono ist bequemer als OBS vor jedem Anruf zu konfigurieren.',
+        'which_video': '<strong>Für Videoaufnahmen:</strong> OBS Studio mit Bildschirmaufnahme erfasst sowohl Video als auch Audio. Mono konzentriert sich auf Audio mit automatischer Transkription.',
+        'related_title': 'Verwandte Anleitungen',
+        'related_discord_title': 'So nehmen Sie Discord-Anrufe auf',
+        'related_discord_desc': '4 Methoden zum Aufnehmen von Discord-Sprachanrufen und Video-Chats.',
+        'related_telegram_title': 'So nehmen Sie Telegram-Anrufe auf',
+        'related_telegram_desc': '3 Methoden zum Aufnehmen von Telegram-Sprachanrufen auf dem Desktop.',
+        'related_whatsapp_title': 'So nehmen Sie WhatsApp-Anrufe auf',
+        'related_whatsapp_desc': '3 Methoden zum Aufnehmen von WhatsApp-Sprach- und Videoanrufen auf dem PC.',
+        'related_all_title': 'Discord, WhatsApp, Viber oder Telegram aufnehmen',
+        'related_all_desc': 'Vollständige Anleitung für alle vier Messaging-Apps.'
+    },
+    zh: {
+        'back_link': '&larr; 博客',
+        'category': '[指南]',
+        'title': '如何在2026年录制Viber通话',
+        'meta': '2026年2月23日 · 阅读时间6分钟 · 作者：Daniil Lefanov',
+        'disclosure': '声明：Mono是我们的产品。我们在本指南中介绍了它，并尽量保持公正，但您应该知道我们对此有利益关系。',
+        'intro_1': 'Viber桌面版不包含内置通话录制功能。如果您需要在计算机上保存Viber语音通话或视频通话——无论是用于商业记录、采访还是个人回忆——您需要第三方屏幕录制器或音频捕获工具。',
+        'intro_2': '本指南介绍如何在2026年可靠地录制Viber通话，包括纯音频录制和完整视频录制的方法。',
+        'tldr_label': '摘要',
+        'tldr_1': '<strong>最佳综合选择：</strong>Mono — 隐形录制，AI转录，一次性50美元',
+        'tldr_2': '<strong>最佳免费选择：</strong>OBS Studio — 需要设置，无转录',
+        'tldr_3': '<strong>内置：</strong>无 — Viber没有原生录制功能',
+        'why_record_title': '为什么要录制Viber通话？',
+        'why_record_1': 'Viber广泛用于国际通信，特别是在东欧、中东和亚洲部分地区。许多人使用Viber进行跨境商务通话，因为它具有良好的音频质量和用户之间的免费通话。',
+        'why_record_2': '录制Viber通话有多种用途。商务专业人士记录客户对话以确保责任。家庭录制与海外亲属的通话以保存回忆。记者和研究人员捕获采访以进行准确转录。远程团队为缺席成员保存重要讨论。',
+        'why_record_3': '由于Viber不提供原生录制，您需要能够捕获计算机内部音频输出的外部软件。',
+        'comparison_title': '快速比较',
+        'table_method': '方法',
+        'table_price': '价格',
+        'table_transcription': '转录',
+        'table_setup': '设置',
+        'table_mono_price': '一次性50美元',
+        'table_mono_transcription': '是（本地AI）',
+        'table_mono_setup': '简单',
+        'table_obs_price': '免费',
+        'table_obs_transcription': '否',
+        'table_obs_setup': '中等',
+        'method1_title': '方法1：Mono（推荐）',
+        'method1_desc_1': 'Mono是一款专为录制和转录对话设计的桌面应用程序。它直接从系统声音输出捕获内部音频，准确录制您通过扬声器或耳机听到的内容——包括Viber通话的双方。',
+        'method1_desc_2': '由于Mono录制系统音频而不是加入通话，因此对方不会有任何提示。停止录制后，Mono使用完全在您计算机上运行的AI在本地转录对话。您的音频不会上传到任何地方。',
+        'method1_howto_title': '如何使用Mono录制Viber通话',
+        'method1_step1': '从<a href="https://mono-ai.uk">mono-ai.uk</a>下载Mono并安装',
+        'method1_step2': '打开Mono并点击录制按钮开始录制',
+        'method1_step3': '打开Viber桌面版并开始通话',
+        'method1_step4': '正常进行对话',
+        'method1_step5': '通话结束时，在Mono中点击停止',
+        'method1_step6': '等待自动转录完成',
+        'method1_step7': '查看带有说话人标签和时间戳的转录文本',
+        'method1_feature': 'Mono的转录包括说话人识别——它检测不同的声音并在整个转录中标记它们。您可以按关键字搜索所有录音，方便以后查找特定对话。',
+        'method1_pros': '<strong>优点：</strong>适用于Viber语音和视频通话，对其他参与者不可见，带说话人识别的自动转录，良好的音频质量，可搜索的录音，一次性支付50美元，无需订阅。',
+        'method1_cons': '<strong>缺点：</strong>付费软件（购买前可免费试用一次录制）。',
+        'method2_title': '方法2：OBS Studio（免费）',
+        'method2_desc_1': 'OBS Studio是免费的开源屏幕录制软件，主要供直播者使用。它可以捕获系统音频和可选的屏幕，使其适合录制Viber音频和视频通话。OBS需要一些初始配置，但设置后运行可靠。',
+        'method2_desc_2': '与Mono一样，OBS从系统输出捕获音频，而不是加入通话。对方不会知道您在录制。但是，OBS不包含转录功能——您只能获得原始音频文件。',
+        'method2_howto_title': '如何使用OBS录制Viber通话',
+        'method2_step1': '从obsproject.com下载OBS Studio并安装',
+        'method2_step2': '打开OBS并转到设置 &rarr; 音频',
+        'method2_step3': '将"桌面音频"设置为您的播放设备（扬声器或耳机）',
+        'method2_step4': '在主窗口中，点击来源下的+',
+        'method2_step5': '添加"音频输出捕获"源以捕获内部音频',
+        'method2_step6': '在进行Viber通话之前点击"开始录制"',
+        'method2_step7': '在Viber桌面版中进行通话',
+        'method2_step8': '通话结束时点击"停止录制"',
+        'method2_step9': '在输出文件夹中找到您的录音（通常是视频文件夹）',
+        'method2_pros': '<strong>优点：</strong>完全免费且开源，对其他参与者不可见，可以通过屏幕录制来录制视频通话，高度可配置。',
+        'method2_cons': '<strong>缺点：</strong>需要初始设置，每次通话都必须手动开始和停止录制，无转录——仅生成原始音频文件。',
+        'video_title': '录制Viber视频通话',
+        'video_intro': '两种方法都适用于Viber视频通话：',
+        'video_audio': '<strong>仅音频（Mono）：</strong>捕获对话音频并自动转录。通常足够，因为您通常是为了保留所说的内容而录制。文件小且可搜索。',
+        'video_full': '<strong>完整视频录制（OBS）：</strong>捕获显示Viber视频通话的屏幕。添加"显示捕获"或"窗口捕获"源。视频质量取决于您的连接，文件要大得多。',
+        'legal_title': '法律注意事项',
+        'legal_intro': '在录制Viber通话之前，了解您所在司法管辖区的法律要求：',
+        'legal_one_party': '<strong>单方同意：</strong>许多地区允许在不通知他人的情况下录制您参与的通话。',
+        'legal_all_party': '<strong>全体同意：</strong>某些司法管辖区要求所有人都同意录制。',
+        'legal_advice': '对于重要的商务通话，请考虑通知对方。这可以建立信任并在法律上保护您。',
+        'tips_title': '更好的Viber通话录制技巧',
+        'tips_box': '<strong>使用耳机</strong>以防止回声——您的麦克风不会从扬声器中拾取声音。<strong>关闭不必要的应用程序</strong>，它们可能会产生通知声音。<strong>在重要通话之前通过测试录音检查您的音频级别</strong>。',
+        'tips_connection': '<strong>稳定连接：</strong>Viber通话质量取决于互联网连接。在可能的情况下，为重要通话使用有线连接以确保良好的音频质量。',
+        'tips_verify': '<strong>验证设置：</strong>在关键对话之前进行简短的测试录音，以确认双方的声音都能清晰捕获。',
+        'which_method_title': '您应该使用哪种方法？',
+        'which_transcription': '<strong>如果您需要转录：</strong>Mono是唯一包含带说话人标签的自动语音转文本转换的选项。与手动转录相比，这可以节省大量时间。',
+        'which_free': '<strong>如果您想要免费：</strong>OBS Studio运行可靠，但需要设置，并生成没有转录的原始文件。',
+        'which_regular': '<strong>对于常规使用：</strong>Mono的一键录制比每次通话前配置OBS更方便。',
+        'which_video': '<strong>对于视频录制：</strong>带屏幕录制的OBS Studio可以同时捕获视频和音频。Mono专注于带自动转录的音频。',
+        'related_title': '相关指南',
+        'related_discord_title': '如何录制Discord通话',
+        'related_discord_desc': '录制Discord语音通话和视频聊天的4种方法。',
+        'related_telegram_title': '如何录制Telegram通话',
+        'related_telegram_desc': '在桌面上录制Telegram语音通话的3种方法。',
+        'related_whatsapp_title': '如何录制WhatsApp通话',
+        'related_whatsapp_desc': '在PC上录制WhatsApp语音和视频通话的3种方法。',
+        'related_all_title': '录制Discord、WhatsApp、Viber或Telegram',
+        'related_all_desc': '涵盖所有四个消息应用程序的完整指南。'
+    },
+    ru: {
+        'back_link': '&larr; блог',
+        'category': '[Руководство]',
+        'title': 'Как записать звонки Viber в 2026 году',
+        'meta': '23 фев. 2026 · 6 мин чтения · Автор: Daniil Lefanov',
+        'disclosure': 'Раскрытие информации: Mono — наш продукт. Мы включили его в это руководство и постарались быть объективными, но вы должны знать, что у нас есть заинтересованность.',
+        'intro_1': 'Viber Desktop не включает встроенную функцию записи звонков. Если вам нужно сохранить голосовые или видеозвонки из Viber на вашем компьютере — будь то для деловых записей, интервью или личных воспоминаний — вам понадобится сторонний инструмент для записи экрана или захвата аудио.',
+        'intro_2': 'Это руководство описывает, как надёжно записывать звонки Viber в 2026 году, с методами как для записи только аудио, так и для полной видеозаписи.',
+        'tldr_label': 'КРАТКО',
+        'tldr_1': '<strong>Лучший выбор:</strong> Mono — невидимая запись, ИИ-транскрипция, единоразово $50',
+        'tldr_2': '<strong>Лучший бесплатный:</strong> OBS Studio — требует настройки, без транскрипции',
+        'tldr_3': '<strong>Встроенный:</strong> Отсутствует — Viber не имеет нативной записи',
+        'why_record_title': 'Зачем записывать звонки Viber?',
+        'why_record_1': 'Viber широко используется для международного общения, особенно в Восточной Европе, на Ближнем Востоке и в некоторых частях Азии. Многие люди используют Viber для трансграничных деловых звонков благодаря хорошему качеству звука и бесплатным звонкам между пользователями.',
+        'why_record_2': 'Запись звонков Viber служит нескольким целям. Бизнес-профессионалы документируют разговоры с клиентами для отчётности. Семьи записывают звонки с родственниками за рубежом, чтобы сохранить воспоминания. Журналисты и исследователи фиксируют интервью для точной транскрипции. Удалённые команды сохраняют важные обсуждения для отсутствующих членов.',
+        'why_record_3': 'Поскольку Viber не предлагает нативную запись, вам понадобится внешнее программное обеспечение, способное захватывать внутренний аудиовыход вашего компьютера.',
+        'comparison_title': 'Быстрое сравнение',
+        'table_method': 'Метод',
+        'table_price': 'Цена',
+        'table_transcription': 'Транскрипция',
+        'table_setup': 'Настройка',
+        'table_mono_price': 'Единоразово $50',
+        'table_mono_transcription': 'Да (локальный ИИ)',
+        'table_mono_setup': 'Простая',
+        'table_obs_price': 'Бесплатно',
+        'table_obs_transcription': 'Нет',
+        'table_obs_setup': 'Средняя',
+        'method1_title': 'Метод 1: Mono (Рекомендуется)',
+        'method1_desc_1': 'Mono — это настольное приложение, разработанное для записи и транскрибирования разговоров. Оно захватывает внутренний звук непосредственно с аудиовыхода вашей системы, записывая именно то, что вы слышите через динамики или наушники — включая обе стороны вашего звонка Viber.',
+        'method1_desc_2': 'Поскольку Mono записывает системный звук, а не присоединяется к звонку, другой человек не получает никаких уведомлений. После остановки записи Mono транскрибирует разговор локально с помощью ИИ, который работает полностью на вашем компьютере. Ваш аудиофайл никуда не загружается.',
+        'method1_howto_title': 'Как записать звонки Viber с помощью Mono',
+        'method1_step1': 'Загрузите Mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите',
+        'method1_step2': 'Откройте Mono и нажмите кнопку «Запись», чтобы начать запись',
+        'method1_step3': 'Откройте Viber Desktop и начните звонок',
+        'method1_step4': 'Ведите разговор как обычно',
+        'method1_step5': 'Когда звонок закончится, нажмите «Стоп» в Mono',
+        'method1_step6': 'Дождитесь завершения автоматической транскрипции',
+        'method1_step7': 'Просмотрите вашу транскрипцию с метками говорящих и временными метками',
+        'method1_feature': 'Транскрипция Mono включает идентификацию говорящих — она определяет разные голоса и помечает их на протяжении всей транскрипции. Вы можете искать по всем вашим записям по ключевым словам, что упрощает поиск конкретных разговоров в будущем.',
+        'method1_pros': '<strong>Преимущества:</strong> Работает с голосовыми и видеозвонками Viber, невидим для других участников, автоматическая транскрипция с идентификацией говорящих, хорошее качество звука, записи с возможностью поиска, единоразовый платёж $50 без подписки.',
+        'method1_cons': '<strong>Недостатки:</strong> Платное программное обеспечение (доступна одна бесплатная запись для пробы перед покупкой).',
+        'method2_title': 'Метод 2: OBS Studio (Бесплатно)',
+        'method2_desc_1': 'OBS Studio — это бесплатное программное обеспечение с открытым исходным кодом для записи экрана, в основном используемое стримерами. Оно может захватывать системный звук и опционально ваш экран, что делает его подходящим для записи аудио- и видеозвонков Viber. OBS требует начальной настройки, но работает надёжно после установки.',
+        'method2_desc_2': 'Как и Mono, OBS захватывает звук с выхода вашей системы, а не присоединяется к звонку. Другой человек не узнает, что вы записываете. Однако OBS не включает транскрипцию — вы получаете необработанные аудиофайлы.',
+        'method2_howto_title': 'Как записать звонки Viber с помощью OBS',
+        'method2_step1': 'Загрузите OBS Studio с obsproject.com и установите',
+        'method2_step2': 'Откройте OBS и перейдите в Настройки &rarr; Аудио',
+        'method2_step3': 'Установите «Аудио рабочего стола» на ваше устройство воспроизведения (динамики или наушники)',
+        'method2_step4': 'В главном окне нажмите + под Источниками',
+        'method2_step5': 'Добавьте источник «Захват аудиовыхода» для захвата внутреннего звука',
+        'method2_step6': 'Нажмите «Начать запись» перед звонком в Viber',
+        'method2_step7': 'Совершите звонок в Viber Desktop',
+        'method2_step8': 'Нажмите «Остановить запись», когда звонок закончится',
+        'method2_step9': 'Найдите вашу запись в папке вывода (обычно Видео)',
+        'method2_pros': '<strong>Преимущества:</strong> Полностью бесплатный и с открытым исходным кодом, невидим для других участников, может записывать видеозвонки с записью экрана, высокая настраиваемость.',
+        'method2_cons': '<strong>Недостатки:</strong> Требует начальной настройки, необходимо вручную начинать и останавливать запись для каждого звонка, без транскрипции — производит только необработанные аудиофайлы.',
+        'video_title': 'Запись видеозвонков Viber',
+        'video_intro': 'Оба метода работают для видеозвонков Viber:',
+        'video_audio': '<strong>Только аудио (Mono):</strong> Захватывает аудио разговора с автоматической транскрипцией. Часто достаточно, поскольку вы обычно записываете, чтобы сохранить сказанное. Файлы маленькие и с возможностью поиска.',
+        'video_full': '<strong>Полная видеозапись (OBS):</strong> Захватывает ваш экран с видеозвонком Viber. Добавьте источник «Захват экрана» или «Захват окна». Качество видео зависит от вашего соединения, и файлы намного больше.',
+        'legal_title': 'Правовые аспекты',
+        'legal_intro': 'Перед записью звонков Viber изучите правовые требования в вашей юрисдикции:',
+        'legal_one_party': '<strong>Согласие одной стороны:</strong> Многие регионы разрешают записывать звонки, в которых вы участвуете, без уведомления других.',
+        'legal_all_party': '<strong>Согласие всех сторон:</strong> Некоторые юрисдикции требуют согласия всех на запись.',
+        'legal_advice': 'Для важных деловых звонков рассмотрите возможность информирования другой стороны. Это укрепляет доверие и защищает вас юридически.',
+        'tips_title': 'Советы для лучшей записи звонков Viber',
+        'tips_box': '<strong>Используйте наушники</strong>, чтобы предотвратить эхо — ваш микрофон не будет улавливать звук из динамиков. <strong>Закройте ненужные приложения</strong>, которые могут издавать звуки уведомлений. <strong>Проверьте уровни звука</strong> пробной записью перед важными звонками.',
+        'tips_connection': '<strong>Стабильное соединение:</strong> Качество звонков Viber зависит от интернет-соединения. По возможности используйте проводное соединение для важных звонков, чтобы обеспечить хорошее качество звука.',
+        'tips_verify': '<strong>Проверьте настройки:</strong> Сделайте короткую пробную запись перед важными разговорами, чтобы убедиться, что оба голоса захватываются чётко.',
+        'which_method_title': 'Какой метод вам следует использовать?',
+        'which_transcription': '<strong>Если вам нужна транскрипция:</strong> Mono — единственный вариант, который включает автоматическое преобразование речи в текст с метками говорящих. Это экономит значительное время по сравнению с ручной транскрипцией.',
+        'which_free': '<strong>Если вы хотите бесплатно:</strong> OBS Studio работает надёжно, но требует настройки и производит необработанные файлы без транскрипции.',
+        'which_regular': '<strong>Для регулярного использования:</strong> Запись одним щелчком в Mono удобнее, чем настройка OBS перед каждым звонком.',
+        'which_video': '<strong>Для видеозаписи:</strong> OBS Studio с записью экрана захватывает и видео, и аудио. Mono фокусируется на аудио с автоматической транскрипцией.',
+        'related_title': 'Связанные руководства',
+        'related_discord_title': 'Как записать звонки Discord',
+        'related_discord_desc': '4 метода записи голосовых звонков и видеочатов Discord.',
+        'related_telegram_title': 'Как записать звонки Telegram',
+        'related_telegram_desc': '3 метода записи голосовых звонков Telegram на компьютере.',
+        'related_whatsapp_title': 'Как записать звонки WhatsApp',
+        'related_whatsapp_desc': '3 метода записи голосовых и видеозвонков WhatsApp на ПК.',
+        'related_all_title': 'Запись Discord, WhatsApp, Viber или Telegram',
+        'related_all_desc': 'Полное руководство по всем четырём мессенджерам.'
+    }
+};
+
+let currentLang = 'en';
+const siteNav = document.querySelector('site-nav');
+
+siteNav.addEventListener('language-change', (e) => {
+    const lang = e.detail.language;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+});
+</script>
 </body>
 </html>

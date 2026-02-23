@@ -128,184 +128,725 @@
     <site-nav base-path="../"></site-nav>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">← blog</a>
+        <a href="./" class="back-link" data-i18n="back-link">&larr; blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to Record Telegram Calls in 2026</h1>
-            <p class="article-meta">Feb 23, 2026 · 7 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Record Telegram Calls in 2026</h1>
+            <p class="article-meta" data-i18n="meta">Feb 23, 2026 &middot; 7 min read &middot; By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
 
-            <p>Telegram Desktop has no built-in call recording feature. Unlike some messaging apps, Telegram doesn't offer any native way to save voice calls — whether they're one-on-one audio calls or group voice chats. If you need to record Telegram calls on your computer, you'll need a third-party screen recorder or audio capture tool.</p>
+            <p data-i18n="intro-p1">Telegram Desktop has no built-in call recording feature. Unlike some messaging apps, Telegram doesn't offer any native way to save voice calls &mdash; whether they're one-on-one audio calls or group voice chats. If you need to record Telegram calls on your computer, you'll need a third-party screen recorder or audio capture tool.</p>
 
-            <p>This guide covers how to record Telegram calls reliably in 2026, including methods for both voice calls and video calls.</p>
+            <p data-i18n="intro-p2">This guide covers how to record Telegram calls reliably in 2026, including methods for both voice calls and video calls.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr-label">TL;DR</p>
                 <ul>
-                    <li><strong>Best overall:</strong> Mono — invisible recording, AI transcription, $50 once</li>
-                    <li><strong>Best free:</strong> OBS Studio — requires setup, no transcription</li>
-                    <li><strong>Built-in:</strong> None — Telegram has no native recording</li>
+                    <li data-i18n="tldr-1"><strong>Best overall:</strong> Mono &mdash; invisible recording, AI transcription, $50 once</li>
+                    <li data-i18n="tldr-2"><strong>Best free:</strong> OBS Studio &mdash; requires setup, no transcription</li>
+                    <li data-i18n="tldr-3"><strong>Built-in:</strong> None &mdash; Telegram has no native recording</li>
                 </ul>
             </div>
 
-            <h2>Why Record Telegram Calls?</h2>
+            <h2 data-i18n="h2-why-record">Why Record Telegram Calls?</h2>
 
-            <p>Recording Telegram calls serves many purposes. Business professionals capture client conversations for documentation. Journalists record interviews for accurate transcription. Language learners save conversations with native speakers. Remote teams preserve important discussions that would otherwise be lost.</p>
+            <p data-i18n="why-record-p1">Recording Telegram calls serves many purposes. Business professionals capture client conversations for documentation. Journalists record interviews for accurate transcription. Language learners save conversations with native speakers. Remote teams preserve important discussions that would otherwise be lost.</p>
 
-            <p>Telegram call recording is particularly valuable because Telegram is popular for international communication — its calls work reliably across borders and have good audio quality. But without built-in recording, capturing these conversations requires external tools that can access your computer's internal audio output.</p>
+            <p data-i18n="why-record-p2">Telegram call recording is particularly valuable because Telegram is popular for international communication &mdash; its calls work reliably across borders and have good audio quality. But without built-in recording, capturing these conversations requires external tools that can access your computer's internal audio output.</p>
 
-            <h2>Quick Comparison</h2>
+            <h2 data-i18n="h2-comparison">Quick Comparison</h2>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Method</th>
-                            <th>Price</th>
-                            <th>Transcription</th>
-                            <th>Setup</th>
+                            <th data-i18n="th-method">Method</th>
+                            <th data-i18n="th-price">Price</th>
+                            <th data-i18n="th-transcription">Transcription</th>
+                            <th data-i18n="th-setup">Setup</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="mono-row">
                             <td>Mono</td>
-                            <td>$50 once</td>
-                            <td>Yes (local AI)</td>
-                            <td>Easy</td>
+                            <td data-i18n="td-mono-price">$50 once</td>
+                            <td data-i18n="td-mono-transcription">Yes (local AI)</td>
+                            <td data-i18n="td-mono-setup">Easy</td>
                         </tr>
                         <tr>
                             <td>OBS Studio</td>
-                            <td>Free</td>
-                            <td>No</td>
-                            <td>Medium</td>
+                            <td data-i18n="td-obs-price">Free</td>
+                            <td data-i18n="td-obs-transcription">No</td>
+                            <td data-i18n="td-obs-setup">Medium</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>Method 1: Mono (Recommended)</h2>
+            <h2 data-i18n="h2-method1">Method 1: Mono (Recommended)</h2>
 
-            <p>Mono is a desktop app designed specifically for recording and transcribing conversations. It captures internal audio directly from your system's sound output, which means it records exactly what you hear through your speakers or headphones — including both sides of your Telegram call.</p>
+            <p data-i18n="method1-p1">Mono is a desktop app designed specifically for recording and transcribing conversations. It captures internal audio directly from your system's sound output, which means it records exactly what you hear through your speakers or headphones &mdash; including both sides of your Telegram call.</p>
 
-            <p>Because Mono records system audio rather than joining the call as a participant, there's no indication to the other person that recording is happening. After you stop recording, Mono automatically transcribes the conversation using local AI that runs entirely on your computer.</p>
+            <p data-i18n="method1-p2">Because Mono records system audio rather than joining the call as a participant, there's no indication to the other person that recording is happening. After you stop recording, Mono automatically transcribes the conversation using local AI that runs entirely on your computer.</p>
 
-            <h3>How to record Telegram calls with Mono</h3>
-
-            <ol class="steps-list">
-                <li>Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li>Open Mono and click the Record button to begin recording</li>
-                <li>Open Telegram Desktop and start your call</li>
-                <li>Have your conversation normally</li>
-                <li>When the call ends, click Stop in Mono</li>
-                <li>Wait for the automatic transcription to complete</li>
-                <li>Review your transcript with speaker labels and timestamps</li>
-            </ol>
-
-            <p>The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations or topics.</p>
-
-            <p><strong>Pros:</strong> No per-call setup required, invisible to other participants, automatic transcription with speaker identification, searchable recordings, works with voice chats and video calls, one-time $50 payment with no subscription.</p>
-
-            <p><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
-
-            <h2>Method 2: OBS Studio (Free)</h2>
-
-            <p>OBS Studio is free, open-source software primarily used for live streaming and screen recording. It can capture system audio and optionally your screen, making it suitable for recording Telegram calls. OBS requires some initial configuration but works reliably once set up.</p>
-
-            <p>Like Mono, OBS captures audio from your system's output rather than joining the call. The other person won't know you're recording. However, OBS doesn't include transcription — you get a raw audio or video file that you'll need to process yourself.</p>
-
-            <h3>How to record Telegram calls with OBS</h3>
+            <h3 data-i18n="h3-mono-steps">How to record Telegram calls with Mono</h3>
 
             <ol class="steps-list">
-                <li>Download OBS Studio from obsproject.com and install it</li>
-                <li>Open OBS and go to Settings → Audio</li>
-                <li>Set "Desktop Audio" to your playback device (speakers or headphones)</li>
-                <li>In the main window, click + under Sources</li>
-                <li>Add an "Audio Output Capture" source to capture internal audio</li>
-                <li>Click "Start Recording" before your Telegram call</li>
-                <li>Make your call in Telegram Desktop</li>
-                <li>Click "Stop Recording" when the call ends</li>
-                <li>Find your recording file in the output folder (usually Videos)</li>
+                <li data-i18n="mono-step-1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="mono-step-2">Open Mono and click the Record button to begin recording</li>
+                <li data-i18n="mono-step-3">Open Telegram Desktop and start your call</li>
+                <li data-i18n="mono-step-4">Have your conversation normally</li>
+                <li data-i18n="mono-step-5">When the call ends, click Stop in Mono</li>
+                <li data-i18n="mono-step-6">Wait for the automatic transcription to complete</li>
+                <li data-i18n="mono-step-7">Review your transcript with speaker labels and timestamps</li>
             </ol>
 
-            <p><strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable with advanced audio settings.</p>
+            <p data-i18n="method1-p3">The transcription includes speaker identification &mdash; Mono detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations or topics.</p>
 
-            <p><strong>Cons:</strong> Requires initial setup and configuration, you must manually begin recording and stop recording for each call, no transcription — just raw audio/video files.</p>
+            <p data-i18n="method1-pros"><strong>Pros:</strong> No per-call setup required, invisible to other participants, automatic transcription with speaker identification, searchable recordings, works with voice chats and video calls, one-time $50 payment with no subscription.</p>
 
-            <h2>Recording Telegram Video Calls</h2>
+            <p data-i18n="method1-cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
-            <p>Telegram supports video calls in addition to voice calls. If you need video recording, you have two options:</p>
+            <h2 data-i18n="h2-method2">Method 2: OBS Studio (Free)</h2>
 
-            <p><strong>Audio only:</strong> Both Mono and OBS can capture the audio portion of video calls. This is often sufficient if you only need the conversation content, and produces much smaller files than video recording.</p>
+            <p data-i18n="method2-p1">OBS Studio is free, open-source software primarily used for live streaming and screen recording. It can capture system audio and optionally your screen, making it suitable for recording Telegram calls. OBS requires some initial configuration but works reliably once set up.</p>
 
-            <p><strong>Full video recording:</strong> OBS Studio can capture your entire screen or just the Telegram window. Add a "Display Capture" or "Window Capture" source to record the video portion alongside audio. Be aware that video files are significantly larger and video quality depends on the call's connection quality.</p>
+            <p data-i18n="method2-p2">Like Mono, OBS captures audio from your system's output rather than joining the call. The other person won't know you're recording. However, OBS doesn't include transcription &mdash; you get a raw audio or video file that you'll need to process yourself.</p>
 
-            <h2>Why Telegram Doesn't Have Built-in Recording</h2>
+            <h3 data-i18n="h3-obs-steps">How to record Telegram calls with OBS</h3>
 
-            <p>Telegram positions itself as a privacy-focused messenger. Built-in call recording would create privacy concerns, since recordings could be made without the other party's knowledge or consent. By not including this feature, Telegram maintains its reputation for user privacy.</p>
+            <ol class="steps-list">
+                <li data-i18n="obs-step-1">Download OBS Studio from obsproject.com and install it</li>
+                <li data-i18n="obs-step-2">Open OBS and go to Settings &rarr; Audio</li>
+                <li data-i18n="obs-step-3">Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li data-i18n="obs-step-4">In the main window, click + under Sources</li>
+                <li data-i18n="obs-step-5">Add an "Audio Output Capture" source to capture internal audio</li>
+                <li data-i18n="obs-step-6">Click "Start Recording" before your Telegram call</li>
+                <li data-i18n="obs-step-7">Make your call in Telegram Desktop</li>
+                <li data-i18n="obs-step-8">Click "Stop Recording" when the call ends</li>
+                <li data-i18n="obs-step-9">Find your recording file in the output folder (usually Videos)</li>
+            </ol>
 
-            <p>This privacy-first approach means legitimate use cases — like recording business calls for compliance, capturing interviews, or saving memories of conversations with distant family — require external tools. The trade-off is that you have full control over your recordings: they stay on your computer and aren't uploaded anywhere.</p>
+            <p data-i18n="method2-pros"><strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable with advanced audio settings.</p>
 
-            <h2>Legal Considerations</h2>
+            <p data-i18n="method2-cons"><strong>Cons:</strong> Requires initial setup and configuration, you must manually begin recording and stop recording for each call, no transcription &mdash; just raw audio/video files.</p>
 
-            <p>Before recording Telegram calls, understand the legal requirements in your jurisdiction. Recording laws vary by country and region:</p>
+            <h2 data-i18n="h2-video-calls">Recording Telegram Video Calls</h2>
 
-            <p><strong>One-party consent:</strong> In many places, you can legally record a call you're participating in without informing the other party.</p>
+            <p data-i18n="video-p1">Telegram supports video calls in addition to voice calls. If you need video recording, you have two options:</p>
 
-            <p><strong>All-party consent:</strong> Some jurisdictions require all participants to consent to recording. This includes parts of the US, Germany, and other regions.</p>
+            <p data-i18n="video-p2"><strong>Audio only:</strong> Both Mono and OBS can capture the audio portion of video calls. This is often sufficient if you only need the conversation content, and produces much smaller files than video recording.</p>
 
-            <p>Regardless of legal requirements, consider informing the other party when recording important conversations. It avoids awkward situations and builds trust.</p>
+            <p data-i18n="video-p3"><strong>Full video recording:</strong> OBS Studio can capture your entire screen or just the Telegram window. Add a "Display Capture" or "Window Capture" source to record the video portion alongside audio. Be aware that video files are significantly larger and video quality depends on the call's connection quality.</p>
 
-            <h2>Tips for Better Telegram Call Recordings</h2>
+            <h2 data-i18n="h2-why-no-builtin">Why Telegram Doesn't Have Built-in Recording</h2>
+
+            <p data-i18n="no-builtin-p1">Telegram positions itself as a privacy-focused messenger. Built-in call recording would create privacy concerns, since recordings could be made without the other party's knowledge or consent. By not including this feature, Telegram maintains its reputation for user privacy.</p>
+
+            <p data-i18n="no-builtin-p2">This privacy-first approach means legitimate use cases &mdash; like recording business calls for compliance, capturing interviews, or saving memories of conversations with distant family &mdash; require external tools. The trade-off is that you have full control over your recordings: they stay on your computer and aren't uploaded anywhere.</p>
+
+            <h2 data-i18n="h2-legal">Legal Considerations</h2>
+
+            <p data-i18n="legal-p1">Before recording Telegram calls, understand the legal requirements in your jurisdiction. Recording laws vary by country and region:</p>
+
+            <p data-i18n="legal-p2"><strong>One-party consent:</strong> In many places, you can legally record a call you're participating in without informing the other party.</p>
+
+            <p data-i18n="legal-p3"><strong>All-party consent:</strong> Some jurisdictions require all participants to consent to recording. This includes parts of the US, Germany, and other regions.</p>
+
+            <p data-i18n="legal-p4">Regardless of legal requirements, consider informing the other party when recording important conversations. It avoids awkward situations and builds trust.</p>
+
+            <h2 data-i18n="h2-tips">Tips for Better Telegram Call Recordings</h2>
 
             <div class="tip-box">
-                <p><strong>Use headphones</strong> to prevent echo and improve audio quality — your microphone won't pick up sound from your speakers. <strong>Find a quiet environment</strong> for important calls. <strong>Test your recording setup</strong> with a short test before critical conversations.</p>
+                <p data-i18n="tips-box"><strong>Use headphones</strong> to prevent echo and improve audio quality &mdash; your microphone won't pick up sound from your speakers. <strong>Find a quiet environment</strong> for important calls. <strong>Test your recording setup</strong> with a short test before critical conversations.</p>
             </div>
 
-            <p><strong>Check audio levels:</strong> Before important calls, make a short test recording to ensure your audio levels are correct. You should hear both yourself and the other person clearly.</p>
+            <p data-i18n="tips-p1"><strong>Check audio levels:</strong> Before important calls, make a short test recording to ensure your audio levels are correct. You should hear both yourself and the other person clearly.</p>
 
-            <p><strong>Close other apps:</strong> Applications that produce sounds (email notifications, messaging apps, music players) can be captured in your recording. Close or mute them before starting.</p>
+            <p data-i18n="tips-p2"><strong>Close other apps:</strong> Applications that produce sounds (email notifications, messaging apps, music players) can be captured in your recording. Close or mute them before starting.</p>
 
-            <p><strong>Stable internet connection:</strong> Poor connections affect call quality, which in turn affects recording quality. Use a wired connection if possible for important calls.</p>
+            <p data-i18n="tips-p3"><strong>Stable internet connection:</strong> Poor connections affect call quality, which in turn affects recording quality. Use a wired connection if possible for important calls.</p>
 
-            <h2>Which Method Should You Use?</h2>
+            <h2 data-i18n="h2-which-method">Which Method Should You Use?</h2>
 
-            <p><strong>If you need transcription:</strong> Mono is the only option that includes automatic speech-to-text conversion with speaker labels. This saves significant time compared to manually transcribing recordings.</p>
+            <p data-i18n="which-p1"><strong>If you need transcription:</strong> Mono is the only option that includes automatic speech-to-text conversion with speaker labels. This saves significant time compared to manually transcribing recordings.</p>
 
-            <p><strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw files without transcription.</p>
+            <p data-i18n="which-p2"><strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw files without transcription.</p>
 
-            <p><strong>For regular use:</strong> Mono's one-click workflow is more practical than configuring OBS for each call.</p>
+            <p data-i18n="which-p3"><strong>For regular use:</strong> Mono's one-click workflow is more practical than configuring OBS for each call.</p>
 
-            <p><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with transcription.</p>
+            <p data-i18n="which-p4"><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with transcription.</p>
 
             <cta-card base-path="../"></cta-card>
 
             <section class="related-articles">
-                <h2 class="related-title">Related Guides</h2>
+                <h2 class="related-title" data-i18n="related-title">Related Guides</h2>
                 <div class="related-grid">
                     <a href="how-to-record-discord-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Discord Calls</h3>
-                        <p class="related-card-desc">4 methods to record Discord voice calls and video chats.</p>
+                        <h3 class="related-card-title" data-i18n="related-discord-title">How to Record Discord Calls</h3>
+                        <p class="related-card-desc" data-i18n="related-discord-desc">4 methods to record Discord voice calls and video chats.</p>
                     </a>
                     <a href="how-to-record-whatsapp-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record WhatsApp Calls</h3>
-                        <p class="related-card-desc">3 methods to record WhatsApp voice and video calls on PC.</p>
+                        <h3 class="related-card-title" data-i18n="related-whatsapp-title">How to Record WhatsApp Calls</h3>
+                        <p class="related-card-desc" data-i18n="related-whatsapp-desc">3 methods to record WhatsApp voice and video calls on PC.</p>
                     </a>
                     <a href="how-to-record-viber-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Viber Calls</h3>
-                        <p class="related-card-desc">3 methods to record Viber voice calls on desktop.</p>
+                        <h3 class="related-card-title" data-i18n="related-viber-title">How to Record Viber Calls</h3>
+                        <p class="related-card-desc" data-i18n="related-viber-desc">3 methods to record Viber voice calls on desktop.</p>
                     </a>
                     <a href="record-discord-whatsapp-viber-telegram" class="related-card">
-                        <h3 class="related-card-title">Record Discord, WhatsApp, Viber or Telegram</h3>
-                        <p class="related-card-desc">Complete guide covering all four messaging apps.</p>
+                        <h3 class="related-card-title" data-i18n="related-all-title">Record Discord, WhatsApp, Viber or Telegram</h3>
+                        <p class="related-card-desc" data-i18n="related-all-desc">Complete guide covering all four messaging apps.</p>
                     </a>
                 </div>
             </section>
 
         </div>
     </main>
+
+<script>
+const translations = {
+    en: {
+        'back-link': '&larr; blog',
+        'category': '[Guide]',
+        'title': 'How to Record Telegram Calls in 2026',
+        'meta': 'Feb 23, 2026 &middot; 7 min read &middot; By Daniil Lefanov',
+        'disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'intro-p1': 'Telegram Desktop has no built-in call recording feature. Unlike some messaging apps, Telegram doesn\'t offer any native way to save voice calls &mdash; whether they\'re one-on-one audio calls or group voice chats. If you need to record Telegram calls on your computer, you\'ll need a third-party screen recorder or audio capture tool.',
+        'intro-p2': 'This guide covers how to record Telegram calls reliably in 2026, including methods for both voice calls and video calls.',
+        'tldr-label': 'TL;DR',
+        'tldr-1': '<strong>Best overall:</strong> Mono &mdash; invisible recording, AI transcription, $50 once',
+        'tldr-2': '<strong>Best free:</strong> OBS Studio &mdash; requires setup, no transcription',
+        'tldr-3': '<strong>Built-in:</strong> None &mdash; Telegram has no native recording',
+        'h2-why-record': 'Why Record Telegram Calls?',
+        'why-record-p1': 'Recording Telegram calls serves many purposes. Business professionals capture client conversations for documentation. Journalists record interviews for accurate transcription. Language learners save conversations with native speakers. Remote teams preserve important discussions that would otherwise be lost.',
+        'why-record-p2': 'Telegram call recording is particularly valuable because Telegram is popular for international communication &mdash; its calls work reliably across borders and have good audio quality. But without built-in recording, capturing these conversations requires external tools that can access your computer\'s internal audio output.',
+        'h2-comparison': 'Quick Comparison',
+        'th-method': 'Method',
+        'th-price': 'Price',
+        'th-transcription': 'Transcription',
+        'th-setup': 'Setup',
+        'td-mono-price': '$50 once',
+        'td-mono-transcription': 'Yes (local AI)',
+        'td-mono-setup': 'Easy',
+        'td-obs-price': 'Free',
+        'td-obs-transcription': 'No',
+        'td-obs-setup': 'Medium',
+        'h2-method1': 'Method 1: Mono (Recommended)',
+        'method1-p1': 'Mono is a desktop app designed specifically for recording and transcribing conversations. It captures internal audio directly from your system\'s sound output, which means it records exactly what you hear through your speakers or headphones &mdash; including both sides of your Telegram call.',
+        'method1-p2': 'Because Mono records system audio rather than joining the call as a participant, there\'s no indication to the other person that recording is happening. After you stop recording, Mono automatically transcribes the conversation using local AI that runs entirely on your computer.',
+        'h3-mono-steps': 'How to record Telegram calls with Mono',
+        'mono-step-1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'mono-step-2': 'Open Mono and click the Record button to begin recording',
+        'mono-step-3': 'Open Telegram Desktop and start your call',
+        'mono-step-4': 'Have your conversation normally',
+        'mono-step-5': 'When the call ends, click Stop in Mono',
+        'mono-step-6': 'Wait for the automatic transcription to complete',
+        'mono-step-7': 'Review your transcript with speaker labels and timestamps',
+        'method1-p3': 'The transcription includes speaker identification &mdash; Mono detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations or topics.',
+        'method1-pros': '<strong>Pros:</strong> No per-call setup required, invisible to other participants, automatic transcription with speaker identification, searchable recordings, works with voice chats and video calls, one-time $50 payment with no subscription.',
+        'method1-cons': '<strong>Cons:</strong> Paid software (one free recording available to try before purchasing).',
+        'h2-method2': 'Method 2: OBS Studio (Free)',
+        'method2-p1': 'OBS Studio is free, open-source software primarily used for live streaming and screen recording. It can capture system audio and optionally your screen, making it suitable for recording Telegram calls. OBS requires some initial configuration but works reliably once set up.',
+        'method2-p2': 'Like Mono, OBS captures audio from your system\'s output rather than joining the call. The other person won\'t know you\'re recording. However, OBS doesn\'t include transcription &mdash; you get a raw audio or video file that you\'ll need to process yourself.',
+        'h3-obs-steps': 'How to record Telegram calls with OBS',
+        'obs-step-1': 'Download OBS Studio from obsproject.com and install it',
+        'obs-step-2': 'Open OBS and go to Settings &rarr; Audio',
+        'obs-step-3': 'Set "Desktop Audio" to your playback device (speakers or headphones)',
+        'obs-step-4': 'In the main window, click + under Sources',
+        'obs-step-5': 'Add an "Audio Output Capture" source to capture internal audio',
+        'obs-step-6': 'Click "Start Recording" before your Telegram call',
+        'obs-step-7': 'Make your call in Telegram Desktop',
+        'obs-step-8': 'Click "Stop Recording" when the call ends',
+        'obs-step-9': 'Find your recording file in the output folder (usually Videos)',
+        'method2-pros': '<strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable with advanced audio settings.',
+        'method2-cons': '<strong>Cons:</strong> Requires initial setup and configuration, you must manually begin recording and stop recording for each call, no transcription &mdash; just raw audio/video files.',
+        'h2-video-calls': 'Recording Telegram Video Calls',
+        'video-p1': 'Telegram supports video calls in addition to voice calls. If you need video recording, you have two options:',
+        'video-p2': '<strong>Audio only:</strong> Both Mono and OBS can capture the audio portion of video calls. This is often sufficient if you only need the conversation content, and produces much smaller files than video recording.',
+        'video-p3': '<strong>Full video recording:</strong> OBS Studio can capture your entire screen or just the Telegram window. Add a "Display Capture" or "Window Capture" source to record the video portion alongside audio. Be aware that video files are significantly larger and video quality depends on the call\'s connection quality.',
+        'h2-why-no-builtin': 'Why Telegram Doesn\'t Have Built-in Recording',
+        'no-builtin-p1': 'Telegram positions itself as a privacy-focused messenger. Built-in call recording would create privacy concerns, since recordings could be made without the other party\'s knowledge or consent. By not including this feature, Telegram maintains its reputation for user privacy.',
+        'no-builtin-p2': 'This privacy-first approach means legitimate use cases &mdash; like recording business calls for compliance, capturing interviews, or saving memories of conversations with distant family &mdash; require external tools. The trade-off is that you have full control over your recordings: they stay on your computer and aren\'t uploaded anywhere.',
+        'h2-legal': 'Legal Considerations',
+        'legal-p1': 'Before recording Telegram calls, understand the legal requirements in your jurisdiction. Recording laws vary by country and region:',
+        'legal-p2': '<strong>One-party consent:</strong> In many places, you can legally record a call you\'re participating in without informing the other party.',
+        'legal-p3': '<strong>All-party consent:</strong> Some jurisdictions require all participants to consent to recording. This includes parts of the US, Germany, and other regions.',
+        'legal-p4': 'Regardless of legal requirements, consider informing the other party when recording important conversations. It avoids awkward situations and builds trust.',
+        'h2-tips': 'Tips for Better Telegram Call Recordings',
+        'tips-box': '<strong>Use headphones</strong> to prevent echo and improve audio quality &mdash; your microphone won\'t pick up sound from your speakers. <strong>Find a quiet environment</strong> for important calls. <strong>Test your recording setup</strong> with a short test before critical conversations.',
+        'tips-p1': '<strong>Check audio levels:</strong> Before important calls, make a short test recording to ensure your audio levels are correct. You should hear both yourself and the other person clearly.',
+        'tips-p2': '<strong>Close other apps:</strong> Applications that produce sounds (email notifications, messaging apps, music players) can be captured in your recording. Close or mute them before starting.',
+        'tips-p3': '<strong>Stable internet connection:</strong> Poor connections affect call quality, which in turn affects recording quality. Use a wired connection if possible for important calls.',
+        'h2-which-method': 'Which Method Should You Use?',
+        'which-p1': '<strong>If you need transcription:</strong> Mono is the only option that includes automatic speech-to-text conversion with speaker labels. This saves significant time compared to manually transcribing recordings.',
+        'which-p2': '<strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw files without transcription.',
+        'which-p3': '<strong>For regular use:</strong> Mono\'s one-click workflow is more practical than configuring OBS for each call.',
+        'which-p4': '<strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with transcription.',
+        'related-title': 'Related Guides',
+        'related-discord-title': 'How to Record Discord Calls',
+        'related-discord-desc': '4 methods to record Discord voice calls and video chats.',
+        'related-whatsapp-title': 'How to Record WhatsApp Calls',
+        'related-whatsapp-desc': '3 methods to record WhatsApp voice and video calls on PC.',
+        'related-viber-title': 'How to Record Viber Calls',
+        'related-viber-desc': '3 methods to record Viber voice calls on desktop.',
+        'related-all-title': 'Record Discord, WhatsApp, Viber or Telegram',
+        'related-all-desc': 'Complete guide covering all four messaging apps.'
+    },
+    es: {
+        'back-link': '&larr; blog',
+        'category': '[Guia]',
+        'title': 'Como grabar llamadas de Telegram en 2026',
+        'meta': '23 de febrero de 2026 &middot; 7 min de lectura &middot; Por Daniil Lefanov',
+        'disclosure': 'Aviso: Mono es nuestro producto. Lo hemos incluido en esta guia e intentamos ser justos, pero debes saber que tenemos interes en el.',
+        'intro-p1': 'Telegram Desktop no tiene una funcion integrada para grabar llamadas. A diferencia de otras aplicaciones de mensajeria, Telegram no ofrece ninguna forma nativa de guardar llamadas de voz &mdash; ya sean llamadas de audio individuales o chats de voz grupales. Si necesitas grabar llamadas de Telegram en tu computadora, necesitaras un grabador de pantalla o herramienta de captura de audio de terceros.',
+        'intro-p2': 'Esta guia explica como grabar llamadas de Telegram de manera confiable en 2026, incluyendo metodos para llamadas de voz y videollamadas.',
+        'tldr-label': 'RESUMEN',
+        'tldr-1': '<strong>Mejor opcion:</strong> Mono &mdash; grabacion invisible, transcripcion con IA, $50 una vez',
+        'tldr-2': '<strong>Mejor gratuito:</strong> OBS Studio &mdash; requiere configuracion, sin transcripcion',
+        'tldr-3': '<strong>Integrado:</strong> Ninguno &mdash; Telegram no tiene grabacion nativa',
+        'h2-why-record': 'Por que grabar llamadas de Telegram?',
+        'why-record-p1': 'Grabar llamadas de Telegram sirve para muchos propositos. Los profesionales de negocios capturan conversaciones con clientes para documentacion. Los periodistas graban entrevistas para transcripcion precisa. Los estudiantes de idiomas guardan conversaciones con hablantes nativos. Los equipos remotos preservan discusiones importantes que de otro modo se perderian.',
+        'why-record-p2': 'La grabacion de llamadas de Telegram es particularmente valiosa porque Telegram es popular para comunicacion internacional &mdash; sus llamadas funcionan de manera confiable a traves de fronteras y tienen buena calidad de audio. Pero sin grabacion integrada, capturar estas conversaciones requiere herramientas externas que puedan acceder a la salida de audio interna de tu computadora.',
+        'h2-comparison': 'Comparacion rapida',
+        'th-method': 'Metodo',
+        'th-price': 'Precio',
+        'th-transcription': 'Transcripcion',
+        'th-setup': 'Configuracion',
+        'td-mono-price': '$50 una vez',
+        'td-mono-transcription': 'Si (IA local)',
+        'td-mono-setup': 'Facil',
+        'td-obs-price': 'Gratis',
+        'td-obs-transcription': 'No',
+        'td-obs-setup': 'Media',
+        'h2-method1': 'Metodo 1: Mono (Recomendado)',
+        'method1-p1': 'Mono es una aplicacion de escritorio disenada especificamente para grabar y transcribir conversaciones. Captura audio interno directamente desde la salida de sonido de tu sistema, lo que significa que graba exactamente lo que escuchas a traves de tus altavoces o audifonos &mdash; incluyendo ambos lados de tu llamada de Telegram.',
+        'method1-p2': 'Debido a que Mono graba audio del sistema en lugar de unirse a la llamada como participante, no hay indicacion para la otra persona de que se esta grabando. Despues de detener la grabacion, Mono transcribe automaticamente la conversacion usando IA local que se ejecuta completamente en tu computadora.',
+        'h3-mono-steps': 'Como grabar llamadas de Telegram con Mono',
+        'mono-step-1': 'Descarga Mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instalalo',
+        'mono-step-2': 'Abre Mono y haz clic en el boton Grabar para comenzar la grabacion',
+        'mono-step-3': 'Abre Telegram Desktop e inicia tu llamada',
+        'mono-step-4': 'Ten tu conversacion normalmente',
+        'mono-step-5': 'Cuando termine la llamada, haz clic en Detener en Mono',
+        'mono-step-6': 'Espera a que se complete la transcripcion automatica',
+        'mono-step-7': 'Revisa tu transcripcion con etiquetas de hablante y marcas de tiempo',
+        'method1-p3': 'La transcripcion incluye identificacion de hablantes &mdash; Mono detecta diferentes voces y las etiqueta a lo largo de la transcripcion. Puedes buscar en todas tus grabaciones por palabra clave, facilitando encontrar conversaciones o temas especificos.',
+        'method1-pros': '<strong>Ventajas:</strong> No requiere configuracion por llamada, invisible para otros participantes, transcripcion automatica con identificacion de hablantes, grabaciones con busqueda, funciona con chats de voz y videollamadas, pago unico de $50 sin suscripcion.',
+        'method1-cons': '<strong>Desventajas:</strong> Software de pago (una grabacion gratuita disponible para probar antes de comprar).',
+        'h2-method2': 'Metodo 2: OBS Studio (Gratis)',
+        'method2-p1': 'OBS Studio es software gratuito y de codigo abierto usado principalmente para transmisiones en vivo y grabacion de pantalla. Puede capturar audio del sistema y opcionalmente tu pantalla, haciendolo adecuado para grabar llamadas de Telegram. OBS requiere algo de configuracion inicial pero funciona de manera confiable una vez configurado.',
+        'method2-p2': 'Al igual que Mono, OBS captura audio desde la salida de tu sistema en lugar de unirse a la llamada. La otra persona no sabra que estas grabando. Sin embargo, OBS no incluye transcripcion &mdash; obtienes un archivo de audio o video sin procesar que tendras que procesar tu mismo.',
+        'h3-obs-steps': 'Como grabar llamadas de Telegram con OBS',
+        'obs-step-1': 'Descarga OBS Studio desde obsproject.com e instalalo',
+        'obs-step-2': 'Abre OBS y ve a Configuracion &rarr; Audio',
+        'obs-step-3': 'Configura "Audio de escritorio" a tu dispositivo de reproduccion (altavoces o audifonos)',
+        'obs-step-4': 'En la ventana principal, haz clic en + debajo de Fuentes',
+        'obs-step-5': 'Agrega una fuente de "Captura de salida de audio" para capturar audio interno',
+        'obs-step-6': 'Haz clic en "Iniciar grabacion" antes de tu llamada de Telegram',
+        'obs-step-7': 'Realiza tu llamada en Telegram Desktop',
+        'obs-step-8': 'Haz clic en "Detener grabacion" cuando termine la llamada',
+        'obs-step-9': 'Encuentra tu archivo de grabacion en la carpeta de salida (generalmente Videos)',
+        'method2-pros': '<strong>Ventajas:</strong> Completamente gratuito y de codigo abierto, invisible para otros participantes, puede grabar videollamadas con grabacion de pantalla, altamente configurable con ajustes de audio avanzados.',
+        'method2-cons': '<strong>Desventajas:</strong> Requiere configuracion inicial, debes iniciar y detener manualmente la grabacion para cada llamada, sin transcripcion &mdash; solo archivos de audio/video sin procesar.',
+        'h2-video-calls': 'Grabacion de videollamadas de Telegram',
+        'video-p1': 'Telegram soporta videollamadas ademas de llamadas de voz. Si necesitas grabacion de video, tienes dos opciones:',
+        'video-p2': '<strong>Solo audio:</strong> Tanto Mono como OBS pueden capturar la porcion de audio de videollamadas. Esto es a menudo suficiente si solo necesitas el contenido de la conversacion, y produce archivos mucho mas pequenos que la grabacion de video.',
+        'video-p3': '<strong>Grabacion de video completa:</strong> OBS Studio puede capturar toda tu pantalla o solo la ventana de Telegram. Agrega una fuente de "Captura de pantalla" o "Captura de ventana" para grabar la porcion de video junto con el audio. Ten en cuenta que los archivos de video son significativamente mas grandes y la calidad del video depende de la calidad de conexion de la llamada.',
+        'h2-why-no-builtin': 'Por que Telegram no tiene grabacion integrada',
+        'no-builtin-p1': 'Telegram se posiciona como un mensajero enfocado en la privacidad. La grabacion de llamadas integrada crearia preocupaciones de privacidad, ya que las grabaciones podrian hacerse sin el conocimiento o consentimiento de la otra parte. Al no incluir esta funcion, Telegram mantiene su reputacion de privacidad del usuario.',
+        'no-builtin-p2': 'Este enfoque de privacidad primero significa que los casos de uso legitimos &mdash; como grabar llamadas de negocios para cumplimiento, capturar entrevistas, o guardar recuerdos de conversaciones con familiares distantes &mdash; requieren herramientas externas. La compensacion es que tienes control total sobre tus grabaciones: permanecen en tu computadora y no se suben a ningun lugar.',
+        'h2-legal': 'Consideraciones legales',
+        'legal-p1': 'Antes de grabar llamadas de Telegram, entiende los requisitos legales en tu jurisdiccion. Las leyes de grabacion varian por pais y region:',
+        'legal-p2': '<strong>Consentimiento de una parte:</strong> En muchos lugares, puedes grabar legalmente una llamada en la que participas sin informar a la otra parte.',
+        'legal-p3': '<strong>Consentimiento de todas las partes:</strong> Algunas jurisdicciones requieren que todos los participantes consientan la grabacion. Esto incluye partes de EE.UU., Alemania y otras regiones.',
+        'legal-p4': 'Independientemente de los requisitos legales, considera informar a la otra parte cuando grabes conversaciones importantes. Evita situaciones incomodas y genera confianza.',
+        'h2-tips': 'Consejos para mejores grabaciones de llamadas de Telegram',
+        'tips-box': '<strong>Usa audifonos</strong> para prevenir eco y mejorar la calidad de audio &mdash; tu microfono no captara el sonido de tus altavoces. <strong>Encuentra un ambiente tranquilo</strong> para llamadas importantes. <strong>Prueba tu configuracion de grabacion</strong> con una prueba corta antes de conversaciones criticas.',
+        'tips-p1': '<strong>Verifica los niveles de audio:</strong> Antes de llamadas importantes, haz una grabacion de prueba corta para asegurar que tus niveles de audio esten correctos. Deberias escucharte a ti mismo y a la otra persona claramente.',
+        'tips-p2': '<strong>Cierra otras aplicaciones:</strong> Las aplicaciones que producen sonidos (notificaciones de correo, aplicaciones de mensajeria, reproductores de musica) pueden ser capturadas en tu grabacion. Cierralas o silencialas antes de comenzar.',
+        'tips-p3': '<strong>Conexion a internet estable:</strong> Las conexiones deficientes afectan la calidad de la llamada, lo que a su vez afecta la calidad de la grabacion. Usa una conexion por cable si es posible para llamadas importantes.',
+        'h2-which-method': 'Que metodo deberias usar?',
+        'which-p1': '<strong>Si necesitas transcripcion:</strong> Mono es la unica opcion que incluye conversion automatica de voz a texto con etiquetas de hablante. Esto ahorra tiempo significativo comparado con transcribir grabaciones manualmente.',
+        'which-p2': '<strong>Si quieres gratis:</strong> OBS Studio funciona de manera confiable pero requiere configuracion y produce archivos sin procesar sin transcripcion.',
+        'which-p3': '<strong>Para uso regular:</strong> El flujo de trabajo de un clic de Mono es mas practico que configurar OBS para cada llamada.',
+        'which-p4': '<strong>Para grabacion de video:</strong> OBS Studio con grabacion de pantalla captura tanto video como audio. Mono se enfoca en audio con transcripcion.',
+        'related-title': 'Guias relacionadas',
+        'related-discord-title': 'Como grabar llamadas de Discord',
+        'related-discord-desc': '4 metodos para grabar llamadas de voz y videochats de Discord.',
+        'related-whatsapp-title': 'Como grabar llamadas de WhatsApp',
+        'related-whatsapp-desc': '3 metodos para grabar llamadas de voz y video de WhatsApp en PC.',
+        'related-viber-title': 'Como grabar llamadas de Viber',
+        'related-viber-desc': '3 metodos para grabar llamadas de voz de Viber en escritorio.',
+        'related-all-title': 'Grabar Discord, WhatsApp, Viber o Telegram',
+        'related-all-desc': 'Guia completa cubriendo las cuatro aplicaciones de mensajeria.'
+    },
+    fr: {
+        'back-link': '&larr; blog',
+        'category': '[Guide]',
+        'title': 'Comment enregistrer les appels Telegram en 2026',
+        'meta': '23 fevrier 2026 &middot; 7 min de lecture &middot; Par Daniil Lefanov',
+        'disclosure': 'Avertissement : Mono est notre produit. Nous l\'avons inclus dans ce guide et avons essaye d\'etre equitables, mais vous devez savoir que nous avons un interet dans ce produit.',
+        'intro-p1': 'Telegram Desktop n\'a pas de fonction d\'enregistrement d\'appels integree. Contrairement a certaines applications de messagerie, Telegram n\'offre aucun moyen natif de sauvegarder les appels vocaux &mdash; qu\'il s\'agisse d\'appels audio individuels ou de discussions vocales de groupe. Si vous devez enregistrer des appels Telegram sur votre ordinateur, vous aurez besoin d\'un enregistreur d\'ecran tiers ou d\'un outil de capture audio.',
+        'intro-p2': 'Ce guide explique comment enregistrer les appels Telegram de maniere fiable en 2026, y compris les methodes pour les appels vocaux et les appels video.',
+        'tldr-label': 'RESUME',
+        'tldr-1': '<strong>Meilleure option :</strong> Mono &mdash; enregistrement invisible, transcription IA, 50 $ une fois',
+        'tldr-2': '<strong>Meilleur gratuit :</strong> OBS Studio &mdash; necessite une configuration, pas de transcription',
+        'tldr-3': '<strong>Integre :</strong> Aucun &mdash; Telegram n\'a pas d\'enregistrement natif',
+        'h2-why-record': 'Pourquoi enregistrer les appels Telegram ?',
+        'why-record-p1': 'L\'enregistrement des appels Telegram sert de nombreux objectifs. Les professionnels capturent les conversations avec les clients pour la documentation. Les journalistes enregistrent les interviews pour une transcription precise. Les apprenants en langues sauvegardent les conversations avec des locuteurs natifs. Les equipes a distance preservent les discussions importantes qui seraient autrement perdues.',
+        'why-record-p2': 'L\'enregistrement des appels Telegram est particulierement precieux car Telegram est populaire pour la communication internationale &mdash; ses appels fonctionnent de maniere fiable a travers les frontieres et ont une bonne qualite audio. Mais sans enregistrement integre, capturer ces conversations necessite des outils externes qui peuvent acceder a la sortie audio interne de votre ordinateur.',
+        'h2-comparison': 'Comparaison rapide',
+        'th-method': 'Methode',
+        'th-price': 'Prix',
+        'th-transcription': 'Transcription',
+        'th-setup': 'Configuration',
+        'td-mono-price': '50 $ une fois',
+        'td-mono-transcription': 'Oui (IA locale)',
+        'td-mono-setup': 'Facile',
+        'td-obs-price': 'Gratuit',
+        'td-obs-transcription': 'Non',
+        'td-obs-setup': 'Moyenne',
+        'h2-method1': 'Methode 1 : Mono (Recommande)',
+        'method1-p1': 'Mono est une application de bureau concue specifiquement pour enregistrer et transcrire les conversations. Elle capture l\'audio interne directement depuis la sortie sonore de votre systeme, ce qui signifie qu\'elle enregistre exactement ce que vous entendez a travers vos haut-parleurs ou ecouteurs &mdash; y compris les deux cotes de votre appel Telegram.',
+        'method1-p2': 'Parce que Mono enregistre l\'audio systeme plutot que de rejoindre l\'appel en tant que participant, il n\'y a aucune indication pour l\'autre personne que l\'enregistrement est en cours. Apres avoir arrete l\'enregistrement, Mono transcrit automatiquement la conversation en utilisant une IA locale qui fonctionne entierement sur votre ordinateur.',
+        'h3-mono-steps': 'Comment enregistrer les appels Telegram avec Mono',
+        'mono-step-1': 'Telechargez Mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
+        'mono-step-2': 'Ouvrez Mono et cliquez sur le bouton Enregistrer pour commencer l\'enregistrement',
+        'mono-step-3': 'Ouvrez Telegram Desktop et demarrez votre appel',
+        'mono-step-4': 'Ayez votre conversation normalement',
+        'mono-step-5': 'Lorsque l\'appel se termine, cliquez sur Arreter dans Mono',
+        'mono-step-6': 'Attendez que la transcription automatique soit terminee',
+        'mono-step-7': 'Consultez votre transcription avec les etiquettes de locuteur et les horodatages',
+        'method1-p3': 'La transcription comprend l\'identification des locuteurs &mdash; Mono detecte les differentes voix et les etiquette tout au long de la transcription. Vous pouvez rechercher dans tous vos enregistrements par mot-cle, ce qui facilite la recherche de conversations ou de sujets specifiques.',
+        'method1-pros': '<strong>Avantages :</strong> Aucune configuration requise par appel, invisible pour les autres participants, transcription automatique avec identification des locuteurs, enregistrements consultables, fonctionne avec les discussions vocales et les appels video, paiement unique de 50 $ sans abonnement.',
+        'method1-cons': '<strong>Inconvenients :</strong> Logiciel payant (un enregistrement gratuit disponible pour essayer avant d\'acheter).',
+        'h2-method2': 'Methode 2 : OBS Studio (Gratuit)',
+        'method2-p1': 'OBS Studio est un logiciel gratuit et open source principalement utilise pour le streaming en direct et l\'enregistrement d\'ecran. Il peut capturer l\'audio systeme et eventuellement votre ecran, ce qui le rend adapte a l\'enregistrement des appels Telegram. OBS necessite une configuration initiale mais fonctionne de maniere fiable une fois configure.',
+        'method2-p2': 'Comme Mono, OBS capture l\'audio depuis la sortie de votre systeme plutot que de rejoindre l\'appel. L\'autre personne ne saura pas que vous enregistrez. Cependant, OBS n\'inclut pas de transcription &mdash; vous obtenez un fichier audio ou video brut que vous devrez traiter vous-meme.',
+        'h3-obs-steps': 'Comment enregistrer les appels Telegram avec OBS',
+        'obs-step-1': 'Telechargez OBS Studio depuis obsproject.com et installez-le',
+        'obs-step-2': 'Ouvrez OBS et allez dans Parametres &rarr; Audio',
+        'obs-step-3': 'Definissez "Audio du bureau" sur votre peripherique de lecture (haut-parleurs ou ecouteurs)',
+        'obs-step-4': 'Dans la fenetre principale, cliquez sur + sous Sources',
+        'obs-step-5': 'Ajoutez une source "Capture de sortie audio" pour capturer l\'audio interne',
+        'obs-step-6': 'Cliquez sur "Demarrer l\'enregistrement" avant votre appel Telegram',
+        'obs-step-7': 'Passez votre appel dans Telegram Desktop',
+        'obs-step-8': 'Cliquez sur "Arreter l\'enregistrement" lorsque l\'appel se termine',
+        'obs-step-9': 'Trouvez votre fichier d\'enregistrement dans le dossier de sortie (generalement Videos)',
+        'method2-pros': '<strong>Avantages :</strong> Entierement gratuit et open source, invisible pour les autres participants, peut enregistrer les appels video avec l\'enregistrement d\'ecran, hautement configurable avec des parametres audio avances.',
+        'method2-cons': '<strong>Inconvenients :</strong> Necessite une configuration initiale, vous devez demarrer et arreter manuellement l\'enregistrement pour chaque appel, pas de transcription &mdash; uniquement des fichiers audio/video bruts.',
+        'h2-video-calls': 'Enregistrement des appels video Telegram',
+        'video-p1': 'Telegram prend en charge les appels video en plus des appels vocaux. Si vous avez besoin d\'un enregistrement video, vous avez deux options :',
+        'video-p2': '<strong>Audio uniquement :</strong> Mono et OBS peuvent tous deux capturer la partie audio des appels video. C\'est souvent suffisant si vous n\'avez besoin que du contenu de la conversation, et produit des fichiers beaucoup plus petits que l\'enregistrement video.',
+        'video-p3': '<strong>Enregistrement video complet :</strong> OBS Studio peut capturer tout votre ecran ou juste la fenetre Telegram. Ajoutez une source "Capture d\'ecran" ou "Capture de fenetre" pour enregistrer la partie video avec l\'audio. Sachez que les fichiers video sont considerablement plus volumineux et que la qualite video depend de la qualite de connexion de l\'appel.',
+        'h2-why-no-builtin': 'Pourquoi Telegram n\'a pas d\'enregistrement integre',
+        'no-builtin-p1': 'Telegram se positionne comme une messagerie axee sur la confidentialite. L\'enregistrement d\'appels integre creerait des preoccupations en matiere de confidentialite, car les enregistrements pourraient etre effectues sans la connaissance ou le consentement de l\'autre partie. En n\'incluant pas cette fonctionnalite, Telegram maintient sa reputation de confidentialite des utilisateurs.',
+        'no-builtin-p2': 'Cette approche axee sur la confidentialite signifie que les cas d\'utilisation legitimes &mdash; comme l\'enregistrement d\'appels professionnels pour la conformite, la capture d\'interviews ou la sauvegarde de souvenirs de conversations avec des proches eloignes &mdash; necessitent des outils externes. Le compromis est que vous avez un controle total sur vos enregistrements : ils restent sur votre ordinateur et ne sont telecharges nulle part.',
+        'h2-legal': 'Considerations juridiques',
+        'legal-p1': 'Avant d\'enregistrer des appels Telegram, comprenez les exigences legales de votre juridiction. Les lois sur l\'enregistrement varient selon le pays et la region :',
+        'legal-p2': '<strong>Consentement d\'une partie :</strong> Dans de nombreux endroits, vous pouvez legalement enregistrer un appel auquel vous participez sans en informer l\'autre partie.',
+        'legal-p3': '<strong>Consentement de toutes les parties :</strong> Certaines juridictions exigent que tous les participants consentent a l\'enregistrement. Cela inclut certaines parties des Etats-Unis, l\'Allemagne et d\'autres regions.',
+        'legal-p4': 'Independamment des exigences legales, envisagez d\'informer l\'autre partie lors de l\'enregistrement de conversations importantes. Cela evite les situations embarrassantes et renforce la confiance.',
+        'h2-tips': 'Conseils pour de meilleurs enregistrements d\'appels Telegram',
+        'tips-box': '<strong>Utilisez des ecouteurs</strong> pour eviter l\'echo et ameliorer la qualite audio &mdash; votre microphone ne captera pas le son de vos haut-parleurs. <strong>Trouvez un environnement calme</strong> pour les appels importants. <strong>Testez votre configuration d\'enregistrement</strong> avec un court test avant les conversations critiques.',
+        'tips-p1': '<strong>Verifiez les niveaux audio :</strong> Avant les appels importants, faites un court enregistrement test pour vous assurer que vos niveaux audio sont corrects. Vous devriez vous entendre clairement ainsi que l\'autre personne.',
+        'tips-p2': '<strong>Fermez les autres applications :</strong> Les applications qui produisent des sons (notifications par e-mail, applications de messagerie, lecteurs de musique) peuvent etre capturees dans votre enregistrement. Fermez-les ou mettez-les en sourdine avant de commencer.',
+        'tips-p3': '<strong>Connexion Internet stable :</strong> Les mauvaises connexions affectent la qualite de l\'appel, ce qui affecte a son tour la qualite de l\'enregistrement. Utilisez une connexion filaire si possible pour les appels importants.',
+        'h2-which-method': 'Quelle methode devriez-vous utiliser ?',
+        'which-p1': '<strong>Si vous avez besoin de transcription :</strong> Mono est la seule option qui inclut la conversion automatique de la parole en texte avec des etiquettes de locuteur. Cela fait gagner un temps considerable par rapport a la transcription manuelle des enregistrements.',
+        'which-p2': '<strong>Si vous voulez gratuit :</strong> OBS Studio fonctionne de maniere fiable mais necessite une configuration et produit des fichiers bruts sans transcription.',
+        'which-p3': '<strong>Pour une utilisation reguliere :</strong> Le flux de travail en un clic de Mono est plus pratique que de configurer OBS pour chaque appel.',
+        'which-p4': '<strong>Pour l\'enregistrement video :</strong> OBS Studio avec l\'enregistrement d\'ecran capture a la fois la video et l\'audio. Mono se concentre sur l\'audio avec transcription.',
+        'related-title': 'Guides connexes',
+        'related-discord-title': 'Comment enregistrer les appels Discord',
+        'related-discord-desc': '4 methodes pour enregistrer les appels vocaux et les chats video Discord.',
+        'related-whatsapp-title': 'Comment enregistrer les appels WhatsApp',
+        'related-whatsapp-desc': '3 methodes pour enregistrer les appels vocaux et video WhatsApp sur PC.',
+        'related-viber-title': 'Comment enregistrer les appels Viber',
+        'related-viber-desc': '3 methodes pour enregistrer les appels vocaux Viber sur ordinateur.',
+        'related-all-title': 'Enregistrer Discord, WhatsApp, Viber ou Telegram',
+        'related-all-desc': 'Guide complet couvrant les quatre applications de messagerie.'
+    },
+    de: {
+        'back-link': '&larr; Blog',
+        'category': '[Anleitung]',
+        'title': 'Telegram-Anrufe aufzeichnen in 2026',
+        'meta': '23. Februar 2026 &middot; 7 Min. Lesezeit &middot; Von Daniil Lefanov',
+        'disclosure': 'Hinweis: Mono ist unser Produkt. Wir haben es in diese Anleitung aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'intro-p1': 'Telegram Desktop hat keine integrierte Anrufaufzeichnungsfunktion. Im Gegensatz zu einigen Messaging-Apps bietet Telegram keine native Moglichkeit, Sprachanrufe zu speichern &mdash; weder Einzelgesprache noch Gruppen-Sprachchats. Wenn Sie Telegram-Anrufe auf Ihrem Computer aufzeichnen mussen, benotigen Sie einen Bildschirmrekorder oder ein Audio-Aufnahme-Tool eines Drittanbieters.',
+        'intro-p2': 'Diese Anleitung behandelt, wie Sie Telegram-Anrufe zuverlassig in 2026 aufzeichnen konnen, einschliesslich Methoden fur Sprach- und Videoanrufe.',
+        'tldr-label': 'KURZFASSUNG',
+        'tldr-1': '<strong>Beste Wahl:</strong> Mono &mdash; unsichtbare Aufnahme, KI-Transkription, einmalig $50',
+        'tldr-2': '<strong>Beste kostenlose Option:</strong> OBS Studio &mdash; erfordert Einrichtung, keine Transkription',
+        'tldr-3': '<strong>Integriert:</strong> Keine &mdash; Telegram hat keine native Aufnahme',
+        'h2-why-record': 'Warum Telegram-Anrufe aufzeichnen?',
+        'why-record-p1': 'Das Aufzeichnen von Telegram-Anrufen dient vielen Zwecken. Geschaftsleute erfassen Kundengesprache zur Dokumentation. Journalisten zeichnen Interviews fur genaue Transkription auf. Sprachschuler speichern Gesprache mit Muttersprachlern. Remote-Teams bewahren wichtige Diskussionen auf, die sonst verloren gehen wurden.',
+        'why-record-p2': 'Die Aufzeichnung von Telegram-Anrufen ist besonders wertvoll, da Telegram fur internationale Kommunikation beliebt ist &mdash; seine Anrufe funktionieren zuverlassig uber Grenzen hinweg und haben gute Audioqualitat. Aber ohne integrierte Aufnahme erfordert das Erfassen dieser Gesprache externe Tools, die auf die interne Audioausgabe Ihres Computers zugreifen konnen.',
+        'h2-comparison': 'Schneller Vergleich',
+        'th-method': 'Methode',
+        'th-price': 'Preis',
+        'th-transcription': 'Transkription',
+        'th-setup': 'Einrichtung',
+        'td-mono-price': 'Einmalig $50',
+        'td-mono-transcription': 'Ja (lokale KI)',
+        'td-mono-setup': 'Einfach',
+        'td-obs-price': 'Kostenlos',
+        'td-obs-transcription': 'Nein',
+        'td-obs-setup': 'Mittel',
+        'h2-method1': 'Methode 1: Mono (Empfohlen)',
+        'method1-p1': 'Mono ist eine Desktop-App, die speziell fur das Aufzeichnen und Transkribieren von Gesprachen entwickelt wurde. Sie erfasst internes Audio direkt von der Soundausgabe Ihres Systems, was bedeutet, dass sie genau das aufnimmt, was Sie uber Ihre Lautsprecher oder Kopfhorer horen &mdash; einschliesslich beider Seiten Ihres Telegram-Anrufs.',
+        'method1-p2': 'Da Mono Systemaudio aufnimmt, anstatt dem Anruf als Teilnehmer beizutreten, gibt es keinen Hinweis fur die andere Person, dass aufgezeichnet wird. Nachdem Sie die Aufnahme beendet haben, transkribiert Mono das Gesprach automatisch mit lokaler KI, die vollstandig auf Ihrem Computer lauft.',
+        'h3-mono-steps': 'Telegram-Anrufe mit Mono aufzeichnen',
+        'mono-step-1': 'Laden Sie Mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
+        'mono-step-2': 'Offnen Sie Mono und klicken Sie auf die Aufnahme-Schaltflache, um die Aufnahme zu starten',
+        'mono-step-3': 'Offnen Sie Telegram Desktop und starten Sie Ihren Anruf',
+        'mono-step-4': 'Fuhren Sie Ihr Gesprach normal',
+        'mono-step-5': 'Wenn der Anruf endet, klicken Sie in Mono auf Stopp',
+        'mono-step-6': 'Warten Sie, bis die automatische Transkription abgeschlossen ist',
+        'mono-step-7': 'Uberprufen Sie Ihr Transkript mit Sprecherkennzeichnungen und Zeitstempeln',
+        'method1-p3': 'Die Transkription umfasst Sprecheridentifikation &mdash; Mono erkennt verschiedene Stimmen und kennzeichnet sie im gesamten Transkript. Sie konnen in allen Ihren Aufnahmen nach Stichworten suchen, was es einfach macht, bestimmte Gesprache oder Themen zu finden.',
+        'method1-pros': '<strong>Vorteile:</strong> Keine Einrichtung pro Anruf erforderlich, fur andere Teilnehmer unsichtbar, automatische Transkription mit Sprecheridentifikation, durchsuchbare Aufnahmen, funktioniert mit Sprachchats und Videoanrufen, einmalige Zahlung von $50 ohne Abonnement.',
+        'method1-cons': '<strong>Nachteile:</strong> Kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren vor dem Kauf verfugbar).',
+        'h2-method2': 'Methode 2: OBS Studio (Kostenlos)',
+        'method2-p1': 'OBS Studio ist kostenlose, Open-Source-Software, die hauptsachlich fur Live-Streaming und Bildschirmaufnahme verwendet wird. Es kann Systemaudio und optional Ihren Bildschirm erfassen, was es fur die Aufzeichnung von Telegram-Anrufen geeignet macht. OBS erfordert eine anfangliche Konfiguration, funktioniert aber zuverlassig, sobald es eingerichtet ist.',
+        'method2-p2': 'Wie Mono erfasst OBS Audio von der Ausgabe Ihres Systems, anstatt dem Anruf beizutreten. Die andere Person wird nicht wissen, dass Sie aufnehmen. OBS enthalt jedoch keine Transkription &mdash; Sie erhalten eine rohe Audio- oder Videodatei, die Sie selbst verarbeiten mussen.',
+        'h3-obs-steps': 'Telegram-Anrufe mit OBS aufzeichnen',
+        'obs-step-1': 'Laden Sie OBS Studio von obsproject.com herunter und installieren Sie es',
+        'obs-step-2': 'Offnen Sie OBS und gehen Sie zu Einstellungen &rarr; Audio',
+        'obs-step-3': 'Stellen Sie "Desktop-Audio" auf Ihr Wiedergabegerat ein (Lautsprecher oder Kopfhorer)',
+        'obs-step-4': 'Klicken Sie im Hauptfenster auf + unter Quellen',
+        'obs-step-5': 'Fugen Sie eine "Audioausgabe-Erfassung"-Quelle hinzu, um internes Audio aufzunehmen',
+        'obs-step-6': 'Klicken Sie vor Ihrem Telegram-Anruf auf "Aufnahme starten"',
+        'obs-step-7': 'Fuhren Sie Ihren Anruf in Telegram Desktop',
+        'obs-step-8': 'Klicken Sie auf "Aufnahme beenden", wenn der Anruf endet',
+        'obs-step-9': 'Finden Sie Ihre Aufnahmedatei im Ausgabeordner (normalerweise Videos)',
+        'method2-pros': '<strong>Vorteile:</strong> Vollstandig kostenlos und Open Source, fur andere Teilnehmer unsichtbar, kann Videoanrufe mit Bildschirmaufnahme aufzeichnen, hoch konfigurierbar mit erweiterten Audio-Einstellungen.',
+        'method2-cons': '<strong>Nachteile:</strong> Erfordert anfangliche Einrichtung und Konfiguration, Sie mussen die Aufnahme fur jeden Anruf manuell starten und stoppen, keine Transkription &mdash; nur rohe Audio-/Videodateien.',
+        'h2-video-calls': 'Telegram-Videoanrufe aufzeichnen',
+        'video-p1': 'Telegram unterstutzt Videoanrufe zusatzlich zu Sprachanrufen. Wenn Sie Videoaufnahme benotigen, haben Sie zwei Optionen:',
+        'video-p2': '<strong>Nur Audio:</strong> Sowohl Mono als auch OBS konnen den Audioteil von Videoanrufen erfassen. Dies ist oft ausreichend, wenn Sie nur den Gesprachsinhalt benotigen, und produziert viel kleinere Dateien als Videoaufnahme.',
+        'video-p3': '<strong>Vollstandige Videoaufnahme:</strong> OBS Studio kann Ihren gesamten Bildschirm oder nur das Telegram-Fenster erfassen. Fugen Sie eine "Bildschirmaufnahme"- oder "Fensteraufnahme"-Quelle hinzu, um den Videoteil zusammen mit dem Audio aufzuzeichnen. Beachten Sie, dass Videodateien erheblich grosser sind und die Videoqualitat von der Verbindungsqualitat des Anrufs abhangt.',
+        'h2-why-no-builtin': 'Warum Telegram keine integrierte Aufnahme hat',
+        'no-builtin-p1': 'Telegram positioniert sich als datenschutzorientierter Messenger. Integrierte Anrufaufzeichnung wurde Datenschutzbedenken schaffen, da Aufnahmen ohne Wissen oder Zustimmung der anderen Partei gemacht werden konnten. Indem diese Funktion nicht enthalten ist, bewahrt Telegram seinen Ruf fur Benutzerdatenschutz.',
+        'no-builtin-p2': 'Dieser datenschutzorientierte Ansatz bedeutet, dass legitime Anwendungsfalle &mdash; wie das Aufzeichnen von Geschaftsanrufen zur Compliance, das Erfassen von Interviews oder das Speichern von Erinnerungen an Gesprache mit entfernten Familienmitgliedern &mdash; externe Tools erfordern. Der Kompromiss ist, dass Sie volle Kontrolle uber Ihre Aufnahmen haben: Sie bleiben auf Ihrem Computer und werden nirgendwo hochgeladen.',
+        'h2-legal': 'Rechtliche Uberlegungen',
+        'legal-p1': 'Bevor Sie Telegram-Anrufe aufzeichnen, verstehen Sie die rechtlichen Anforderungen in Ihrer Gerichtsbarkeit. Aufnahmegesetze variieren je nach Land und Region:',
+        'legal-p2': '<strong>Einparteien-Zustimmung:</strong> An vielen Orten konnen Sie einen Anruf, an dem Sie teilnehmen, legal aufzeichnen, ohne die andere Partei zu informieren.',
+        'legal-p3': '<strong>Allparteien-Zustimmung:</strong> Einige Gerichtsbarkeiten erfordern, dass alle Teilnehmer der Aufnahme zustimmen. Dies umfasst Teile der USA, Deutschland und andere Regionen.',
+        'legal-p4': 'Unabhangig von den rechtlichen Anforderungen sollten Sie in Betracht ziehen, die andere Partei zu informieren, wenn Sie wichtige Gesprache aufzeichnen. Es vermeidet unangenehme Situationen und schafft Vertrauen.',
+        'h2-tips': 'Tipps fur bessere Telegram-Anrufaufnahmen',
+        'tips-box': '<strong>Verwenden Sie Kopfhorer</strong>, um Echo zu verhindern und die Audioqualitat zu verbessern &mdash; Ihr Mikrofon nimmt keinen Ton von Ihren Lautsprechern auf. <strong>Finden Sie eine ruhige Umgebung</strong> fur wichtige Anrufe. <strong>Testen Sie Ihre Aufnahmeeinrichtung</strong> mit einem kurzen Test vor kritischen Gesprachen.',
+        'tips-p1': '<strong>Uberprufen Sie die Audiopegel:</strong> Machen Sie vor wichtigen Anrufen eine kurze Testaufnahme, um sicherzustellen, dass Ihre Audiopegel korrekt sind. Sie sollten sowohl sich selbst als auch die andere Person deutlich horen.',
+        'tips-p2': '<strong>Schliessen Sie andere Apps:</strong> Anwendungen, die Gerausche erzeugen (E-Mail-Benachrichtigungen, Messaging-Apps, Musik-Player), konnen in Ihrer Aufnahme erfasst werden. Schliessen oder stummen Sie sie vor dem Start.',
+        'tips-p3': '<strong>Stabile Internetverbindung:</strong> Schlechte Verbindungen beeintrachtigen die Anrufqualitat, was wiederum die Aufnahmequalitat beeintrachtigt. Verwenden Sie fur wichtige Anrufe wenn moglich eine kabelgebundene Verbindung.',
+        'h2-which-method': 'Welche Methode sollten Sie verwenden?',
+        'which-p1': '<strong>Wenn Sie Transkription benotigen:</strong> Mono ist die einzige Option, die automatische Sprache-zu-Text-Konvertierung mit Sprecherkennzeichnungen enthalt. Dies spart erheblich Zeit im Vergleich zur manuellen Transkription von Aufnahmen.',
+        'which-p2': '<strong>Wenn Sie kostenlos mochten:</strong> OBS Studio funktioniert zuverlassig, erfordert aber Einrichtung und produziert rohe Dateien ohne Transkription.',
+        'which-p3': '<strong>Fur regelmassige Nutzung:</strong> Monos Ein-Klick-Workflow ist praktischer als OBS fur jeden Anruf zu konfigurieren.',
+        'which-p4': '<strong>Fur Videoaufnahme:</strong> OBS Studio mit Bildschirmaufnahme erfasst sowohl Video als auch Audio. Mono konzentriert sich auf Audio mit Transkription.',
+        'related-title': 'Verwandte Anleitungen',
+        'related-discord-title': 'Discord-Anrufe aufzeichnen',
+        'related-discord-desc': '4 Methoden zum Aufzeichnen von Discord-Sprachanrufen und Videochats.',
+        'related-whatsapp-title': 'WhatsApp-Anrufe aufzeichnen',
+        'related-whatsapp-desc': '3 Methoden zum Aufzeichnen von WhatsApp-Sprach- und Videoanrufen auf dem PC.',
+        'related-viber-title': 'Viber-Anrufe aufzeichnen',
+        'related-viber-desc': '3 Methoden zum Aufzeichnen von Viber-Sprachanrufen auf dem Desktop.',
+        'related-all-title': 'Discord, WhatsApp, Viber oder Telegram aufzeichnen',
+        'related-all-desc': 'Vollstandige Anleitung fur alle vier Messaging-Apps.'
+    },
+    zh: {
+        'back-link': '&larr; 博客',
+        'category': '[教程]',
+        'title': '2026年如何录制Telegram通话',
+        'meta': '2026年2月23日 &middot; 阅读时间7分钟 &middot; 作者：Daniil Lefanov',
+        'disclosure': '声明：Mono是我们的产品。我们将其包含在本指南中并尽量保持公正，但您应该知道我们对此有利益关系。',
+        'intro-p1': 'Telegram桌面版没有内置的通话录音功能。与某些即时通讯应用不同，Telegram不提供任何保存语音通话的原生方式&mdash;&mdash;无论是一对一音频通话还是群组语音聊天。如果您需要在计算机上录制Telegram通话，您将需要第三方屏幕录制器或音频捕获工具。',
+        'intro-p2': '本指南介绍如何在2026年可靠地录制Telegram通话，包括语音通话和视频通话的方法。',
+        'tldr-label': '摘要',
+        'tldr-1': '<strong>最佳选择：</strong>Mono&mdash;&mdash;隐形录音，AI转录，一次性$50',
+        'tldr-2': '<strong>最佳免费：</strong>OBS Studio&mdash;&mdash;需要设置，无转录',
+        'tldr-3': '<strong>内置：</strong>无&mdash;&mdash;Telegram没有原生录音功能',
+        'h2-why-record': '为什么要录制Telegram通话？',
+        'why-record-p1': '录制Telegram通话有多种用途。商务人士记录客户对话以便存档。记者录制采访以进行准确转录。语言学习者保存与母语者的对话。远程团队保留原本会丢失的重要讨论。',
+        'why-record-p2': 'Telegram通话录音特别有价值，因为Telegram在国际通信中很受欢迎&mdash;&mdash;其通话跨境工作可靠且音质良好。但由于没有内置录音功能，捕获这些对话需要能够访问计算机内部音频输出的外部工具。',
+        'h2-comparison': '快速比较',
+        'th-method': '方法',
+        'th-price': '价格',
+        'th-transcription': '转录',
+        'th-setup': '设置',
+        'td-mono-price': '一次性$50',
+        'td-mono-transcription': '是（本地AI）',
+        'td-mono-setup': '简单',
+        'td-obs-price': '免费',
+        'td-obs-transcription': '否',
+        'td-obs-setup': '中等',
+        'h2-method1': '方法1：Mono（推荐）',
+        'method1-p1': 'Mono是一款专门为录制和转录对话而设计的桌面应用程序。它直接从系统声音输出捕获内部音频，这意味着它精确录制您通过扬声器或耳机听到的内容&mdash;&mdash;包括Telegram通话的双方。',
+        'method1-p2': '由于Mono录制系统音频而不是作为参与者加入通话，因此对方不会有任何正在录音的提示。停止录音后，Mono会使用完全在您计算机上运行的本地AI自动转录对话。',
+        'h3-mono-steps': '如何使用Mono录制Telegram通话',
+        'mono-step-1': '从<a href="https://mono-ai.uk">mono-ai.uk</a>下载Mono并安装',
+        'mono-step-2': '打开Mono并点击录制按钮开始录音',
+        'mono-step-3': '打开Telegram桌面版并开始通话',
+        'mono-step-4': '正常进行对话',
+        'mono-step-5': '通话结束时，在Mono中点击停止',
+        'mono-step-6': '等待自动转录完成',
+        'mono-step-7': '查看带有说话人标签和时间戳的转录文本',
+        'method1-p3': '转录包括说话人识别&mdash;&mdash;Mono检测不同的声音并在整个转录中标记它们。您可以按关键字搜索所有录音，轻松找到特定对话或主题。',
+        'method1-pros': '<strong>优点：</strong>无需每次通话设置，对其他参与者不可见，带说话人识别的自动转录，可搜索的录音，适用于语音聊天和视频通话，一次性支付$50无需订阅。',
+        'method1-cons': '<strong>缺点：</strong>付费软件（购买前可免费试用一次录音）。',
+        'h2-method2': '方法2：OBS Studio（免费）',
+        'method2-p1': 'OBS Studio是一款免费开源软件，主要用于直播和屏幕录制。它可以捕获系统音频，还可以选择录制屏幕，使其适合录制Telegram通话。OBS需要一些初始配置，但设置后运行可靠。',
+        'method2-p2': '与Mono一样，OBS从系统输出捕获音频，而不是加入通话。对方不会知道您在录音。但是，OBS不包括转录功能&mdash;&mdash;您得到的是需要自己处理的原始音频或视频文件。',
+        'h3-obs-steps': '如何使用OBS录制Telegram通话',
+        'obs-step-1': '从obsproject.com下载OBS Studio并安装',
+        'obs-step-2': '打开OBS并进入设置&rarr;音频',
+        'obs-step-3': '将"桌面音频"设置为您的播放设备（扬声器或耳机）',
+        'obs-step-4': '在主窗口中，点击来源下的+',
+        'obs-step-5': '添加"音频输出捕获"源以捕获内部音频',
+        'obs-step-6': '在Telegram通话前点击"开始录制"',
+        'obs-step-7': '在Telegram桌面版中进行通话',
+        'obs-step-8': '通话结束时点击"停止录制"',
+        'obs-step-9': '在输出文件夹中找到录制文件（通常是视频文件夹）',
+        'method2-pros': '<strong>优点：</strong>完全免费且开源，对其他参与者不可见，可通过屏幕录制录制视频通话，高度可配置的高级音频设置。',
+        'method2-cons': '<strong>缺点：</strong>需要初始设置和配置，必须为每次通话手动开始和停止录制，没有转录&mdash;&mdash;只有原始音频/视频文件。',
+        'h2-video-calls': '录制Telegram视频通话',
+        'video-p1': 'Telegram除了语音通话外还支持视频通话。如果您需要视频录制，有两个选择：',
+        'video-p2': '<strong>仅音频：</strong>Mono和OBS都可以捕获视频通话的音频部分。如果您只需要对话内容，这通常就足够了，而且生成的文件比视频录制小得多。',
+        'video-p3': '<strong>完整视频录制：</strong>OBS Studio可以捕获整个屏幕或仅Telegram窗口。添加"显示捕获"或"窗口捕获"源以录制视频部分和音频。请注意，视频文件明显更大，视频质量取决于通话的连接质量。',
+        'h2-why-no-builtin': '为什么Telegram没有内置录音功能',
+        'no-builtin-p1': 'Telegram将自己定位为注重隐私的即时通讯工具。内置通话录音会引发隐私问题，因为录音可能在对方不知情或未经同意的情况下进行。通过不包含此功能，Telegram维护了其用户隐私的声誉。',
+        'no-builtin-p2': '这种隐私优先的方法意味着合法的使用场景&mdash;&mdash;如为合规录制商务通话、捕获采访或保存与远方家人对话的回忆&mdash;&mdash;需要外部工具。好处是您对录音有完全控制权：它们留在您的计算机上，不会上传到任何地方。',
+        'h2-legal': '法律考虑',
+        'legal-p1': '在录制Telegram通话之前，了解您所在司法管辖区的法律要求。录音法律因国家和地区而异：',
+        'legal-p2': '<strong>单方同意：</strong>在许多地方，您可以合法地录制您参与的通话，而无需通知对方。',
+        'legal-p3': '<strong>所有方同意：</strong>某些司法管辖区要求所有参与者同意录音。这包括美国部分地区、德国和其他地区。',
+        'legal-p4': '无论法律要求如何，在录制重要对话时考虑通知对方。这可以避免尴尬情况并建立信任。',
+        'h2-tips': '更好地录制Telegram通话的技巧',
+        'tips-box': '<strong>使用耳机</strong>以防止回声并提高音频质量&mdash;&mdash;您的麦克风不会拾取扬声器的声音。<strong>找一个安静的环境</strong>进行重要通话。<strong>测试您的录音设置</strong>在关键对话前进行简短测试。',
+        'tips-p1': '<strong>检查音频电平：</strong>在重要通话之前，进行简短的测试录音以确保音频电平正确。您应该能清楚地听到自己和对方。',
+        'tips-p2': '<strong>关闭其他应用：</strong>产生声音的应用程序（电子邮件通知、即时通讯应用、音乐播放器）可能会被录制。在开始前关闭或静音它们。',
+        'tips-p3': '<strong>稳定的网络连接：</strong>连接不良会影响通话质量，进而影响录音质量。重要通话时尽可能使用有线连接。',
+        'h2-which-method': '您应该使用哪种方法？',
+        'which-p1': '<strong>如果您需要转录：</strong>Mono是唯一包含带说话人标签的自动语音转文字功能的选择。与手动转录录音相比，这可以节省大量时间。',
+        'which-p2': '<strong>如果您想要免费：</strong>OBS Studio运行可靠，但需要设置，生成的是没有转录的原始文件。',
+        'which-p3': '<strong>对于常规使用：</strong>Mono的一键工作流程比为每次通话配置OBS更实用。',
+        'which-p4': '<strong>对于视频录制：</strong>带屏幕录制的OBS Studio可同时捕获视频和音频。Mono专注于带转录的音频。',
+        'related-title': '相关指南',
+        'related-discord-title': '如何录制Discord通话',
+        'related-discord-desc': '4种录制Discord语音通话和视频聊天的方法。',
+        'related-whatsapp-title': '如何录制WhatsApp通话',
+        'related-whatsapp-desc': '3种在PC上录制WhatsApp语音和视频通话的方法。',
+        'related-viber-title': '如何录制Viber通话',
+        'related-viber-desc': '3种在桌面上录制Viber语音通话的方法。',
+        'related-all-title': '录制Discord、WhatsApp、Viber或Telegram',
+        'related-all-desc': '涵盖所有四款即时通讯应用的完整指南。'
+    },
+    ru: {
+        'back-link': '&larr; блог',
+        'category': '[Гайд]',
+        'title': 'Как записывать звонки в Telegram в 2026 году',
+        'meta': '23 февраля 2026 &middot; 7 мин чтения &middot; Автор: Daniil Lefanov',
+        'disclosure': 'Раскрытие информации: Mono — наш продукт. Мы включили его в это руководство и постарались быть объективными, но вы должны знать, что мы заинтересованы в нем.',
+        'intro-p1': 'В Telegram Desktop нет встроенной функции записи звонков. В отличие от некоторых мессенджеров, Telegram не предлагает никакого встроенного способа сохранения голосовых звонков &mdash; будь то индивидуальные аудиозвонки или групповые голосовые чаты. Если вам нужно записывать звонки Telegram на компьютере, вам понадобится сторонний рекордер экрана или инструмент захвата звука.',
+        'intro-p2': 'Это руководство описывает, как надежно записывать звонки Telegram в 2026 году, включая методы как для голосовых, так и для видеозвонков.',
+        'tldr-label': 'КРАТКО',
+        'tldr-1': '<strong>Лучший выбор:</strong> Mono &mdash; невидимая запись, ИИ-транскрипция, $50 единоразово',
+        'tldr-2': '<strong>Лучший бесплатный:</strong> OBS Studio &mdash; требует настройки, без транскрипции',
+        'tldr-3': '<strong>Встроенный:</strong> Нет &mdash; в Telegram нет встроенной записи',
+        'h2-why-record': 'Зачем записывать звонки в Telegram?',
+        'why-record-p1': 'Запись звонков Telegram служит многим целям. Бизнес-профессионалы записывают разговоры с клиентами для документации. Журналисты записывают интервью для точной транскрипции. Изучающие языки сохраняют разговоры с носителями языка. Удаленные команды сохраняют важные обсуждения, которые иначе были бы потеряны.',
+        'why-record-p2': 'Запись звонков Telegram особенно ценна, потому что Telegram популярен для международного общения &mdash; его звонки надежно работают через границы и имеют хорошее качество звука. Но без встроенной записи для захвата этих разговоров требуются внешние инструменты, которые могут получить доступ к внутреннему аудиовыходу вашего компьютера.',
+        'h2-comparison': 'Быстрое сравнение',
+        'th-method': 'Метод',
+        'th-price': 'Цена',
+        'th-transcription': 'Транскрипция',
+        'th-setup': 'Настройка',
+        'td-mono-price': '$50 единоразово',
+        'td-mono-transcription': 'Да (локальный ИИ)',
+        'td-mono-setup': 'Простая',
+        'td-obs-price': 'Бесплатно',
+        'td-obs-transcription': 'Нет',
+        'td-obs-setup': 'Средняя',
+        'h2-method1': 'Метод 1: Mono (Рекомендуется)',
+        'method1-p1': 'Mono — это настольное приложение, специально разработанное для записи и транскрипции разговоров. Оно захватывает внутренний звук непосредственно с аудиовыхода вашей системы, что означает, что оно записывает именно то, что вы слышите через динамики или наушники &mdash; включая обе стороны вашего звонка в Telegram.',
+        'method1-p2': 'Поскольку Mono записывает системный звук, а не присоединяется к звонку как участник, для другого человека нет никаких признаков того, что идет запись. После остановки записи Mono автоматически транскрибирует разговор с помощью локального ИИ, который работает полностью на вашем компьютере.',
+        'h3-mono-steps': 'Как записывать звонки Telegram с помощью Mono',
+        'mono-step-1': 'Скачайте Mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите',
+        'mono-step-2': 'Откройте Mono и нажмите кнопку Запись, чтобы начать запись',
+        'mono-step-3': 'Откройте Telegram Desktop и начните звонок',
+        'mono-step-4': 'Ведите разговор как обычно',
+        'mono-step-5': 'Когда звонок завершится, нажмите Стоп в Mono',
+        'mono-step-6': 'Дождитесь завершения автоматической транскрипции',
+        'mono-step-7': 'Просмотрите транскрипцию с метками говорящих и временными метками',
+        'method1-p3': 'Транскрипция включает идентификацию говорящих &mdash; Mono определяет разные голоса и помечает их на протяжении всей транскрипции. Вы можете искать по ключевым словам во всех записях, что упрощает поиск конкретных разговоров или тем.',
+        'method1-pros': '<strong>Плюсы:</strong> Не требуется настройка для каждого звонка, невидима для других участников, автоматическая транскрипция с идентификацией говорящих, поиск по записям, работает с голосовыми чатами и видеозвонками, единовременный платеж $50 без подписки.',
+        'method1-cons': '<strong>Минусы:</strong> Платное программное обеспечение (доступна одна бесплатная запись для пробы перед покупкой).',
+        'h2-method2': 'Метод 2: OBS Studio (Бесплатно)',
+        'method2-p1': 'OBS Studio — это бесплатное программное обеспечение с открытым исходным кодом, в основном используемое для прямых трансляций и записи экрана. Оно может захватывать системный звук и, опционально, ваш экран, что делает его подходящим для записи звонков Telegram. OBS требует начальной настройки, но работает надежно после настройки.',
+        'method2-p2': 'Как и Mono, OBS захватывает звук с выхода вашей системы, а не присоединяется к звонку. Другой человек не будет знать, что вы записываете. Однако OBS не включает транскрипцию &mdash; вы получаете необработанный аудио- или видеофайл, который вам нужно будет обработать самостоятельно.',
+        'h3-obs-steps': 'Как записывать звонки Telegram с помощью OBS',
+        'obs-step-1': 'Скачайте OBS Studio с obsproject.com и установите',
+        'obs-step-2': 'Откройте OBS и перейдите в Настройки &rarr; Аудио',
+        'obs-step-3': 'Установите "Аудио рабочего стола" на ваше устройство воспроизведения (динамики или наушники)',
+        'obs-step-4': 'В главном окне нажмите + под Источниками',
+        'obs-step-5': 'Добавьте источник "Захват выходного аудиопотока" для захвата внутреннего звука',
+        'obs-step-6': 'Нажмите "Начать запись" перед звонком в Telegram',
+        'obs-step-7': 'Совершите звонок в Telegram Desktop',
+        'obs-step-8': 'Нажмите "Остановить запись" когда звонок завершится',
+        'obs-step-9': 'Найдите файл записи в папке вывода (обычно Видео)',
+        'method2-pros': '<strong>Плюсы:</strong> Полностью бесплатно и с открытым исходным кодом, невидимо для других участников, может записывать видеозвонки с записью экрана, широкие возможности настройки с расширенными параметрами звука.',
+        'method2-cons': '<strong>Минусы:</strong> Требует начальной настройки и конфигурации, вы должны вручную начинать и останавливать запись для каждого звонка, нет транскрипции &mdash; только необработанные аудио/видео файлы.',
+        'h2-video-calls': 'Запись видеозвонков Telegram',
+        'video-p1': 'Telegram поддерживает видеозвонки в дополнение к голосовым звонкам. Если вам нужна видеозапись, у вас есть два варианта:',
+        'video-p2': '<strong>Только аудио:</strong> И Mono, и OBS могут захватывать аудиочасть видеозвонков. Этого часто достаточно, если вам нужно только содержание разговора, и это создает файлы намного меньшего размера, чем видеозапись.',
+        'video-p3': '<strong>Полная видеозапись:</strong> OBS Studio может захватывать весь экран или только окно Telegram. Добавьте источник "Захват экрана" или "Захват окна" для записи видео вместе со звуком. Имейте в виду, что видеофайлы значительно больше, а качество видео зависит от качества соединения звонка.',
+        'h2-why-no-builtin': 'Почему в Telegram нет встроенной записи',
+        'no-builtin-p1': 'Telegram позиционирует себя как мессенджер, ориентированный на конфиденциальность. Встроенная запись звонков создала бы проблемы с конфиденциальностью, поскольку записи могли бы делаться без ведома или согласия другой стороны. Не включая эту функцию, Telegram поддерживает свою репутацию защитника конфиденциальности пользователей.',
+        'no-builtin-p2': 'Этот подход, ориентированный на конфиденциальность, означает, что законные случаи использования &mdash; такие как запись деловых звонков для соответствия требованиям, захват интервью или сохранение воспоминаний о разговорах с далекими родственниками &mdash; требуют внешних инструментов. Компромисс в том, что вы имеете полный контроль над своими записями: они остаются на вашем компьютере и никуда не загружаются.',
+        'h2-legal': 'Юридические аспекты',
+        'legal-p1': 'Прежде чем записывать звонки Telegram, изучите правовые требования в вашей юрисдикции. Законы о записи различаются в разных странах и регионах:',
+        'legal-p2': '<strong>Согласие одной стороны:</strong> Во многих местах вы можете законно записывать звонок, в котором участвуете, не информируя другую сторону.',
+        'legal-p3': '<strong>Согласие всех сторон:</strong> Некоторые юрисдикции требуют согласия всех участников на запись. Это включает части США, Германию и другие регионы.',
+        'legal-p4': 'Независимо от правовых требований, рассмотрите возможность информирования другой стороны при записи важных разговоров. Это позволяет избежать неловких ситуаций и укрепляет доверие.',
+        'h2-tips': 'Советы для лучшей записи звонков Telegram',
+        'tips-box': '<strong>Используйте наушники</strong>, чтобы предотвратить эхо и улучшить качество звука &mdash; ваш микрофон не будет улавливать звук из динамиков. <strong>Найдите тихую обстановку</strong> для важных звонков. <strong>Протестируйте настройку записи</strong> коротким тестом перед важными разговорами.',
+        'tips-p1': '<strong>Проверьте уровни звука:</strong> Перед важными звонками сделайте короткую тестовую запись, чтобы убедиться, что уровни звука правильные. Вы должны четко слышать себя и другого человека.',
+        'tips-p2': '<strong>Закройте другие приложения:</strong> Приложения, которые издают звуки (уведомления электронной почты, мессенджеры, музыкальные плееры), могут быть захвачены в вашу запись. Закройте или отключите их перед началом.',
+        'tips-p3': '<strong>Стабильное интернет-соединение:</strong> Плохое соединение влияет на качество звонка, что, в свою очередь, влияет на качество записи. По возможности используйте проводное соединение для важных звонков.',
+        'h2-which-method': 'Какой метод вам следует использовать?',
+        'which-p1': '<strong>Если вам нужна транскрипция:</strong> Mono — единственный вариант, который включает автоматическое преобразование речи в текст с метками говорящих. Это экономит значительное время по сравнению с ручной транскрипцией записей.',
+        'which-p2': '<strong>Если вы хотите бесплатно:</strong> OBS Studio работает надежно, но требует настройки и создает необработанные файлы без транскрипции.',
+        'which-p3': '<strong>Для регулярного использования:</strong> Рабочий процесс Mono в один клик более практичен, чем настройка OBS для каждого звонка.',
+        'which-p4': '<strong>Для видеозаписи:</strong> OBS Studio с записью экрана захватывает и видео, и аудио. Mono фокусируется на аудио с транскрипцией.',
+        'related-title': 'Связанные руководства',
+        'related-discord-title': 'Как записывать звонки Discord',
+        'related-discord-desc': '4 метода записи голосовых звонков и видеочатов Discord.',
+        'related-whatsapp-title': 'Как записывать звонки WhatsApp',
+        'related-whatsapp-desc': '3 метода записи голосовых и видеозвонков WhatsApp на ПК.',
+        'related-viber-title': 'Как записывать звонки Viber',
+        'related-viber-desc': '3 метода записи голосовых звонков Viber на компьютере.',
+        'related-all-title': 'Запись Discord, WhatsApp, Viber или Telegram',
+        'related-all-desc': 'Полное руководство по всем четырем мессенджерам.'
+    }
+};
+
+let currentLang = 'en';
+const siteNav = document.querySelector('site-nav');
+
+siteNav.addEventListener('language-change', (e) => {
+    const lang = e.detail.language;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+});
+</script>
 </body>
 </html>

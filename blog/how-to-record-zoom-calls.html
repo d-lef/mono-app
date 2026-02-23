@@ -128,212 +128,843 @@
     <site-nav base-path="../"></site-nav>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">← blog</a>
+        <a href="./" class="back-link" data-i18n="back_link">← blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to Record Zoom Calls Without a Bot</h1>
-            <p class="article-meta">Feb 23, 2026 · 8 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Record Zoom Calls Without a Bot</h1>
+            <p class="article-meta" data-i18n="meta">Feb 23, 2026 · 8 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
 
-            <p>Many Zoom recording tools work by joining your meeting as a bot participant — visible to everyone, often requiring host permission, and sending your audio to third-party servers for video recording and transcription. But there are ways to record Zoom calls locally, without any bot joining and without uploading your audio to the cloud.</p>
+            <p data-i18n="intro_p1">Many Zoom recording tools work by joining your meeting as a bot participant — visible to everyone, often requiring host permission, and sending your audio to third-party servers for video recording and transcription. But there are ways to record Zoom calls locally, without any bot joining and without uploading your audio to the cloud.</p>
 
-            <p>This guide covers how to record Zoom meetings in 2026, including methods that keep your recordings completely private with local screen recording and transcription.</p>
+            <p data-i18n="intro_p2">This guide covers how to record Zoom meetings in 2026, including methods that keep your recordings completely private with local screen recording and transcription.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li><strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once</li>
-                    <li><strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription</li>
-                    <li><strong>Built-in (visible):</strong> Zoom's native recording — notifies all participants</li>
-                    <li><strong>Bot-based:</strong> Otter.ai, Fireflies, Fathom — visible bot joins meeting</li>
+                    <li data-i18n="tldr_1"><strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once</li>
+                    <li data-i18n="tldr_2"><strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription</li>
+                    <li data-i18n="tldr_3"><strong>Built-in (visible):</strong> Zoom's native recording — notifies all participants</li>
+                    <li data-i18n="tldr_4"><strong>Bot-based:</strong> Otter.ai, Fireflies, Fathom — visible bot joins meeting</li>
                 </ul>
             </div>
 
-            <h2>Why Record Zoom Meetings?</h2>
+            <h2 data-i18n="h2_why">Why Record Zoom Meetings?</h2>
 
-            <p>Recording Zoom video calls serves many purposes. Teams record meetings for absent members. Sales professionals capture client conversations for CRM notes. Researchers and journalists record interviews. Students save lectures for review. Consultants document discussions for billing and compliance.</p>
+            <p data-i18n="why_p1">Recording Zoom video calls serves many purposes. Teams record meetings for absent members. Sales professionals capture client conversations for CRM notes. Researchers and journalists record interviews. Students save lectures for review. Consultants document discussions for billing and compliance.</p>
 
-            <p>The challenge is that most Zoom recording tools either notify all participants or send your audio to third-party cloud servers. If you need discreet recording or want your internal audio to stay on your computer, you need a different approach.</p>
+            <p data-i18n="why_p2">The challenge is that most Zoom recording tools either notify all participants or send your audio to third-party cloud servers. If you need discreet recording or want your internal audio to stay on your computer, you need a different approach.</p>
 
-            <h2>Quick Comparison</h2>
+            <h2 data-i18n="h2_comparison">Quick Comparison</h2>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Method</th>
-                            <th>Price</th>
-                            <th>Bot/Visible?</th>
-                            <th>Transcription</th>
+                            <th data-i18n="th_method">Method</th>
+                            <th data-i18n="th_price">Price</th>
+                            <th data-i18n="th_bot">Bot/Visible?</th>
+                            <th data-i18n="th_transcription">Transcription</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="mono-row">
                             <td>Mono</td>
-                            <td>$50 once</td>
-                            <td>No</td>
-                            <td>Yes (local)</td>
+                            <td data-i18n="price_mono">$50 once</td>
+                            <td data-i18n="no">No</td>
+                            <td data-i18n="yes_local">Yes (local)</td>
                         </tr>
                         <tr>
                             <td>OBS Studio</td>
-                            <td>Free</td>
-                            <td>No</td>
-                            <td>No</td>
+                            <td data-i18n="price_free">Free</td>
+                            <td data-i18n="no2">No</td>
+                            <td data-i18n="no3">No</td>
                         </tr>
                         <tr>
-                            <td>Zoom Built-in</td>
-                            <td>Free/Paid</td>
-                            <td>Notification shown</td>
-                            <td>Paid plans only</td>
+                            <td data-i18n="zoom_builtin">Zoom Built-in</td>
+                            <td data-i18n="price_zoom">Free/Paid</td>
+                            <td data-i18n="notification_shown">Notification shown</td>
+                            <td data-i18n="paid_plans_only">Paid plans only</td>
                         </tr>
                         <tr>
                             <td>Otter.ai</td>
                             <td>$16.99/mo</td>
-                            <td>Yes (bot joins)</td>
-                            <td>Yes (cloud)</td>
+                            <td data-i18n="yes_bot_joins">Yes (bot joins)</td>
+                            <td data-i18n="yes_cloud">Yes (cloud)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>Method 1: Mono (Recommended)</h2>
+            <h2 data-i18n="h2_method1">Method 1: Mono (Recommended)</h2>
 
-            <p>Mono records Zoom by capturing audio directly from your computer's sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you're not the host or don't want others to know you're recording.</p>
+            <p data-i18n="method1_p1">Mono records Zoom by capturing audio directly from your computer's sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you're not the host or don't want others to know you're recording.</p>
 
-            <p>After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript.</p>
+            <p data-i18n="method1_p2">After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript.</p>
 
-            <h3>How to record Zoom with Mono</h3>
-
-            <ol class="steps-list">
-                <li>Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li>Open Mono and click the Record button to begin recording</li>
-                <li>Join your Zoom meeting normally</li>
-                <li>Participate in the meeting as usual</li>
-                <li>When the meeting ends, click Stop in Mono</li>
-                <li>Wait for the automatic transcription to complete</li>
-                <li>Review your transcript with speaker labels and timestamps</li>
-            </ol>
-
-            <p>Mono captures everything playing through your speakers or headphones, so you'll get all participants' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or topics.</p>
-
-            <p><strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with speaker identification, works even if you're not the host, searchable recordings, one-time $50 payment with no subscription.</p>
-
-            <p><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
-
-            <h2>Method 2: OBS Studio (Free)</h2>
-
-            <p>OBS Studio is a free, open-source screen recorder that can capture system audio and optionally your screen. It doesn't join the Zoom meeting as a participant, so it's completely invisible to others. OBS is popular with streamers but works just as well for recording Zoom calls.</p>
-
-            <p>The main limitation is that OBS outputs raw audio or video files without any transcription. You'll need to process the recording yourself if you want searchable text.</p>
-
-            <h3>How to record Zoom with OBS</h3>
+            <h3 data-i18n="h3_mono_steps">How to record Zoom with Mono</h3>
 
             <ol class="steps-list">
-                <li>Download OBS Studio from obsproject.com and install it</li>
-                <li>Open OBS and go to Settings → Audio</li>
-                <li>Set "Desktop Audio" to your playback device (speakers or headphones)</li>
-                <li>In the main window, click + under Sources</li>
-                <li>Add an "Audio Output Capture" source for audio-only recording</li>
-                <li>Optionally add "Display Capture" for video recording</li>
-                <li>Click "Start Recording" before joining your Zoom meeting</li>
-                <li>Join and participate in your Zoom meeting</li>
-                <li>Click "Stop Recording" when the meeting ends</li>
-                <li>Find your recording in the output folder (usually Videos)</li>
+                <li data-i18n="mono_step1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="mono_step2">Open Mono and click the Record button to begin recording</li>
+                <li data-i18n="mono_step3">Join your Zoom meeting normally</li>
+                <li data-i18n="mono_step4">Participate in the meeting as usual</li>
+                <li data-i18n="mono_step5">When the meeting ends, click Stop in Mono</li>
+                <li data-i18n="mono_step6">Wait for the automatic transcription to complete</li>
+                <li data-i18n="mono_step7">Review your transcript with speaker labels and timestamps</li>
             </ol>
 
-            <p><strong>Pros:</strong> Completely free and open source, no bot visible, can record video calls with screen recording, highly configurable with advanced audio settings.</p>
+            <p data-i18n="method1_p3">Mono captures everything playing through your speakers or headphones, so you'll get all participants' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or topics.</p>
 
-            <p><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each meeting, no transcription — produces raw audio/video files only.</p>
+            <p data-i18n="mono_pros"><strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with speaker identification, works even if you're not the host, searchable recordings, one-time $50 payment with no subscription.</p>
 
-            <h2>Method 3: Zoom's Built-in Recording</h2>
+            <p data-i18n="mono_cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
-            <p>Zoom has native recording functionality, but with significant limitations. Local recording requires you to be the host or have recording permission from the host. Cloud recording requires a paid Zoom subscription. Most importantly, all participants see a "Recording" notification when recording starts — there's no way to record discreetly with Zoom's built-in feature.</p>
+            <h2 data-i18n="h2_method2">Method 2: OBS Studio (Free)</h2>
 
-            <p>For team settings where transparency is expected and everyone knows meetings are recorded, Zoom's built-in recording works fine. For other situations, third-party tools provide more flexibility.</p>
+            <p data-i18n="method2_p1">OBS Studio is a free, open-source screen recorder that can capture system audio and optionally your screen. It doesn't join the Zoom meeting as a participant, so it's completely invisible to others. OBS is popular with streamers but works just as well for recording Zoom calls.</p>
 
-            <p><strong>Pros:</strong> No additional software needed, cloud recording with transcription available on paid plans, recordings stored in your Zoom account.</p>
+            <p data-i18n="method2_p2">The main limitation is that OBS outputs raw audio or video files without any transcription. You'll need to process the recording yourself if you want searchable text.</p>
 
-            <p><strong>Cons:</strong> Visible notification to all participants, requires host permission for local recording, cloud recording and transcription require paid Zoom subscription, video quality depends on Zoom settings.</p>
+            <h3 data-i18n="h3_obs_steps">How to record Zoom with OBS</h3>
 
-            <h2>Method 4: Bot-Based Recorders (Otter.ai, Fireflies, Fathom)</h2>
+            <ol class="steps-list">
+                <li data-i18n="obs_step1">Download OBS Studio from obsproject.com and install it</li>
+                <li data-i18n="obs_step2">Open OBS and go to Settings → Audio</li>
+                <li data-i18n="obs_step3">Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li data-i18n="obs_step4">In the main window, click + under Sources</li>
+                <li data-i18n="obs_step5">Add an "Audio Output Capture" source for audio-only recording</li>
+                <li data-i18n="obs_step6">Optionally add "Display Capture" for video recording</li>
+                <li data-i18n="obs_step7">Click "Start Recording" before joining your Zoom meeting</li>
+                <li data-i18n="obs_step8">Join and participate in your Zoom meeting</li>
+                <li data-i18n="obs_step9">Click "Stop Recording" when the meeting ends</li>
+                <li data-i18n="obs_step10">Find your recording in the output folder (usually Videos)</li>
+            </ol>
 
-            <p>Tools like Otter.ai, Fireflies, and Fathom work by joining your Zoom meeting as a bot participant. The bot appears in the participant list with a name like "Otter.ai's Notetaker" or "Fathom Notetaker." Your audio is uploaded to their servers for transcription.</p>
+            <p data-i18n="obs_pros"><strong>Pros:</strong> Completely free and open source, no bot visible, can record video calls with screen recording, highly configurable with advanced audio settings.</p>
 
-            <p>These tools offer team features, CRM integrations, and collaborative note-taking. However, everyone in the meeting sees the bot, and some participants may find this intrusive or uncomfortable.</p>
+            <p data-i18n="obs_cons"><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each meeting, no transcription — produces raw audio/video files only.</p>
 
-            <p><strong>Pros:</strong> Easy setup, high-quality transcription, team collaboration features, integrations with Salesforce, HubSpot, and other tools.</p>
+            <h2 data-i18n="h2_method3">Method 3: Zoom's Built-in Recording</h2>
 
-            <p><strong>Cons:</strong> Bot is visible to all participants, audio uploaded to third-party cloud servers, monthly subscription fees ($10–30/month), may create awkwardness in sensitive meetings.</p>
+            <p data-i18n="method3_p1">Zoom has native recording functionality, but with significant limitations. Local recording requires you to be the host or have recording permission from the host. Cloud recording requires a paid Zoom subscription. Most importantly, all participants see a "Recording" notification when recording starts — there's no way to record discreetly with Zoom's built-in feature.</p>
 
-            <h2>Recording Video vs Audio Only</h2>
+            <p data-i18n="method3_p2">For team settings where transparency is expected and everyone knows meetings are recorded, Zoom's built-in recording works fine. For other situations, third-party tools provide more flexibility.</p>
 
-            <p>Zoom meetings typically include video, but you don't always need video recording:</p>
+            <p data-i18n="zoom_pros"><strong>Pros:</strong> No additional software needed, cloud recording with transcription available on paid plans, recordings stored in your Zoom account.</p>
 
-            <p><strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.</p>
+            <p data-i18n="zoom_cons"><strong>Cons:</strong> Visible notification to all participants, requires host permission for local recording, cloud recording and transcription require paid Zoom subscription, video quality depends on Zoom settings.</p>
 
-            <p><strong>Full video recording (OBS):</strong> Captures your screen showing the Zoom window. Useful for training videos, presentations, or when visual content matters. Video quality depends on your connection and Zoom settings, and files are much larger.</p>
+            <h2 data-i18n="h2_method4">Method 4: Bot-Based Recorders (Otter.ai, Fireflies, Fathom)</h2>
 
-            <h2>Legal Considerations</h2>
+            <p data-i18n="method4_p1">Tools like Otter.ai, Fireflies, and Fathom work by joining your Zoom meeting as a bot participant. The bot appears in the participant list with a name like "Otter.ai's Notetaker" or "Fathom Notetaker." Your audio is uploaded to their servers for transcription.</p>
 
-            <p>Before recording Zoom meetings, understand the legal requirements:</p>
+            <p data-i18n="method4_p2">These tools offer team features, CRM integrations, and collaborative note-taking. However, everyone in the meeting sees the bot, and some participants may find this intrusive or uncomfortable.</p>
 
-            <p><strong>One-party consent:</strong> Many jurisdictions allow recording meetings you're participating in.</p>
+            <p data-i18n="bot_pros"><strong>Pros:</strong> Easy setup, high-quality transcription, team collaboration features, integrations with Salesforce, HubSpot, and other tools.</p>
 
-            <p><strong>All-party consent:</strong> Some regions require everyone to agree. This includes California, Germany, and other areas.</p>
+            <p data-i18n="bot_cons"><strong>Cons:</strong> Bot is visible to all participants, audio uploaded to third-party cloud servers, monthly subscription fees ($10–30/month), may create awkwardness in sensitive meetings.</p>
 
-            <p>For business meetings, many organizations have policies requiring disclosure when recording. Check your company's guidelines and consider informing participants, especially in professional contexts.</p>
+            <h2 data-i18n="h2_video_vs_audio">Recording Video vs Audio Only</h2>
 
-            <h2>Tips for Recording Zoom Meetings</h2>
+            <p data-i18n="video_audio_p1">Zoom meetings typically include video, but you don't always need video recording:</p>
+
+            <p data-i18n="video_audio_p2"><strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.</p>
+
+            <p data-i18n="video_audio_p3"><strong>Full video recording (OBS):</strong> Captures your screen showing the Zoom window. Useful for training videos, presentations, or when visual content matters. Video quality depends on your connection and Zoom settings, and files are much larger.</p>
+
+            <h2 data-i18n="h2_legal">Legal Considerations</h2>
+
+            <p data-i18n="legal_p1">Before recording Zoom meetings, understand the legal requirements:</p>
+
+            <p data-i18n="legal_p2"><strong>One-party consent:</strong> Many jurisdictions allow recording meetings you're participating in.</p>
+
+            <p data-i18n="legal_p3"><strong>All-party consent:</strong> Some regions require everyone to agree. This includes California, Germany, and other areas.</p>
+
+            <p data-i18n="legal_p4">For business meetings, many organizations have policies requiring disclosure when recording. Check your company's guidelines and consider informing participants, especially in professional contexts.</p>
+
+            <h2 data-i18n="h2_tips">Tips for Recording Zoom Meetings</h2>
 
             <div class="tip-box">
-                <p><strong>Use headphones</strong> to prevent echo and feedback. <strong>Close other applications</strong> that might produce notification sounds. <strong>Test your setup</strong> before important meetings with a quick recording.</p>
+                <p data-i18n="tips_box"><strong>Use headphones</strong> to prevent echo and feedback. <strong>Close other applications</strong> that might produce notification sounds. <strong>Test your setup</strong> before important meetings with a quick recording.</p>
             </div>
 
-            <p><strong>Check audio levels:</strong> Make a short test recording to ensure all participants are audible. Adjust your system volume if needed.</p>
+            <p data-i18n="tips_audio"><strong>Check audio levels:</strong> Make a short test recording to ensure all participants are audible. Adjust your system volume if needed.</p>
 
-            <p><strong>Stable connection:</strong> Poor internet affects Zoom audio quality, which affects recording quality. Use a wired connection for important meetings when possible.</p>
+            <p data-i18n="tips_connection"><strong>Stable connection:</strong> Poor internet affects Zoom audio quality, which affects recording quality. Use a wired connection for important meetings when possible.</p>
 
-            <h2>Which Method Should You Use?</h2>
+            <h2 data-i18n="h2_which">Which Method Should You Use?</h2>
 
-            <p><strong>Need transcription without a bot?</strong> Mono records locally and transcribes automatically without anyone knowing. Best for personal use, sales calls, or sensitive meetings.</p>
+            <p data-i18n="which_p1"><strong>Need transcription without a bot?</strong> Mono records locally and transcribes automatically without anyone knowing. Best for personal use, sales calls, or sensitive meetings.</p>
 
-            <p><strong>Want free and don't need transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.</p>
+            <p data-i18n="which_p2"><strong>Want free and don't need transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.</p>
 
-            <p><strong>Don't mind the notification?</strong> Zoom's built-in recording is simplest if you're the host and everyone expects recording.</p>
+            <p data-i18n="which_p3"><strong>Don't mind the notification?</strong> Zoom's built-in recording is simplest if you're the host and everyone expects recording.</p>
 
-            <p><strong>Team with existing subscription?</strong> Bot-based tools like Fathom or Otter.ai offer team features and CRM integrations, but everyone sees the bot.</p>
+            <p data-i18n="which_p4"><strong>Team with existing subscription?</strong> Bot-based tools like Fathom or Otter.ai offer team features and CRM integrations, but everyone sees the bot.</p>
 
-            <p><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with local transcription.</p>
+            <p data-i18n="which_p5"><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with local transcription.</p>
 
             <cta-card base-path="../"></cta-card>
 
             <section class="related-articles">
-                <h2 class="related-title">Related Guides</h2>
+                <h2 class="related-title" data-i18n="related_title">Related Guides</h2>
                 <div class="related-grid">
                     <a href="how-to-record-google-meet" class="related-card">
-                        <h3 class="related-card-title">How to Record Google Meet</h3>
-                        <p class="related-card-desc">4 ways to record Google Meet without a bot joining.</p>
+                        <h3 class="related-card-title" data-i18n="related_gmeet_title">How to Record Google Meet</h3>
+                        <p class="related-card-desc" data-i18n="related_gmeet_desc">4 ways to record Google Meet without a bot joining.</p>
                     </a>
                     <a href="otter-ai-alternatives-2026" class="related-card">
-                        <h3 class="related-card-title">Otter.ai Alternatives in 2026</h3>
-                        <p class="related-card-desc">Compare Otter, Fireflies, Fathom, and other meeting recorders.</p>
+                        <h3 class="related-card-title" data-i18n="related_otter_title">Otter.ai Alternatives in 2026</h3>
+                        <p class="related-card-desc" data-i18n="related_otter_desc">Compare Otter, Fireflies, Fathom, and other meeting recorders.</p>
                     </a>
                     <a href="how-to-record-discord-calls" class="related-card">
-                        <h3 class="related-card-title">How to Record Discord Calls</h3>
-                        <p class="related-card-desc">4 methods to record Discord voice calls and video chats.</p>
+                        <h3 class="related-card-title" data-i18n="related_discord_title">How to Record Discord Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_discord_desc">4 methods to record Discord voice calls and video chats.</p>
                     </a>
                     <a href="record-discord-whatsapp-viber-telegram" class="related-card">
-                        <h3 class="related-card-title">Record Messaging App Calls</h3>
-                        <p class="related-card-desc">Record Discord, WhatsApp, Viber or Telegram calls.</p>
+                        <h3 class="related-card-title" data-i18n="related_messaging_title">Record Messaging App Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_messaging_desc">Record Discord, WhatsApp, Viber or Telegram calls.</p>
                     </a>
                 </div>
             </section>
 
         </div>
     </main>
+
+<script>
+const translations = {
+    en: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'How to Record Zoom Calls Without a Bot',
+        'meta': 'Feb 23, 2026 · 8 min read · By Daniil Lefanov',
+        'disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'intro_p1': 'Many Zoom recording tools work by joining your meeting as a bot participant — visible to everyone, often requiring host permission, and sending your audio to third-party servers for video recording and transcription. But there are ways to record Zoom calls locally, without any bot joining and without uploading your audio to the cloud.',
+        'intro_p2': 'This guide covers how to record Zoom meetings in 2026, including methods that keep your recordings completely private with local screen recording and transcription.',
+        'tldr_label': 'TL;DR',
+        'tldr_1': '<strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once',
+        'tldr_2': '<strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription',
+        'tldr_3': '<strong>Built-in (visible):</strong> Zoom\'s native recording — notifies all participants',
+        'tldr_4': '<strong>Bot-based:</strong> Otter.ai, Fireflies, Fathom — visible bot joins meeting',
+        'h2_why': 'Why Record Zoom Meetings?',
+        'why_p1': 'Recording Zoom video calls serves many purposes. Teams record meetings for absent members. Sales professionals capture client conversations for CRM notes. Researchers and journalists record interviews. Students save lectures for review. Consultants document discussions for billing and compliance.',
+        'why_p2': 'The challenge is that most Zoom recording tools either notify all participants or send your audio to third-party cloud servers. If you need discreet recording or want your internal audio to stay on your computer, you need a different approach.',
+        'h2_comparison': 'Quick Comparison',
+        'th_method': 'Method',
+        'th_price': 'Price',
+        'th_bot': 'Bot/Visible?',
+        'th_transcription': 'Transcription',
+        'price_mono': '$50 once',
+        'no': 'No',
+        'yes_local': 'Yes (local)',
+        'price_free': 'Free',
+        'no2': 'No',
+        'no3': 'No',
+        'zoom_builtin': 'Zoom Built-in',
+        'price_zoom': 'Free/Paid',
+        'notification_shown': 'Notification shown',
+        'paid_plans_only': 'Paid plans only',
+        'yes_bot_joins': 'Yes (bot joins)',
+        'yes_cloud': 'Yes (cloud)',
+        'h2_method1': 'Method 1: Mono (Recommended)',
+        'method1_p1': 'Mono records Zoom by capturing audio directly from your computer\'s sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you\'re not the host or don\'t want others to know you\'re recording.',
+        'method1_p2': 'After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript.',
+        'h3_mono_steps': 'How to record Zoom with Mono',
+        'mono_step1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'mono_step2': 'Open Mono and click the Record button to begin recording',
+        'mono_step3': 'Join your Zoom meeting normally',
+        'mono_step4': 'Participate in the meeting as usual',
+        'mono_step5': 'When the meeting ends, click Stop in Mono',
+        'mono_step6': 'Wait for the automatic transcription to complete',
+        'mono_step7': 'Review your transcript with speaker labels and timestamps',
+        'method1_p3': 'Mono captures everything playing through your speakers or headphones, so you\'ll get all participants\' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or topics.',
+        'mono_pros': '<strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with speaker identification, works even if you\'re not the host, searchable recordings, one-time $50 payment with no subscription.',
+        'mono_cons': '<strong>Cons:</strong> Paid software (one free recording available to try before purchasing).',
+        'h2_method2': 'Method 2: OBS Studio (Free)',
+        'method2_p1': 'OBS Studio is a free, open-source screen recorder that can capture system audio and optionally your screen. It doesn\'t join the Zoom meeting as a participant, so it\'s completely invisible to others. OBS is popular with streamers but works just as well for recording Zoom calls.',
+        'method2_p2': 'The main limitation is that OBS outputs raw audio or video files without any transcription. You\'ll need to process the recording yourself if you want searchable text.',
+        'h3_obs_steps': 'How to record Zoom with OBS',
+        'obs_step1': 'Download OBS Studio from obsproject.com and install it',
+        'obs_step2': 'Open OBS and go to Settings → Audio',
+        'obs_step3': 'Set "Desktop Audio" to your playback device (speakers or headphones)',
+        'obs_step4': 'In the main window, click + under Sources',
+        'obs_step5': 'Add an "Audio Output Capture" source for audio-only recording',
+        'obs_step6': 'Optionally add "Display Capture" for video recording',
+        'obs_step7': 'Click "Start Recording" before joining your Zoom meeting',
+        'obs_step8': 'Join and participate in your Zoom meeting',
+        'obs_step9': 'Click "Stop Recording" when the meeting ends',
+        'obs_step10': 'Find your recording in the output folder (usually Videos)',
+        'obs_pros': '<strong>Pros:</strong> Completely free and open source, no bot visible, can record video calls with screen recording, highly configurable with advanced audio settings.',
+        'obs_cons': '<strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each meeting, no transcription — produces raw audio/video files only.',
+        'h2_method3': 'Method 3: Zoom\'s Built-in Recording',
+        'method3_p1': 'Zoom has native recording functionality, but with significant limitations. Local recording requires you to be the host or have recording permission from the host. Cloud recording requires a paid Zoom subscription. Most importantly, all participants see a "Recording" notification when recording starts — there\'s no way to record discreetly with Zoom\'s built-in feature.',
+        'method3_p2': 'For team settings where transparency is expected and everyone knows meetings are recorded, Zoom\'s built-in recording works fine. For other situations, third-party tools provide more flexibility.',
+        'zoom_pros': '<strong>Pros:</strong> No additional software needed, cloud recording with transcription available on paid plans, recordings stored in your Zoom account.',
+        'zoom_cons': '<strong>Cons:</strong> Visible notification to all participants, requires host permission for local recording, cloud recording and transcription require paid Zoom subscription, video quality depends on Zoom settings.',
+        'h2_method4': 'Method 4: Bot-Based Recorders (Otter.ai, Fireflies, Fathom)',
+        'method4_p1': 'Tools like Otter.ai, Fireflies, and Fathom work by joining your Zoom meeting as a bot participant. The bot appears in the participant list with a name like "Otter.ai\'s Notetaker" or "Fathom Notetaker." Your audio is uploaded to their servers for transcription.',
+        'method4_p2': 'These tools offer team features, CRM integrations, and collaborative note-taking. However, everyone in the meeting sees the bot, and some participants may find this intrusive or uncomfortable.',
+        'bot_pros': '<strong>Pros:</strong> Easy setup, high-quality transcription, team collaboration features, integrations with Salesforce, HubSpot, and other tools.',
+        'bot_cons': '<strong>Cons:</strong> Bot is visible to all participants, audio uploaded to third-party cloud servers, monthly subscription fees ($10–30/month), may create awkwardness in sensitive meetings.',
+        'h2_video_vs_audio': 'Recording Video vs Audio Only',
+        'video_audio_p1': 'Zoom meetings typically include video, but you don\'t always need video recording:',
+        'video_audio_p2': '<strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.',
+        'video_audio_p3': '<strong>Full video recording (OBS):</strong> Captures your screen showing the Zoom window. Useful for training videos, presentations, or when visual content matters. Video quality depends on your connection and Zoom settings, and files are much larger.',
+        'h2_legal': 'Legal Considerations',
+        'legal_p1': 'Before recording Zoom meetings, understand the legal requirements:',
+        'legal_p2': '<strong>One-party consent:</strong> Many jurisdictions allow recording meetings you\'re participating in.',
+        'legal_p3': '<strong>All-party consent:</strong> Some regions require everyone to agree. This includes California, Germany, and other areas.',
+        'legal_p4': 'For business meetings, many organizations have policies requiring disclosure when recording. Check your company\'s guidelines and consider informing participants, especially in professional contexts.',
+        'h2_tips': 'Tips for Recording Zoom Meetings',
+        'tips_box': '<strong>Use headphones</strong> to prevent echo and feedback. <strong>Close other applications</strong> that might produce notification sounds. <strong>Test your setup</strong> before important meetings with a quick recording.',
+        'tips_audio': '<strong>Check audio levels:</strong> Make a short test recording to ensure all participants are audible. Adjust your system volume if needed.',
+        'tips_connection': '<strong>Stable connection:</strong> Poor internet affects Zoom audio quality, which affects recording quality. Use a wired connection for important meetings when possible.',
+        'h2_which': 'Which Method Should You Use?',
+        'which_p1': '<strong>Need transcription without a bot?</strong> Mono records locally and transcribes automatically without anyone knowing. Best for personal use, sales calls, or sensitive meetings.',
+        'which_p2': '<strong>Want free and don\'t need transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.',
+        'which_p3': '<strong>Don\'t mind the notification?</strong> Zoom\'s built-in recording is simplest if you\'re the host and everyone expects recording.',
+        'which_p4': '<strong>Team with existing subscription?</strong> Bot-based tools like Fathom or Otter.ai offer team features and CRM integrations, but everyone sees the bot.',
+        'which_p5': '<strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with local transcription.',
+        'related_title': 'Related Guides',
+        'related_gmeet_title': 'How to Record Google Meet',
+        'related_gmeet_desc': '4 ways to record Google Meet without a bot joining.',
+        'related_otter_title': 'Otter.ai Alternatives in 2026',
+        'related_otter_desc': 'Compare Otter, Fireflies, Fathom, and other meeting recorders.',
+        'related_discord_title': 'How to Record Discord Calls',
+        'related_discord_desc': '4 methods to record Discord voice calls and video chats.',
+        'related_messaging_title': 'Record Messaging App Calls',
+        'related_messaging_desc': 'Record Discord, WhatsApp, Viber or Telegram calls.'
+    },
+    es: {
+        'back_link': '← blog',
+        'category': '[Guía]',
+        'title': 'Cómo grabar llamadas de Zoom sin un bot',
+        'meta': '23 feb 2026 · 8 min de lectura · Por Daniil Lefanov',
+        'disclosure': 'Aviso: Mono es nuestro producto. Lo hemos incluido en esta guía e intentamos ser justos, pero debes saber que tenemos interés en él.',
+        'intro_p1': 'Muchas herramientas de grabación de Zoom funcionan uniéndose a tu reunión como un participante bot — visible para todos, a menudo requiriendo permiso del anfitrión, y enviando tu audio a servidores de terceros para grabación de video y transcripción. Pero hay formas de grabar llamadas de Zoom localmente, sin que ningún bot se una y sin subir tu audio a la nube.',
+        'intro_p2': 'Esta guía cubre cómo grabar reuniones de Zoom en 2026, incluyendo métodos que mantienen tus grabaciones completamente privadas con grabación de pantalla local y transcripción.',
+        'tldr_label': 'Resumen',
+        'tldr_1': '<strong>Mejor opción general:</strong> Mono — sin bot, transcripción de IA local, $50 una vez',
+        'tldr_2': '<strong>Mejor opción gratuita:</strong> OBS Studio — sin bot, requiere configuración, sin transcripción',
+        'tldr_3': '<strong>Integrado (visible):</strong> Grabación nativa de Zoom — notifica a todos los participantes',
+        'tldr_4': '<strong>Basado en bot:</strong> Otter.ai, Fireflies, Fathom — bot visible se une a la reunión',
+        'h2_why': '¿Por qué grabar reuniones de Zoom?',
+        'why_p1': 'Grabar videollamadas de Zoom tiene muchos propósitos. Los equipos graban reuniones para miembros ausentes. Los profesionales de ventas capturan conversaciones con clientes para notas de CRM. Investigadores y periodistas graban entrevistas. Los estudiantes guardan clases para repaso. Los consultores documentan discusiones para facturación y cumplimiento.',
+        'why_p2': 'El desafío es que la mayoría de las herramientas de grabación de Zoom notifican a todos los participantes o envían tu audio a servidores en la nube de terceros. Si necesitas grabación discreta o quieres que tu audio interno permanezca en tu computadora, necesitas un enfoque diferente.',
+        'h2_comparison': 'Comparación rápida',
+        'th_method': 'Método',
+        'th_price': 'Precio',
+        'th_bot': '¿Bot/Visible?',
+        'th_transcription': 'Transcripción',
+        'price_mono': '$50 una vez',
+        'no': 'No',
+        'yes_local': 'Sí (local)',
+        'price_free': 'Gratis',
+        'no2': 'No',
+        'no3': 'No',
+        'zoom_builtin': 'Zoom integrado',
+        'price_zoom': 'Gratis/Pago',
+        'notification_shown': 'Se muestra notificación',
+        'paid_plans_only': 'Solo planes de pago',
+        'yes_bot_joins': 'Sí (bot se une)',
+        'yes_cloud': 'Sí (nube)',
+        'h2_method1': 'Método 1: Mono (Recomendado)',
+        'method1_p1': 'Mono graba Zoom capturando audio directamente de la salida de sonido de tu computadora. Ningún bot se une a la reunión, no aparece notificación de grabación para otros participantes, y tu audio nunca sale de tu computadora. Esto lo hace ideal para grabar reuniones donde no eres el anfitrión o no quieres que otros sepan que estás grabando.',
+        'method1_p2': 'Después de que detienes la grabación, Mono transcribe la conversación localmente usando IA que se ejecuta completamente en tu computadora. La transcripción incluye identificación de hablantes — Mono detecta diferentes voces y las etiqueta a lo largo de la transcripción.',
+        'h3_mono_steps': 'Cómo grabar Zoom con Mono',
+        'mono_step1': 'Descarga Mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
+        'mono_step2': 'Abre Mono y haz clic en el botón Grabar para comenzar la grabación',
+        'mono_step3': 'Únete a tu reunión de Zoom normalmente',
+        'mono_step4': 'Participa en la reunión como de costumbre',
+        'mono_step5': 'Cuando la reunión termine, haz clic en Detener en Mono',
+        'mono_step6': 'Espera a que la transcripción automática se complete',
+        'mono_step7': 'Revisa tu transcripción con etiquetas de hablante y marcas de tiempo',
+        'method1_p3': 'Mono captura todo lo que se reproduce a través de tus altavoces o auriculares, así que obtendrás el audio de todos los participantes en alta calidad. Puedes buscar en todas tus grabaciones por palabra clave, facilitando encontrar discusiones o temas específicos.',
+        'mono_pros': '<strong>Pros:</strong> Sin bot visible, sin notificación a participantes, transcripción de IA local con identificación de hablantes, funciona incluso si no eres el anfitrión, grabaciones con búsqueda, pago único de $50 sin suscripción.',
+        'mono_cons': '<strong>Contras:</strong> Software de pago (una grabación gratuita disponible para probar antes de comprar).',
+        'h2_method2': 'Método 2: OBS Studio (Gratis)',
+        'method2_p1': 'OBS Studio es un grabador de pantalla gratuito y de código abierto que puede capturar audio del sistema y opcionalmente tu pantalla. No se une a la reunión de Zoom como participante, así que es completamente invisible para otros. OBS es popular entre streamers pero funciona igual de bien para grabar llamadas de Zoom.',
+        'method2_p2': 'La principal limitación es que OBS produce archivos de audio o video sin procesar sin ninguna transcripción. Necesitarás procesar la grabación tú mismo si quieres texto con búsqueda.',
+        'h3_obs_steps': 'Cómo grabar Zoom con OBS',
+        'obs_step1': 'Descarga OBS Studio desde obsproject.com e instálalo',
+        'obs_step2': 'Abre OBS y ve a Configuración → Audio',
+        'obs_step3': 'Configura "Audio de escritorio" a tu dispositivo de reproducción (altavoces o auriculares)',
+        'obs_step4': 'En la ventana principal, haz clic en + debajo de Fuentes',
+        'obs_step5': 'Agrega una fuente de "Captura de salida de audio" para grabación solo de audio',
+        'obs_step6': 'Opcionalmente agrega "Captura de pantalla" para grabación de video',
+        'obs_step7': 'Haz clic en "Iniciar grabación" antes de unirte a tu reunión de Zoom',
+        'obs_step8': 'Únete y participa en tu reunión de Zoom',
+        'obs_step9': 'Haz clic en "Detener grabación" cuando la reunión termine',
+        'obs_step10': 'Encuentra tu grabación en la carpeta de salida (generalmente Videos)',
+        'obs_pros': '<strong>Pros:</strong> Completamente gratis y de código abierto, sin bot visible, puede grabar videollamadas con grabación de pantalla, altamente configurable con configuraciones de audio avanzadas.',
+        'obs_cons': '<strong>Contras:</strong> Requiere configuración inicial, debes iniciar y detener manualmente la grabación para cada reunión, sin transcripción — produce solo archivos de audio/video sin procesar.',
+        'h2_method3': 'Método 3: Grabación integrada de Zoom',
+        'method3_p1': 'Zoom tiene funcionalidad de grabación nativa, pero con limitaciones significativas. La grabación local requiere que seas el anfitrión o tengas permiso de grabación del anfitrión. La grabación en la nube requiere una suscripción de Zoom de pago. Lo más importante, todos los participantes ven una notificación de "Grabando" cuando la grabación comienza — no hay forma de grabar discretamente con la función integrada de Zoom.',
+        'method3_p2': 'Para entornos de equipo donde se espera transparencia y todos saben que las reuniones se graban, la grabación integrada de Zoom funciona bien. Para otras situaciones, las herramientas de terceros proporcionan más flexibilidad.',
+        'zoom_pros': '<strong>Pros:</strong> No se necesita software adicional, grabación en la nube con transcripción disponible en planes de pago, grabaciones almacenadas en tu cuenta de Zoom.',
+        'zoom_cons': '<strong>Contras:</strong> Notificación visible para todos los participantes, requiere permiso del anfitrión para grabación local, la grabación en la nube y transcripción requieren suscripción de Zoom de pago, la calidad de video depende de la configuración de Zoom.',
+        'h2_method4': 'Método 4: Grabadores basados en bot (Otter.ai, Fireflies, Fathom)',
+        'method4_p1': 'Herramientas como Otter.ai, Fireflies y Fathom funcionan uniéndose a tu reunión de Zoom como un participante bot. El bot aparece en la lista de participantes con un nombre como "Notetaker de Otter.ai" o "Fathom Notetaker". Tu audio se sube a sus servidores para transcripción.',
+        'method4_p2': 'Estas herramientas ofrecen funciones de equipo, integraciones con CRM y toma de notas colaborativa. Sin embargo, todos en la reunión ven el bot, y algunos participantes pueden encontrar esto intrusivo o incómodo.',
+        'bot_pros': '<strong>Pros:</strong> Configuración fácil, transcripción de alta calidad, funciones de colaboración en equipo, integraciones con Salesforce, HubSpot y otras herramientas.',
+        'bot_cons': '<strong>Contras:</strong> El bot es visible para todos los participantes, el audio se sube a servidores en la nube de terceros, cuotas de suscripción mensuales ($10–30/mes), puede crear incomodidad en reuniones sensibles.',
+        'h2_video_vs_audio': 'Grabación de video vs solo audio',
+        'video_audio_p1': 'Las reuniones de Zoom típicamente incluyen video, pero no siempre necesitas grabación de video:',
+        'video_audio_p2': '<strong>Solo audio (Mono):</strong> Captura la conversación con transcripción automática. A menudo suficiente ya que la mayoría de las grabaciones son para documentación, no referencia visual. Los archivos son pequeños y con búsqueda.',
+        'video_audio_p3': '<strong>Grabación de video completa (OBS):</strong> Captura tu pantalla mostrando la ventana de Zoom. Útil para videos de capacitación, presentaciones o cuando el contenido visual importa. La calidad de video depende de tu conexión y configuración de Zoom, y los archivos son mucho más grandes.',
+        'h2_legal': 'Consideraciones legales',
+        'legal_p1': 'Antes de grabar reuniones de Zoom, comprende los requisitos legales:',
+        'legal_p2': '<strong>Consentimiento de una parte:</strong> Muchas jurisdicciones permiten grabar reuniones en las que estás participando.',
+        'legal_p3': '<strong>Consentimiento de todas las partes:</strong> Algunas regiones requieren que todos estén de acuerdo. Esto incluye California, Alemania y otras áreas.',
+        'legal_p4': 'Para reuniones de negocios, muchas organizaciones tienen políticas que requieren divulgación al grabar. Revisa las directrices de tu empresa y considera informar a los participantes, especialmente en contextos profesionales.',
+        'h2_tips': 'Consejos para grabar reuniones de Zoom',
+        'tips_box': '<strong>Usa auriculares</strong> para prevenir eco y retroalimentación. <strong>Cierra otras aplicaciones</strong> que puedan producir sonidos de notificación. <strong>Prueba tu configuración</strong> antes de reuniones importantes con una grabación rápida.',
+        'tips_audio': '<strong>Revisa los niveles de audio:</strong> Haz una grabación de prueba corta para asegurar que todos los participantes se escuchen. Ajusta el volumen de tu sistema si es necesario.',
+        'tips_connection': '<strong>Conexión estable:</strong> Una mala conexión a internet afecta la calidad del audio de Zoom, lo que afecta la calidad de la grabación. Usa una conexión por cable para reuniones importantes cuando sea posible.',
+        'h2_which': '¿Qué método deberías usar?',
+        'which_p1': '<strong>¿Necesitas transcripción sin un bot?</strong> Mono graba localmente y transcribe automáticamente sin que nadie lo sepa. Mejor para uso personal, llamadas de ventas o reuniones sensibles.',
+        'which_p2': '<strong>¿Quieres gratis y no necesitas transcripción?</strong> OBS Studio es confiable pero requiere configuración y produce archivos sin procesar.',
+        'which_p3': '<strong>¿No te importa la notificación?</strong> La grabación integrada de Zoom es la más simple si eres el anfitrión y todos esperan la grabación.',
+        'which_p4': '<strong>¿Equipo con suscripción existente?</strong> Herramientas basadas en bot como Fathom u Otter.ai ofrecen funciones de equipo e integraciones con CRM, pero todos ven el bot.',
+        'which_p5': '<strong>Para grabación de video:</strong> OBS Studio con grabación de pantalla captura tanto video como audio. Mono se enfoca en audio con transcripción local.',
+        'related_title': 'Guías relacionadas',
+        'related_gmeet_title': 'Cómo grabar Google Meet',
+        'related_gmeet_desc': '4 formas de grabar Google Meet sin que un bot se una.',
+        'related_otter_title': 'Alternativas a Otter.ai en 2026',
+        'related_otter_desc': 'Compara Otter, Fireflies, Fathom y otros grabadores de reuniones.',
+        'related_discord_title': 'Cómo grabar llamadas de Discord',
+        'related_discord_desc': '4 métodos para grabar llamadas de voz y video de Discord.',
+        'related_messaging_title': 'Grabar llamadas de apps de mensajería',
+        'related_messaging_desc': 'Graba llamadas de Discord, WhatsApp, Viber o Telegram.'
+    },
+    fr: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'Comment enregistrer des appels Zoom sans bot',
+        'meta': '23 fév 2026 · 8 min de lecture · Par Daniil Lefanov',
+        'disclosure': 'Avertissement : Mono est notre produit. Nous l\'avons inclus dans ce guide et avons essayé d\'être équitables, mais sachez que nous avons un intérêt dans ce produit.',
+        'intro_p1': 'De nombreux outils d\'enregistrement Zoom fonctionnent en rejoignant votre réunion en tant que participant bot — visible par tous, nécessitant souvent l\'autorisation de l\'hôte, et envoyant votre audio à des serveurs tiers pour l\'enregistrement vidéo et la transcription. Mais il existe des moyens d\'enregistrer les appels Zoom localement, sans qu\'aucun bot ne rejoigne et sans télécharger votre audio vers le cloud.',
+        'intro_p2': 'Ce guide explique comment enregistrer des réunions Zoom en 2026, y compris des méthodes qui gardent vos enregistrements complètement privés avec l\'enregistrement d\'écran local et la transcription.',
+        'tldr_label': 'En bref',
+        'tldr_1': '<strong>Meilleur choix global :</strong> Mono — sans bot, transcription IA locale, 50 $ une fois',
+        'tldr_2': '<strong>Meilleur choix gratuit :</strong> OBS Studio — sans bot, configuration requise, pas de transcription',
+        'tldr_3': '<strong>Intégré (visible) :</strong> Enregistrement natif de Zoom — notifie tous les participants',
+        'tldr_4': '<strong>Basé sur bot :</strong> Otter.ai, Fireflies, Fathom — bot visible rejoint la réunion',
+        'h2_why': 'Pourquoi enregistrer des réunions Zoom ?',
+        'why_p1': 'L\'enregistrement des appels vidéo Zoom sert de nombreux objectifs. Les équipes enregistrent les réunions pour les membres absents. Les professionnels de la vente capturent les conversations clients pour les notes CRM. Les chercheurs et journalistes enregistrent des interviews. Les étudiants sauvegardent les cours pour révision. Les consultants documentent les discussions pour la facturation et la conformité.',
+        'why_p2': 'Le défi est que la plupart des outils d\'enregistrement Zoom notifient tous les participants ou envoient votre audio à des serveurs cloud tiers. Si vous avez besoin d\'un enregistrement discret ou voulez que votre audio interne reste sur votre ordinateur, vous avez besoin d\'une approche différente.',
+        'h2_comparison': 'Comparaison rapide',
+        'th_method': 'Méthode',
+        'th_price': 'Prix',
+        'th_bot': 'Bot/Visible ?',
+        'th_transcription': 'Transcription',
+        'price_mono': '50 $ une fois',
+        'no': 'Non',
+        'yes_local': 'Oui (local)',
+        'price_free': 'Gratuit',
+        'no2': 'Non',
+        'no3': 'Non',
+        'zoom_builtin': 'Zoom intégré',
+        'price_zoom': 'Gratuit/Payant',
+        'notification_shown': 'Notification affichée',
+        'paid_plans_only': 'Plans payants uniquement',
+        'yes_bot_joins': 'Oui (bot rejoint)',
+        'yes_cloud': 'Oui (cloud)',
+        'h2_method1': 'Méthode 1 : Mono (Recommandé)',
+        'method1_p1': 'Mono enregistre Zoom en capturant l\'audio directement depuis la sortie son de votre ordinateur. Aucun bot ne rejoint la réunion, aucune notification d\'enregistrement n\'apparaît pour les autres participants, et votre audio ne quitte jamais votre ordinateur. C\'est idéal pour enregistrer des réunions où vous n\'êtes pas l\'hôte ou ne voulez pas que les autres sachent que vous enregistrez.',
+        'method1_p2': 'Après avoir arrêté l\'enregistrement, Mono transcrit la conversation localement en utilisant une IA qui fonctionne entièrement sur votre ordinateur. La transcription inclut l\'identification des intervenants — Mono détecte différentes voix et les étiquette tout au long de la transcription.',
+        'h3_mono_steps': 'Comment enregistrer Zoom avec Mono',
+        'mono_step1': 'Téléchargez Mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
+        'mono_step2': 'Ouvrez Mono et cliquez sur le bouton Enregistrer pour commencer l\'enregistrement',
+        'mono_step3': 'Rejoignez votre réunion Zoom normalement',
+        'mono_step4': 'Participez à la réunion comme d\'habitude',
+        'mono_step5': 'Quand la réunion se termine, cliquez sur Arrêter dans Mono',
+        'mono_step6': 'Attendez que la transcription automatique se termine',
+        'mono_step7': 'Consultez votre transcription avec les étiquettes d\'intervenants et les horodatages',
+        'method1_p3': 'Mono capture tout ce qui passe par vos haut-parleurs ou écouteurs, vous obtiendrez donc l\'audio de tous les participants en haute qualité. Vous pouvez rechercher dans tous vos enregistrements par mot-clé, facilitant la recherche de discussions ou sujets spécifiques.',
+        'mono_pros': '<strong>Avantages :</strong> Pas de bot visible, pas de notification aux participants, transcription IA locale avec identification des intervenants, fonctionne même si vous n\'êtes pas l\'hôte, enregistrements consultables, paiement unique de 50 $ sans abonnement.',
+        'mono_cons': '<strong>Inconvénients :</strong> Logiciel payant (un enregistrement gratuit disponible pour essayer avant d\'acheter).',
+        'h2_method2': 'Méthode 2 : OBS Studio (Gratuit)',
+        'method2_p1': 'OBS Studio est un enregistreur d\'écran gratuit et open source qui peut capturer l\'audio système et optionnellement votre écran. Il ne rejoint pas la réunion Zoom en tant que participant, donc il est complètement invisible pour les autres. OBS est populaire auprès des streamers mais fonctionne tout aussi bien pour enregistrer des appels Zoom.',
+        'method2_p2': 'La principale limitation est qu\'OBS produit des fichiers audio ou vidéo bruts sans transcription. Vous devrez traiter l\'enregistrement vous-même si vous voulez du texte consultable.',
+        'h3_obs_steps': 'Comment enregistrer Zoom avec OBS',
+        'obs_step1': 'Téléchargez OBS Studio depuis obsproject.com et installez-le',
+        'obs_step2': 'Ouvrez OBS et allez dans Paramètres → Audio',
+        'obs_step3': 'Définissez "Audio du bureau" sur votre périphérique de lecture (haut-parleurs ou écouteurs)',
+        'obs_step4': 'Dans la fenêtre principale, cliquez sur + sous Sources',
+        'obs_step5': 'Ajoutez une source "Capture de sortie audio" pour l\'enregistrement audio uniquement',
+        'obs_step6': 'Optionnellement, ajoutez "Capture d\'écran" pour l\'enregistrement vidéo',
+        'obs_step7': 'Cliquez sur "Démarrer l\'enregistrement" avant de rejoindre votre réunion Zoom',
+        'obs_step8': 'Rejoignez et participez à votre réunion Zoom',
+        'obs_step9': 'Cliquez sur "Arrêter l\'enregistrement" quand la réunion se termine',
+        'obs_step10': 'Trouvez votre enregistrement dans le dossier de sortie (généralement Vidéos)',
+        'obs_pros': '<strong>Avantages :</strong> Entièrement gratuit et open source, pas de bot visible, peut enregistrer des appels vidéo avec capture d\'écran, hautement configurable avec des paramètres audio avancés.',
+        'obs_cons': '<strong>Inconvénients :</strong> Nécessite une configuration initiale, vous devez manuellement démarrer et arrêter l\'enregistrement pour chaque réunion, pas de transcription — produit uniquement des fichiers audio/vidéo bruts.',
+        'h2_method3': 'Méthode 3 : Enregistrement intégré de Zoom',
+        'method3_p1': 'Zoom a une fonctionnalité d\'enregistrement native, mais avec des limitations significatives. L\'enregistrement local nécessite que vous soyez l\'hôte ou ayez la permission d\'enregistrement de l\'hôte. L\'enregistrement cloud nécessite un abonnement Zoom payant. Plus important encore, tous les participants voient une notification "Enregistrement" quand l\'enregistrement démarre — il n\'y a aucun moyen d\'enregistrer discrètement avec la fonction intégrée de Zoom.',
+        'method3_p2': 'Pour les environnements d\'équipe où la transparence est attendue et tout le monde sait que les réunions sont enregistrées, l\'enregistrement intégré de Zoom fonctionne bien. Pour d\'autres situations, les outils tiers offrent plus de flexibilité.',
+        'zoom_pros': '<strong>Avantages :</strong> Pas de logiciel supplémentaire nécessaire, enregistrement cloud avec transcription disponible sur les plans payants, enregistrements stockés dans votre compte Zoom.',
+        'zoom_cons': '<strong>Inconvénients :</strong> Notification visible pour tous les participants, nécessite la permission de l\'hôte pour l\'enregistrement local, l\'enregistrement cloud et la transcription nécessitent un abonnement Zoom payant, la qualité vidéo dépend des paramètres Zoom.',
+        'h2_method4': 'Méthode 4 : Enregistreurs basés sur bot (Otter.ai, Fireflies, Fathom)',
+        'method4_p1': 'Des outils comme Otter.ai, Fireflies et Fathom fonctionnent en rejoignant votre réunion Zoom en tant que participant bot. Le bot apparaît dans la liste des participants avec un nom comme "Notetaker d\'Otter.ai" ou "Fathom Notetaker". Votre audio est téléchargé vers leurs serveurs pour transcription.',
+        'method4_p2': 'Ces outils offrent des fonctionnalités d\'équipe, des intégrations CRM et la prise de notes collaborative. Cependant, tout le monde dans la réunion voit le bot, et certains participants peuvent trouver cela intrusif ou inconfortable.',
+        'bot_pros': '<strong>Avantages :</strong> Configuration facile, transcription de haute qualité, fonctionnalités de collaboration d\'équipe, intégrations avec Salesforce, HubSpot et d\'autres outils.',
+        'bot_cons': '<strong>Inconvénients :</strong> Le bot est visible par tous les participants, audio téléchargé vers des serveurs cloud tiers, frais d\'abonnement mensuels (10–30 $/mois), peut créer de la gêne dans les réunions sensibles.',
+        'h2_video_vs_audio': 'Enregistrement vidéo vs audio uniquement',
+        'video_audio_p1': 'Les réunions Zoom incluent généralement la vidéo, mais vous n\'avez pas toujours besoin de l\'enregistrement vidéo :',
+        'video_audio_p2': '<strong>Audio uniquement (Mono) :</strong> Capture la conversation avec transcription automatique. Souvent suffisant car la plupart des enregistrements sont pour la documentation, pas pour référence visuelle. Les fichiers sont petits et consultables.',
+        'video_audio_p3': '<strong>Enregistrement vidéo complet (OBS) :</strong> Capture votre écran montrant la fenêtre Zoom. Utile pour les vidéos de formation, les présentations ou quand le contenu visuel compte. La qualité vidéo dépend de votre connexion et des paramètres Zoom, et les fichiers sont beaucoup plus volumineux.',
+        'h2_legal': 'Considérations juridiques',
+        'legal_p1': 'Avant d\'enregistrer des réunions Zoom, comprenez les exigences légales :',
+        'legal_p2': '<strong>Consentement d\'une partie :</strong> De nombreuses juridictions permettent d\'enregistrer des réunions auxquelles vous participez.',
+        'legal_p3': '<strong>Consentement de toutes les parties :</strong> Certaines régions exigent que tout le monde soit d\'accord. Cela inclut la Californie, l\'Allemagne et d\'autres régions.',
+        'legal_p4': 'Pour les réunions professionnelles, de nombreuses organisations ont des politiques exigeant la divulgation lors de l\'enregistrement. Vérifiez les directives de votre entreprise et envisagez d\'informer les participants, surtout dans des contextes professionnels.',
+        'h2_tips': 'Conseils pour enregistrer des réunions Zoom',
+        'tips_box': '<strong>Utilisez des écouteurs</strong> pour éviter l\'écho et le feedback. <strong>Fermez les autres applications</strong> qui pourraient produire des sons de notification. <strong>Testez votre configuration</strong> avant les réunions importantes avec un enregistrement rapide.',
+        'tips_audio': '<strong>Vérifiez les niveaux audio :</strong> Faites un court enregistrement test pour vous assurer que tous les participants sont audibles. Ajustez le volume de votre système si nécessaire.',
+        'tips_connection': '<strong>Connexion stable :</strong> Une mauvaise connexion internet affecte la qualité audio de Zoom, ce qui affecte la qualité de l\'enregistrement. Utilisez une connexion filaire pour les réunions importantes quand c\'est possible.',
+        'h2_which': 'Quelle méthode devriez-vous utiliser ?',
+        'which_p1': '<strong>Besoin de transcription sans bot ?</strong> Mono enregistre localement et transcrit automatiquement sans que personne ne le sache. Idéal pour un usage personnel, les appels commerciaux ou les réunions sensibles.',
+        'which_p2': '<strong>Vous voulez gratuit et n\'avez pas besoin de transcription ?</strong> OBS Studio est fiable mais nécessite une configuration et produit des fichiers bruts.',
+        'which_p3': '<strong>La notification ne vous dérange pas ?</strong> L\'enregistrement intégré de Zoom est le plus simple si vous êtes l\'hôte et tout le monde s\'attend à l\'enregistrement.',
+        'which_p4': '<strong>Équipe avec abonnement existant ?</strong> Les outils basés sur bot comme Fathom ou Otter.ai offrent des fonctionnalités d\'équipe et des intégrations CRM, mais tout le monde voit le bot.',
+        'which_p5': '<strong>Pour l\'enregistrement vidéo :</strong> OBS Studio avec capture d\'écran capture à la fois la vidéo et l\'audio. Mono se concentre sur l\'audio avec transcription locale.',
+        'related_title': 'Guides connexes',
+        'related_gmeet_title': 'Comment enregistrer Google Meet',
+        'related_gmeet_desc': '4 façons d\'enregistrer Google Meet sans qu\'un bot ne rejoigne.',
+        'related_otter_title': 'Alternatives à Otter.ai en 2026',
+        'related_otter_desc': 'Comparez Otter, Fireflies, Fathom et d\'autres enregistreurs de réunions.',
+        'related_discord_title': 'Comment enregistrer des appels Discord',
+        'related_discord_desc': '4 méthodes pour enregistrer les appels vocaux et vidéo Discord.',
+        'related_messaging_title': 'Enregistrer les appels d\'apps de messagerie',
+        'related_messaging_desc': 'Enregistrez les appels Discord, WhatsApp, Viber ou Telegram.'
+    },
+    de: {
+        'back_link': '← Blog',
+        'category': '[Anleitung]',
+        'title': 'Zoom-Anrufe ohne Bot aufzeichnen',
+        'meta': '23. Feb. 2026 · 8 Min. Lesezeit · Von Daniil Lefanov',
+        'disclosure': 'Hinweis: Mono ist unser Produkt. Wir haben es in diesen Leitfaden aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'intro_p1': 'Viele Zoom-Aufnahmetools funktionieren, indem sie Ihrem Meeting als Bot-Teilnehmer beitreten — für alle sichtbar, oft mit Genehmigung des Gastgebers erforderlich und senden Ihr Audio an Server von Drittanbietern für Videoaufnahme und Transkription. Aber es gibt Möglichkeiten, Zoom-Anrufe lokal aufzuzeichnen, ohne dass ein Bot beitritt und ohne Ihr Audio in die Cloud hochzuladen.',
+        'intro_p2': 'Dieser Leitfaden behandelt, wie Sie Zoom-Meetings 2026 aufzeichnen, einschließlich Methoden, die Ihre Aufnahmen mit lokaler Bildschirmaufnahme und Transkription vollständig privat halten.',
+        'tldr_label': 'Zusammenfassung',
+        'tldr_1': '<strong>Beste Gesamtwahl:</strong> Mono — kein Bot, lokale KI-Transkription, einmalig 50 $',
+        'tldr_2': '<strong>Beste kostenlose Option:</strong> OBS Studio — kein Bot, Einrichtung erforderlich, keine Transkription',
+        'tldr_3': '<strong>Integriert (sichtbar):</strong> Zooms native Aufnahme — benachrichtigt alle Teilnehmer',
+        'tldr_4': '<strong>Bot-basiert:</strong> Otter.ai, Fireflies, Fathom — sichtbarer Bot tritt dem Meeting bei',
+        'h2_why': 'Warum Zoom-Meetings aufzeichnen?',
+        'why_p1': 'Das Aufzeichnen von Zoom-Videoanrufen dient vielen Zwecken. Teams zeichnen Meetings für abwesende Mitglieder auf. Vertriebsprofis erfassen Kundengespräche für CRM-Notizen. Forscher und Journalisten zeichnen Interviews auf. Studenten speichern Vorlesungen zur Wiederholung. Berater dokumentieren Diskussionen für Abrechnung und Compliance.',
+        'why_p2': 'Die Herausforderung ist, dass die meisten Zoom-Aufnahmetools entweder alle Teilnehmer benachrichtigen oder Ihr Audio an Cloud-Server von Drittanbietern senden. Wenn Sie diskrete Aufnahmen benötigen oder möchten, dass Ihr internes Audio auf Ihrem Computer bleibt, brauchen Sie einen anderen Ansatz.',
+        'h2_comparison': 'Schneller Vergleich',
+        'th_method': 'Methode',
+        'th_price': 'Preis',
+        'th_bot': 'Bot/Sichtbar?',
+        'th_transcription': 'Transkription',
+        'price_mono': 'Einmalig 50 $',
+        'no': 'Nein',
+        'yes_local': 'Ja (lokal)',
+        'price_free': 'Kostenlos',
+        'no2': 'Nein',
+        'no3': 'Nein',
+        'zoom_builtin': 'Zoom integriert',
+        'price_zoom': 'Kostenlos/Bezahlt',
+        'notification_shown': 'Benachrichtigung angezeigt',
+        'paid_plans_only': 'Nur kostenpflichtige Pläne',
+        'yes_bot_joins': 'Ja (Bot tritt bei)',
+        'yes_cloud': 'Ja (Cloud)',
+        'h2_method1': 'Methode 1: Mono (Empfohlen)',
+        'method1_p1': 'Mono zeichnet Zoom auf, indem es Audio direkt von der Tonausgabe Ihres Computers erfasst. Kein Bot tritt dem Meeting bei, keine Aufnahmebenachrichtigung erscheint für andere Teilnehmer, und Ihr Audio verlässt niemals Ihren Computer. Dies macht es ideal für die Aufzeichnung von Meetings, bei denen Sie nicht der Gastgeber sind oder nicht möchten, dass andere wissen, dass Sie aufzeichnen.',
+        'method1_p2': 'Nachdem Sie die Aufnahme beendet haben, transkribiert Mono das Gespräch lokal mit KI, die vollständig auf Ihrem Computer läuft. Die Transkription umfasst Sprecheridentifikation — Mono erkennt verschiedene Stimmen und beschriftet sie im gesamten Transkript.',
+        'h3_mono_steps': 'So zeichnen Sie Zoom mit Mono auf',
+        'mono_step1': 'Laden Sie Mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
+        'mono_step2': 'Öffnen Sie Mono und klicken Sie auf die Aufnahmetaste, um die Aufnahme zu starten',
+        'mono_step3': 'Treten Sie Ihrem Zoom-Meeting normal bei',
+        'mono_step4': 'Nehmen Sie wie gewohnt am Meeting teil',
+        'mono_step5': 'Wenn das Meeting endet, klicken Sie auf Stopp in Mono',
+        'mono_step6': 'Warten Sie, bis die automatische Transkription abgeschlossen ist',
+        'mono_step7': 'Überprüfen Sie Ihr Transkript mit Sprecherbeschriftungen und Zeitstempeln',
+        'method1_p3': 'Mono erfasst alles, was über Ihre Lautsprecher oder Kopfhörer abgespielt wird, sodass Sie das Audio aller Teilnehmer in hoher Qualität erhalten. Sie können alle Ihre Aufnahmen nach Schlüsselwörtern durchsuchen, was es einfach macht, bestimmte Diskussionen oder Themen zu finden.',
+        'mono_pros': '<strong>Vorteile:</strong> Kein sichtbarer Bot, keine Teilnehmerbenachrichtigung, lokale KI-Transkription mit Sprecheridentifikation, funktioniert auch wenn Sie nicht der Gastgeber sind, durchsuchbare Aufnahmen, einmalige Zahlung von 50 $ ohne Abonnement.',
+        'mono_cons': '<strong>Nachteile:</strong> Kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren vor dem Kauf verfügbar).',
+        'h2_method2': 'Methode 2: OBS Studio (Kostenlos)',
+        'method2_p1': 'OBS Studio ist ein kostenloser, quelloffener Bildschirmrekorder, der Systemaudio und optional Ihren Bildschirm erfassen kann. Es tritt dem Zoom-Meeting nicht als Teilnehmer bei, ist also für andere völlig unsichtbar. OBS ist bei Streamern beliebt, funktioniert aber genauso gut für die Aufzeichnung von Zoom-Anrufen.',
+        'method2_p2': 'Die Haupteinschränkung ist, dass OBS rohe Audio- oder Videodateien ohne Transkription ausgibt. Sie müssen die Aufnahme selbst verarbeiten, wenn Sie durchsuchbaren Text möchten.',
+        'h3_obs_steps': 'So zeichnen Sie Zoom mit OBS auf',
+        'obs_step1': 'Laden Sie OBS Studio von obsproject.com herunter und installieren Sie es',
+        'obs_step2': 'Öffnen Sie OBS und gehen Sie zu Einstellungen → Audio',
+        'obs_step3': 'Stellen Sie "Desktop-Audio" auf Ihr Wiedergabegerät (Lautsprecher oder Kopfhörer)',
+        'obs_step4': 'Klicken Sie im Hauptfenster auf + unter Quellen',
+        'obs_step5': 'Fügen Sie eine "Audioausgabeerfassung"-Quelle für reine Audioaufnahme hinzu',
+        'obs_step6': 'Fügen Sie optional "Bildschirmaufnahme" für Videoaufnahme hinzu',
+        'obs_step7': 'Klicken Sie auf "Aufnahme starten" bevor Sie Ihrem Zoom-Meeting beitreten',
+        'obs_step8': 'Treten Sie bei und nehmen Sie an Ihrem Zoom-Meeting teil',
+        'obs_step9': 'Klicken Sie auf "Aufnahme stoppen" wenn das Meeting endet',
+        'obs_step10': 'Finden Sie Ihre Aufnahme im Ausgabeordner (normalerweise Videos)',
+        'obs_pros': '<strong>Vorteile:</strong> Völlig kostenlos und quelloffen, kein sichtbarer Bot, kann Videoanrufe mit Bildschirmaufnahme aufzeichnen, hochgradig konfigurierbar mit erweiterten Audioeinstellungen.',
+        'obs_cons': '<strong>Nachteile:</strong> Erfordert anfängliche Einrichtung, Sie müssen die Aufnahme für jedes Meeting manuell starten und stoppen, keine Transkription — produziert nur rohe Audio-/Videodateien.',
+        'h2_method3': 'Methode 3: Zooms integrierte Aufnahme',
+        'method3_p1': 'Zoom hat eine native Aufnahmefunktion, aber mit erheblichen Einschränkungen. Lokale Aufnahme erfordert, dass Sie der Gastgeber sind oder die Aufnahmeerlaubnis vom Gastgeber haben. Cloud-Aufnahme erfordert ein kostenpflichtiges Zoom-Abonnement. Am wichtigsten ist, dass alle Teilnehmer eine "Aufnahme"-Benachrichtigung sehen, wenn die Aufnahme beginnt — es gibt keine Möglichkeit, mit der integrierten Funktion von Zoom diskret aufzuzeichnen.',
+        'method3_p2': 'Für Teamumgebungen, in denen Transparenz erwartet wird und jeder weiß, dass Meetings aufgezeichnet werden, funktioniert Zooms integrierte Aufnahme gut. Für andere Situationen bieten Tools von Drittanbietern mehr Flexibilität.',
+        'zoom_pros': '<strong>Vorteile:</strong> Keine zusätzliche Software erforderlich, Cloud-Aufnahme mit Transkription bei kostenpflichtigen Plänen verfügbar, Aufnahmen in Ihrem Zoom-Konto gespeichert.',
+        'zoom_cons': '<strong>Nachteile:</strong> Sichtbare Benachrichtigung für alle Teilnehmer, erfordert Gastgebererlaubnis für lokale Aufnahme, Cloud-Aufnahme und Transkription erfordern kostenpflichtiges Zoom-Abonnement, Videoqualität hängt von Zoom-Einstellungen ab.',
+        'h2_method4': 'Methode 4: Bot-basierte Rekorder (Otter.ai, Fireflies, Fathom)',
+        'method4_p1': 'Tools wie Otter.ai, Fireflies und Fathom funktionieren, indem sie Ihrem Zoom-Meeting als Bot-Teilnehmer beitreten. Der Bot erscheint in der Teilnehmerliste mit einem Namen wie "Otter.ai\'s Notetaker" oder "Fathom Notetaker". Ihr Audio wird auf deren Server zur Transkription hochgeladen.',
+        'method4_p2': 'Diese Tools bieten Teamfunktionen, CRM-Integrationen und kollaborative Notizenaufnahme. Allerdings sieht jeder im Meeting den Bot, und einige Teilnehmer können dies als aufdringlich oder unangenehm empfinden.',
+        'bot_pros': '<strong>Vorteile:</strong> Einfache Einrichtung, hochwertige Transkription, Team-Kollaborationsfunktionen, Integrationen mit Salesforce, HubSpot und anderen Tools.',
+        'bot_cons': '<strong>Nachteile:</strong> Bot ist für alle Teilnehmer sichtbar, Audio wird auf Cloud-Server von Drittanbietern hochgeladen, monatliche Abonnementgebühren (10–30 $/Monat), kann Unbehagen in sensiblen Meetings verursachen.',
+        'h2_video_vs_audio': 'Video- vs. Nur-Audio-Aufnahme',
+        'video_audio_p1': 'Zoom-Meetings beinhalten typischerweise Video, aber Sie brauchen nicht immer Videoaufnahme:',
+        'video_audio_p2': '<strong>Nur Audio (Mono):</strong> Erfasst das Gespräch mit automatischer Transkription. Oft ausreichend, da die meisten Aufnahmen für Dokumentation sind, nicht für visuelle Referenz. Dateien sind klein und durchsuchbar.',
+        'video_audio_p3': '<strong>Vollständige Videoaufnahme (OBS):</strong> Erfasst Ihren Bildschirm mit dem Zoom-Fenster. Nützlich für Schulungsvideos, Präsentationen oder wenn visueller Inhalt wichtig ist. Videoqualität hängt von Ihrer Verbindung und Zoom-Einstellungen ab, und Dateien sind viel größer.',
+        'h2_legal': 'Rechtliche Überlegungen',
+        'legal_p1': 'Bevor Sie Zoom-Meetings aufzeichnen, verstehen Sie die rechtlichen Anforderungen:',
+        'legal_p2': '<strong>Einparteien-Zustimmung:</strong> Viele Gerichtsbarkeiten erlauben die Aufzeichnung von Meetings, an denen Sie teilnehmen.',
+        'legal_p3': '<strong>Allparteien-Zustimmung:</strong> Einige Regionen verlangen, dass alle zustimmen. Dazu gehören Kalifornien, Deutschland und andere Gebiete.',
+        'legal_p4': 'Bei Geschäftsmeetings haben viele Organisationen Richtlinien, die Offenlegung bei der Aufzeichnung erfordern. Überprüfen Sie die Richtlinien Ihres Unternehmens und erwägen Sie, die Teilnehmer zu informieren, besonders in professionellen Kontexten.',
+        'h2_tips': 'Tipps für die Aufzeichnung von Zoom-Meetings',
+        'tips_box': '<strong>Verwenden Sie Kopfhörer</strong>, um Echo und Feedback zu vermeiden. <strong>Schließen Sie andere Anwendungen</strong>, die Benachrichtigungstöne erzeugen könnten. <strong>Testen Sie Ihre Einrichtung</strong> vor wichtigen Meetings mit einer kurzen Aufnahme.',
+        'tips_audio': '<strong>Überprüfen Sie die Audiopegel:</strong> Machen Sie eine kurze Testaufnahme, um sicherzustellen, dass alle Teilnehmer hörbar sind. Passen Sie Ihre Systemlautstärke bei Bedarf an.',
+        'tips_connection': '<strong>Stabile Verbindung:</strong> Schlechtes Internet beeinflusst die Zoom-Audioqualität, was die Aufnahmequalität beeinflusst. Verwenden Sie für wichtige Meetings wenn möglich eine kabelgebundene Verbindung.',
+        'h2_which': 'Welche Methode sollten Sie verwenden?',
+        'which_p1': '<strong>Transkription ohne Bot benötigt?</strong> Mono zeichnet lokal auf und transkribiert automatisch, ohne dass jemand es weiß. Am besten für persönlichen Gebrauch, Verkaufsgespräche oder sensible Meetings.',
+        'which_p2': '<strong>Kostenlos und keine Transkription benötigt?</strong> OBS Studio ist zuverlässig, erfordert aber Einrichtung und produziert rohe Dateien.',
+        'which_p3': '<strong>Benachrichtigung stört nicht?</strong> Zooms integrierte Aufnahme ist am einfachsten, wenn Sie der Gastgeber sind und alle die Aufnahme erwarten.',
+        'which_p4': '<strong>Team mit bestehendem Abonnement?</strong> Bot-basierte Tools wie Fathom oder Otter.ai bieten Teamfunktionen und CRM-Integrationen, aber jeder sieht den Bot.',
+        'which_p5': '<strong>Für Videoaufnahme:</strong> OBS Studio mit Bildschirmaufnahme erfasst sowohl Video als auch Audio. Mono konzentriert sich auf Audio mit lokaler Transkription.',
+        'related_title': 'Verwandte Anleitungen',
+        'related_gmeet_title': 'Google Meet aufzeichnen',
+        'related_gmeet_desc': '4 Wege, Google Meet ohne Bot aufzuzeichnen.',
+        'related_otter_title': 'Otter.ai-Alternativen 2026',
+        'related_otter_desc': 'Vergleichen Sie Otter, Fireflies, Fathom und andere Meeting-Rekorder.',
+        'related_discord_title': 'Discord-Anrufe aufzeichnen',
+        'related_discord_desc': '4 Methoden zur Aufzeichnung von Discord-Sprach- und Videoanrufen.',
+        'related_messaging_title': 'Messenger-App-Anrufe aufzeichnen',
+        'related_messaging_desc': 'Zeichnen Sie Discord-, WhatsApp-, Viber- oder Telegram-Anrufe auf.'
+    },
+    zh: {
+        'back_link': '← 博客',
+        'category': '[指南]',
+        'title': '如何在没有机器人的情况下录制 Zoom 通话',
+        'meta': '2026年2月23日 · 阅读时间8分钟 · 作者 Daniil Lefanov',
+        'disclosure': '声明：Mono 是我们的产品。我们在本指南中包含了它，并尽量做到公正，但您应该知道我们对此有利益关系。',
+        'intro_p1': '许多 Zoom 录制工具通过作为机器人参与者加入您的会议来工作——对所有人可见，通常需要主持人许可，并将您的音频发送到第三方服务器进行视频录制和转录。但有一些方法可以在本地录制 Zoom 通话，无需任何机器人加入，也无需将音频上传到云端。',
+        'intro_p2': '本指南介绍了如何在 2026 年录制 Zoom 会议，包括使用本地屏幕录制和转录保持录音完全私密的方法。',
+        'tldr_label': '摘要',
+        'tldr_1': '<strong>最佳整体选择：</strong>Mono — 无机器人，本地 AI 转录，一次性 50 美元',
+        'tldr_2': '<strong>最佳免费选择：</strong>OBS Studio — 无机器人，需要设置，无转录',
+        'tldr_3': '<strong>内置（可见）：</strong>Zoom 原生录制 — 通知所有参与者',
+        'tldr_4': '<strong>基于机器人：</strong>Otter.ai、Fireflies、Fathom — 可见机器人加入会议',
+        'h2_why': '为什么要录制 Zoom 会议？',
+        'why_p1': '录制 Zoom 视频通话有很多用途。团队为缺席成员录制会议。销售专业人员捕获客户对话以做 CRM 笔记。研究人员和记者录制采访。学生保存讲座以便复习。顾问记录讨论以用于计费和合规。',
+        'why_p2': '挑战在于大多数 Zoom 录制工具要么通知所有参与者，要么将您的音频发送到第三方云服务器。如果您需要隐秘录制或希望内部音频保留在您的计算机上，您需要不同的方法。',
+        'h2_comparison': '快速比较',
+        'th_method': '方法',
+        'th_price': '价格',
+        'th_bot': '机器人/可见？',
+        'th_transcription': '转录',
+        'price_mono': '一次性 50 美元',
+        'no': '否',
+        'yes_local': '是（本地）',
+        'price_free': '免费',
+        'no2': '否',
+        'no3': '否',
+        'zoom_builtin': 'Zoom 内置',
+        'price_zoom': '免费/付费',
+        'notification_shown': '显示通知',
+        'paid_plans_only': '仅限付费计划',
+        'yes_bot_joins': '是（机器人加入）',
+        'yes_cloud': '是（云端）',
+        'h2_method1': '方法 1：Mono（推荐）',
+        'method1_p1': 'Mono 通过直接从您计算机的声音输出捕获音频来录制 Zoom。没有机器人加入会议，其他参与者不会看到录制通知，您的音频永远不会离开您的计算机。这使它非常适合在您不是主持人或不想让其他人知道您在录制的会议中录制。',
+        'method1_p2': '停止录制后，Mono 使用完全在您计算机上运行的 AI 在本地转录对话。转录包括说话人识别——Mono 检测不同的声音并在整个转录中标记它们。',
+        'h3_mono_steps': '如何使用 Mono 录制 Zoom',
+        'mono_step1': '从 <a href="https://mono-ai.uk">mono-ai.uk</a> 下载 Mono 并安装',
+        'mono_step2': '打开 Mono 并点击录制按钮开始录制',
+        'mono_step3': '正常加入您的 Zoom 会议',
+        'mono_step4': '像往常一样参与会议',
+        'mono_step5': '会议结束时，在 Mono 中点击停止',
+        'mono_step6': '等待自动转录完成',
+        'mono_step7': '查看带有说话人标签和时间戳的转录',
+        'method1_p3': 'Mono 捕获通过您的扬声器或耳机播放的所有内容，因此您将获得所有参与者的高质量音频。您可以按关键词搜索所有录音，轻松找到特定的讨论或主题。',
+        'mono_pros': '<strong>优点：</strong>无可见机器人，无参与者通知，具有说话人识别的本地 AI 转录，即使您不是主持人也能工作，可搜索的录音，一次性支付 50 美元无需订阅。',
+        'mono_cons': '<strong>缺点：</strong>付费软件（购买前可免费试用一次录制）。',
+        'h2_method2': '方法 2：OBS Studio（免费）',
+        'method2_p1': 'OBS Studio 是一款免费、开源的屏幕录制器，可以捕获系统音频和可选的屏幕。它不会作为参与者加入 Zoom 会议，因此对其他人完全不可见。OBS 在主播中很受欢迎，但同样适用于录制 Zoom 通话。',
+        'method2_p2': '主要限制是 OBS 输出原始音频或视频文件，没有任何转录。如果您想要可搜索的文本，您需要自己处理录音。',
+        'h3_obs_steps': '如何使用 OBS 录制 Zoom',
+        'obs_step1': '从 obsproject.com 下载 OBS Studio 并安装',
+        'obs_step2': '打开 OBS 并转到设置 → 音频',
+        'obs_step3': '将"桌面音频"设置为您的播放设备（扬声器或耳机）',
+        'obs_step4': '在主窗口中，点击来源下方的 +',
+        'obs_step5': '添加"音频输出捕获"源进行纯音频录制',
+        'obs_step6': '可选添加"显示捕获"进行视频录制',
+        'obs_step7': '在加入 Zoom 会议之前点击"开始录制"',
+        'obs_step8': '加入并参与您的 Zoom 会议',
+        'obs_step9': '会议结束时点击"停止录制"',
+        'obs_step10': '在输出文件夹中找到您的录音（通常是视频文件夹）',
+        'obs_pros': '<strong>优点：</strong>完全免费且开源，无可见机器人，可以通过屏幕录制录制视频通话，具有高级音频设置的高度可配置性。',
+        'obs_cons': '<strong>缺点：</strong>需要初始设置，您必须为每次会议手动开始和停止录制，无转录——仅产生原始音频/视频文件。',
+        'h2_method3': '方法 3：Zoom 内置录制',
+        'method3_p1': 'Zoom 具有原生录制功能，但有重大限制。本地录制需要您是主持人或获得主持人的录制许可。云录制需要付费 Zoom 订阅。最重要的是，当录制开始时，所有参与者都会看到"正在录制"通知——使用 Zoom 的内置功能无法隐秘录制。',
+        'method3_p2': '对于期望透明且每个人都知道会议被录制的团队环境，Zoom 的内置录制效果很好。对于其他情况，第三方工具提供更多灵活性。',
+        'zoom_pros': '<strong>优点：</strong>无需额外软件，付费计划提供带转录的云录制，录音存储在您的 Zoom 帐户中。',
+        'zoom_cons': '<strong>缺点：</strong>对所有参与者可见的通知，本地录制需要主持人许可，云录制和转录需要付费 Zoom 订阅，视频质量取决于 Zoom 设置。',
+        'h2_method4': '方法 4：基于机器人的录制器（Otter.ai、Fireflies、Fathom）',
+        'method4_p1': 'Otter.ai、Fireflies 和 Fathom 等工具通过作为机器人参与者加入您的 Zoom 会议来工作。机器人在参与者列表中显示，名称如"Otter.ai 的 Notetaker"或"Fathom Notetaker"。您的音频被上传到他们的服务器进行转录。',
+        'method4_p2': '这些工具提供团队功能、CRM 集成和协作笔记。但是，会议中的每个人都能看到机器人，一些参与者可能会觉得这很打扰或不舒服。',
+        'bot_pros': '<strong>优点：</strong>设置简单，高质量转录，团队协作功能，与 Salesforce、HubSpot 和其他工具集成。',
+        'bot_cons': '<strong>缺点：</strong>机器人对所有参与者可见，音频上传到第三方云服务器，每月订阅费（10-30 美元/月），可能在敏感会议中造成尴尬。',
+        'h2_video_vs_audio': '视频录制 vs 纯音频',
+        'video_audio_p1': 'Zoom 会议通常包括视频，但您不总是需要视频录制：',
+        'video_audio_p2': '<strong>纯音频（Mono）：</strong>捕获带自动转录的对话。通常足够，因为大多数录音用于文档记录，而非视觉参考。文件小且可搜索。',
+        'video_audio_p3': '<strong>完整视频录制（OBS）：</strong>捕获显示 Zoom 窗口的屏幕。适用于培训视频、演示或视觉内容重要的情况。视频质量取决于您的连接和 Zoom 设置，文件要大得多。',
+        'h2_legal': '法律考虑',
+        'legal_p1': '在录制 Zoom 会议之前，了解法律要求：',
+        'legal_p2': '<strong>单方同意：</strong>许多司法管辖区允许录制您参与的会议。',
+        'legal_p3': '<strong>全方同意：</strong>某些地区要求所有人同意。这包括加利福尼亚州、德国和其他地区。',
+        'legal_p4': '对于商务会议，许多组织有要求在录制时披露的政策。检查您公司的指导方针，并考虑通知参与者，特别是在专业环境中。',
+        'h2_tips': 'Zoom 会议录制技巧',
+        'tips_box': '<strong>使用耳机</strong>以防止回声和反馈。<strong>关闭其他应用程序</strong>以避免产生通知声音。<strong>在重要会议前测试您的设置</strong>，进行快速录制测试。',
+        'tips_audio': '<strong>检查音频级别：</strong>进行简短的测试录制，确保所有参与者都能听到。如有需要，调整系统音量。',
+        'tips_connection': '<strong>稳定连接：</strong>网络不好会影响 Zoom 音频质量，从而影响录制质量。重要会议尽可能使用有线连接。',
+        'h2_which': '您应该使用哪种方法？',
+        'which_p1': '<strong>需要无机器人的转录？</strong>Mono 在本地录制并自动转录，无人知晓。最适合个人使用、销售电话或敏感会议。',
+        'which_p2': '<strong>想要免费且不需要转录？</strong>OBS Studio 可靠但需要设置，产生原始文件。',
+        'which_p3': '<strong>不介意通知？</strong>如果您是主持人且每个人都期望录制，Zoom 的内置录制是最简单的。',
+        'which_p4': '<strong>有现有订阅的团队？</strong>Fathom 或 Otter.ai 等基于机器人的工具提供团队功能和 CRM 集成，但每个人都能看到机器人。',
+        'which_p5': '<strong>用于视频录制：</strong>带屏幕录制的 OBS Studio 可同时捕获视频和音频。Mono 专注于音频和本地转录。',
+        'related_title': '相关指南',
+        'related_gmeet_title': '如何录制 Google Meet',
+        'related_gmeet_desc': '4 种无机器人加入的 Google Meet 录制方法。',
+        'related_otter_title': '2026 年 Otter.ai 替代品',
+        'related_otter_desc': '比较 Otter、Fireflies、Fathom 和其他会议录制器。',
+        'related_discord_title': '如何录制 Discord 通话',
+        'related_discord_desc': '4 种录制 Discord 语音和视频通话的方法。',
+        'related_messaging_title': '录制消息应用通话',
+        'related_messaging_desc': '录制 Discord、WhatsApp、Viber 或 Telegram 通话。'
+    },
+    ru: {
+        'back_link': '← блог',
+        'category': '[Руководство]',
+        'title': 'Как записывать звонки Zoom без бота',
+        'meta': '23 фев 2026 · 8 мин чтения · Автор Daniil Lefanov',
+        'disclosure': 'Раскрытие информации: Mono — наш продукт. Мы включили его в это руководство и постарались быть объективными, но вы должны знать, что у нас есть заинтересованность.',
+        'intro_p1': 'Многие инструменты записи Zoom работают, присоединяясь к вашей встрече как бот-участник — видимый для всех, часто требующий разрешения организатора и отправляющий ваше аудио на сторонние серверы для видеозаписи и транскрипции. Но есть способы записывать звонки Zoom локально, без присоединения бота и без загрузки аудио в облако.',
+        'intro_p2': 'Это руководство охватывает способы записи встреч Zoom в 2026 году, включая методы, которые сохраняют ваши записи полностью конфиденциальными с помощью локальной записи экрана и транскрипции.',
+        'tldr_label': 'Кратко',
+        'tldr_1': '<strong>Лучший выбор:</strong> Mono — без бота, локальная AI-транскрипция, $50 единоразово',
+        'tldr_2': '<strong>Лучший бесплатный:</strong> OBS Studio — без бота, требует настройки, без транскрипции',
+        'tldr_3': '<strong>Встроенный (видимый):</strong> Встроенная запись Zoom — уведомляет всех участников',
+        'tldr_4': '<strong>На основе бота:</strong> Otter.ai, Fireflies, Fathom — видимый бот присоединяется к встрече',
+        'h2_why': 'Зачем записывать встречи Zoom?',
+        'why_p1': 'Запись видеозвонков Zoom служит многим целям. Команды записывают встречи для отсутствующих участников. Специалисты по продажам фиксируют разговоры с клиентами для заметок CRM. Исследователи и журналисты записывают интервью. Студенты сохраняют лекции для повторения. Консультанты документируют обсуждения для выставления счетов и соответствия требованиям.',
+        'why_p2': 'Проблема в том, что большинство инструментов записи Zoom либо уведомляют всех участников, либо отправляют ваше аудио на сторонние облачные серверы. Если вам нужна незаметная запись или вы хотите, чтобы ваше внутреннее аудио оставалось на вашем компьютере, вам нужен другой подход.',
+        'h2_comparison': 'Быстрое сравнение',
+        'th_method': 'Метод',
+        'th_price': 'Цена',
+        'th_bot': 'Бот/Видимый?',
+        'th_transcription': 'Транскрипция',
+        'price_mono': '$50 единоразово',
+        'no': 'Нет',
+        'yes_local': 'Да (локально)',
+        'price_free': 'Бесплатно',
+        'no2': 'Нет',
+        'no3': 'Нет',
+        'zoom_builtin': 'Встроенный Zoom',
+        'price_zoom': 'Бесплатно/Платно',
+        'notification_shown': 'Показывается уведомление',
+        'paid_plans_only': 'Только платные планы',
+        'yes_bot_joins': 'Да (бот присоединяется)',
+        'yes_cloud': 'Да (облако)',
+        'h2_method1': 'Метод 1: Mono (Рекомендуется)',
+        'method1_p1': 'Mono записывает Zoom, захватывая аудио непосредственно с аудиовыхода вашего компьютера. Никакой бот не присоединяется к встрече, никакое уведомление о записи не появляется для других участников, и ваше аудио никогда не покидает ваш компьютер. Это делает его идеальным для записи встреч, где вы не являетесь организатором или не хотите, чтобы другие знали, что вы записываете.',
+        'method1_p2': 'После остановки записи Mono транскрибирует разговор локально, используя AI, который работает полностью на вашем компьютере. Транскрипция включает идентификацию говорящих — Mono определяет разные голоса и помечает их по всей транскрипции.',
+        'h3_mono_steps': 'Как записывать Zoom с помощью Mono',
+        'mono_step1': 'Скачайте Mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите',
+        'mono_step2': 'Откройте Mono и нажмите кнопку Запись, чтобы начать запись',
+        'mono_step3': 'Присоединитесь к встрече Zoom как обычно',
+        'mono_step4': 'Участвуйте во встрече как обычно',
+        'mono_step5': 'Когда встреча закончится, нажмите Стоп в Mono',
+        'mono_step6': 'Дождитесь завершения автоматической транскрипции',
+        'mono_step7': 'Просмотрите транскрипцию с метками говорящих и временными метками',
+        'method1_p3': 'Mono захватывает всё, что воспроизводится через ваши динамики или наушники, поэтому вы получите аудио всех участников в высоком качестве. Вы можете искать по всем вашим записям по ключевым словам, что упрощает поиск конкретных обсуждений или тем.',
+        'mono_pros': '<strong>Плюсы:</strong> Нет видимого бота, нет уведомления участников, локальная AI-транскрипция с идентификацией говорящих, работает даже если вы не организатор, записи с поиском, единоразовая оплата $50 без подписки.',
+        'mono_cons': '<strong>Минусы:</strong> Платное ПО (одна бесплатная запись доступна для пробы перед покупкой).',
+        'h2_method2': 'Метод 2: OBS Studio (Бесплатно)',
+        'method2_p1': 'OBS Studio — это бесплатная программа с открытым исходным кодом для записи экрана, которая может захватывать системный звук и опционально ваш экран. Она не присоединяется к встрече Zoom как участник, поэтому полностью невидима для других. OBS популярна среди стримеров, но отлично подходит и для записи звонков Zoom.',
+        'method2_p2': 'Основное ограничение в том, что OBS выводит необработанные аудио или видео файлы без транскрипции. Вам нужно будет обработать запись самостоятельно, если хотите текст с возможностью поиска.',
+        'h3_obs_steps': 'Как записывать Zoom с OBS',
+        'obs_step1': 'Скачайте OBS Studio с obsproject.com и установите',
+        'obs_step2': 'Откройте OBS и перейдите в Настройки → Аудио',
+        'obs_step3': 'Установите "Аудио рабочего стола" на ваше устройство воспроизведения (динамики или наушники)',
+        'obs_step4': 'В главном окне нажмите + под Источниками',
+        'obs_step5': 'Добавьте источник "Захват аудиовыхода" для записи только аудио',
+        'obs_step6': 'Опционально добавьте "Захват экрана" для видеозаписи',
+        'obs_step7': 'Нажмите "Начать запись" перед присоединением к встрече Zoom',
+        'obs_step8': 'Присоединитесь и участвуйте во встрече Zoom',
+        'obs_step9': 'Нажмите "Остановить запись" когда встреча закончится',
+        'obs_step10': 'Найдите запись в папке вывода (обычно Видео)',
+        'obs_pros': '<strong>Плюсы:</strong> Полностью бесплатная и с открытым исходным кодом, нет видимого бота, может записывать видеозвонки с захватом экрана, высокая настраиваемость с расширенными аудио настройками.',
+        'obs_cons': '<strong>Минусы:</strong> Требует начальной настройки, нужно вручную начинать и останавливать запись для каждой встречи, без транскрипции — производит только необработанные аудио/видео файлы.',
+        'h2_method3': 'Метод 3: Встроенная запись Zoom',
+        'method3_p1': 'Zoom имеет встроенную функцию записи, но со значительными ограничениями. Локальная запись требует, чтобы вы были организатором или имели разрешение на запись от организатора. Облачная запись требует платной подписки Zoom. Самое важное — все участники видят уведомление "Запись" при начале записи — нет способа записывать незаметно со встроенной функцией Zoom.',
+        'method3_p2': 'Для командных настроек, где ожидается прозрачность и все знают, что встречи записываются, встроенная запись Zoom работает нормально. Для других ситуаций сторонние инструменты обеспечивают большую гибкость.',
+        'zoom_pros': '<strong>Плюсы:</strong> Не нужно дополнительное ПО, облачная запись с транскрипцией доступна на платных планах, записи хранятся в вашем аккаунте Zoom.',
+        'zoom_cons': '<strong>Минусы:</strong> Видимое уведомление для всех участников, требуется разрешение организатора для локальной записи, облачная запись и транскрипция требуют платной подписки Zoom, качество видео зависит от настроек Zoom.',
+        'h2_method4': 'Метод 4: Записывающие устройства на основе бота (Otter.ai, Fireflies, Fathom)',
+        'method4_p1': 'Такие инструменты, как Otter.ai, Fireflies и Fathom, работают, присоединяясь к вашей встрече Zoom как бот-участник. Бот появляется в списке участников с именем типа "Notetaker от Otter.ai" или "Fathom Notetaker". Ваше аудио загружается на их серверы для транскрипции.',
+        'method4_p2': 'Эти инструменты предлагают командные функции, интеграции с CRM и совместное ведение заметок. Однако все на встрече видят бота, и некоторые участники могут найти это навязчивым или неудобным.',
+        'bot_pros': '<strong>Плюсы:</strong> Простая настройка, высококачественная транскрипция, функции командной работы, интеграции с Salesforce, HubSpot и другими инструментами.',
+        'bot_cons': '<strong>Минусы:</strong> Бот виден всем участникам, аудио загружается на сторонние облачные серверы, ежемесячные платежи ($10–30/месяц), может создавать неловкость на деликатных встречах.',
+        'h2_video_vs_audio': 'Запись видео vs только аудио',
+        'video_audio_p1': 'Встречи Zoom обычно включают видео, но вам не всегда нужна видеозапись:',
+        'video_audio_p2': '<strong>Только аудио (Mono):</strong> Захватывает разговор с автоматической транскрипцией. Часто достаточно, так как большинство записей для документации, а не визуальной справки. Файлы маленькие и с поиском.',
+        'video_audio_p3': '<strong>Полная видеозапись (OBS):</strong> Захватывает ваш экран с окном Zoom. Полезно для обучающих видео, презентаций или когда визуальный контент важен. Качество видео зависит от вашего соединения и настроек Zoom, файлы намного больше.',
+        'h2_legal': 'Юридические аспекты',
+        'legal_p1': 'Перед записью встреч Zoom поймите юридические требования:',
+        'legal_p2': '<strong>Согласие одной стороны:</strong> Многие юрисдикции разрешают записывать встречи, в которых вы участвуете.',
+        'legal_p3': '<strong>Согласие всех сторон:</strong> Некоторые регионы требуют согласия всех. Это включает Калифорнию, Германию и другие области.',
+        'legal_p4': 'Для деловых встреч многие организации имеют политики, требующие раскрытия информации при записи. Проверьте руководящие принципы вашей компании и рассмотрите возможность информирования участников, особенно в профессиональном контексте.',
+        'h2_tips': 'Советы по записи встреч Zoom',
+        'tips_box': '<strong>Используйте наушники</strong> для предотвращения эха и обратной связи. <strong>Закройте другие приложения</strong>, которые могут издавать звуки уведомлений. <strong>Протестируйте настройку</strong> перед важными встречами с быстрой записью.',
+        'tips_audio': '<strong>Проверьте уровни звука:</strong> Сделайте короткую тестовую запись, чтобы убедиться, что все участники слышны. При необходимости отрегулируйте громкость системы.',
+        'tips_connection': '<strong>Стабильное соединение:</strong> Плохой интернет влияет на качество звука Zoom, что влияет на качество записи. По возможности используйте проводное соединение для важных встреч.',
+        'h2_which': 'Какой метод использовать?',
+        'which_p1': '<strong>Нужна транскрипция без бота?</strong> Mono записывает локально и автоматически транскрибирует без чьего-либо ведома. Лучше всего для личного использования, звонков по продажам или деликатных встреч.',
+        'which_p2': '<strong>Хотите бесплатно и не нужна транскрипция?</strong> OBS Studio надёжна, но требует настройки и производит необработанные файлы.',
+        'which_p3': '<strong>Не волнует уведомление?</strong> Встроенная запись Zoom проще всего, если вы организатор и все ожидают запись.',
+        'which_p4': '<strong>Команда с существующей подпиской?</strong> Инструменты на основе бота, такие как Fathom или Otter.ai, предлагают командные функции и интеграции CRM, но все видят бота.',
+        'which_p5': '<strong>Для видеозаписи:</strong> OBS Studio с захватом экрана записывает и видео, и аудио. Mono фокусируется на аудио с локальной транскрипцией.',
+        'related_title': 'Связанные руководства',
+        'related_gmeet_title': 'Как записать Google Meet',
+        'related_gmeet_desc': '4 способа записать Google Meet без присоединения бота.',
+        'related_otter_title': 'Альтернативы Otter.ai в 2026',
+        'related_otter_desc': 'Сравнение Otter, Fireflies, Fathom и других записывающих устройств для встреч.',
+        'related_discord_title': 'Как записать звонки Discord',
+        'related_discord_desc': '4 метода записи голосовых и видеозвонков Discord.',
+        'related_messaging_title': 'Запись звонков мессенджеров',
+        'related_messaging_desc': 'Записывайте звонки Discord, WhatsApp, Viber или Telegram.'
+    }
+};
+
+let currentLang = 'en';
+const siteNav = document.querySelector('site-nav');
+
+siteNav.addEventListener('language-change', (e) => {
+    const lang = e.detail.language;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+});
+</script>
 </body>
 </html>
