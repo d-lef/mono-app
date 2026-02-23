@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics + Conversion Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61BNYMZ7FD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-61BNYMZ7FD');
+
+      // Fire purchase conversion event (tracked by GA4, imported to Google Ads)
+      gtag('event', 'conversion_event_purchase', {
+        'value': 50.0,
+        'currency': 'USD'
+      });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You — Mono</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/nav.js" defer></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Dark theme (default) */
+        :root {
+            --bg-primary: #252525;
+            --bg-secondary: #2D2D2D;
+            --bg-hover: #3A3A3A;
+            --bg-pressed: #454545;
+            --accent: #E0E0E0;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        /* Light theme - system preference */
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) {
+                --bg-primary: #F5F5F5;
+                --bg-secondary: #FFFFFF;
+                --bg-hover: #E0E0E0;
+                --bg-pressed: #D0D0D0;
+                --accent: #424242;
+                --text-primary: #212121;
+                --text-secondary: #757575;
+            }
+        }
+
+        /* Light theme - manual override */
+        :root.light {
+            --bg-primary: #F5F5F5;
+            --bg-secondary: #FFFFFF;
+            --bg-hover: #E0E0E0;
+            --bg-pressed: #D0D0D0;
+            --accent: #424242;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: clamp(14px, 3vw, 18px);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            text-align: left;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            width: 100%;
+        }
+
+        .steps h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            font-size: 14px;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        /* Download buttons - matching main page style */
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .download-label {
+            font-size: clamp(11px, 2.5vw, 14px);
+            color: var(--text-secondary);
+        }
+
+        .download-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: clamp(11px, 2.5vw, 14px);
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--text-secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.15s ease, transform 0.15s ease;
+        }
+
+        .download-button:hover {
+            background-color: var(--bg-hover);
+            transform: scale(1.02);
+        }
+
+        .download-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Privacy link */
+        .privacy-link {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.15s ease;
+        }
+
+        .privacy-link:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <site-nav></site-nav>
+
+    <div class="container">
+        <h1>Thank you for your purchase!</h1>
+
+        <p class="subtitle">Your license key has been sent to your email. Check your inbox (and spam folder).</p>
+
+        <div class="steps">
+            <h2>Next steps</h2>
+            <div class="step">
+                <span class="step-number">1.</span>
+                <span class="step-text">Download Mono for your platform</span>
+            </div>
+            <div class="step">
+                <span class="step-number">2.</span>
+                <span class="step-text">Install the app on Windows or Mac</span>
+            </div>
+            <div class="step">
+                <span class="step-number">3.</span>
+                <span class="step-text">Enter your license key when prompted</span>
+            </div>
+            <div class="step">
+                <span class="step-number">4.</span>
+                <span class="step-text">Start recording any meeting or call</span>
+            </div>
+        </div>
+
+        <div class="download-buttons">
+            <p class="download-label">Download Mono</p>
+            <div class="download-row">
+                <a href="https://github.com/d-lef/mono-releases/releases/latest/download/mono-windows.exe"
+                   class="download-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                    </svg>
+                    <span>Windows</span>
+                </a>
+                <a href="https://github.com/d-lef/mono-releases/releases/latest/download/mono-mac-silicon.dmg"
+                   class="download-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <span>Mac (Apple Silicon)</span>
+                </a>
+                <a href="https://github.com/d-lef/mono-releases/releases/latest/download/mono-mac-intel.dmg"
+                   class="download-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <span>Mac (Intel)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <a href="privacy.html" class="privacy-link">Privacy Policy</a>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2648ddd09be045f3b5ff91c150f3fc2f"}'></script>
+</body>
+</html>
