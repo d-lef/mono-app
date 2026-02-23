@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — Mono</title>
+    <link rel="canonical" href="https://mono-ai.uk/404">
+    <script>
+        // Redirect trailing slashes to non-trailing slash URLs
+        // GitHub Pages serves 404.html for missing paths including /slug/
+        (function() {
+            var path = window.location.pathname;
+            // If path ends with / (but isn't just /), redirect to version without trailing slash
+            if (path.length > 1 && path.endsWith('/')) {
+                var newPath = path.slice(0, -1);
+                window.location.replace(window.location.origin + newPath + window.location.search + window.location.hash);
+            }
+        })();
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #252525;
+            --text: #FFFFFF;
+            --secondary: #B0B0B0;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #F5F5F5;
+                --text: #212121;
+                --secondary: #757575;
+            }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(48px, 10vw, 96px);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--secondary);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 12px 28px;
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <p>This page doesn't exist.</p>
+    <a href="/">Go to homepage</a>
+</body>
+</html>

@@ -107,6 +107,21 @@
         .steps-list li:last-child { border-bottom: none; }
         .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
         .tip-box p { margin-bottom: 0; }
+
+        /* Related articles */
+        .related-articles { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); }
+        :root.light .related-articles { border-top-color: rgba(0,0,0,0.1); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-articles { border-top-color: rgba(0,0,0,0.1); } }
+        .related-title { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 20px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+        .related-card { display: block; text-decoration: none; background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; transition: background 0.2s ease, border-color 0.2s ease; }
+        .related-card:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.14); }
+        :root.light .related-card { border-color: rgba(0,0,0,0.08); }
+        :root.light .related-card:hover { border-color: rgba(0,0,0,0.16); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-card { border-color: rgba(0,0,0,0.08); } :root:not(.dark) .related-card:hover { border-color: rgba(0,0,0,0.16); } }
+        .related-card-title { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 6px; line-height: 1.3; }
+        .related-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -274,6 +289,28 @@
             <p><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with automatic transcription.</p>
 
             <cta-card base-path="../"></cta-card>
+
+            <section class="related-articles">
+                <h2 class="related-title">Related Guides</h2>
+                <div class="related-grid">
+                    <a href="how-to-record-discord-calls" class="related-card">
+                        <h3 class="related-card-title">How to Record Discord Calls</h3>
+                        <p class="related-card-desc">4 methods to record Discord voice calls and video chats.</p>
+                    </a>
+                    <a href="how-to-record-telegram-calls" class="related-card">
+                        <h3 class="related-card-title">How to Record Telegram Calls</h3>
+                        <p class="related-card-desc">3 methods to record Telegram voice calls on desktop.</p>
+                    </a>
+                    <a href="how-to-record-viber-calls" class="related-card">
+                        <h3 class="related-card-title">How to Record Viber Calls</h3>
+                        <p class="related-card-desc">3 methods to record Viber voice calls on desktop.</p>
+                    </a>
+                    <a href="record-discord-whatsapp-viber-telegram" class="related-card">
+                        <h3 class="related-card-title">Record Discord, WhatsApp, Viber or Telegram</h3>
+                        <p class="related-card-desc">Complete guide covering all four messaging apps.</p>
+                    </a>
+                </div>
+            </section>
 
         </div>
     </main>
