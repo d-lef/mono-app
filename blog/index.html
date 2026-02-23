@@ -339,7 +339,6 @@
         /* 3D fold effect */
         .main h1,
         .main .featured-card,
-        .main .cards-grid,
         .main .placeholder-card {
             transition: transform 0.05s linear, opacity 0.05s linear;
         }
@@ -543,7 +542,7 @@
         const canSlide = el => !isMobile() && el.tagName === 'P';
 
         function updateFoldEffect() {
-            const elements = document.querySelectorAll('.main h1, .main .featured-card, .main .cards-grid, .main .placeholder-card');
+            const elements = document.querySelectorAll('.main h1, .main .featured-card, .main .placeholder-card');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 const elementTop = rect.top;
