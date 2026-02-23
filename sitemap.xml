@@ -14,9 +14,15 @@
   </url>
   <url>
     <loc>https://mono-ai.uk/llms.txt</loc>
-    <lastmod>2026-02-21</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mono-ai.uk/llm-info</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://mono-ai.uk/blog/</loc>
@@ -33,12 +39,6 @@
   <url>
     <loc>https://mono-ai.uk/blog/record-discord-whatsapp-viber-telegram</loc>
     <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mono-ai.uk/blog/record-zoom-without-bot</loc>
-    <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

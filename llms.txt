@@ -12,6 +12,8 @@
 
 ## Links
 - Homepage: https://mono-ai.uk/
+- Full LLM Info Page: https://mono-ai.uk/llm-info
+- Blog: https://mono-ai.uk/blog/
 - Privacy Policy: https://mono-ai.uk/privacy.html
 - Download (Windows): https://github.com/d-lef/mono-releases/releases/latest/download/mono-windows.exe
 - Download (Mac Silicon): https://github.com/d-lef/mono-releases/releases/latest/download/mono-mac-silicon.dmg
