@@ -124,9 +124,9 @@
 
         <div class="article-body">
 
-            <p>Telegram Desktop has no built-in call recording feature. Unlike some messaging apps, Telegram doesn't offer any native way to save voice calls — whether they're one-on-one calls or group voice chats. If you need to record Telegram calls on your computer, you'll need a third-party tool.</p>
+            <p>Telegram Desktop has no built-in call recording feature. Unlike some messaging apps, Telegram doesn't offer any native way to save voice calls — whether they're one-on-one audio calls or group voice chats. If you need to record Telegram calls on your computer, you'll need a third-party screen recorder or audio capture tool.</p>
 
-            <p>Here are three methods that work reliably for recording Telegram calls in 2026.</p>
+            <p>This guide covers how to record Telegram calls reliably in 2026, including methods for both voice calls and video calls.</p>
 
             <div class="tldr">
                 <p class="tldr-label">TL;DR</p>
@@ -136,6 +136,12 @@
                     <li><strong>Built-in:</strong> None — Telegram has no native recording</li>
                 </ul>
             </div>
+
+            <h2>Why Record Telegram Calls?</h2>
+
+            <p>Recording Telegram calls serves many purposes. Business professionals capture client conversations for documentation. Journalists record interviews for accurate transcription. Language learners save conversations with native speakers. Remote teams preserve important discussions that would otherwise be lost.</p>
+
+            <p>Telegram call recording is particularly valuable because Telegram is popular for international communication — its calls work reliably across borders and have good audio quality. But without built-in recording, capturing these conversations requires external tools that can access your computer's internal audio output.</p>
 
             <h2>Quick Comparison</h2>
 
@@ -168,58 +174,97 @@
 
             <h2>Method 1: Mono (Recommended)</h2>
 
-            <p>Mono is a desktop app that records any audio playing on your computer, including Telegram calls. It captures the audio directly from your system's sound output, so there's no bot or notification visible to the other person. After the call, Mono automatically transcribes the recording using local AI.</p>
+            <p>Mono is a desktop app designed specifically for recording and transcribing conversations. It captures internal audio directly from your system's sound output, which means it records exactly what you hear through your speakers or headphones — including both sides of your Telegram call.</p>
+
+            <p>Because Mono records system audio rather than joining the call as a participant, there's no indication to the other person that recording is happening. After you stop recording, Mono automatically transcribes the conversation using local AI that runs entirely on your computer.</p>
 
             <h3>How to record Telegram calls with Mono</h3>
 
             <ol class="steps-list">
                 <li>Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li>Open Mono and click the Record button</li>
-                <li>Start your Telegram call</li>
+                <li>Open Mono and click the Record button to begin recording</li>
+                <li>Open Telegram Desktop and start your call</li>
+                <li>Have your conversation normally</li>
                 <li>When the call ends, click Stop in Mono</li>
-                <li>View your transcript with speaker labels and timestamps</li>
+                <li>Wait for the automatic transcription to complete</li>
+                <li>Review your transcript with speaker labels and timestamps</li>
             </ol>
 
-            <p><strong>Pros:</strong> No setup per call, invisible to other participants, automatic transcription with speaker identification, searchable recordings, one-time $50 payment.</p>
+            <p>The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript. You can search across all your recordings by keyword, making it easy to find specific conversations or topics.</p>
 
-            <p><strong>Cons:</strong> Paid software (one free recording to try).</p>
+            <p><strong>Pros:</strong> No per-call setup required, invisible to other participants, automatic transcription with speaker identification, searchable recordings, works with voice chats and video calls, one-time $50 payment with no subscription.</p>
+
+            <p><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
             <h2>Method 2: OBS Studio (Free)</h2>
 
-            <p>OBS Studio is free, open-source software primarily used for streaming and screen recording. It can also capture system audio, making it suitable for recording Telegram calls — though it requires initial configuration.</p>
+            <p>OBS Studio is free, open-source software primarily used for live streaming and screen recording. It can capture system audio and optionally your screen, making it suitable for recording Telegram calls. OBS requires some initial configuration but works reliably once set up.</p>
+
+            <p>Like Mono, OBS captures audio from your system's output rather than joining the call. The other person won't know you're recording. However, OBS doesn't include transcription — you get a raw audio or video file that you'll need to process yourself.</p>
 
             <h3>How to record Telegram calls with OBS</h3>
 
             <ol class="steps-list">
-                <li>Download OBS Studio from obsproject.com</li>
-                <li>Open Settings → Audio</li>
-                <li>Set "Desktop Audio" to your speakers/headphones</li>
-                <li>Create an Audio Output Capture source in your scene</li>
+                <li>Download OBS Studio from obsproject.com and install it</li>
+                <li>Open OBS and go to Settings → Audio</li>
+                <li>Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li>In the main window, click + under Sources</li>
+                <li>Add an "Audio Output Capture" source to capture internal audio</li>
                 <li>Click "Start Recording" before your Telegram call</li>
+                <li>Make your call in Telegram Desktop</li>
                 <li>Click "Stop Recording" when the call ends</li>
+                <li>Find your recording file in the output folder (usually Videos)</li>
             </ol>
 
-            <p><strong>Pros:</strong> Completely free, open source, can record video too if needed.</p>
+            <p><strong>Pros:</strong> Completely free and open source, invisible to other participants, can record video calls with screen recording, highly configurable with advanced audio settings.</p>
 
-            <p><strong>Cons:</strong> Requires manual setup, you must remember to start and stop recording, no transcription — just a raw audio file.</p>
+            <p><strong>Cons:</strong> Requires initial setup and configuration, you must manually begin recording and stop recording for each call, no transcription — just raw audio/video files.</p>
+
+            <h2>Recording Telegram Video Calls</h2>
+
+            <p>Telegram supports video calls in addition to voice calls. If you need video recording, you have two options:</p>
+
+            <p><strong>Audio only:</strong> Both Mono and OBS can capture the audio portion of video calls. This is often sufficient if you only need the conversation content, and produces much smaller files than video recording.</p>
+
+            <p><strong>Full video recording:</strong> OBS Studio can capture your entire screen or just the Telegram window. Add a "Display Capture" or "Window Capture" source to record the video portion alongside audio. Be aware that video files are significantly larger and video quality depends on the call's connection quality.</p>
 
             <h2>Why Telegram Doesn't Have Built-in Recording</h2>
 
-            <p>Telegram focuses on privacy and security as core features. Built-in call recording could raise privacy concerns, as it might be used without the other party's knowledge. By not including this feature, Telegram maintains its privacy-focused positioning — but this means users who legitimately need recordings must use external tools.</p>
+            <p>Telegram positions itself as a privacy-focused messenger. Built-in call recording would create privacy concerns, since recordings could be made without the other party's knowledge or consent. By not including this feature, Telegram maintains its reputation for user privacy.</p>
+
+            <p>This privacy-first approach means legitimate use cases — like recording business calls for compliance, capturing interviews, or saving memories of conversations with distant family — require external tools. The trade-off is that you have full control over your recordings: they stay on your computer and aren't uploaded anywhere.</p>
+
+            <h2>Legal Considerations</h2>
+
+            <p>Before recording Telegram calls, understand the legal requirements in your jurisdiction. Recording laws vary by country and region:</p>
+
+            <p><strong>One-party consent:</strong> In many places, you can legally record a call you're participating in without informing the other party.</p>
+
+            <p><strong>All-party consent:</strong> Some jurisdictions require all participants to consent to recording. This includes parts of the US, Germany, and other regions.</p>
+
+            <p>Regardless of legal requirements, consider informing the other party when recording important conversations. It avoids awkward situations and builds trust.</p>
 
             <h2>Tips for Better Telegram Call Recordings</h2>
 
             <div class="tip-box">
-                <p><strong>Use headphones</strong> to prevent echo and improve audio quality. <strong>Find a quiet space</strong> for important calls. <strong>Test your recording setup</strong> before critical conversations.</p>
+                <p><strong>Use headphones</strong> to prevent echo and improve audio quality — your microphone won't pick up sound from your speakers. <strong>Find a quiet environment</strong> for important calls. <strong>Test your recording setup</strong> with a short test before critical conversations.</p>
             </div>
+
+            <p><strong>Check audio levels:</strong> Before important calls, make a short test recording to ensure your audio levels are correct. You should hear both yourself and the other person clearly.</p>
+
+            <p><strong>Close other apps:</strong> Applications that produce sounds (email notifications, messaging apps, music players) can be captured in your recording. Close or mute them before starting.</p>
+
+            <p><strong>Stable internet connection:</strong> Poor connections affect call quality, which in turn affects recording quality. Use a wired connection if possible for important calls.</p>
 
             <h2>Which Method Should You Use?</h2>
 
-            <p><strong>If you need transcription:</strong> Mono is the only option here that includes automatic speech-to-text conversion with speaker labels.</p>
+            <p><strong>If you need transcription:</strong> Mono is the only option that includes automatic speech-to-text conversion with speaker labels. This saves significant time compared to manually transcribing recordings.</p>
 
-            <p><strong>If you want free:</strong> OBS Studio works but requires more setup and doesn't include transcription.</p>
+            <p><strong>If you want free:</strong> OBS Studio works reliably but requires setup and produces raw files without transcription.</p>
 
-            <p><strong>For regular use:</strong> Mono's one-click workflow is more practical than configuring OBS each time.</p>
+            <p><strong>For regular use:</strong> Mono's one-click workflow is more practical than configuring OBS for each call.</p>
+
+            <p><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with transcription.</p>
 
             <cta-card base-path="../"></cta-card>
 

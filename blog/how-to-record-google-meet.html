@@ -124,9 +124,9 @@
 
         <div class="article-body">
 
-            <p>Google Meet's built-in recording is only available on paid Google Workspace accounts — and even then, it notifies all participants. Many third-party tools work by joining your meeting as a bot, which everyone can see. But there are ways to record Google Meet locally, without bots and without uploading audio to the cloud.</p>
+            <p>Google Meet's built-in recording is only available on paid Google Workspace accounts — and even then, it notifies all participants. Many third-party tools work by joining your video call as a bot participant, which everyone can see. But there are ways to record Google Meet locally, without bots and without uploading audio to the cloud.</p>
 
-            <p>Here are four methods for recording Google Meet in 2026, including options for free Google accounts.</p>
+            <p>This guide covers how to record Google Meet in 2026, including screen recording and transcription options for free Google accounts.</p>
 
             <div class="tldr">
                 <p class="tldr-label">TL;DR</p>
@@ -137,6 +137,12 @@
                     <li><strong>Browser extension:</strong> Tactiq — captures captions only, no audio recording</li>
                 </ul>
             </div>
+
+            <h2>Why Record Google Meet?</h2>
+
+            <p>Google Meet is widely used for remote work, education, and personal communication. Recording video calls serves many purposes: teams share recordings with absent members, managers document important decisions, teachers create lecture archives, and individuals save interviews or consultations.</p>
+
+            <p>The challenge is that Google Meet recording requires a paid Workspace account and notifies all participants. If you have a free Google account, or need to record without notification, you need a third-party screen recorder or audio capture tool.</p>
 
             <h2>Quick Comparison</h2>
 
@@ -181,71 +187,114 @@
 
             <h2>Method 1: Mono (Recommended)</h2>
 
-            <p>Mono records Google Meet by capturing audio directly from your computer's sound output. No bot joins the meeting, no notification appears, and your audio stays on your computer. After the meeting, Mono transcribes the recording locally using AI and identifies speakers.</p>
+            <p>Mono records Google Meet by capturing internal audio directly from your computer's sound output. No bot joins the meeting, no notification appears to other participants, and your audio stays on your computer. This works with any Google account — free or Workspace.</p>
+
+            <p>After you stop recording, Mono transcribes the conversation locally using AI. The transcription includes speaker identification and timestamps, making it easy to navigate long meetings or find specific discussion points.</p>
 
             <h3>How to record Google Meet with Mono</h3>
 
             <ol class="steps-list">
                 <li>Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li>Open Mono and click the Record button</li>
-                <li>Join your Google Meet meeting</li>
+                <li>Open Mono and click the Record button to begin recording</li>
+                <li>Join your Google Meet meeting in your browser</li>
+                <li>Participate in the meeting normally</li>
                 <li>When the meeting ends, click Stop in Mono</li>
-                <li>View your transcript with speaker labels and timestamps</li>
+                <li>Wait for the automatic transcription to complete</li>
+                <li>Review your transcript with speaker labels and timestamps</li>
             </ol>
 
-            <p><strong>Pros:</strong> Works with free Google accounts, no bot visible, no participant notification, local AI transcription, one-time $50 payment.</p>
+            <p>Mono captures everything playing through your speakers or headphones, so you'll get all participants' audio in high quality. You can search across all your recordings by keyword.</p>
 
-            <p><strong>Cons:</strong> Paid software (one free recording to try).</p>
+            <p><strong>Pros:</strong> Works with free Google accounts, no bot visible, no participant notification, local AI transcription with speaker identification, searchable recordings, one-time $50 payment with no subscription.</p>
+
+            <p><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
             <h2>Method 2: OBS Studio (Free)</h2>
 
-            <p>OBS Studio can capture system audio including Google Meet calls. It's free, doesn't join the meeting as a participant, and works with any Google account.</p>
+            <p>OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn't join the meeting as a participant, works with any Google account, and is completely invisible to others in the meeting.</p>
+
+            <p>OBS is popular with streamers and content creators, but it works just as well for recording Google Meet audio calls. The main limitation is that it produces raw audio or video files without transcription.</p>
 
             <h3>How to record Google Meet with OBS</h3>
 
             <ol class="steps-list">
-                <li>Download OBS Studio from obsproject.com</li>
-                <li>Go to Settings → Audio and set "Desktop Audio" to your playback device</li>
-                <li>Add an Audio Output Capture source (or Display Capture for video)</li>
+                <li>Download OBS Studio from obsproject.com and install it</li>
+                <li>Open OBS and go to Settings → Audio</li>
+                <li>Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li>In the main window, click + under Sources</li>
+                <li>Add an "Audio Output Capture" source for audio-only recording</li>
+                <li>Optionally add "Display Capture" for video recording</li>
                 <li>Click "Start Recording" before joining Google Meet</li>
+                <li>Join and participate in your meeting</li>
                 <li>Click "Stop Recording" when the meeting ends</li>
+                <li>Find your recording in the output folder (usually Videos)</li>
             </ol>
 
-            <p><strong>Pros:</strong> Completely free, no bot, works with any Google account.</p>
+            <p><strong>Pros:</strong> Completely free and open source, no bot visible, works with any Google account, can record video calls with screen recording.</p>
 
-            <p><strong>Cons:</strong> Requires setup, must start/stop manually, no transcription.</p>
+            <p><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each meeting, no transcription — produces raw audio/video files only.</p>
 
             <h2>Method 3: Google Meet's Built-in Recording</h2>
 
-            <p>Google Meet has native recording, but only for Google Workspace accounts on Business Standard tier or higher. Free Gmail accounts cannot use this feature. When recording, all participants see a notification that the meeting is being recorded.</p>
+            <p>Google Meet has native recording functionality, but with significant limitations. Recording is only available on Google Workspace accounts at Business Standard tier or higher — free Gmail accounts cannot use this feature. When recording starts, all participants see a notification and a red indicator that the meeting is being recorded.</p>
 
-            <p><strong>Pros:</strong> No additional software, recording saved to Google Drive, includes transcript.</p>
+            <p>For organizations where transparency is expected and everyone knows meetings are recorded, this is the simplest option. Recordings are saved directly to Google Drive with automatic transcription.</p>
 
-            <p><strong>Cons:</strong> Requires paid Workspace account, all participants are notified, only organizers can start recording.</p>
+            <p><strong>Pros:</strong> No additional software needed, recording saved directly to Google Drive, includes automatic transcript, video quality matches the meeting.</p>
+
+            <p><strong>Cons:</strong> Requires paid Workspace account (no free option), all participants see recording notification, only meeting organizers can start recording, recordings stored in Google's cloud.</p>
 
             <h2>Method 4: Tactiq (Browser Extension)</h2>
 
-            <p>Tactiq is a Chrome extension that captures Google Meet's auto-generated captions — it doesn't record audio. It compiles the live captions into a transcript you can export. Quality depends entirely on Meet's caption accuracy.</p>
+            <p>Tactiq is a Chrome extension that takes a different approach: instead of recording audio, it captures Google Meet's auto-generated captions as you speak. It compiles the live captions into a transcript you can export, without storing any actual audio.</p>
 
-            <p><strong>Pros:</strong> No audio recording (privacy advantage), works in browser, affordable at $12/month.</p>
+            <p>This is useful when you only need text documentation and audio recording isn't necessary — or when recording would create privacy concerns. However, transcript quality depends entirely on Google Meet's caption accuracy.</p>
 
-            <p><strong>Cons:</strong> No actual audio recording, quality depends on Meet's captions, Chrome only.</p>
+            <p><strong>Pros:</strong> No audio recording means fewer privacy concerns, works in browser without additional software, affordable at $12/month, invisible to other participants.</p>
+
+            <p><strong>Cons:</strong> No actual audio recording (can't listen back), quality depends on Meet's caption accuracy (may miss words or speakers), Chrome browser only, requires Meet captions to be enabled.</p>
+
+            <h2>Recording Video vs Audio Only</h2>
+
+            <p>Google Meet includes video, but you don't always need video recording:</p>
+
+            <p><strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation. Files are small and searchable.</p>
+
+            <p><strong>Full video recording (OBS):</strong> Captures your screen showing the Google Meet window. Useful when visual content matters — presentations, shared screens, demonstrations. Video quality depends on your connection, and files are much larger.</p>
+
+            <h2>Legal Considerations</h2>
+
+            <p>Before recording Google Meet calls, understand the legal requirements in your jurisdiction:</p>
+
+            <p><strong>One-party consent:</strong> Many regions allow recording meetings you're participating in without informing others.</p>
+
+            <p><strong>All-party consent:</strong> Some jurisdictions require everyone to agree to recording. This includes California, Germany, and other areas.</p>
+
+            <p>For business meetings, check your organization's policies. Many companies require disclosure when recording, regardless of legal requirements.</p>
 
             <h2>Tips for Better Google Meet Recordings</h2>
 
             <div class="tip-box">
-                <p><strong>Use headphones</strong> to improve audio clarity. <strong>Enable captions in Meet</strong> if using Tactiq. <strong>Close other browser tabs</strong> to avoid notification sounds in your recording.</p>
+                <p><strong>Use headphones</strong> to prevent echo and improve audio quality. <strong>Enable captions in Meet</strong> if using Tactiq. <strong>Close other browser tabs</strong> to avoid notification sounds being captured in your recording.</p>
             </div>
+
+            <p><strong>Check audio levels:</strong> Make a short test recording before important meetings to ensure all participants are audible.</p>
+
+            <p><strong>Stable connection:</strong> Poor internet affects Google Meet audio quality, which affects recording quality. Use a wired connection for important meetings when possible.</p>
+
+            <p><strong>Browser performance:</strong> Google Meet runs in your browser. Close unnecessary tabs and applications to ensure smooth performance during recording.</p>
 
             <h2>Which Method Should You Use?</h2>
 
-            <p><strong>Free Google account + need transcription?</strong> Mono is the only option that works without Workspace.</p>
+            <p><strong>Free Google account + need transcription?</strong> Mono is the only option that works without Workspace and includes automatic transcription.</p>
 
-            <p><strong>Free Google account + don't need transcription?</strong> OBS Studio works but requires setup.</p>
+            <p><strong>Free Google account + don't need transcription?</strong> OBS Studio is reliable but requires initial setup.</p>
 
-            <p><strong>Have Workspace + don't mind notification?</strong> Google's built-in recording is simplest.</p>
+            <p><strong>Have Workspace + don't mind notification?</strong> Google's built-in recording is simplest — no additional software needed.</p>
 
-            <p><strong>Only need text, not audio?</strong> Tactiq captures captions without recording.</p>
+            <p><strong>Only need text, not audio?</strong> Tactiq captures captions without recording audio — good for privacy-sensitive situations.</p>
+
+            <p><strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with local transcription.</p>
 
             <cta-card base-path="../"></cta-card>
 
