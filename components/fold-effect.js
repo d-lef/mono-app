@@ -7,6 +7,10 @@
  * Automatically detects page type and applies appropriate fold effects:
  * - Blog articles: .article-wrap elements with slide effect for paragraphs (desktop)
  * - Privacy page: .container elements with uniform fold effect
+ *
+ * For tall elements (images, figures >200px), the effect triggers based on when
+ * the BOTTOM of the element reaches 50% of viewport height, ensuring users can
+ * see the whole element before it starts fading.
  */
 
 (function() {
@@ -40,21 +44,36 @@
             return; // No applicable elements
         }
 
+        const viewportHeight = window.innerHeight;
+
         elements.forEach(el => {
             const rect = el.getBoundingClientRect();
-            const elementTop = rect.top;
+            const isTallElement = rect.height > 200;
 
-            if (elementTop <= foldZoneEnd - rect.height) {
-                if (canSlide(el)) {
-                    el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
-                    el.style.transformOrigin = 'center top';
-                } else if (isPrivacyPage) {
+            // For tall elements (images, figures), use bottom of element
+            // Trigger when bottom reaches 50% of viewport height
+            // For short elements, use top as before
+            let triggerPoint;
+            let zoneStart, zoneEnd;
+
+            if (isTallElement) {
+                triggerPoint = rect.bottom;
+                zoneStart = viewportHeight * 0.5;
+                zoneEnd = foldZoneEnd;
+            } else {
+                triggerPoint = rect.top;
+                zoneStart = foldZoneStart;
+                zoneEnd = foldZoneEnd;
+            }
+
+            if (triggerPoint <= zoneEnd) {
+                if (canSlide(el) || isPrivacyPage) {
                     el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
                     el.style.transformOrigin = 'center top';
                 }
                 el.style.opacity = '0';
-            } else if (elementTop < foldZoneStart) {
-                let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
+            } else if (triggerPoint < zoneStart) {
+                let progress = 1 - (triggerPoint - zoneEnd) / (zoneStart - zoneEnd);
                 progress = Math.max(0, Math.min(1, progress));
                 progress = progress * progress;
 
@@ -73,5 +92,6 @@
     }
 
     window.addEventListener('scroll', updateFoldEffect, { passive: true });
+    window.addEventListener('resize', updateFoldEffect, { passive: true });
     updateFoldEffect();
 })();

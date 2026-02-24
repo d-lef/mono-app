@@ -657,6 +657,8 @@
         });
 
         // 3D fold effect on scroll
+        // For tall elements (like images), trigger based on when BOTTOM reaches fold zone
+        // This ensures users can see the whole image before it starts fading
         const foldZoneStart = 140;
         const foldZoneEnd = 60;
         const maxRotation = 25;
@@ -669,20 +671,40 @@
                 '.article-body .steps-list li, .article-body .result-list li, ' +
                 '.article-body .article-figure, .article-body .decision-list li, .article-body .cta-card'
             );
-        const isMobile = () => window.innerWidth < 768;
-        const canSlide = el => !isMobile() && el.tagName === 'P';
+            const isMobile = () => window.innerWidth < 768;
+            const canSlide = el => !isMobile() && el.tagName === 'P';
+            const viewportHeight = window.innerHeight;
 
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
-                const elementTop = rect.top;
-                if (elementTop <= foldZoneEnd - rect.height) {
+                const isTallElement = rect.height > 200;
+
+                // For tall elements (images, figures), use bottom of element
+                // Trigger when bottom reaches 50% of viewport height
+                // For short elements, use top as before
+                let triggerPoint;
+                let zoneStart, zoneEnd;
+
+                if (isTallElement) {
+                    // Use bottom of element, start fading when bottom reaches 50% of viewport
+                    triggerPoint = rect.bottom;
+                    zoneStart = viewportHeight * 0.5;
+                    zoneEnd = foldZoneEnd;
+                } else {
+                    // Use top of element as before
+                    triggerPoint = rect.top;
+                    zoneStart = foldZoneStart;
+                    zoneEnd = foldZoneEnd;
+                }
+
+                if (triggerPoint <= zoneEnd) {
                     if (canSlide(el)) {
                         el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
                         el.style.transformOrigin = 'center top';
                     }
                     el.style.opacity = '0';
-                } else if (elementTop < foldZoneStart) {
-                    let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
+                } else if (triggerPoint < zoneStart) {
+                    let progress = 1 - (triggerPoint - zoneEnd) / (zoneStart - zoneEnd);
                     progress = Math.max(0, Math.min(1, progress));
                     progress = progress * progress;
                     if (canSlide(el)) {
@@ -700,6 +722,7 @@
         }
 
         window.addEventListener('scroll', updateFoldEffect, { passive: true });
+        window.addEventListener('resize', updateFoldEffect, { passive: true });
         updateFoldEffect();
     </script>
 </body>
