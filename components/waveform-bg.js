@@ -6,6 +6,7 @@
  * - Monochromatic grey palette
  * - Respects prefers-reduced-motion
  * - Mouse hover interaction
+ * - Center fade for text readability
  *
  * Usage:
  *   <script src="/components/waveform-bg.js" defer></script>
@@ -36,6 +37,8 @@
         // Mouse interaction
         mouseInfluenceRadius: 200,
         mouseInfluenceStrength: 0.4,
+        // Center fade - bars fade out toward center of screen
+        centerFadeRadius: 250,
     };
 
     // Inject minimal styles
@@ -73,6 +76,10 @@
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
 
+    // Screen center
+    let screenCenterX = window.innerWidth / 2;
+    let screenCenterY = window.innerHeight / 2;
+
     // Detect theme
     function isDarkTheme() {
         const root = document.documentElement;
@@ -89,6 +96,10 @@
         ctx.scale(dpr, dpr);
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = '300px';
+
+        // Update screen center
+        screenCenterX = window.innerWidth / 2;
+        screenCenterY = window.innerHeight / 2;
     }
 
     // Calculate bar height using the app's swimming animation algorithm
@@ -123,12 +134,37 @@
         return amplitude * maxHeight;
     }
 
+    // Calculate opacity for center fade effect
+    function getCenterFadeOpacity(barX) {
+        const dx = Math.abs(barX - screenCenterX);
+        if (dx < CONFIG.centerFadeRadius) {
+            // Smooth fade using cosine for natural falloff
+            const t = dx / CONFIG.centerFadeRadius;
+            return 0.15 + (0.85 * t); // Fade from 15% at center to 100% at edge
+        }
+        return 1;
+    }
+
+    // Parse color and apply opacity
+    function applyOpacity(baseColor, opacity) {
+        // Extract rgba values
+        const match = baseColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*([\d.]+)?\)/);
+        if (match) {
+            const r = match[1];
+            const g = match[2];
+            const b = match[3];
+            const a = parseFloat(match[4] || 1) * opacity;
+            return `rgba(${r}, ${g}, ${b}, ${a})`;
+        }
+        return baseColor;
+    }
+
     // Draw waveform
     function draw() {
         const width = window.innerWidth;
         const height = 300;
         const centerY = height / 2;
-        const color = isDarkTheme() ? CONFIG.darkColor : CONFIG.lightColor;
+        const baseColor = isDarkTheme() ? CONFIG.darkColor : CONFIG.lightColor;
 
         ctx.clearRect(0, 0, width, height);
 
@@ -137,11 +173,13 @@
         const barsNeeded = Math.ceil(width / totalBarWidth) + 2;
         const startX = (width - (barsNeeded * totalBarWidth)) / 2;
 
-        ctx.fillStyle = color;
-
         for (let i = 0; i < barsNeeded; i++) {
             const barX = startX + (i * totalBarWidth);
             const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8, barX);
+
+            // Apply center fade
+            const fadeOpacity = getCenterFadeOpacity(barX);
+            ctx.fillStyle = applyOpacity(baseColor, fadeOpacity);
 
             // Draw top bar (mirrored upward from center)
             ctx.beginPath();
