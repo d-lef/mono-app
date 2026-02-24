@@ -5,7 +5,7 @@
  * - Three overlapping sine waves for organic "swimming" motion
  * - Monochromatic grey palette
  * - Respects prefers-reduced-motion
- * - Mouse hover reveals the waveform
+ * - Mouse hover interaction
  * - Center fade for text readability
  *
  * Usage:
@@ -31,11 +31,11 @@
         barRadius: 1.5,
         baseAmplitude: 0.35,
         animationSpeed: 0.02,
-        // Colors
+        // Colors - more visible now
         lightColor: 'rgba(189, 189, 189, 0.35)',  // #BDBDBD at 35% opacity
         darkColor: 'rgba(96, 96, 96, 0.25)',      // #606060 at 25% opacity
-        // Mouse interaction - waveform only visible near mouse
-        mouseRevealRadius: 350,
+        // Mouse interaction
+        mouseInfluenceRadius: 200,
         mouseInfluenceStrength: 0.4,
         // Center fade - bars fade out toward center of screen
         centerFadeRadius: 250,
@@ -73,8 +73,8 @@
     let isVisible = true;
 
     // Mouse tracking
-    let mouseX = -1000; // Start off-screen so nothing shows initially
-    let mouseY = -1000;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
 
     // Screen center
     let screenCenterX = window.innerWidth / 2;
@@ -103,7 +103,7 @@
     }
 
     // Calculate bar height using the app's swimming animation algorithm
-    function getBarHeight(index, totalBars, maxHeight) {
+    function getBarHeight(index, totalBars, maxHeight, barX) {
         const x = index / totalBars;
 
         // Three overlapping sine waves (matching desktop app)
@@ -116,25 +116,22 @@
 
         // Combined amplitude
         let amplitude = CONFIG.baseAmplitude + wave1 + wave2 + wave3 + noise;
-        amplitude = Math.max(0.1, Math.min(0.95, amplitude));
 
-        return amplitude * maxHeight;
-    }
-
-    // Calculate mouse reveal opacity - bars only visible near cursor
-    function getMouseRevealOpacity(barX) {
+        // Mouse influence - boost amplitude near cursor
         const canvasRect = canvas.getBoundingClientRect();
         const canvasCenterY = canvasRect.top + canvasRect.height / 2;
         const dx = barX - mouseX;
         const dy = canvasCenterY - mouseY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < CONFIG.mouseRevealRadius) {
-            // Smooth reveal using cosine for natural falloff
-            const t = distance / CONFIG.mouseRevealRadius;
-            return 1 - (t * t); // Quadratic falloff for softer edge
+        if (distance < CONFIG.mouseInfluenceRadius) {
+            const influence = 1 - (distance / CONFIG.mouseInfluenceRadius);
+            amplitude += influence * CONFIG.mouseInfluenceStrength;
         }
-        return 0;
+
+        amplitude = Math.max(0.1, Math.min(0.95, amplitude));
+
+        return amplitude * maxHeight;
     }
 
     // Calculate opacity for center fade effect
@@ -178,17 +175,11 @@
 
         for (let i = 0; i < barsNeeded; i++) {
             const barX = startX + (i * totalBarWidth);
-            const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8);
+            const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8, barX);
 
-            // Combine mouse reveal and center fade
-            const mouseOpacity = getMouseRevealOpacity(barX);
-            const centerOpacity = getCenterFadeOpacity(barX);
-            const finalOpacity = mouseOpacity * centerOpacity;
-
-            // Skip if fully transparent
-            if (finalOpacity < 0.01) continue;
-
-            ctx.fillStyle = applyOpacity(baseColor, finalOpacity);
+            // Apply center fade
+            const fadeOpacity = getCenterFadeOpacity(barX);
+            ctx.fillStyle = applyOpacity(baseColor, fadeOpacity);
 
             // Draw top bar (mirrored upward from center)
             ctx.beginPath();
