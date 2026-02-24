@@ -4,9 +4,8 @@
  * Matches the desktop app's waveform animation algorithm:
  * - Three overlapping sine waves for organic "swimming" motion
  * - Monochromatic grey palette
- * - Respects prefers-reduced-motion
- * - Mouse hover interaction
- * - Center fade for text readability
+ * - Static until mouse hovers - then animates
+ * - Large center cutout for text readability
  *
  * Usage:
  *   <script src="/components/waveform-bg.js" defer></script>
@@ -25,20 +24,18 @@
 
     // Configuration
     const CONFIG = {
-        barCount: 80,
         barWidth: 3,
         barGap: 4,
         barRadius: 1.5,
         baseAmplitude: 0.35,
         animationSpeed: 0.02,
-        // Colors - more visible now
-        lightColor: 'rgba(189, 189, 189, 0.35)',  // #BDBDBD at 35% opacity
-        darkColor: 'rgba(96, 96, 96, 0.25)',      // #606060 at 25% opacity
-        // Mouse interaction
-        mouseInfluenceRadius: 200,
-        mouseInfluenceStrength: 0.4,
-        // Center fade - bars fade out toward center of screen
-        centerFadeRadius: 250,
+        // Colors
+        lightColor: 'rgba(189, 189, 189, 0.35)',
+        darkColor: 'rgba(96, 96, 96, 0.25)',
+        // Mouse interaction - animation only happens near cursor
+        mouseAnimateRadius: 300,
+        // Center cutout - sharp edge, no bars in this zone
+        centerCutoutRadius: 450,
     };
 
     // Inject minimal styles
@@ -73,12 +70,12 @@
     let isVisible = true;
 
     // Mouse tracking
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
+    let mouseX = -1000;
+    let mouseY = -1000;
+    let isMouseNear = false;
 
     // Screen center
     let screenCenterX = window.innerWidth / 2;
-    let screenCenterY = window.innerHeight / 2;
 
     // Detect theme
     function isDarkTheme() {
@@ -97,57 +94,59 @@
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = '300px';
 
-        // Update screen center
         screenCenterX = window.innerWidth / 2;
-        screenCenterY = window.innerHeight / 2;
     }
 
-    // Calculate bar height using the app's swimming animation algorithm
+    // Calculate bar height - static base with animation only near mouse
     function getBarHeight(index, totalBars, maxHeight, barX) {
         const x = index / totalBars;
 
-        // Three overlapping sine waves (matching desktop app)
-        const wave1 = Math.sin((x * 4 * Math.PI) - phase) * 0.25;
-        const wave2 = Math.sin((x * 2 * Math.PI) - phase * 0.7) * 0.15;
-        const wave3 = Math.sin((x * 8 * Math.PI) - phase * 1.3) * 0.08;
+        // Base static wave pattern
+        const staticWave1 = Math.sin(x * 4 * Math.PI) * 0.25;
+        const staticWave2 = Math.sin(x * 2 * Math.PI) * 0.15;
+        const staticWave3 = Math.sin(x * 8 * Math.PI) * 0.08;
+        const staticNoise = Math.sin(index * 0.7) * 0.05;
 
-        // Subtle noise
-        const noise = Math.sin(index * 0.7 + phase * 0.3) * 0.05;
+        let amplitude = CONFIG.baseAmplitude + staticWave1 + staticWave2 + staticWave3 + staticNoise;
 
-        // Combined amplitude
-        let amplitude = CONFIG.baseAmplitude + wave1 + wave2 + wave3 + noise;
-
-        // Mouse influence - boost amplitude near cursor
+        // Check distance from mouse
         const canvasRect = canvas.getBoundingClientRect();
         const canvasCenterY = canvasRect.top + canvasRect.height / 2;
         const dx = barX - mouseX;
         const dy = canvasCenterY - mouseY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < CONFIG.mouseInfluenceRadius) {
-            const influence = 1 - (distance / CONFIG.mouseInfluenceRadius);
-            amplitude += influence * CONFIG.mouseInfluenceStrength;
+        // Add animation only near mouse
+        if (distance < CONFIG.mouseAnimateRadius) {
+            const influence = 1 - (distance / CONFIG.mouseAnimateRadius);
+
+            // Animated waves (using phase)
+            const animWave1 = Math.sin((x * 4 * Math.PI) - phase) * 0.25;
+            const animWave2 = Math.sin((x * 2 * Math.PI) - phase * 0.7) * 0.15;
+            const animWave3 = Math.sin((x * 8 * Math.PI) - phase * 1.3) * 0.08;
+            const animNoise = Math.sin(index * 0.7 + phase * 0.3) * 0.05;
+
+            const animAmplitude = CONFIG.baseAmplitude + animWave1 + animWave2 + animWave3 + animNoise;
+
+            // Blend static and animated based on proximity
+            amplitude = amplitude * (1 - influence) + animAmplitude * influence;
+
+            // Also boost amplitude near cursor
+            amplitude += influence * 0.3;
         }
 
         amplitude = Math.max(0.1, Math.min(0.95, amplitude));
-
         return amplitude * maxHeight;
     }
 
-    // Calculate opacity for center fade effect
-    function getCenterFadeOpacity(barX) {
+    // Check if bar is in center cutout zone
+    function isInCenterCutout(barX) {
         const dx = Math.abs(barX - screenCenterX);
-        if (dx < CONFIG.centerFadeRadius) {
-            // Smooth fade using cosine for natural falloff
-            const t = dx / CONFIG.centerFadeRadius;
-            return 0.15 + (0.85 * t); // Fade from 15% at center to 100% at edge
-        }
-        return 1;
+        return dx < CONFIG.centerCutoutRadius;
     }
 
     // Parse color and apply opacity
     function applyOpacity(baseColor, opacity) {
-        // Extract rgba values
         const match = baseColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*([\d.]+)?\)/);
         if (match) {
             const r = match[1];
@@ -167,6 +166,7 @@
         const baseColor = isDarkTheme() ? CONFIG.darkColor : CONFIG.lightColor;
 
         ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = baseColor;
 
         // Calculate bar positioning
         const totalBarWidth = CONFIG.barWidth + CONFIG.barGap;
@@ -175,11 +175,11 @@
 
         for (let i = 0; i < barsNeeded; i++) {
             const barX = startX + (i * totalBarWidth);
-            const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8, barX);
 
-            // Apply center fade
-            const fadeOpacity = getCenterFadeOpacity(barX);
-            ctx.fillStyle = applyOpacity(baseColor, fadeOpacity);
+            // Skip bars in center cutout
+            if (isInCenterCutout(barX)) continue;
+
+            const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8, barX);
 
             // Draw top bar (mirrored upward from center)
             ctx.beginPath();
@@ -197,12 +197,16 @@
     function animate() {
         if (!isVisible) return;
 
-        phase += CONFIG.animationSpeed;
+        // Only advance phase if mouse is near the canvas
+        if (isMouseNear) {
+            phase += CONFIG.animationSpeed;
+        }
+
         draw();
         animationId = requestAnimationFrame(animate);
     }
 
-    // Visibility change handler (pause when tab not visible)
+    // Visibility change handler
     function handleVisibilityChange() {
         if (document.hidden) {
             isVisible = false;
@@ -222,19 +226,21 @@
     function handleMouseMove(e) {
         mouseX = e.clientX;
         mouseY = e.clientY;
+
+        // Check if mouse is near the canvas
+        const canvasRect = canvas.getBoundingClientRect();
+        const canvasCenterY = canvasRect.top + canvasRect.height / 2;
+        const dy = Math.abs(e.clientY - canvasCenterY);
+        isMouseNear = dy < 200;
     }
 
     // Theme change observer
     function watchThemeChanges() {
-        const observer = new MutationObserver(() => {
-            draw();
-        });
+        const observer = new MutationObserver(() => draw());
         observer.observe(document.documentElement, {
             attributes: true,
             attributeFilter: ['class']
         });
-
-        // Also watch system preference
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
     }
 
@@ -247,14 +253,12 @@
         window.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('visibilitychange', handleVisibilityChange);
 
-        // Fade in after load
         requestAnimationFrame(() => {
             canvas.classList.add('active');
             animate();
         });
     }
 
-    // Start when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
