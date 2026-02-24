@@ -4,7 +4,7 @@
  * Matches the desktop app's waveform animation algorithm:
  * - Three overlapping sine waves for organic "swimming" motion
  * - Monochromatic grey palette
- * - Static until mouse hovers - then animates
+ * - Silent by default (no bars) - mouse hover triggers the "sound"
  * - Large center cutout for text readability
  *
  * Usage:
@@ -32,9 +32,9 @@
         // Colors
         lightColor: 'rgba(189, 189, 189, 0.35)',
         darkColor: 'rgba(96, 96, 96, 0.25)',
-        // Mouse interaction - animation only happens near cursor
-        mouseAnimateRadius: 300,
-        // Center cutout - sharp edge, no bars in this zone
+        // Mouse interaction - sound only happens near cursor
+        mouseSoundRadius: 350,
+        // Center cutout - no bars in this zone
         centerCutoutRadius: 450,
     };
 
@@ -97,18 +97,8 @@
         screenCenterX = window.innerWidth / 2;
     }
 
-    // Calculate bar height - static base with animation only near mouse
+    // Calculate bar height - zero by default, only appears near mouse
     function getBarHeight(index, totalBars, maxHeight, barX) {
-        const x = index / totalBars;
-
-        // Base static wave pattern
-        const staticWave1 = Math.sin(x * 4 * Math.PI) * 0.25;
-        const staticWave2 = Math.sin(x * 2 * Math.PI) * 0.15;
-        const staticWave3 = Math.sin(x * 8 * Math.PI) * 0.08;
-        const staticNoise = Math.sin(index * 0.7) * 0.05;
-
-        let amplitude = CONFIG.baseAmplitude + staticWave1 + staticWave2 + staticWave3 + staticNoise;
-
         // Check distance from mouse
         const canvasRect = canvas.getBoundingClientRect();
         const canvasCenterY = canvasRect.top + canvasRect.height / 2;
@@ -116,46 +106,34 @@
         const dy = canvasCenterY - mouseY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        // Add animation only near mouse
-        if (distance < CONFIG.mouseAnimateRadius) {
-            const influence = 1 - (distance / CONFIG.mouseAnimateRadius);
-
-            // Animated waves (using phase)
-            const animWave1 = Math.sin((x * 4 * Math.PI) - phase) * 0.25;
-            const animWave2 = Math.sin((x * 2 * Math.PI) - phase * 0.7) * 0.15;
-            const animWave3 = Math.sin((x * 8 * Math.PI) - phase * 1.3) * 0.08;
-            const animNoise = Math.sin(index * 0.7 + phase * 0.3) * 0.05;
-
-            const animAmplitude = CONFIG.baseAmplitude + animWave1 + animWave2 + animWave3 + animNoise;
-
-            // Blend static and animated based on proximity
-            amplitude = amplitude * (1 - influence) + animAmplitude * influence;
-
-            // Also boost amplitude near cursor
-            amplitude += influence * 0.3;
+        // No sound by default - bars only appear near mouse
+        if (distance >= CONFIG.mouseSoundRadius) {
+            return 0;
         }
 
+        // Calculate influence based on proximity (closer = louder)
+        const influence = 1 - (distance / CONFIG.mouseSoundRadius);
+        const smoothInfluence = influence * influence; // Quadratic for smoother falloff
+
+        const x = index / totalBars;
+
+        // Animated waves (using phase)
+        const wave1 = Math.sin((x * 4 * Math.PI) - phase) * 0.25;
+        const wave2 = Math.sin((x * 2 * Math.PI) - phase * 0.7) * 0.15;
+        const wave3 = Math.sin((x * 8 * Math.PI) - phase * 1.3) * 0.08;
+        const noise = Math.sin(index * 0.7 + phase * 0.3) * 0.05;
+
+        let amplitude = CONFIG.baseAmplitude + wave1 + wave2 + wave3 + noise;
         amplitude = Math.max(0.1, Math.min(0.95, amplitude));
-        return amplitude * maxHeight;
+
+        // Scale by mouse influence - farther = smaller bars
+        return amplitude * maxHeight * smoothInfluence;
     }
 
     // Check if bar is in center cutout zone
     function isInCenterCutout(barX) {
         const dx = Math.abs(barX - screenCenterX);
         return dx < CONFIG.centerCutoutRadius;
-    }
-
-    // Parse color and apply opacity
-    function applyOpacity(baseColor, opacity) {
-        const match = baseColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*([\d.]+)?\)/);
-        if (match) {
-            const r = match[1];
-            const g = match[2];
-            const b = match[3];
-            const a = parseFloat(match[4] || 1) * opacity;
-            return `rgba(${r}, ${g}, ${b}, ${a})`;
-        }
-        return baseColor;
     }
 
     // Draw waveform
@@ -180,6 +158,9 @@
             if (isInCenterCutout(barX)) continue;
 
             const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8, barX);
+
+            // Skip if bar is too small
+            if (barHeight < 1) continue;
 
             // Draw top bar (mirrored upward from center)
             ctx.beginPath();
@@ -231,7 +212,7 @@
         const canvasRect = canvas.getBoundingClientRect();
         const canvasCenterY = canvasRect.top + canvasRect.height / 2;
         const dy = Math.abs(e.clientY - canvasCenterY);
-        isMouseNear = dy < 200;
+        isMouseNear = dy < 250;
     }
 
     // Theme change observer
