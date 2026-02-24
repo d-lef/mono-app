@@ -34,8 +34,6 @@
         darkColor: 'rgba(96, 96, 96, 0.25)',
         // Mouse interaction - sound only happens near cursor
         mouseSoundRadius: 350,
-        // Center cutout - no bars in this zone
-        centerCutoutRadius: 450,
     };
 
     // Inject minimal styles
@@ -130,10 +128,20 @@
         return amplitude * maxHeight * smoothInfluence;
     }
 
-    // Check if bar is in center cutout zone
-    function isInCenterCutout(barX) {
+    // Get center fade opacity - soft gradient from center
+    function getCenterFadeOpacity(barX) {
         const dx = Math.abs(barX - screenCenterX);
-        return dx < CONFIG.centerCutoutRadius;
+        const innerRadius = 300;  // Fully transparent inside this
+        const outerRadius = 500;  // Fully visible outside this
+
+        if (dx < innerRadius) {
+            return 0;
+        } else if (dx < outerRadius) {
+            // Smooth gradient between inner and outer
+            const t = (dx - innerRadius) / (outerRadius - innerRadius);
+            return t * t; // Quadratic for softer fade
+        }
+        return 1;
     }
 
     // Draw waveform
@@ -154,13 +162,21 @@
         for (let i = 0; i < barsNeeded; i++) {
             const barX = startX + (i * totalBarWidth);
 
-            // Skip bars in center cutout
-            if (isInCenterCutout(barX)) continue;
+            // Get center fade opacity
+            const centerOpacity = getCenterFadeOpacity(barX);
+            if (centerOpacity < 0.01) continue;
 
             const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8, barX);
 
             // Skip if bar is too small
             if (barHeight < 1) continue;
+
+            // Apply center fade to color
+            const match = baseColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*([\d.]+)?\)/);
+            if (match) {
+                const a = parseFloat(match[4] || 1) * centerOpacity;
+                ctx.fillStyle = `rgba(${match[1]}, ${match[2]}, ${match[3]}, ${a})`;
+            }
 
             // Draw top bar (mirrored upward from center)
             ctx.beginPath();
