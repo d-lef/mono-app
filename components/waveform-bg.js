@@ -5,12 +5,18 @@
  * - Three overlapping sine waves for organic "swimming" motion
  * - Monochromatic grey palette
  * - Respects prefers-reduced-motion
+ * - Mouse hover interaction
  *
  * Usage:
  *   <script src="/components/waveform-bg.js" defer></script>
  */
 
 (function() {
+    // Disable on mobile
+    if (window.innerWidth < 768) {
+        return;
+    }
+
     // Respect reduced motion preference
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
@@ -24,9 +30,12 @@
         barRadius: 1.5,
         baseAmplitude: 0.35,
         animationSpeed: 0.02,
-        // Colors from app theme
-        lightColor: 'rgba(189, 189, 189, 0.15)',  // #BDBDBD at 15% opacity
-        darkColor: 'rgba(96, 96, 96, 0.12)',      // #606060 at 12% opacity
+        // Colors - more visible now
+        lightColor: 'rgba(189, 189, 189, 0.35)',  // #BDBDBD at 35% opacity
+        darkColor: 'rgba(96, 96, 96, 0.25)',      // #606060 at 25% opacity
+        // Mouse interaction
+        mouseInfluenceRadius: 200,
+        mouseInfluenceStrength: 0.4,
     };
 
     // Inject minimal styles
@@ -34,10 +43,11 @@
     style.textContent = `
         .waveform-bg-canvas {
             position: fixed;
-            bottom: 0;
+            top: 50%;
             left: 0;
             width: 100%;
-            height: 200px;
+            height: 300px;
+            transform: translateY(-50%);
             z-index: -1;
             pointer-events: none;
             opacity: 0;
@@ -59,6 +69,10 @@
     let animationId = null;
     let isVisible = true;
 
+    // Mouse tracking
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
     // Detect theme
     function isDarkTheme() {
         const root = document.documentElement;
@@ -71,14 +85,14 @@
     function resize() {
         const dpr = window.devicePixelRatio || 1;
         canvas.width = window.innerWidth * dpr;
-        canvas.height = 200 * dpr;
+        canvas.height = 300 * dpr;
         ctx.scale(dpr, dpr);
         canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = '200px';
+        canvas.style.height = '300px';
     }
 
     // Calculate bar height using the app's swimming animation algorithm
-    function getBarHeight(index, totalBars, maxHeight) {
+    function getBarHeight(index, totalBars, maxHeight, barX) {
         const x = index / totalBars;
 
         // Three overlapping sine waves (matching desktop app)
@@ -91,7 +105,20 @@
 
         // Combined amplitude
         let amplitude = CONFIG.baseAmplitude + wave1 + wave2 + wave3 + noise;
-        amplitude = Math.max(0.1, Math.min(0.9, amplitude));
+
+        // Mouse influence - boost amplitude near cursor
+        const canvasRect = canvas.getBoundingClientRect();
+        const canvasCenterY = canvasRect.top + canvasRect.height / 2;
+        const dx = barX - mouseX;
+        const dy = canvasCenterY - mouseY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < CONFIG.mouseInfluenceRadius) {
+            const influence = 1 - (distance / CONFIG.mouseInfluenceRadius);
+            amplitude += influence * CONFIG.mouseInfluenceStrength;
+        }
+
+        amplitude = Math.max(0.1, Math.min(0.95, amplitude));
 
         return amplitude * maxHeight;
     }
@@ -99,7 +126,8 @@
     // Draw waveform
     function draw() {
         const width = window.innerWidth;
-        const height = 200;
+        const height = 300;
+        const centerY = height / 2;
         const color = isDarkTheme() ? CONFIG.darkColor : CONFIG.lightColor;
 
         ctx.clearRect(0, 0, width, height);
@@ -112,13 +140,17 @@
         ctx.fillStyle = color;
 
         for (let i = 0; i < barsNeeded; i++) {
-            const barHeight = getBarHeight(i, barsNeeded, height * 0.7);
-            const x = startX + (i * totalBarWidth);
-            const y = height - barHeight;
+            const barX = startX + (i * totalBarWidth);
+            const barHeight = getBarHeight(i, barsNeeded, centerY * 0.8, barX);
 
-            // Draw rounded rectangle
+            // Draw top bar (mirrored upward from center)
             ctx.beginPath();
-            ctx.roundRect(x, y, CONFIG.barWidth, barHeight, CONFIG.barRadius);
+            ctx.roundRect(barX, centerY - barHeight, CONFIG.barWidth, barHeight, CONFIG.barRadius);
+            ctx.fill();
+
+            // Draw bottom bar (mirrored downward from center)
+            ctx.beginPath();
+            ctx.roundRect(barX, centerY, CONFIG.barWidth, barHeight, CONFIG.barRadius);
             ctx.fill();
         }
     }
@@ -148,6 +180,12 @@
         }
     }
 
+    // Mouse move handler
+    function handleMouseMove(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    }
+
     // Theme change observer
     function watchThemeChanges() {
         const observer = new MutationObserver(() => {
@@ -168,6 +206,7 @@
         watchThemeChanges();
 
         window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('visibilitychange', handleVisibilityChange);
 
         // Fade in after load
