@@ -125,11 +125,35 @@ class CtaCard extends HTMLElement {
                 <p class="cta-sub">One recording limit, no account needed. $50 to unlock everything — local AI, no subscription.</p>
                 <div class="cta-buttons">
                     <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
-                       class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
-                    <a href="${basePath}?buy" class="cta-btn-secondary">Download free</a>
+                       class="cta-btn-primary" id="cta-buy" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
+                    <a href="${basePath}?buy" class="cta-btn-secondary" id="cta-download">Download free</a>
                 </div>
             </div>
         `;
+
+        // Track button clicks (gtag defined in main page)
+        const buyBtn = this.shadowRoot.getElementById('cta-buy');
+        const downloadBtn = this.shadowRoot.getElementById('cta-download');
+
+        buyBtn.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+                gtag('event', 'buy_click', {
+                    'event_category': 'funnel',
+                    'event_label': 'blog_cta',
+                    'value': 50
+                });
+            }
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+                gtag('event', 'download_click', {
+                    'event_category': 'funnel',
+                    'event_label': 'blog_cta',
+                    'platform': 'free_trial'
+                });
+            }
+        });
     }
 }
 
