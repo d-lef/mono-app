@@ -145,28 +145,18 @@
         ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Mono",
-        "url": "https://mono-ai.uk/",
-        "logo": "https://mono-ai.uk/logo-black.png",
-        "description": "Mono is an AI meeting recorder for Windows and Mac with local transcription, speaker identification, and semantic search. One-time $50 payment, no subscription.",
-        "founder": {
-            "@type": "Person",
-            "name": "Daniil Lefanov"
-        },
-        "sameAs": [
-            "https://github.com/d-lef/mono-releases"
-        ]
-    }
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MX0DTMQ63C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MX0DTMQ63C');
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="/components/nav.js" defer></script>
-    <script src="/components/waveform-bg.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -288,7 +278,7 @@
         /* Tagline container - holds swappable groups */
         .tagline-container {
             position: absolute;
-            top: 50%;
+            top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
             height: 50px;
@@ -344,7 +334,7 @@
             }
 
             .tagline-container {
-                top: 50%;
+                top: 45%;
             }
 
             /* Tighter table on mobile with text wrapping */
@@ -452,7 +442,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
-            background-color: transparent;
+            background-color: var(--bg-primary);
         }
 
         .buy-container.visible {
@@ -955,11 +945,6 @@
             } else if (currentState === 5) {
                 logoGroup.classList.add('hidden');
                 buyContainer.classList.add('visible');
-                // Track pricing screen view
-                gtag('event', 'view_pricing', {
-                    'event_category': 'funnel',
-                    'event_label': 'homepage'
-                });
             }
         }
 
@@ -1316,41 +1301,6 @@
         // Check on load and resize
         window.addEventListener('resize', checkTaglineOverflow);
         document.fonts.ready.then(checkTaglineOverflow);
-
-        // ===== Funnel Tracking =====
-        // Track buy button clicks
-        buyButton.addEventListener('click', () => {
-            gtag('event', 'buy_click', {
-                'event_category': 'funnel',
-                'event_label': 'homepage',
-                'value': 50
-            });
-        });
-
-        // Track download button clicks
-        document.getElementById('downloadWindows').addEventListener('click', () => {
-            gtag('event', 'download_click', {
-                'event_category': 'funnel',
-                'event_label': 'homepage',
-                'platform': 'windows'
-            });
-        });
-
-        document.getElementById('downloadMacSilicon').addEventListener('click', () => {
-            gtag('event', 'download_click', {
-                'event_category': 'funnel',
-                'event_label': 'homepage',
-                'platform': 'mac-silicon'
-            });
-        });
-
-        document.getElementById('downloadMacIntel').addEventListener('click', () => {
-            gtag('event', 'download_click', {
-                'event_category': 'funnel',
-                'event_label': 'homepage',
-                'platform': 'mac-intel'
-            });
-        });
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2648ddd09be045f3b5ff91c150f3fc2f"}'></script>
