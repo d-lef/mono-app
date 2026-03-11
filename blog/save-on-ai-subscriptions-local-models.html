@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61BNYMZ7FD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-61BNYMZ7FD');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Save $300/Year on AI Subscriptions with Local Models — Mono</title>
+    <meta name="description" content="Run AI locally and skip the monthly fees. Local LLMs, transcription, and image generation can replace $300+/year in AI subscriptions. Here's what actually works in 2026.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/save-on-ai-subscriptions-local-models">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Save $300/Year on AI Subscriptions with Local Models">
+    <meta property="og:description" content="Run AI locally and skip the monthly fees. Local LLMs, transcription, and image generation can replace $300+/year in AI subscriptions.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/save-on-ai-subscriptions-local-models">
+    <meta property="og:site_name" content="Mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-03-11T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Save $300/Year on AI Subscriptions with Local Models">
+    <meta name="twitter:description" content="Run AI locally and skip the monthly fees. Here's what actually works in 2026.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Save $300/Year on AI Subscriptions with Local Models",
+      "description": "Run AI locally and skip the monthly fees. Local LLMs, transcription, and image generation can replace $300+/year in AI subscriptions.",
+      "datePublished": "2026-03-11",
+      "dateModified": "2026-03-11",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "Mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "url": "https://mono-ai.uk/blog/save-on-ai-subscriptions-local-models"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I run AI models locally on my computer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Modern computers with 8GB+ RAM can run capable AI models locally. Apple Silicon Macs and PCs with dedicated GPUs work best, but even older machines can run smaller models." }
+        },
+        {
+          "@type": "Question",
+          "name": "What AI subscriptions can I replace with local models?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Meeting transcription (Otter.ai), writing assistance (ChatGPT Plus), code completion (GitHub Copilot), and image generation (Midjourney) all have local alternatives that work offline with no monthly fees." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much can I save by running AI locally?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A typical AI subscription stack (ChatGPT Plus + Otter.ai + Copilot) costs $300-500/year. Local alternatives have one-time costs or are free, paying for themselves within months." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are local AI models as good as cloud services?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For most personal tasks, yes. Local models like Llama 3 and Whisper match cloud quality for everyday use. Cloud services still lead for cutting-edge capabilities, but the gap narrows every few months." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/nav.js" defer></script>
+    <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/cta-card.js" defer></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-primary: #252525; --bg-secondary: #2D2D2D; --bg-hover: #3A3A3A; --bg-pressed: #454545; --text-primary: #FFFFFF; --text-secondary: #B0B0B0; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; } }
+        :root.light { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; }
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
+        html::-webkit-scrollbar { display: none; }
+        body { font-family: 'Comfortaa', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+        .back-link { display: inline-block; font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; }
+        .back-link:hover { color: var(--text-primary); }
+        .article-category { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 16px; }
+        .article-title { font-weight: 500; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin-bottom: 12px; }
+        .article-meta { font-size: 13px; color: var(--text-secondary); margin-bottom: 48px; }
+        .article-body { font-size: 16px; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body h2 { font-weight: 500; font-size: 24px; margin-top: 48px; margin-bottom: 16px; }
+        .article-body h3 { font-weight: 500; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        .article-body strong { font-weight: 700; }
+        .article-body a { color: var(--text-primary); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; }
+        .article-body li { margin-bottom: 8px; }
+        .tldr { background: var(--bg-secondary); border-left: 3px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
+        :root.light .tldr { border-left-color: rgba(0,0,0,0.12); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .tldr { border-left-color: rgba(0,0,0,0.12); } }
+        .tldr-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr li { font-size: 15px; padding: 4px 0; }
+        .table-wrap { overflow-x: auto; margin-bottom: 24px; }
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 500px; }
+        .compare-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        .compare-table td { font-size: 14px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .compare-table tr.highlight-row td { background: rgba(255,255,255,0.04); }
+        :root.light .compare-table th { border-bottom-color: rgba(0,0,0,0.1); }
+        :root.light .compare-table td { border-bottom-color: rgba(0,0,0,0.06); }
+        :root.light .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .compare-table th { border-bottom-color: rgba(0,0,0,0.1); } :root:not(.dark) .compare-table td { border-bottom-color: rgba(0,0,0,0.06); } :root:not(.dark) .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); } }
+        .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+        .tip-box p { margin-bottom: 0; }
+        .cta-card { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; margin-top: 48px; text-align: center; }
+        :root.light .cta-card { border-color: rgba(0,0,0,0.08); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .cta-card { border-color: rgba(0,0,0,0.08); } }
+        .cta-title { font-weight: 500; font-size: 22px; margin-bottom: 8px; }
+        .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
+        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary { display: inline-block; background: var(--text-primary); color: var(--bg-primary); padding: 10px 24px; border-radius: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.15s ease, transform 0.15s ease; }
+        .cta-btn-primary:hover { opacity: 0.88; transform: scale(1.02); }
+        .cta-btn-secondary { display: inline-block; background: transparent; color: var(--text-secondary); padding: 10px 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 400; text-decoration: none; transition: border-color 0.15s ease, color 0.15s ease; }
+        .cta-btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--text-primary); }
+        :root.light .cta-btn-secondary { border-color: rgba(0,0,0,0.2); }
+        :root.light .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .cta-btn-secondary { border-color: rgba(0,0,0,0.2); } :root:not(.dark) .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); } }
+
+        .savings-callout { background: var(--bg-secondary); border-radius: 12px; padding: 24px; margin: 32px 0; text-align: center; }
+        .savings-amount { font-size: 48px; font-weight: 700; color: var(--text-primary); line-height: 1; }
+        .savings-label { font-size: 14px; color: var(--text-secondary); margin-top: 8px; }
+
+        .article-image { width: 100%; border-radius: 8px; margin: 24px 0; border: 1px solid rgba(255,255,255,0.1); }
+        :root.light .article-image { border-color: rgba(0,0,0,0.1); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .article-image { border-color: rgba(0,0,0,0.1); } }
+        .image-caption { font-size: 13px; color: var(--text-secondary); text-align: center; margin-top: -16px; margin-bottom: 24px; }
+    </style>
+</head>
+<body>
+    <site-nav base-path="../"></site-nav>
+
+    <main class="article-wrap">
+        <a href="./" class="back-link">← blog</a>
+
+        <header>
+            <span class="article-category">[Guide]</span>
+            <h1 class="article-title">How to Save $300/Year on AI Subscriptions with Local Models</h1>
+            <p class="article-meta">Mar 11, 2026 · 10 min read · By Daniil Lefanov</p>
+        </header>
+
+        <div class="article-body">
+
+            <p>AI subscriptions add up fast. ChatGPT Plus is $20/month. Claude Pro is $20/month. GitHub Copilot is $10/month. Otter.ai is $17/month. If you're using multiple AI tools, you're easily spending $300-500 per year on services that — for many tasks — can now run entirely on your own computer.</p>
+
+            <p>The shift happened quietly. Open-source models got good. Apple Silicon made local inference fast. And a growing ecosystem of tools now lets you run AI for writing, coding, transcription, and image generation without sending data to the cloud or paying monthly fees.</p>
+
+            <p>This guide covers what you can realistically run locally in 2026, what hardware you need, and where local models genuinely match (or beat) their cloud counterparts.</p>
+
+            <div class="tldr">
+                <p class="tldr-label">TL;DR</p>
+                <ul>
+                    <li><strong>Meeting transcription:</strong> Whisper locally matches cloud quality — Mono ($50 once) vs Otter.ai ($200/year)</li>
+                    <li><strong>Writing/chat:</strong> Llama 3, Gemma, Mistral via Ollama — free, runs on 8GB RAM</li>
+                    <li><strong>Code completion:</strong> Continue.dev + local model — free vs Copilot ($100/year)</li>
+                    <li><strong>Image generation:</strong> Stable Diffusion — free vs Midjourney ($120/year)</li>
+                    <li><strong>Break-even:</strong> Most setups pay for themselves in 2-4 months</li>
+                </ul>
+            </div>
+
+            <h2>The Real Cost of AI Subscriptions</h2>
+
+            <p>Let's add up what a typical "AI-enhanced" workflow costs per year:</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Monthly</th>
+                            <th>Yearly</th>
+                            <th>What You Get</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ChatGPT Plus</td>
+                            <td>$20</td>
+                            <td>$240</td>
+                            <td>GPT-4, writing assistance</td>
+                        </tr>
+                        <tr>
+                            <td>Claude Pro</td>
+                            <td>$20</td>
+                            <td>$240</td>
+                            <td>Claude, long context</td>
+                        </tr>
+                        <tr>
+                            <td>GitHub Copilot</td>
+                            <td>$10</td>
+                            <td>$100</td>
+                            <td>Code completion</td>
+                        </tr>
+                        <tr>
+                            <td>Otter.ai Pro</td>
+                            <td>$17</td>
+                            <td>$200</td>
+                            <td>Meeting transcription</td>
+                        </tr>
+                        <tr>
+                            <td>Midjourney</td>
+                            <td>$10</td>
+                            <td>$120</td>
+                            <td>Image generation</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Total</strong></td>
+                            <td><strong>$77</strong></td>
+                            <td><strong>$900</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Not everyone uses all of these. But even a modest stack — say, ChatGPT Plus and Otter.ai — runs $440/year. That's real money for capabilities that increasingly exist in free, local alternatives.</p>
+
+            <h2>What Can Actually Run Locally in 2026</h2>
+
+            <p>Local AI has come a long way. Here's what genuinely works on consumer hardware:</p>
+
+            <h3>1. Meeting Transcription (Replaces Otter.ai)</h3>
+
+            <p><strong>The tool:</strong> Whisper (via Mono, MacWhisper, or whisper.cpp)</p>
+
+            <p>OpenAI's Whisper model runs entirely locally and matches cloud transcription quality. It supports 95+ languages, handles accents well, and produces accurate timestamps.</p>
+
+            <p><strong>Mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter's $200/year, so it pays for itself in about 3 months.</p>
+
+            <img src="images/mono-ai-profiles.png" alt="Mono AI Profiles showing Local Models with Faster-Whisper for transcription" class="article-image" loading="lazy">
+            <p class="image-caption">Mono's AI profiles: choose between local models (free) or cloud APIs</p>
+
+            <div class="tip-box">
+                <p><strong>Savings:</strong> $150-200/year compared to Otter.ai, Fireflies, or similar services.</p>
+            </div>
+
+            <h3>2. Writing and Chat (Replaces ChatGPT Plus)</h3>
+
+            <p><strong>The tools:</strong> Ollama, LM Studio, or Jan</p>
+
+            <p>Running a local LLM used to require technical setup. Now you download an app, pick a model, and start chatting. The best options in 2026:</p>
+
+            <ul>
+                <li><strong>Llama 3 8B:</strong> Meta's open model, excellent for general tasks</li>
+                <li><strong>Gemma 2 9B:</strong> Google's efficient model, great on limited RAM</li>
+                <li><strong>Mistral 7B:</strong> Strong reasoning, runs fast on most machines</li>
+                <li><strong>Qwen 2.5:</strong> Particularly good for coding tasks</li>
+            </ul>
+
+            <p>For everyday writing — emails, brainstorming, summarization, Q&A — these models handle 80-90% of what people use ChatGPT for. The remaining 10-20% (cutting-edge reasoning, very long documents) still favors cloud models.</p>
+
+            <div class="tip-box">
+                <p><strong>Savings:</strong> $240/year if replacing ChatGPT Plus entirely. Many users keep a free ChatGPT tier for occasional complex tasks and use local models daily.</p>
+            </div>
+
+            <h3>3. Code Completion (Replaces GitHub Copilot)</h3>
+
+            <p><strong>The tool:</strong> Continue.dev + local model</p>
+
+            <p>Continue is an open-source VS Code/JetBrains extension that connects to local models for code completion and chat. Pair it with a coding-focused model like CodeLlama or Qwen 2.5 Coder, and you get Copilot-like autocomplete without the subscription.</p>
+
+            <p>The experience isn't quite as polished as Copilot — completions can be slightly slower, and the model occasionally misses context. But for many developers, it's close enough to save $100/year.</p>
+
+            <div class="tip-box">
+                <p><strong>Savings:</strong> $100/year. Works best for developers who don't need completions in every keystroke.</p>
+            </div>
+
+            <h3>4. Image Generation (Replaces Midjourney)</h3>
+
+            <p><strong>The tools:</strong> Stable Diffusion via ComfyUI, Automatic1111, or Fooocus</p>
+
+            <p>Local image generation has matured significantly. Stable Diffusion XL and SD 3 produce high-quality images, and tools like Fooocus make the workflow almost as simple as typing a prompt.</p>
+
+            <p>The catch: you need a decent GPU. NVIDIA cards with 8GB+ VRAM work best. Apple Silicon runs Stable Diffusion but slower than dedicated GPUs. Without a good GPU, this one's harder to replace locally.</p>
+
+            <div class="tip-box">
+                <p><strong>Savings:</strong> $120/year if you have the hardware. If you'd need to buy a GPU specifically for this, the math changes.</p>
+            </div>
+
+            <h3>5. Document Q&A and RAG</h3>
+
+            <p><strong>The tools:</strong> PrivateGPT, AnythingLLM, or Khoj</p>
+
+            <p>Want to chat with your documents locally? These tools combine local embedding models with local LLMs to create private RAG (retrieval-augmented generation) systems. Upload PDFs, notes, or documents and ask questions — entirely offline.</p>
+
+            <p>This replaces paid features in ChatGPT (file upload), Notion AI, and similar tools.</p>
+
+            <h2>Hardware Reality Check</h2>
+
+            <p>Local AI isn't free — it trades subscription costs for hardware requirements. Here's what you actually need:</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Use Case</th>
+                            <th>Minimum Specs</th>
+                            <th>Recommended</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Transcription (Whisper)</td>
+                            <td>8GB RAM, any modern CPU</td>
+                            <td>16GB RAM, Apple Silicon or dedicated GPU</td>
+                        </tr>
+                        <tr>
+                            <td>Chat/Writing (7-8B models)</td>
+                            <td>8GB RAM</td>
+                            <td>16GB RAM, Apple Silicon</td>
+                        </tr>
+                        <tr>
+                            <td>Chat/Writing (larger models)</td>
+                            <td>16GB RAM</td>
+                            <td>32GB+ RAM or GPU with 12GB+ VRAM</td>
+                        </tr>
+                        <tr>
+                            <td>Code completion</td>
+                            <td>16GB RAM</td>
+                            <td>32GB RAM, fast SSD</td>
+                        </tr>
+                        <tr>
+                            <td>Image generation</td>
+                            <td>GPU with 6GB VRAM</td>
+                            <td>GPU with 12GB+ VRAM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>The Apple Silicon sweet spot:</strong> M1/M2/M3 Macs with 16GB unified memory handle transcription, chat, and code completion well. The unified memory architecture means the RAM is shared with the GPU, making these machines surprisingly capable for local AI.</p>
+
+            <p><strong>Windows/Linux:</strong> A dedicated NVIDIA GPU (RTX 3060 or better) unlocks faster inference and image generation. Without a GPU, you're limited to CPU inference, which works but is slower.</p>
+
+            <p>If you already have capable hardware, local AI is essentially free beyond the software. If you'd need to upgrade, factor that into the break-even calculation.</p>
+
+            <h2>When Cloud Still Wins</h2>
+
+            <p>Local models aren't better at everything. Keep cloud subscriptions for:</p>
+
+            <ul>
+                <li><strong>Cutting-edge capabilities:</strong> GPT-4 and Claude Opus still outperform local models on complex reasoning, very long documents, and nuanced tasks.</li>
+                <li><strong>Mobile workflows:</strong> Local models require your computer. If you need AI on your phone or across devices, cloud services are more practical.</li>
+                <li><strong>Team features:</strong> Shared workspaces, collaboration, and admin controls typically require cloud infrastructure.</li>
+                <li><strong>Zero setup:</strong> Cloud services just work. Local tools require some configuration, even if it's gotten easier.</li>
+            </ul>
+
+            <p>The practical approach: use local models for daily tasks (80% of usage) and keep a free or minimal cloud tier for occasional complex work.</p>
+
+            <h2>Getting Started: A Minimal Local AI Stack</h2>
+
+            <p>Here's a practical starting point that replaces ~$400/year in subscriptions:</p>
+
+            <h3>For transcription:</h3>
+            <p><strong>Mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.</p>
+
+            <h3>For chat and writing:</h3>
+            <p><strong>Ollama</strong> (free) + <strong>Llama 3 8B</strong> — download Ollama, run <code>ollama pull llama3</code>, start chatting. Add a UI like Open WebUI for a ChatGPT-like experience.</p>
+
+            <h3>For coding:</h3>
+            <p><strong>Continue.dev</strong> (free) + <strong>Qwen 2.5 Coder</strong> — install the VS Code extension, point it at your local Ollama instance.</p>
+
+            <div class="savings-callout">
+                <div class="savings-amount">$350+</div>
+                <div class="savings-label">potential yearly savings with this stack</div>
+            </div>
+
+            <h2>The Privacy Bonus</h2>
+
+            <p>Beyond cost savings, local AI keeps your data private by default:</p>
+
+            <ul>
+                <li>Your meeting recordings stay on your device</li>
+                <li>Your documents aren't uploaded for training</li>
+                <li>Your code doesn't pass through third-party servers</li>
+                <li>You work offline without interruption</li>
+            </ul>
+
+            <p>For sensitive work — legal, medical, financial, or simply personal — this matters more than the subscription savings.</p>
+
+            <h2>Is It Worth It?</h2>
+
+            <p>If you have modern hardware (2020 or newer Mac, or a PC with a decent GPU), local AI makes financial sense within a few months. The tools have matured past the early-adopter phase into genuine daily-driver territory.</p>
+
+            <p>If you'd need significant hardware upgrades, the math is less clear. A new GPU costs $300-500 — that's 1-2 years of some subscriptions. At that point, you're buying into local AI for reasons beyond pure cost savings (privacy, offline access, ownership).</p>
+
+            <p>For most people with existing capable hardware, the answer is simple: try the free tools (Ollama, Continue.dev) and see if they fit your workflow. If they do, the subscription cancellations follow naturally.</p>
+
+            <div class="cta-card">
+                <p class="cta-title">Start with transcription</p>
+                <p class="cta-sub">Mono replaces Otter.ai with local AI transcription. $50 once, no subscription.<br>Pays for itself in 3 months.</p>
+                <div class="cta-buttons">
+                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
+                       class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
+                    <a href="../?buy" class="cta-btn-secondary">Download free trial</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Fold effect
+        if (window.initFoldEffect) window.initFoldEffect();
+    </script>
+</body>
+</html>
