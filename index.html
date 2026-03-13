@@ -347,8 +347,9 @@
                 margin-top: -10vh;
             }
 
+            /* Shift tagline container up to account for nav bar */
             .tagline-container {
-                top: 50%;
+                top: 45%;
             }
 
             /* Tighter table on mobile with text wrapping */
@@ -396,54 +397,20 @@
             }
         }
 
-        /* Mobile floating CTA - appears after first swipe */
-        .mobile-float-cta {
+        /* Mobile state indicator dots - vertical on left */
+        .mobile-progress {
             display: none;
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            padding: 14px 28px;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--bg-primary);
-            background: var(--text-primary);
-            border: none;
-            border-radius: 28px;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            transition: transform 0.15s ease, opacity 0.15s ease;
-            text-decoration: none;
-        }
-
-        .mobile-float-cta:hover {
-            transform: translateX(-50%) scale(1.02);
-        }
-
-        .mobile-float-cta:active {
-            transform: translateX(-50%) scale(0.98);
         }
 
         @media (max-width: 768px) {
-            body.show-float-cta .mobile-float-cta {
-                display: block;
-            }
-
-            /* Hide when on buy screen */
-            body.state-5 .mobile-float-cta {
-                display: none !important;
-            }
-
-            /* Mobile state indicator dots */
             .mobile-progress {
                 display: flex !important;
+                flex-direction: column;
                 position: fixed;
-                bottom: 80px;
-                left: 50%;
-                transform: translateX(-50%);
-                gap: 8px;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                gap: 12px;
                 z-index: 99;
             }
 
@@ -458,17 +425,13 @@
 
             .mobile-progress-dot.active {
                 opacity: 1;
-                transform: scale(1.3);
+                transform: scale(1.5);
             }
 
             /* Hide on buy screen */
             body.state-5 .mobile-progress {
                 display: none !important;
             }
-        }
-
-        .mobile-progress {
-            display: none;
         }
 
         body.loaded .scroll-indicator.visible {
@@ -979,9 +942,6 @@
 
     <a href="privacy.html" class="privacy-link">Privacy Policy</a>
 
-    <!-- Mobile floating CTA -->
-    <button class="mobile-float-cta" id="mobileFloatCta">Get Mono →</button>
-
     <!-- Mobile progress dots -->
     <div class="mobile-progress" id="mobileProgress">
         <span class="mobile-progress-dot active"></span>
@@ -1028,24 +988,10 @@
         // States: 0 = nothing, 1 = group1, 2 = group2, 3 = group3 (positioning), 4 = video, 5 = form
         let currentState = 0;
 
-        // Mobile: floating CTA and progress dots
-        const mobileFloatCta = document.getElementById('mobileFloatCta');
+        // Mobile: progress dots
         const mobileProgressDots = document.querySelectorAll('.mobile-progress-dot');
 
-        mobileFloatCta.addEventListener('click', () => {
-            currentState = 5;
-            updateVisibility();
-            if (typeof ma === 'function') ma('mobile_float_cta_click', { label: 'homepage' });
-        });
-
         function updateMobileProgress() {
-            // Show floating CTA after first interaction
-            if (currentState >= 1 && currentState < 5) {
-                document.body.classList.add('show-float-cta');
-            } else {
-                document.body.classList.remove('show-float-cta');
-            }
-
             // Update progress dots
             mobileProgressDots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentState);
@@ -1224,8 +1170,7 @@
                 downloadLabel: "or try free (1 recording limit)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)",
-                mobileFloatCta: "Get Mono →"
+                downloadMacIntel: "Mac (Intel)"
             },
             es: {
                 subtitle: "Graba reuniones desde cualquier app",
@@ -1254,8 +1199,7 @@
                 downloadLabel: "o prueba gratis (límite 1 grabación)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)",
-                mobileFloatCta: "Obtener Mono →"
+                downloadMacIntel: "Mac (Intel)"
             },
             ru: {
                 subtitle: "Записывай встречи из любого приложения",
@@ -1284,8 +1228,7 @@
                 downloadLabel: "или попробуйте бесплатно (лимит 1 запись)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)",
-                mobileFloatCta: "Получить Mono →"
+                downloadMacIntel: "Mac (Intel)"
             },
             fr: {
                 subtitle: "Enregistrez vos réunions depuis n'importe quelle app",
@@ -1314,8 +1257,7 @@
                 downloadLabel: "ou essayez gratuitement (limite 1 enregistrement)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)",
-                mobileFloatCta: "Obtenir Mono →"
+                downloadMacIntel: "Mac (Intel)"
             },
             de: {
                 subtitle: "Meetings aus jeder App aufnehmen",
@@ -1344,8 +1286,7 @@
                 downloadLabel: "oder kostenlos testen (1 Aufnahme Limit)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)",
-                mobileFloatCta: "Mono holen →"
+                downloadMacIntel: "Mac (Intel)"
             },
             zh: {
                 subtitle: "录制会议，来自任何应用",
@@ -1374,8 +1315,7 @@
                 downloadLabel: "或免费试用（限1个录音）",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)",
-                mobileFloatCta: "获取 Mono →"
+                downloadMacIntel: "Mac (Intel)"
             }
         };
 
@@ -1390,7 +1330,6 @@
         const downloadWindows = document.getElementById('downloadWindows').querySelector('span');
         const downloadMacSilicon = document.getElementById('downloadMacSilicon').querySelector('span');
         const downloadMacIntel = document.getElementById('downloadMacIntel').querySelector('span');
-        const mobileFloatCtaBtn = document.getElementById('mobileFloatCta');
 
         let currentLang = 'en';
 
@@ -1439,11 +1378,6 @@
             downloadWindows.textContent = t.downloadWindows;
             downloadMacSilicon.textContent = t.downloadMacSilicon;
             downloadMacIntel.textContent = t.downloadMacIntel;
-
-            // Update mobile floating CTA
-            if (t.mobileFloatCta) {
-                mobileFloatCtaBtn.textContent = t.mobileFloatCta;
-            }
 
             // Check for text overflow after language change
             checkTaglineOverflow();
