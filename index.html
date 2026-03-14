@@ -187,6 +187,7 @@
             --accent: #E0E0E0;
             --text-primary: #FFFFFF;
             --text-secondary: #B0B0B0;
+            --ripple-peak: 0.12;
         }
 
         /* Light theme - system preference */
@@ -199,6 +200,7 @@
                 --accent: #424242;
                 --text-primary: #212121;
                 --text-secondary: #757575;
+                --ripple-peak: 0.22;
             }
         }
 
@@ -211,6 +213,7 @@
             --accent: #424242;
             --text-primary: #212121;
             --text-secondary: #757575;
+            --ripple-peak: 0.22;
         }
 
         html {
@@ -264,7 +267,7 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 border-radius: 50%;
-                border: 1px solid var(--text-secondary);
+                border: 1px solid var(--accent);
                 opacity: 0;
                 animation: ripple-expand 6s ease-out infinite;
             }
@@ -284,7 +287,7 @@
                     opacity: 0;
                 }
                 30% {
-                    opacity: 0.12;
+                    opacity: var(--ripple-peak, 0.12);
                 }
                 100% {
                     width: 110vw;
