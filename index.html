@@ -1337,8 +1337,8 @@
         // Click to advance (like scrolling down)
         let lastClickTrigger = 0;
         document.addEventListener('click', (e) => {
-            // Don't trigger on buttons or iframes
-            if (e.target.closest('button, iframe, a, .lang-selector')) return;
+            // Don't trigger on buttons, iframes, or nav component (shadow DOM)
+            if (e.target.closest('button, iframe, a, .lang-selector, site-nav')) return;
 
             const now = Date.now();
             if (now - lastClickTrigger < 400) return;
