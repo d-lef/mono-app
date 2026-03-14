@@ -460,43 +460,6 @@
             flex-direction: column;
             align-items: center;
             transition: transform 0.5s ease, opacity 0.3s ease;
-            position: relative;
-        }
-
-        .logo-group::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 340px;
-            height: 340px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 50%, transparent 70%);
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-            opacity: 1;
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root:not(.dark) .logo-group::before {
-                background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.01) 50%, transparent 70%);
-            }
-        }
-
-        :root.light .logo-group::before {
-            background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.01) 50%, transparent 70%);
-        }
-
-        .logo-group.at-top::before {
-            opacity: 0;
-        }
-
-        @media (max-width: 768px) {
-            .logo-group::before {
-                width: 280px;
-                height: 280px;
-            }
         }
 
         .logo-group.at-top {
