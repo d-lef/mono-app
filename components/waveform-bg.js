@@ -24,7 +24,7 @@
     // ========== MOBILE: FLOATING PARTICLES ==========
     function initParticles() {
         const canvas = document.createElement('canvas');
-        canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.5s ease';
+        canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.5s ease';
         document.body.appendChild(canvas);
 
         const ctx = canvas.getContext('2d');
@@ -52,10 +52,10 @@
             return {
                 x: Math.random() * W,
                 y: y != null ? y : Math.random() * H,
-                r: 1 + Math.random() * 2,
+                r: 1.5 + Math.random() * 2,
                 speed: 0.15 + Math.random() * 0.35,
                 drift: (Math.random() - 0.5) * 0.3,
-                opacity: 0.08 + Math.random() * 0.18,
+                opacity: 0.15 + Math.random() * 0.25,
                 phase: Math.random() * Math.PI * 2,
                 wobbleSpeed: 0.003 + Math.random() * 0.005,
             };
