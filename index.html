@@ -761,6 +761,144 @@
             font-family: 'Comfortaa', sans-serif;
         }
 
+        /* Mobile discount CTA */
+        .mobile-discount {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .discount-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: clamp(10px, 3vw, 16px);
+            font-weight: 500;
+            color: var(--text-primary);
+            background-color: transparent;
+            border: 1px solid var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .discount-button:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        .discount-sub {
+            font-size: clamp(10px, 2.2vw, 12px);
+            color: var(--text-secondary);
+            opacity: 0.6;
+            text-align: center;
+            max-width: 280px;
+            line-height: 1.4;
+        }
+
+        /* Discount popup overlay */
+        .discount-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .discount-overlay.active {
+            display: flex;
+        }
+
+        .discount-popup {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 360px;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .discount-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .discount-title {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .discount-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .discount-email {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--text-secondary);
+            border-radius: 8px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 14px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        .discount-email:focus {
+            border-color: var(--text-primary);
+        }
+
+        .discount-submit {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.15s;
+        }
+
+        .discount-submit:hover { opacity: 0.85; }
+        .discount-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .discount-status {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            min-height: 18px;
+        }
+
+        /* Show mobile discount, hide download buttons on mobile */
+        @media (max-width: 768px) {
+            .mobile-discount { display: flex; }
+            .download-buttons { display: none !important; }
+        }
+
     </style>
 </head>
 <body>
@@ -859,7 +997,13 @@
             </a>
             <p class="buy-price" id="buyPrice">$50 · One-time payment</p>
 
-            <!-- Free download buttons -->
+            <!-- Mobile discount CTA (hidden on desktop) -->
+            <div class="mobile-discount" id="mobileDiscount">
+                <button class="discount-button" id="discountBtn">Get 15% off</button>
+                <p class="discount-sub">Mono is a desktop app — we'll email you the discount & download links</p>
+            </div>
+
+            <!-- Free download buttons (hidden on mobile) -->
             <div class="download-buttons" id="downloadButtons">
                 <p class="download-label" id="downloadLabel">or try free (1 recording limit)</p>
                 <div class="download-row">
@@ -961,6 +1105,20 @@
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
+    </div>
+
+    <!-- Discount popup -->
+    <div class="discount-overlay" id="discountOverlay">
+        <div class="discount-popup">
+            <button class="discount-close" id="discountClose">&times;</button>
+            <h3 class="discount-title">Get 15% off Mono</h3>
+            <p class="discount-desc">Enter your email and we'll send you a promo code with download links for your computer.</p>
+            <form id="discountForm">
+                <input type="email" class="discount-email" id="discountEmail" placeholder="your@email.com" required autocomplete="email">
+                <button type="submit" class="discount-submit" id="discountSubmit">Send my discount</button>
+            </form>
+            <p class="discount-status" id="discountStatus"></p>
+        </div>
     </div>
 
     <script>
@@ -1449,6 +1607,61 @@
                 'platform': 'mac-intel'
             });
             if (typeof ma === 'function') ma('download_click', { label: 'homepage', platform: 'mac-intel' });
+        });
+
+        // ===== Mobile Discount Popup =====
+        const discountBtn = document.getElementById('discountBtn');
+        const discountOverlay = document.getElementById('discountOverlay');
+        const discountClose = document.getElementById('discountClose');
+        const discountForm = document.getElementById('discountForm');
+        const discountEmail = document.getElementById('discountEmail');
+        const discountSubmit = document.getElementById('discountSubmit');
+        const discountStatus = document.getElementById('discountStatus');
+
+        if (discountBtn) {
+            discountBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                discountOverlay.classList.add('active');
+                discountEmail.focus();
+            });
+        }
+
+        discountClose.addEventListener('click', () => {
+            discountOverlay.classList.remove('active');
+        });
+
+        discountOverlay.addEventListener('click', (e) => {
+            if (e.target === discountOverlay) discountOverlay.classList.remove('active');
+        });
+
+        discountForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = discountEmail.value.trim();
+            if (!email) return;
+
+            discountSubmit.disabled = true;
+            discountStatus.textContent = 'Sending...';
+
+            try {
+                const r = await fetch('https://t.mono-ai.uk/api/send-discount', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email }),
+                });
+                const data = await r.json();
+                if (data.ok) {
+                    discountStatus.textContent = 'Sent! Check your inbox.';
+                    discountEmail.value = '';
+                    if (typeof ma === 'function') ma('email_captured', { label: 'mobile_discount', value: email });
+                    setTimeout(() => discountOverlay.classList.remove('active'), 2000);
+                } else {
+                    discountStatus.textContent = data.error || 'Something went wrong';
+                    discountSubmit.disabled = false;
+                }
+            } catch {
+                discountStatus.textContent = 'Connection error. Try again.';
+                discountSubmit.disabled = false;
+            }
         });
     </script>
     <!-- Cloudflare Web Analytics -->
