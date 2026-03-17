@@ -6,6 +6,7 @@
  *
  * Automatically detects page type and applies appropriate fold effects:
  * - Blog articles: .article-wrap elements with slide effect for paragraphs (desktop)
+ * - Blog listing: .main elements (h1, featured-card, placeholder-card)
  * - Privacy page: .container elements with uniform fold effect
  *
  * For tall elements (images, figures >200px), the effect triggers based on when
@@ -22,6 +23,7 @@
 
     // Detect page type based on DOM structure
     const isArticlePage = document.querySelector('.article-wrap') !== null;
+    const isBlogListPage = document.querySelector('.main .featured-card') !== null;
     const isPrivacyPage = document.querySelector('.container h1') !== null && !isArticlePage;
 
     // For article pages, only paragraphs get the slide effect on desktop
@@ -34,10 +36,14 @@
             elements = document.querySelectorAll(
                 '.article-wrap .back-link, .article-wrap header, ' +
                 '.article-body p, .article-body h2, .article-body h3, ' +
+                '.article-body ul, .article-body ol, .article-body blockquote, ' +
                 '.article-body .table-wrap, .article-body .tldr, .article-body .tip-box, ' +
                 '.article-body .steps-list li, .article-body .result-list li, ' +
-                '.article-body .article-figure, .article-body .decision-list li, .article-body .cta-card'
+                '.article-body .article-figure, .article-body .decision-list li, ' +
+                '.article-body .lawsuit-card, .article-body .cta-card'
             );
+        } else if (isBlogListPage) {
+            elements = document.querySelectorAll('.main h1, .main .featured-card, .main .placeholder-card');
         } else if (isPrivacyPage) {
             elements = document.querySelectorAll('.container h1, .container h2, .container p, .container li');
         } else {

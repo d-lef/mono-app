@@ -440,52 +440,12 @@
     </main>
 
 
+    <script src="/components/fold-effect.js" defer></script>
     <script>
         // Fade in on font load
         document.fonts.ready.then(() => {
             document.body.classList.add('fonts-loaded');
         });
-
-        // 3D fold effect on scroll
-        const foldZoneStart = 140;
-        const foldZoneEnd = 60;
-        const maxRotation = 25;
-
-        const isMobile = () => window.innerWidth < 768;
-        const canSlide = el => !isMobile() && el.tagName === 'P';
-
-        function updateFoldEffect() {
-            const elements = document.querySelectorAll('.main h1, .main .featured-card, .main .placeholder-card');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const elementTop = rect.top;
-
-                if (elementTop <= foldZoneEnd - rect.height) {
-                    if (canSlide(el)) {
-                        el.style.transform = 'perspective(800px) rotateX(' + maxRotation + 'deg)';
-                        el.style.transformOrigin = 'center top';
-                    }
-                    el.style.opacity = '0';
-                } else if (elementTop < foldZoneStart) {
-                    let progress = 1 - (elementTop - foldZoneEnd) / (foldZoneStart - foldZoneEnd);
-                    progress = Math.max(0, Math.min(1, progress));
-                    progress = progress * progress;
-                    if (canSlide(el)) {
-                        el.style.transform = 'perspective(800px) rotateX(' + (progress * maxRotation) + 'deg)';
-                        el.style.transformOrigin = 'center top';
-                    } else {
-                        el.style.transform = '';
-                    }
-                    el.style.opacity = 1 - (progress * 0.85);
-                } else {
-                    el.style.transform = '';
-                    el.style.opacity = '';
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateFoldEffect, { passive: true });
-        updateFoldEffect();
 
         // Language switcher
         const siteNav = document.querySelector('site-nav');
