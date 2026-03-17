@@ -195,5 +195,5 @@
             canvas.classList.add('active');
             animate();
         });
-    }
+    })();
 })();
