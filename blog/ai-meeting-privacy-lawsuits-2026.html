@@ -585,182 +585,182 @@
     <!-- Article -->
     <main class="article-wrap">
 
-        <a href="./" class="back-link">&larr; blog</a>
+        <a href="./" class="back-link" data-i18n="back_link">&larr; blog</a>
 
         <header>
-            <span class="article-category">[Security]</span>
-            <h1 class="article-title">AI Meeting Recorders Are a Legal Liability in 2026</h1>
-            <p class="article-meta">Mar 17, 2026 · 10 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure">Disclosure: Mono is our own product. We've included it in this article as a local-first alternative, but you should know we have a stake in it.</p>
+            <span class="article-category" data-i18n="category">[Security]</span>
+            <h1 class="article-title" data-i18n="title">AI Meeting Recorders Are a Legal Liability in 2026</h1>
+            <p class="article-meta" data-i18n="meta">Mar 17, 2026 · 10 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our own product. We've included it in this article as a local-first alternative, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
 
-            <p>In September 2024, a venture capital firm used Otter.ai to record a Zoom call with a founder. After the meeting, <a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">Otter accidentally emailed the founder a transcript that included hours of private investor conversations</a> — discussions that happened after he had left the call. The deal was cancelled.</p>
+            <p data-i18n="intro_p1">In September 2024, a venture capital firm used Otter.ai to record a Zoom call with a founder. After the meeting, <a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">Otter accidentally emailed the founder a transcript that included hours of private investor conversations</a> — discussions that happened after he had left the call. The deal was cancelled.</p>
 
-            <p>That incident was a preview of what's now unfolding across the AI meeting tool industry. In 2025 and early 2026, class action lawsuits have been filed against Otter.ai, Fireflies.ai, and Microsoft Teams. Universities are banning these tools. Companies are blocking them at the firewall level.</p>
+            <p data-i18n="intro_p2">That incident was a preview of what's now unfolding across the AI meeting tool industry. In 2025 and early 2026, class action lawsuits have been filed against Otter.ai, Fireflies.ai, and Microsoft Teams. Universities are banning these tools. Companies are blocking them at the firewall level.</p>
 
-            <p>If you're using cloud-based AI meeting recorders — or letting others use them in meetings with you — here's what you need to know.</p>
+            <p data-i18n="intro_p3">If you're using cloud-based AI meeting recorders — or letting others use them in meetings with you — here's what you need to know.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li><strong>Otter.ai</strong> — facing class action for recording without consent + using data to train AI</li>
-                    <li><strong>Fireflies.ai</strong> — sued for collecting voiceprints without BIPA-required consent</li>
-                    <li><strong>Microsoft Teams</strong> — February 2026 lawsuit alleges illegal voiceprint collection</li>
-                    <li><strong>Stanford, Oxford, Tufts</strong> — have banned third-party AI meeting bots</li>
-                    <li><strong>Local-first tools</strong> — avoid these issues entirely by keeping data on-device</li>
+                    <li data-i18n="tldr_1"><strong>Otter.ai</strong> — facing class action for recording without consent + using data to train AI</li>
+                    <li data-i18n="tldr_2"><strong>Fireflies.ai</strong> — sued for collecting voiceprints without BIPA-required consent</li>
+                    <li data-i18n="tldr_3"><strong>Microsoft Teams</strong> — February 2026 lawsuit alleges illegal voiceprint collection</li>
+                    <li data-i18n="tldr_4"><strong>Stanford, Oxford, Tufts</strong> — have banned third-party AI meeting bots</li>
+                    <li data-i18n="tldr_5"><strong>Local-first tools</strong> — avoid these issues entirely by keeping data on-device</li>
                 </ul>
             </div>
 
-            <h2>The lawsuits</h2>
+            <h2 data-i18n="h2_lawsuits">The lawsuits</h2>
 
-            <p>Three major AI meeting tools are now defending themselves in federal court. The allegations are serious: recording without consent, collecting biometric data illegally, and using private conversations to train AI models.</p>
+            <p data-i18n="lawsuits_intro">Three major AI meeting tools are now defending themselves in federal court. The allegations are serious: recording without consent, collecting biometric data illegally, and using private conversations to train AI models.</p>
 
             <div class="lawsuit-card">
-                <span class="tag pending">Ongoing</span>
-                <h4>Brewer v. Otter.ai (August 2025)</h4>
-                <p>Filed in California federal court, this <a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">class action lawsuit</a> alleges Otter.ai "deceptively and surreptitiously" recorded private conversations without obtaining proper consent from all participants.</p>
-                <p>The core issue: when someone with an Otter account joins a meeting, <a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">the bot can auto-join and record without asking non-account holders for permission</a>. The lawsuit also alleges Otter used recorded conversations to train its AI models.</p>
-                <p><strong>Claims:</strong> ECPA, CFAA, California Invasion of Privacy Act (CIPA), Unfair Competition Law</p>
+                <span class="tag pending" data-i18n="tag_ongoing">Ongoing</span>
+                <h4 data-i18n="otter_case_title">Brewer v. Otter.ai (August 2025)</h4>
+                <p data-i18n="otter_case_p1">Filed in California federal court, this <a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">class action lawsuit</a> alleges Otter.ai "deceptively and surreptitiously" recorded private conversations without obtaining proper consent from all participants.</p>
+                <p data-i18n="otter_case_p2">The core issue: when someone with an Otter account joins a meeting, <a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">the bot can auto-join and record without asking non-account holders for permission</a>. The lawsuit also alleges Otter used recorded conversations to train its AI models.</p>
+                <p data-i18n="otter_case_claims"><strong>Claims:</strong> ECPA, CFAA, California Invasion of Privacy Act (CIPA), Unfair Competition Law</p>
             </div>
 
             <div class="lawsuit-card">
-                <span class="tag bipa">BIPA Violation</span>
-                <h4>Cruz v. Fireflies.AI (December 2025)</h4>
-                <p>An Illinois resident filed this <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">class action alleging Fireflies.ai illegally collects biometric voiceprints</a> — unique vocal characteristics used to identify speakers.</p>
-                <p>The complaint states Fireflies collects this data from "people who never created a Fireflies account, never agreed to its terms of service, and never gave written consent." The company also allegedly has no published policy on how long it retains biometric data.</p>
-                <p><strong>Claims:</strong> Illinois Biometric Information Privacy Act (BIPA) — up to $5,000 per violation</p>
+                <span class="tag bipa" data-i18n="tag_bipa">BIPA Violation</span>
+                <h4 data-i18n="fireflies_case_title">Cruz v. Fireflies.AI (December 2025)</h4>
+                <p data-i18n="fireflies_case_p1">An Illinois resident filed this <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">class action alleging Fireflies.ai illegally collects biometric voiceprints</a> — unique vocal characteristics used to identify speakers.</p>
+                <p data-i18n="fireflies_case_p2">The complaint states Fireflies collects this data from "people who never created a Fireflies account, never agreed to its terms of service, and never gave written consent." The company also allegedly has no published policy on how long it retains biometric data.</p>
+                <p data-i18n="fireflies_case_claims"><strong>Claims:</strong> Illinois Biometric Information Privacy Act (BIPA) — up to $5,000 per violation</p>
             </div>
 
             <div class="lawsuit-card">
-                <span class="tag bipa">BIPA Violation</span>
-                <h4>Microsoft Teams Class Action (February 2026)</h4>
-                <p>Five Illinois residents <a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">sued Microsoft in February 2026</a>, alleging Teams' real-time transcription feature creates "voiceprints" by analyzing pitch, tone, and timbre to identify speakers.</p>
-                <p>The lawsuit argues Microsoft should have "categorically informed users how the data would be used and how long it would be stored" — which it allegedly did not do.</p>
-                <p><strong>Claims:</strong> Illinois BIPA — seeking $1,000-$5,000 per violation</p>
+                <span class="tag bipa" data-i18n="tag_bipa2">BIPA Violation</span>
+                <h4 data-i18n="teams_case_title">Microsoft Teams Class Action (February 2026)</h4>
+                <p data-i18n="teams_case_p1">Five Illinois residents <a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">sued Microsoft in February 2026</a>, alleging Teams' real-time transcription feature creates "voiceprints" by analyzing pitch, tone, and timbre to identify speakers.</p>
+                <p data-i18n="teams_case_p2">The lawsuit argues Microsoft should have "categorically informed users how the data would be used and how long it would be stored" — which it allegedly did not do.</p>
+                <p data-i18n="teams_case_claims"><strong>Claims:</strong> Illinois BIPA — seeking $1,000-$5,000 per violation</p>
             </div>
 
-            <h2>The legal minefield</h2>
+            <h2 data-i18n="h2_legal_minefield">The legal minefield</h2>
 
-            <p>These lawsuits highlight a fundamental problem with cloud-based meeting recorders: they're collecting sensitive data in ways that may violate multiple laws.</p>
+            <p data-i18n="legal_intro">These lawsuits highlight a fundamental problem with cloud-based meeting recorders: they're collecting sensitive data in ways that may violate multiple laws.</p>
 
-            <h3>Two-party consent states</h3>
+            <h3 data-i18n="h3_two_party">Two-party consent states</h3>
 
-            <p>Thirteen US states require <strong>all parties</strong> to consent before a conversation can be recorded:</p>
+            <p data-i18n="two_party_p1">Thirteen US states require <strong>all parties</strong> to consent before a conversation can be recorded:</p>
 
-            <p>California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, Nevada, New Hampshire, Pennsylvania, Washington</p>
+            <p data-i18n="two_party_states">California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, Nevada, New Hampshire, Pennsylvania, Washington</p>
 
-            <p>In California, the <a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">California Invasion of Privacy Act (CIPA)</a> allows victims to sue for up to $5,000 per violation. When an AI bot auto-joins a meeting without explicit consent from every participant, it may be violating this law.</p>
+            <p data-i18n="two_party_p2">In California, the <a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">California Invasion of Privacy Act (CIPA)</a> allows victims to sue for up to $5,000 per violation. When an AI bot auto-joins a meeting without explicit consent from every participant, it may be violating this law.</p>
 
-            <h3>Biometric data laws</h3>
+            <h3 data-i18n="h3_biometric">Biometric data laws</h3>
 
-            <p>Illinois BIPA is the strictest biometric privacy law in the US. It requires:</p>
+            <p data-i18n="biometric_p1">Illinois BIPA is the strictest biometric privacy law in the US. It requires:</p>
 
             <ul>
-                <li>Written notice that biometric data will be collected</li>
-                <li>Explicit written consent before collection</li>
-                <li>A published retention and destruction policy</li>
+                <li data-i18n="biometric_li1">Written notice that biometric data will be collected</li>
+                <li data-i18n="biometric_li2">Explicit written consent before collection</li>
+                <li data-i18n="biometric_li3">A published retention and destruction policy</li>
             </ul>
 
-            <p>Voice is biometric data. When AI tools analyze your voice to identify who's speaking (speaker diarization), they're creating a voiceprint — which BIPA regulates. <a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">Simply clicking "I agree" to general terms of service doesn't satisfy BIPA's requirements</a>.</p>
+            <p data-i18n="biometric_p2">Voice is biometric data. When AI tools analyze your voice to identify who's speaking (speaker diarization), they're creating a voiceprint — which BIPA regulates. <a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">Simply clicking "I agree" to general terms of service doesn't satisfy BIPA's requirements</a>.</p>
 
-            <h3>Data training concerns</h3>
+            <h3 data-i18n="h3_data_training">Data training concerns</h3>
 
-            <p>The Otter.ai lawsuit specifically alleges that meeting transcripts were used to train AI models. Even if you consented to transcription, did you consent to your private conversations becoming training data?</p>
+            <p data-i18n="data_training_p1">The Otter.ai lawsuit specifically alleges that meeting transcripts were used to train AI models. Even if you consented to transcription, did you consent to your private conversations becoming training data?</p>
 
-            <p><a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">As one security researcher put it</a>: "The primary risk is your sensitive business or customer data being leaked or used to train large language models."</p>
+            <p data-i18n="data_training_p2"><a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">As one security researcher put it</a>: "The primary risk is your sensitive business or customer data being leaked or used to train large language models."</p>
 
-            <h2>Universities and companies are banning AI bots</h2>
+            <h2 data-i18n="h2_bans">Universities and companies are banning AI bots</h2>
 
-            <p>Institutions aren't waiting for the lawsuits to play out. They're blocking these tools now.</p>
+            <p data-i18n="bans_intro">Institutions aren't waiting for the lawsuits to play out. They're blocking these tools now.</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Institution</th>
-                            <th>Action</th>
-                            <th>Tools Blocked</th>
+                            <th data-i18n="th_institution">Institution</th>
+                            <th data-i18n="th_action">Action</th>
+                            <th data-i18n="th_tools">Tools Blocked</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">Stanford</a></td>
-                            <td>Blocked from Zoom</td>
+                            <td data-i18n="stanford_action">Blocked from Zoom</td>
                             <td>Fireflies, OtterPilot, Sembly, Grain, Avoma, Fathom</td>
                         </tr>
                         <tr>
                             <td><a href="https://www.infosec.ox.ac.uk/article/are-your-online-meetings-safe-from-third-party-ai-bots" target="_blank" rel="noopener">Oxford</a></td>
-                            <td>Blocked + SSO disabled</td>
+                            <td data-i18n="oxford_action">Blocked + SSO disabled</td>
                             <td>Read AI, Fireflies AI, Sembly AI</td>
                         </tr>
                         <tr>
                             <td><a href="https://access.tufts.edu/unapproved-ai-bots-blocked-tufts-zoom-and-ms-teams" target="_blank" rel="noopener">Tufts</a></td>
-                            <td>Blocked from Zoom + Teams</td>
-                            <td>All unapproved AI bots (only Zoom AI Companion allowed)</td>
+                            <td data-i18n="tufts_action">Blocked from Zoom + Teams</td>
+                            <td data-i18n="tufts_tools">All unapproved AI bots (only Zoom AI Companion allowed)</td>
                         </tr>
                         <tr>
                             <td>Chapman University</td>
-                            <td>Banned</td>
+                            <td data-i18n="chapman_action">Banned</td>
                             <td>Read AI</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <p>Stanford's IT department <a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">explicitly warns</a> that third-party bots may "scrape calendars, unknowingly transcribe meetings, save meetings in unknown places, and join meetings even when users are not present."</p>
+            <p data-i18n="bans_stanford">Stanford's IT department <a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">explicitly warns</a> that third-party bots may "scrape calendars, unknowingly transcribe meetings, save meetings in unknown places, and join meetings even when users are not present."</p>
 
-            <p>Corporate IT departments are taking similar action. As one <a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">Gartner peer community discussion</a> noted: "Most companies' policies are to not have these capabilities enabled until they understand the data risks posed."</p>
+            <p data-i18n="bans_corporate">Corporate IT departments are taking similar action. As one <a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">Gartner peer community discussion</a> noted: "Most companies' policies are to not have these capabilities enabled until they understand the data risks posed."</p>
 
-            <h2>The compliance problem</h2>
+            <h2 data-i18n="h2_compliance">The compliance problem</h2>
 
-            <p>For certain industries, cloud-based meeting transcription is a non-starter:</p>
-
-            <ul>
-                <li><strong>Healthcare:</strong> HIPAA requires strict controls over patient data. <a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">Cloud transcription APIs require Business Associate Agreements</a>, but even with paperwork, you're entrusting PHI to external systems.</li>
-                <li><strong>Legal:</strong> Attorney-client privilege may be waived if conversations are uploaded to third-party servers without proper safeguards.</li>
-                <li><strong>Finance:</strong> M&A discussions, board meetings, and product roadmaps are exactly the kind of sensitive content that shouldn't be training someone else's AI.</li>
-            </ul>
-
-            <h2>The alternative: local-first recording</h2>
-
-            <p>The core problem with cloud-based AI meeting tools is architectural: your audio leaves your device, goes to someone else's servers, and you lose control over what happens to it.</p>
-
-            <p>Local-first tools solve this by keeping everything on your computer:</p>
+            <p data-i18n="compliance_intro">For certain industries, cloud-based meeting transcription is a non-starter:</p>
 
             <ul>
-                <li>Audio is processed on-device using local AI (like OpenAI's Whisper)</li>
-                <li>Nothing is uploaded to any cloud</li>
-                <li>No third-party servers means no Business Associate Agreements needed</li>
-                <li>No voiceprints sent anywhere means no BIPA exposure</li>
-                <li>No training on your data because there's no data to train on</li>
+                <li data-i18n="compliance_healthcare"><strong>Healthcare:</strong> HIPAA requires strict controls over patient data. <a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">Cloud transcription APIs require Business Associate Agreements</a>, but even with paperwork, you're entrusting PHI to external systems.</li>
+                <li data-i18n="compliance_legal"><strong>Legal:</strong> Attorney-client privilege may be waived if conversations are uploaded to third-party servers without proper safeguards.</li>
+                <li data-i18n="compliance_finance"><strong>Finance:</strong> M&A discussions, board meetings, and product roadmaps are exactly the kind of sensitive content that shouldn't be training someone else's AI.</li>
             </ul>
 
-            <p>This is why we built <a href="/">Mono</a> to process everything locally. It records audio from any app — Zoom, Teams, Meet, Discord, WhatsApp — but the transcription happens entirely on your device using on-device AI. Your meeting audio never leaves your computer.</p>
+            <h2 data-i18n="h2_alternative">The alternative: local-first recording</h2>
 
-            <p>It's not the only approach (you could also just... not transcribe meetings), but if you need transcription and care about compliance, local processing is the only architecture that makes sense in 2026.</p>
+            <p data-i18n="alternative_p1">The core problem with cloud-based AI meeting tools is architectural: your audio leaves your device, goes to someone else's servers, and you lose control over what happens to it.</p>
 
-            <h2>What you should do</h2>
+            <p data-i18n="alternative_p2">Local-first tools solve this by keeping everything on your computer:</p>
 
-            <p>If you're currently using cloud-based AI meeting tools:</p>
+            <ul>
+                <li data-i18n="alternative_li1">Audio is processed on-device using local AI (like OpenAI's Whisper)</li>
+                <li data-i18n="alternative_li2">Nothing is uploaded to any cloud</li>
+                <li data-i18n="alternative_li3">No third-party servers means no Business Associate Agreements needed</li>
+                <li data-i18n="alternative_li4">No voiceprints sent anywhere means no BIPA exposure</li>
+                <li data-i18n="alternative_li5">No training on your data because there's no data to train on</li>
+            </ul>
+
+            <p data-i18n="alternative_p3">This is why we built <a href="/">Mono</a> to process everything locally. It records audio from any app — Zoom, Teams, Meet, Discord, WhatsApp — but the transcription happens entirely on your device using on-device AI. Your meeting audio never leaves your computer.</p>
+
+            <p data-i18n="alternative_p4">It's not the only approach (you could also just... not transcribe meetings), but if you need transcription and care about compliance, local processing is the only architecture that makes sense in 2026.</p>
+
+            <h2 data-i18n="h2_action">What you should do</h2>
+
+            <p data-i18n="action_intro">If you're currently using cloud-based AI meeting tools:</p>
 
             <ol>
-                <li><strong>Check your company's policy.</strong> IT may have already blocked these tools without announcing it.</li>
-                <li><strong>Review the consent flow.</strong> Does the tool get explicit consent from every participant, or just the host?</li>
-                <li><strong>Check the privacy policy.</strong> Is your data used for training? Is there a data retention policy?</li>
-                <li><strong>Consider your jurisdiction.</strong> Are you in a two-party consent state? Are any participants?</li>
-                <li><strong>Evaluate local alternatives.</strong> If compliance matters, local processing eliminates most of the risk.</li>
+                <li data-i18n="action_li1"><strong>Check your company's policy.</strong> IT may have already blocked these tools without announcing it.</li>
+                <li data-i18n="action_li2"><strong>Review the consent flow.</strong> Does the tool get explicit consent from every participant, or just the host?</li>
+                <li data-i18n="action_li3"><strong>Check the privacy policy.</strong> Is your data used for training? Is there a data retention policy?</li>
+                <li data-i18n="action_li4"><strong>Consider your jurisdiction.</strong> Are you in a two-party consent state? Are any participants?</li>
+                <li data-i18n="action_li5"><strong>Evaluate local alternatives.</strong> If compliance matters, local processing eliminates most of the risk.</li>
             </ol>
 
-            <p>The AI meeting tool industry moved fast and broke things — specifically, privacy laws. The lawsuits now working through the courts will establish precedents, but you don't have to wait for the verdicts to protect yourself.</p>
+            <p data-i18n="action_conclusion">The AI meeting tool industry moved fast and broke things — specifically, privacy laws. The lawsuits now working through the courts will establish precedents, but you don't have to wait for the verdicts to protect yourself.</p>
 
             <div class="cta-card">
-                <p class="cta-title">Record meetings without the legal risk</p>
-                <p class="cta-sub">Mono transcribes locally using on-device AI. No cloud upload. No bots. No consent issues. $50 once, no subscription.</p>
+                <p class="cta-title" data-i18n="cta_title">Record meetings without the legal risk</p>
+                <p class="cta-sub" data-i18n="cta_sub">Mono transcribes locally using on-device AI. No cloud upload. No bots. No consent issues. $50 once, no subscription.</p>
                 <div class="cta-buttons">
-                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO" class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
-                    <a href="../?buy" class="cta-btn-secondary">Download free</a>
+                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO" class="cta-btn-primary" target="_blank" rel="noopener sponsored" data-i18n="cta_buy">Buy Mono — $50</a>
+                    <a href="../?buy" class="cta-btn-secondary" data-i18n="cta_download">Download free</a>
                 </div>
             </div>
 
@@ -776,5 +776,546 @@
             document.body.classList.add('fonts-loaded');
         });
     </script>
+
+<script>
+const translations = {
+    en: {
+        'back_link': '← blog',
+        'category': '[Security]',
+        'title': 'AI Meeting Recorders Are a Legal Liability in 2026',
+        'meta': 'Mar 17, 2026 · 10 min read · By Daniil Lefanov',
+        'disclosure': 'Disclosure: Mono is our own product. We\'ve included it in this article as a local-first alternative, but you should know we have a stake in it.',
+        'intro_p1': 'In September 2024, a venture capital firm used Otter.ai to record a Zoom call with a founder. After the meeting, <a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">Otter accidentally emailed the founder a transcript that included hours of private investor conversations</a> — discussions that happened after he had left the call. The deal was cancelled.',
+        'intro_p2': 'That incident was a preview of what\'s now unfolding across the AI meeting tool industry. In 2025 and early 2026, class action lawsuits have been filed against Otter.ai, Fireflies.ai, and Microsoft Teams. Universities are banning these tools. Companies are blocking them at the firewall level.',
+        'intro_p3': 'If you\'re using cloud-based AI meeting recorders — or letting others use them in meetings with you — here\'s what you need to know.',
+        'tldr_label': 'TL;DR',
+        'tldr_1': '<strong>Otter.ai</strong> — facing class action for recording without consent + using data to train AI',
+        'tldr_2': '<strong>Fireflies.ai</strong> — sued for collecting voiceprints without BIPA-required consent',
+        'tldr_3': '<strong>Microsoft Teams</strong> — February 2026 lawsuit alleges illegal voiceprint collection',
+        'tldr_4': '<strong>Stanford, Oxford, Tufts</strong> — have banned third-party AI meeting bots',
+        'tldr_5': '<strong>Local-first tools</strong> — avoid these issues entirely by keeping data on-device',
+        'h2_lawsuits': 'The lawsuits',
+        'lawsuits_intro': 'Three major AI meeting tools are now defending themselves in federal court. The allegations are serious: recording without consent, collecting biometric data illegally, and using private conversations to train AI models.',
+        'tag_ongoing': 'Ongoing',
+        'otter_case_title': 'Brewer v. Otter.ai (August 2025)',
+        'otter_case_p1': 'Filed in California federal court, this <a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">class action lawsuit</a> alleges Otter.ai "deceptively and surreptitiously" recorded private conversations without obtaining proper consent from all participants.',
+        'otter_case_p2': 'The core issue: when someone with an Otter account joins a meeting, <a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">the bot can auto-join and record without asking non-account holders for permission</a>. The lawsuit also alleges Otter used recorded conversations to train its AI models.',
+        'otter_case_claims': '<strong>Claims:</strong> ECPA, CFAA, California Invasion of Privacy Act (CIPA), Unfair Competition Law',
+        'tag_bipa': 'BIPA Violation',
+        'tag_bipa2': 'BIPA Violation',
+        'fireflies_case_title': 'Cruz v. Fireflies.AI (December 2025)',
+        'fireflies_case_p1': 'An Illinois resident filed this <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">class action alleging Fireflies.ai illegally collects biometric voiceprints</a> — unique vocal characteristics used to identify speakers.',
+        'fireflies_case_p2': 'The complaint states Fireflies collects this data from "people who never created a Fireflies account, never agreed to its terms of service, and never gave written consent." The company also allegedly has no published policy on how long it retains biometric data.',
+        'fireflies_case_claims': '<strong>Claims:</strong> Illinois Biometric Information Privacy Act (BIPA) — up to $5,000 per violation',
+        'teams_case_title': 'Microsoft Teams Class Action (February 2026)',
+        'teams_case_p1': 'Five Illinois residents <a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">sued Microsoft in February 2026</a>, alleging Teams\' real-time transcription feature creates "voiceprints" by analyzing pitch, tone, and timbre to identify speakers.',
+        'teams_case_p2': 'The lawsuit argues Microsoft should have "categorically informed users how the data would be used and how long it would be stored" — which it allegedly did not do.',
+        'teams_case_claims': '<strong>Claims:</strong> Illinois BIPA — seeking $1,000-$5,000 per violation',
+        'h2_legal_minefield': 'The legal minefield',
+        'legal_intro': 'These lawsuits highlight a fundamental problem with cloud-based meeting recorders: they\'re collecting sensitive data in ways that may violate multiple laws.',
+        'h3_two_party': 'Two-party consent states',
+        'two_party_p1': 'Thirteen US states require <strong>all parties</strong> to consent before a conversation can be recorded:',
+        'two_party_states': 'California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, Nevada, New Hampshire, Pennsylvania, Washington',
+        'two_party_p2': 'In California, the <a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">California Invasion of Privacy Act (CIPA)</a> allows victims to sue for up to $5,000 per violation. When an AI bot auto-joins a meeting without explicit consent from every participant, it may be violating this law.',
+        'h3_biometric': 'Biometric data laws',
+        'biometric_p1': 'Illinois BIPA is the strictest biometric privacy law in the US. It requires:',
+        'biometric_li1': 'Written notice that biometric data will be collected',
+        'biometric_li2': 'Explicit written consent before collection',
+        'biometric_li3': 'A published retention and destruction policy',
+        'biometric_p2': 'Voice is biometric data. When AI tools analyze your voice to identify who\'s speaking (speaker diarization), they\'re creating a voiceprint — which BIPA regulates. <a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">Simply clicking "I agree" to general terms of service doesn\'t satisfy BIPA\'s requirements</a>.',
+        'h3_data_training': 'Data training concerns',
+        'data_training_p1': 'The Otter.ai lawsuit specifically alleges that meeting transcripts were used to train AI models. Even if you consented to transcription, did you consent to your private conversations becoming training data?',
+        'data_training_p2': '<a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">As one security researcher put it</a>: "The primary risk is your sensitive business or customer data being leaked or used to train large language models."',
+        'h2_bans': 'Universities and companies are banning AI bots',
+        'bans_intro': 'Institutions aren\'t waiting for the lawsuits to play out. They\'re blocking these tools now.',
+        'th_institution': 'Institution',
+        'th_action': 'Action',
+        'th_tools': 'Tools Blocked',
+        'stanford_action': 'Blocked from Zoom',
+        'oxford_action': 'Blocked + SSO disabled',
+        'tufts_action': 'Blocked from Zoom + Teams',
+        'tufts_tools': 'All unapproved AI bots (only Zoom AI Companion allowed)',
+        'chapman_action': 'Banned',
+        'bans_stanford': 'Stanford\'s IT department <a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">explicitly warns</a> that third-party bots may "scrape calendars, unknowingly transcribe meetings, save meetings in unknown places, and join meetings even when users are not present."',
+        'bans_corporate': 'Corporate IT departments are taking similar action. As one <a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">Gartner peer community discussion</a> noted: "Most companies\' policies are to not have these capabilities enabled until they understand the data risks posed."',
+        'h2_compliance': 'The compliance problem',
+        'compliance_intro': 'For certain industries, cloud-based meeting transcription is a non-starter:',
+        'compliance_healthcare': '<strong>Healthcare:</strong> HIPAA requires strict controls over patient data. <a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">Cloud transcription APIs require Business Associate Agreements</a>, but even with paperwork, you\'re entrusting PHI to external systems.',
+        'compliance_legal': '<strong>Legal:</strong> Attorney-client privilege may be waived if conversations are uploaded to third-party servers without proper safeguards.',
+        'compliance_finance': '<strong>Finance:</strong> M&A discussions, board meetings, and product roadmaps are exactly the kind of sensitive content that shouldn\'t be training someone else\'s AI.',
+        'h2_alternative': 'The alternative: local-first recording',
+        'alternative_p1': 'The core problem with cloud-based AI meeting tools is architectural: your audio leaves your device, goes to someone else\'s servers, and you lose control over what happens to it.',
+        'alternative_p2': 'Local-first tools solve this by keeping everything on your computer:',
+        'alternative_li1': 'Audio is processed on-device using local AI (like OpenAI\'s Whisper)',
+        'alternative_li2': 'Nothing is uploaded to any cloud',
+        'alternative_li3': 'No third-party servers means no Business Associate Agreements needed',
+        'alternative_li4': 'No voiceprints sent anywhere means no BIPA exposure',
+        'alternative_li5': 'No training on your data because there\'s no data to train on',
+        'alternative_p3': 'This is why we built <a href="/">Mono</a> to process everything locally. It records audio from any app — Zoom, Teams, Meet, Discord, WhatsApp — but the transcription happens entirely on your device using on-device AI. Your meeting audio never leaves your computer.',
+        'alternative_p4': 'It\'s not the only approach (you could also just... not transcribe meetings), but if you need transcription and care about compliance, local processing is the only architecture that makes sense in 2026.',
+        'h2_action': 'What you should do',
+        'action_intro': 'If you\'re currently using cloud-based AI meeting tools:',
+        'action_li1': '<strong>Check your company\'s policy.</strong> IT may have already blocked these tools without announcing it.',
+        'action_li2': '<strong>Review the consent flow.</strong> Does the tool get explicit consent from every participant, or just the host?',
+        'action_li3': '<strong>Check the privacy policy.</strong> Is your data used for training? Is there a data retention policy?',
+        'action_li4': '<strong>Consider your jurisdiction.</strong> Are you in a two-party consent state? Are any participants?',
+        'action_li5': '<strong>Evaluate local alternatives.</strong> If compliance matters, local processing eliminates most of the risk.',
+        'action_conclusion': 'The AI meeting tool industry moved fast and broke things — specifically, privacy laws. The lawsuits now working through the courts will establish precedents, but you don\'t have to wait for the verdicts to protect yourself.',
+        'cta_title': 'Record meetings without the legal risk',
+        'cta_sub': 'Mono transcribes locally using on-device AI. No cloud upload. No bots. No consent issues. $50 once, no subscription.',
+        'cta_buy': 'Buy Mono — $50',
+        'cta_download': 'Download free'
+    },
+    es: {
+        'back_link': '← blog',
+        'category': '[Seguridad]',
+        'title': 'Los grabadores de reuniones con IA son un riesgo legal en 2026',
+        'meta': '17 mar 2026 · 10 min de lectura · Por Daniil Lefanov',
+        'disclosure': 'Aviso: Mono es nuestro producto. Lo hemos incluido en este artículo como alternativa local, pero debes saber que tenemos interés en él.',
+        'intro_p1': 'En septiembre de 2024, una firma de capital riesgo usó Otter.ai para grabar una llamada de Zoom con un fundador. Después de la reunión, <a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">Otter envió accidentalmente al fundador una transcripción que incluía horas de conversaciones privadas de inversores</a> — discusiones que ocurrieron después de que él había abandonado la llamada. El acuerdo fue cancelado.',
+        'intro_p2': 'Ese incidente fue un anticipo de lo que ahora se está desarrollando en la industria de herramientas de reuniones con IA. En 2025 y principios de 2026, se han presentado demandas colectivas contra Otter.ai, Fireflies.ai y Microsoft Teams. Las universidades están prohibiendo estas herramientas. Las empresas las están bloqueando a nivel de firewall.',
+        'intro_p3': 'Si estás usando grabadores de reuniones con IA en la nube — o permitiendo que otros los usen en reuniones contigo — esto es lo que necesitas saber.',
+        'tldr_label': 'Resumen',
+        'tldr_1': '<strong>Otter.ai</strong> — enfrenta demanda colectiva por grabar sin consentimiento + usar datos para entrenar IA',
+        'tldr_2': '<strong>Fireflies.ai</strong> — demandado por recopilar huellas de voz sin el consentimiento requerido por BIPA',
+        'tldr_3': '<strong>Microsoft Teams</strong> — demanda de febrero 2026 alega recopilación ilegal de huellas de voz',
+        'tldr_4': '<strong>Stanford, Oxford, Tufts</strong> — han prohibido bots de IA de terceros para reuniones',
+        'tldr_5': '<strong>Herramientas locales</strong> — evitan estos problemas completamente al mantener los datos en el dispositivo',
+        'h2_lawsuits': 'Las demandas',
+        'lawsuits_intro': 'Tres importantes herramientas de reuniones con IA se están defendiendo ahora en tribunales federales. Las acusaciones son serias: grabar sin consentimiento, recopilar datos biométricos ilegalmente y usar conversaciones privadas para entrenar modelos de IA.',
+        'tag_ongoing': 'En curso',
+        'otter_case_title': 'Brewer v. Otter.ai (agosto 2025)',
+        'otter_case_p1': 'Presentada en un tribunal federal de California, esta <a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">demanda colectiva</a> alega que Otter.ai grabó conversaciones privadas "de manera engañosa y subrepticia" sin obtener el consentimiento adecuado de todos los participantes.',
+        'otter_case_p2': 'El problema central: cuando alguien con una cuenta de Otter se une a una reunión, <a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">el bot puede unirse automáticamente y grabar sin pedir permiso a quienes no tienen cuenta</a>. La demanda también alega que Otter usó las conversaciones grabadas para entrenar sus modelos de IA.',
+        'otter_case_claims': '<strong>Cargos:</strong> ECPA, CFAA, Ley de Invasión de Privacidad de California (CIPA), Ley de Competencia Desleal',
+        'tag_bipa': 'Violación de BIPA',
+        'tag_bipa2': 'Violación de BIPA',
+        'fireflies_case_title': 'Cruz v. Fireflies.AI (diciembre 2025)',
+        'fireflies_case_p1': 'Un residente de Illinois presentó esta <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">demanda colectiva alegando que Fireflies.ai recopila ilegalmente huellas de voz biométricas</a> — características vocales únicas usadas para identificar hablantes.',
+        'fireflies_case_p2': 'La demanda establece que Fireflies recopila estos datos de "personas que nunca crearon una cuenta de Fireflies, nunca aceptaron sus términos de servicio y nunca dieron consentimiento por escrito". La empresa supuestamente tampoco tiene una política publicada sobre cuánto tiempo retiene los datos biométricos.',
+        'fireflies_case_claims': '<strong>Cargos:</strong> Ley de Privacidad de Información Biométrica de Illinois (BIPA) — hasta $5,000 por violación',
+        'teams_case_title': 'Demanda colectiva contra Microsoft Teams (febrero 2026)',
+        'teams_case_p1': 'Cinco residentes de Illinois <a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">demandaron a Microsoft en febrero de 2026</a>, alegando que la función de transcripción en tiempo real de Teams crea "huellas de voz" analizando tono, timbre y matices para identificar hablantes.',
+        'teams_case_p2': 'La demanda argumenta que Microsoft debería haber "informado categóricamente a los usuarios cómo se usarían los datos y cuánto tiempo se almacenarían" — lo cual supuestamente no hizo.',
+        'teams_case_claims': '<strong>Cargos:</strong> BIPA de Illinois — buscando $1,000-$5,000 por violación',
+        'h2_legal_minefield': 'El campo minado legal',
+        'legal_intro': 'Estas demandas destacan un problema fundamental con los grabadores de reuniones en la nube: están recopilando datos sensibles de maneras que pueden violar múltiples leyes.',
+        'h3_two_party': 'Estados con consentimiento de ambas partes',
+        'two_party_p1': 'Trece estados de EE.UU. requieren que <strong>todas las partes</strong> consientan antes de que una conversación pueda ser grabada:',
+        'two_party_states': 'California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, Nevada, New Hampshire, Pennsylvania, Washington',
+        'two_party_p2': 'En California, la <a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">Ley de Invasión de Privacidad de California (CIPA)</a> permite a las víctimas demandar por hasta $5,000 por violación. Cuando un bot de IA se une automáticamente a una reunión sin el consentimiento explícito de cada participante, puede estar violando esta ley.',
+        'h3_biometric': 'Leyes de datos biométricos',
+        'biometric_p1': 'BIPA de Illinois es la ley de privacidad biométrica más estricta de EE.UU. Requiere:',
+        'biometric_li1': 'Notificación por escrito de que se recopilarán datos biométricos',
+        'biometric_li2': 'Consentimiento explícito por escrito antes de la recopilación',
+        'biometric_li3': 'Una política publicada de retención y destrucción',
+        'biometric_p2': 'La voz es dato biométrico. Cuando las herramientas de IA analizan tu voz para identificar quién habla (diarización de hablantes), están creando una huella de voz — que BIPA regula. <a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">Simplemente hacer clic en "Acepto" en términos de servicio generales no satisface los requisitos de BIPA</a>.',
+        'h3_data_training': 'Preocupaciones sobre entrenamiento de datos',
+        'data_training_p1': 'La demanda contra Otter.ai alega específicamente que las transcripciones de reuniones se usaron para entrenar modelos de IA. Aunque hayas consentido la transcripción, ¿consentiste que tus conversaciones privadas se conviertan en datos de entrenamiento?',
+        'data_training_p2': '<a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">Como dijo un investigador de seguridad</a>: "El riesgo principal es que tus datos sensibles de negocio o de clientes sean filtrados o usados para entrenar modelos de lenguaje."',
+        'h2_bans': 'Universidades y empresas están prohibiendo los bots de IA',
+        'bans_intro': 'Las instituciones no están esperando a que las demandas se resuelvan. Están bloqueando estas herramientas ahora.',
+        'th_institution': 'Institución',
+        'th_action': 'Acción',
+        'th_tools': 'Herramientas bloqueadas',
+        'stanford_action': 'Bloqueado de Zoom',
+        'oxford_action': 'Bloqueado + SSO deshabilitado',
+        'tufts_action': 'Bloqueado de Zoom + Teams',
+        'tufts_tools': 'Todos los bots de IA no aprobados (solo Zoom AI Companion permitido)',
+        'chapman_action': 'Prohibido',
+        'bans_stanford': 'El departamento de TI de Stanford <a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">advierte explícitamente</a> que los bots de terceros pueden "extraer calendarios, transcribir reuniones sin saberlo, guardar reuniones en lugares desconocidos y unirse a reuniones incluso cuando los usuarios no están presentes."',
+        'bans_corporate': 'Los departamentos de TI corporativos están tomando medidas similares. Como señaló una <a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">discusión de la comunidad de Gartner</a>: "Las políticas de la mayoría de las empresas son no tener estas capacidades habilitadas hasta que entiendan los riesgos de datos que representan."',
+        'h2_compliance': 'El problema del cumplimiento',
+        'compliance_intro': 'Para ciertas industrias, la transcripción de reuniones en la nube es inaceptable:',
+        'compliance_healthcare': '<strong>Salud:</strong> HIPAA requiere controles estrictos sobre los datos de pacientes. <a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">Las APIs de transcripción en la nube requieren Acuerdos de Asociado de Negocios</a>, pero incluso con el papeleo, estás confiando información de salud protegida a sistemas externos.',
+        'compliance_legal': '<strong>Legal:</strong> El privilegio abogado-cliente puede perderse si las conversaciones se suben a servidores de terceros sin las salvaguardas adecuadas.',
+        'compliance_finance': '<strong>Finanzas:</strong> Las discusiones de fusiones y adquisiciones, reuniones de directorio y hojas de ruta de productos son exactamente el tipo de contenido sensible que no debería estar entrenando la IA de otros.',
+        'h2_alternative': 'La alternativa: grabación local',
+        'alternative_p1': 'El problema central con las herramientas de reuniones con IA en la nube es arquitectónico: tu audio sale de tu dispositivo, va a los servidores de otros y pierdes el control sobre lo que sucede con él.',
+        'alternative_p2': 'Las herramientas locales resuelven esto manteniendo todo en tu computadora:',
+        'alternative_li1': 'El audio se procesa en el dispositivo usando IA local (como Whisper de OpenAI)',
+        'alternative_li2': 'Nada se sube a ninguna nube',
+        'alternative_li3': 'Sin servidores de terceros significa que no se necesitan Acuerdos de Asociado de Negocios',
+        'alternative_li4': 'Sin huellas de voz enviadas a ningún lugar significa sin exposición a BIPA',
+        'alternative_li5': 'Sin entrenamiento con tus datos porque no hay datos para entrenar',
+        'alternative_p3': 'Por eso construimos <a href="/">Mono</a> para procesar todo localmente. Graba audio de cualquier app — Zoom, Teams, Meet, Discord, WhatsApp — pero la transcripción ocurre completamente en tu dispositivo usando IA local. El audio de tu reunión nunca sale de tu computadora.',
+        'alternative_p4': 'No es el único enfoque (también podrías simplemente... no transcribir reuniones), pero si necesitas transcripción y te importa el cumplimiento, el procesamiento local es la única arquitectura que tiene sentido en 2026.',
+        'h2_action': 'Qué deberías hacer',
+        'action_intro': 'Si actualmente estás usando herramientas de reuniones con IA en la nube:',
+        'action_li1': '<strong>Revisa la política de tu empresa.</strong> TI puede haber bloqueado estas herramientas sin anunciarlo.',
+        'action_li2': '<strong>Revisa el flujo de consentimiento.</strong> ¿La herramienta obtiene consentimiento explícito de cada participante, o solo del anfitrión?',
+        'action_li3': '<strong>Revisa la política de privacidad.</strong> ¿Se usan tus datos para entrenamiento? ¿Hay una política de retención de datos?',
+        'action_li4': '<strong>Considera tu jurisdicción.</strong> ¿Estás en un estado con consentimiento de ambas partes? ¿Lo están algunos participantes?',
+        'action_li5': '<strong>Evalúa alternativas locales.</strong> Si el cumplimiento importa, el procesamiento local elimina la mayor parte del riesgo.',
+        'action_conclusion': 'La industria de herramientas de reuniones con IA se movió rápido y rompió cosas — específicamente, leyes de privacidad. Las demandas que ahora avanzan por los tribunales establecerán precedentes, pero no tienes que esperar los veredictos para protegerte.',
+        'cta_title': 'Graba reuniones sin el riesgo legal',
+        'cta_sub': 'Mono transcribe localmente usando IA en el dispositivo. Sin subida a la nube. Sin bots. Sin problemas de consentimiento. $50 una vez, sin suscripción.',
+        'cta_buy': 'Comprar Mono — $50',
+        'cta_download': 'Descargar gratis'
+    },
+    fr: {
+        'back_link': '← blog',
+        'category': '[Sécurité]',
+        'title': 'Les enregistreurs de réunions IA sont un risque juridique en 2026',
+        'meta': '17 mars 2026 · 10 min de lecture · Par Daniil Lefanov',
+        'disclosure': 'Avertissement : Mono est notre produit. Nous l\'avons inclus dans cet article comme alternative locale, mais sachez que nous y avons un intérêt.',
+        'intro_p1': 'En septembre 2024, une société de capital-risque a utilisé Otter.ai pour enregistrer un appel Zoom avec un fondateur. Après la réunion, <a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">Otter a accidentellement envoyé au fondateur une transcription incluant des heures de conversations privées d\'investisseurs</a> — des discussions qui avaient eu lieu après son départ. L\'accord a été annulé.',
+        'intro_p2': 'Cet incident était un avant-goût de ce qui se déroule maintenant dans l\'industrie des outils de réunion IA. En 2025 et début 2026, des recours collectifs ont été déposés contre Otter.ai, Fireflies.ai et Microsoft Teams. Les universités interdisent ces outils. Les entreprises les bloquent au niveau du pare-feu.',
+        'intro_p3': 'Si vous utilisez des enregistreurs de réunions IA basés sur le cloud — ou si vous laissez d\'autres les utiliser dans vos réunions — voici ce que vous devez savoir.',
+        'tldr_label': 'En bref',
+        'tldr_1': '<strong>Otter.ai</strong> — face à un recours collectif pour enregistrement sans consentement + utilisation des données pour entraîner l\'IA',
+        'tldr_2': '<strong>Fireflies.ai</strong> — poursuivi pour collecte d\'empreintes vocales sans le consentement requis par BIPA',
+        'tldr_3': '<strong>Microsoft Teams</strong> — procès de février 2026 allègue une collecte illégale d\'empreintes vocales',
+        'tldr_4': '<strong>Stanford, Oxford, Tufts</strong> — ont interdit les bots IA tiers pour les réunions',
+        'tldr_5': '<strong>Outils locaux</strong> — évitent complètement ces problèmes en gardant les données sur l\'appareil',
+        'h2_lawsuits': 'Les procès',
+        'lawsuits_intro': 'Trois outils majeurs de réunion IA se défendent maintenant devant les tribunaux fédéraux. Les accusations sont graves : enregistrement sans consentement, collecte illégale de données biométriques et utilisation de conversations privées pour entraîner des modèles IA.',
+        'tag_ongoing': 'En cours',
+        'otter_case_title': 'Brewer c. Otter.ai (août 2025)',
+        'otter_case_p1': 'Déposé devant un tribunal fédéral de Californie, ce <a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">recours collectif</a> allègue qu\'Otter.ai a enregistré des conversations privées "de manière trompeuse et subreptice" sans obtenir le consentement approprié de tous les participants.',
+        'otter_case_p2': 'Le problème central : quand quelqu\'un avec un compte Otter rejoint une réunion, <a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">le bot peut rejoindre automatiquement et enregistrer sans demander la permission aux non-titulaires de compte</a>. Le procès allègue également qu\'Otter a utilisé les conversations enregistrées pour entraîner ses modèles IA.',
+        'otter_case_claims': '<strong>Accusations :</strong> ECPA, CFAA, California Invasion of Privacy Act (CIPA), Loi sur la concurrence déloyale',
+        'tag_bipa': 'Violation BIPA',
+        'tag_bipa2': 'Violation BIPA',
+        'fireflies_case_title': 'Cruz c. Fireflies.AI (décembre 2025)',
+        'fireflies_case_p1': 'Un résident de l\'Illinois a déposé ce <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">recours collectif alléguant que Fireflies.ai collecte illégalement des empreintes vocales biométriques</a> — des caractéristiques vocales uniques utilisées pour identifier les intervenants.',
+        'fireflies_case_p2': 'La plainte indique que Fireflies collecte ces données auprès de "personnes qui n\'ont jamais créé de compte Fireflies, n\'ont jamais accepté ses conditions d\'utilisation et n\'ont jamais donné de consentement écrit." La société n\'aurait également aucune politique publiée sur la durée de conservation des données biométriques.',
+        'fireflies_case_claims': '<strong>Accusations :</strong> Illinois Biometric Information Privacy Act (BIPA) — jusqu\'à 5 000 $ par violation',
+        'teams_case_title': 'Recours collectif Microsoft Teams (février 2026)',
+        'teams_case_p1': 'Cinq résidents de l\'Illinois <a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">ont poursuivi Microsoft en février 2026</a>, alléguant que la fonction de transcription en temps réel de Teams crée des "empreintes vocales" en analysant la hauteur, le ton et le timbre pour identifier les intervenants.',
+        'teams_case_p2': 'Le procès soutient que Microsoft aurait dû "informer catégoriquement les utilisateurs de la façon dont les données seraient utilisées et combien de temps elles seraient stockées" — ce qu\'il n\'aurait pas fait.',
+        'teams_case_claims': '<strong>Accusations :</strong> BIPA de l\'Illinois — demandant 1 000 à 5 000 $ par violation',
+        'h2_legal_minefield': 'Le champ de mines juridique',
+        'legal_intro': 'Ces procès mettent en évidence un problème fondamental avec les enregistreurs de réunions cloud : ils collectent des données sensibles de manières qui peuvent violer plusieurs lois.',
+        'h3_two_party': 'États à consentement bipartite',
+        'two_party_p1': 'Treize États américains exigent que <strong>toutes les parties</strong> consentent avant qu\'une conversation puisse être enregistrée :',
+        'two_party_states': 'Californie, Connecticut, Delaware, Floride, Illinois, Maryland, Massachusetts, Michigan, Montana, Nevada, New Hampshire, Pennsylvanie, Washington',
+        'two_party_p2': 'En Californie, le <a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">California Invasion of Privacy Act (CIPA)</a> permet aux victimes de poursuivre jusqu\'à 5 000 $ par violation. Quand un bot IA rejoint automatiquement une réunion sans le consentement explicite de chaque participant, il peut violer cette loi.',
+        'h3_biometric': 'Lois sur les données biométriques',
+        'biometric_p1': 'Le BIPA de l\'Illinois est la loi sur la confidentialité biométrique la plus stricte des États-Unis. Elle exige :',
+        'biometric_li1': 'Un avis écrit que des données biométriques seront collectées',
+        'biometric_li2': 'Un consentement écrit explicite avant la collecte',
+        'biometric_li3': 'Une politique publiée de conservation et de destruction',
+        'biometric_p2': 'La voix est une donnée biométrique. Quand les outils IA analysent votre voix pour identifier qui parle (diarisation des locuteurs), ils créent une empreinte vocale — que BIPA réglemente. <a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">Cliquer simplement sur "J\'accepte" les conditions générales d\'utilisation ne satisfait pas les exigences de BIPA</a>.',
+        'h3_data_training': 'Préoccupations concernant l\'entraînement des données',
+        'data_training_p1': 'Le procès Otter.ai allègue spécifiquement que les transcriptions de réunions ont été utilisées pour entraîner des modèles IA. Même si vous avez consenti à la transcription, avez-vous consenti à ce que vos conversations privées deviennent des données d\'entraînement ?',
+        'data_training_p2': '<a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">Comme l\'a dit un chercheur en sécurité</a> : "Le risque principal est que vos données commerciales ou clients sensibles soient divulguées ou utilisées pour entraîner des modèles de langage."',
+        'h2_bans': 'Les universités et entreprises interdisent les bots IA',
+        'bans_intro': 'Les institutions n\'attendent pas que les procès aboutissent. Elles bloquent ces outils maintenant.',
+        'th_institution': 'Institution',
+        'th_action': 'Action',
+        'th_tools': 'Outils bloqués',
+        'stanford_action': 'Bloqué de Zoom',
+        'oxford_action': 'Bloqué + SSO désactivé',
+        'tufts_action': 'Bloqué de Zoom + Teams',
+        'tufts_tools': 'Tous les bots IA non approuvés (seul Zoom AI Companion autorisé)',
+        'chapman_action': 'Interdit',
+        'bans_stanford': 'Le département informatique de Stanford <a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">avertit explicitement</a> que les bots tiers peuvent "extraire des calendriers, transcrire des réunions à l\'insu des utilisateurs, sauvegarder des réunions dans des endroits inconnus et rejoindre des réunions même lorsque les utilisateurs ne sont pas présents."',
+        'bans_corporate': 'Les départements informatiques d\'entreprise prennent des mesures similaires. Comme l\'a noté une <a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">discussion de la communauté Gartner</a> : "Les politiques de la plupart des entreprises consistent à ne pas activer ces fonctionnalités tant qu\'elles ne comprennent pas les risques liés aux données."',
+        'h2_compliance': 'Le problème de conformité',
+        'compliance_intro': 'Pour certaines industries, la transcription de réunions cloud est inacceptable :',
+        'compliance_healthcare': '<strong>Santé :</strong> HIPAA exige des contrôles stricts sur les données des patients. <a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">Les API de transcription cloud nécessitent des accords d\'associé commercial</a>, mais même avec la paperasse, vous confiez des informations de santé protégées à des systèmes externes.',
+        'compliance_legal': '<strong>Juridique :</strong> Le secret professionnel avocat-client peut être levé si les conversations sont téléchargées sur des serveurs tiers sans protections adéquates.',
+        'compliance_finance': '<strong>Finance :</strong> Les discussions M&A, les réunions du conseil d\'administration et les feuilles de route produits sont exactement le type de contenu sensible qui ne devrait pas entraîner l\'IA de quelqu\'un d\'autre.',
+        'h2_alternative': 'L\'alternative : l\'enregistrement local',
+        'alternative_p1': 'Le problème fondamental avec les outils de réunion IA cloud est architectural : votre audio quitte votre appareil, va sur les serveurs de quelqu\'un d\'autre, et vous perdez le contrôle sur ce qui lui arrive.',
+        'alternative_p2': 'Les outils locaux résolvent cela en gardant tout sur votre ordinateur :',
+        'alternative_li1': 'L\'audio est traité sur l\'appareil avec une IA locale (comme Whisper d\'OpenAI)',
+        'alternative_li2': 'Rien n\'est téléchargé vers un cloud',
+        'alternative_li3': 'Pas de serveurs tiers signifie pas d\'accords d\'associé commercial nécessaires',
+        'alternative_li4': 'Pas d\'empreintes vocales envoyées nulle part signifie pas d\'exposition BIPA',
+        'alternative_li5': 'Pas d\'entraînement sur vos données car il n\'y a pas de données à entraîner',
+        'alternative_p3': 'C\'est pourquoi nous avons construit <a href="/">Mono</a> pour tout traiter localement. Il enregistre l\'audio de n\'importe quelle application — Zoom, Teams, Meet, Discord, WhatsApp — mais la transcription se fait entièrement sur votre appareil avec une IA locale. L\'audio de votre réunion ne quitte jamais votre ordinateur.',
+        'alternative_p4': 'Ce n\'est pas la seule approche (vous pourriez aussi simplement... ne pas transcrire les réunions), mais si vous avez besoin de transcription et que la conformité vous importe, le traitement local est la seule architecture qui a du sens en 2026.',
+        'h2_action': 'Ce que vous devriez faire',
+        'action_intro': 'Si vous utilisez actuellement des outils de réunion IA cloud :',
+        'action_li1': '<strong>Vérifiez la politique de votre entreprise.</strong> L\'informatique a peut-être déjà bloqué ces outils sans l\'annoncer.',
+        'action_li2': '<strong>Examinez le flux de consentement.</strong> L\'outil obtient-il un consentement explicite de chaque participant, ou seulement de l\'hôte ?',
+        'action_li3': '<strong>Vérifiez la politique de confidentialité.</strong> Vos données sont-elles utilisées pour l\'entraînement ? Y a-t-il une politique de conservation des données ?',
+        'action_li4': '<strong>Considérez votre juridiction.</strong> Êtes-vous dans un État à consentement bipartite ? Certains participants le sont-ils ?',
+        'action_li5': '<strong>Évaluez les alternatives locales.</strong> Si la conformité compte, le traitement local élimine la plupart des risques.',
+        'action_conclusion': 'L\'industrie des outils de réunion IA a bougé vite et a cassé des choses — spécifiquement, les lois sur la vie privée. Les procès en cours établiront des précédents, mais vous n\'avez pas à attendre les verdicts pour vous protéger.',
+        'cta_title': 'Enregistrez des réunions sans risque juridique',
+        'cta_sub': 'Mono transcrit localement avec une IA sur l\'appareil. Pas de téléchargement cloud. Pas de bots. Pas de problèmes de consentement. 50 $ une fois, sans abonnement.',
+        'cta_buy': 'Acheter Mono — 50 $',
+        'cta_download': 'Télécharger gratuitement'
+    },
+    de: {
+        'back_link': '← Blog',
+        'category': '[Sicherheit]',
+        'title': 'KI-Meeting-Recorder sind 2026 ein rechtliches Risiko',
+        'meta': '17. März 2026 · 10 Min. Lesezeit · Von Daniil Lefanov',
+        'disclosure': 'Hinweis: Mono ist unser Produkt. Wir haben es in diesem Artikel als lokale Alternative aufgenommen, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'intro_p1': 'Im September 2024 nutzte eine Risikokapitalfirma Otter.ai, um einen Zoom-Anruf mit einem Gründer aufzuzeichnen. Nach dem Meeting <a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">schickte Otter dem Gründer versehentlich ein Transkript, das stundenlange private Investorengespräche enthielt</a> — Diskussionen, die stattfanden, nachdem er den Anruf verlassen hatte. Der Deal wurde abgesagt.',
+        'intro_p2': 'Dieser Vorfall war ein Vorgeschmack auf das, was sich jetzt in der KI-Meeting-Tool-Branche abspielt. 2025 und Anfang 2026 wurden Sammelklagen gegen Otter.ai, Fireflies.ai und Microsoft Teams eingereicht. Universitäten verbieten diese Tools. Unternehmen blockieren sie auf Firewall-Ebene.',
+        'intro_p3': 'Wenn Sie Cloud-basierte KI-Meeting-Recorder verwenden — oder anderen erlauben, sie in Meetings mit Ihnen zu verwenden — hier ist, was Sie wissen müssen.',
+        'tldr_label': 'Zusammenfassung',
+        'tldr_1': '<strong>Otter.ai</strong> — steht vor Sammelklage wegen Aufzeichnung ohne Einwilligung + Nutzung von Daten zum KI-Training',
+        'tldr_2': '<strong>Fireflies.ai</strong> — verklagt wegen Sammlung von Stimmabdrücken ohne die von BIPA geforderte Einwilligung',
+        'tldr_3': '<strong>Microsoft Teams</strong> — Klage vom Februar 2026 behauptet illegale Stimmabdruck-Sammlung',
+        'tldr_4': '<strong>Stanford, Oxford, Tufts</strong> — haben Drittanbieter-KI-Meeting-Bots verboten',
+        'tldr_5': '<strong>Lokale Tools</strong> — vermeiden diese Probleme vollständig, indem Daten auf dem Gerät bleiben',
+        'h2_lawsuits': 'Die Klagen',
+        'lawsuits_intro': 'Drei große KI-Meeting-Tools verteidigen sich jetzt vor Bundesgerichten. Die Vorwürfe sind schwerwiegend: Aufzeichnung ohne Einwilligung, illegale Sammlung biometrischer Daten und Verwendung privater Gespräche zum Training von KI-Modellen.',
+        'tag_ongoing': 'Laufend',
+        'otter_case_title': 'Brewer gegen Otter.ai (August 2025)',
+        'otter_case_p1': 'Diese vor einem kalifornischen Bundesgericht eingereichte <a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">Sammelklage</a> behauptet, dass Otter.ai private Gespräche "täuschend und heimlich" aufgezeichnet hat, ohne die ordnungsgemäße Einwilligung aller Teilnehmer einzuholen.',
+        'otter_case_p2': 'Das Kernproblem: Wenn jemand mit einem Otter-Konto einem Meeting beitritt, <a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">kann der Bot automatisch beitreten und aufzeichnen, ohne Nicht-Kontoinhaber um Erlaubnis zu fragen</a>. Die Klage behauptet auch, dass Otter aufgezeichnete Gespräche zum Training seiner KI-Modelle verwendet hat.',
+        'otter_case_claims': '<strong>Anklagen:</strong> ECPA, CFAA, California Invasion of Privacy Act (CIPA), Gesetz gegen unlauteren Wettbewerb',
+        'tag_bipa': 'BIPA-Verstoß',
+        'tag_bipa2': 'BIPA-Verstoß',
+        'fireflies_case_title': 'Cruz gegen Fireflies.AI (Dezember 2025)',
+        'fireflies_case_p1': 'Ein Einwohner von Illinois reichte diese <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">Sammelklage ein, in der behauptet wird, dass Fireflies.ai illegal biometrische Stimmabdrücke sammelt</a> — einzigartige Stimmmerkmale, die zur Identifizierung von Sprechern verwendet werden.',
+        'fireflies_case_p2': 'Die Beschwerde besagt, dass Fireflies diese Daten von "Personen sammelt, die nie ein Fireflies-Konto erstellt, nie seinen Nutzungsbedingungen zugestimmt und nie schriftliche Einwilligung gegeben haben." Das Unternehmen hat angeblich auch keine veröffentlichte Richtlinie darüber, wie lange es biometrische Daten aufbewahrt.',
+        'fireflies_case_claims': '<strong>Anklagen:</strong> Illinois Biometric Information Privacy Act (BIPA) — bis zu 5.000 $ pro Verstoß',
+        'teams_case_title': 'Microsoft Teams Sammelklage (Februar 2026)',
+        'teams_case_p1': 'Fünf Einwohner von Illinois <a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">verklagten Microsoft im Februar 2026</a> mit der Behauptung, dass die Echtzeit-Transkriptionsfunktion von Teams "Stimmabdrücke" erstellt, indem Tonhöhe, Ton und Klangfarbe analysiert werden, um Sprecher zu identifizieren.',
+        'teams_case_p2': 'Die Klage argumentiert, dass Microsoft die Nutzer "kategorisch darüber hätte informieren sollen, wie die Daten verwendet und wie lange sie gespeichert werden" — was es angeblich nicht getan hat.',
+        'teams_case_claims': '<strong>Anklagen:</strong> Illinois BIPA — fordert 1.000-5.000 $ pro Verstoß',
+        'h2_legal_minefield': 'Das rechtliche Minenfeld',
+        'legal_intro': 'Diese Klagen heben ein grundlegendes Problem mit Cloud-basierten Meeting-Recordern hervor: Sie sammeln sensible Daten auf Weisen, die mehrere Gesetze verletzen können.',
+        'h3_two_party': 'Staaten mit beidseitiger Einwilligung',
+        'two_party_p1': 'Dreizehn US-Bundesstaaten verlangen, dass <strong>alle Parteien</strong> zustimmen, bevor ein Gespräch aufgezeichnet werden kann:',
+        'two_party_states': 'Kalifornien, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, Nevada, New Hampshire, Pennsylvania, Washington',
+        'two_party_p2': 'In Kalifornien erlaubt der <a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">California Invasion of Privacy Act (CIPA)</a> Opfern, auf bis zu 5.000 $ pro Verstoß zu klagen. Wenn ein KI-Bot einem Meeting automatisch beitritt, ohne die ausdrückliche Einwilligung jedes Teilnehmers, verstößt er möglicherweise gegen dieses Gesetz.',
+        'h3_biometric': 'Gesetze zu biometrischen Daten',
+        'biometric_p1': 'Das BIPA von Illinois ist das strengste Gesetz zum Schutz biometrischer Daten in den USA. Es erfordert:',
+        'biometric_li1': 'Schriftliche Mitteilung, dass biometrische Daten gesammelt werden',
+        'biometric_li2': 'Ausdrückliche schriftliche Einwilligung vor der Sammlung',
+        'biometric_li3': 'Eine veröffentlichte Aufbewahrungs- und Vernichtungsrichtlinie',
+        'biometric_p2': 'Stimme ist biometrische Daten. Wenn KI-Tools Ihre Stimme analysieren, um zu identifizieren, wer spricht (Sprecherdiarisierung), erstellen sie einen Stimmabdruck — den BIPA reguliert. <a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">Einfaches Klicken auf "Ich stimme zu" bei allgemeinen Nutzungsbedingungen erfüllt nicht die Anforderungen von BIPA</a>.',
+        'h3_data_training': 'Bedenken zum Datentraining',
+        'data_training_p1': 'Die Otter.ai-Klage behauptet ausdrücklich, dass Meeting-Transkripte zum Training von KI-Modellen verwendet wurden. Selbst wenn Sie der Transkription zugestimmt haben, haben Sie zugestimmt, dass Ihre privaten Gespräche zu Trainingsdaten werden?',
+        'data_training_p2': '<a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">Wie ein Sicherheitsforscher es ausdrückte</a>: "Das Hauptrisiko ist, dass Ihre sensiblen Geschäfts- oder Kundendaten geleakt oder zum Training großer Sprachmodelle verwendet werden."',
+        'h2_bans': 'Universitäten und Unternehmen verbieten KI-Bots',
+        'bans_intro': 'Institutionen warten nicht darauf, dass die Klagen ausgehen. Sie blockieren diese Tools jetzt.',
+        'th_institution': 'Institution',
+        'th_action': 'Aktion',
+        'th_tools': 'Blockierte Tools',
+        'stanford_action': 'Von Zoom blockiert',
+        'oxford_action': 'Blockiert + SSO deaktiviert',
+        'tufts_action': 'Von Zoom + Teams blockiert',
+        'tufts_tools': 'Alle nicht genehmigten KI-Bots (nur Zoom AI Companion erlaubt)',
+        'chapman_action': 'Verboten',
+        'bans_stanford': 'Die IT-Abteilung von Stanford <a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">warnt ausdrücklich</a>, dass Drittanbieter-Bots möglicherweise "Kalender auslesen, Meetings unwissentlich transkribieren, Meetings an unbekannten Orten speichern und Meetings beitreten können, selbst wenn Benutzer nicht anwesend sind."',
+        'bans_corporate': 'IT-Abteilungen von Unternehmen ergreifen ähnliche Maßnahmen. Wie eine <a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">Gartner-Peer-Community-Diskussion</a> feststellte: "Die Richtlinien der meisten Unternehmen sehen vor, diese Funktionen nicht zu aktivieren, bis sie die Datenrisiken verstehen."',
+        'h2_compliance': 'Das Compliance-Problem',
+        'compliance_intro': 'Für bestimmte Branchen ist Cloud-basierte Meeting-Transkription inakzeptabel:',
+        'compliance_healthcare': '<strong>Gesundheitswesen:</strong> HIPAA erfordert strenge Kontrollen über Patientendaten. <a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">Cloud-Transkriptions-APIs erfordern Business Associate Agreements</a>, aber selbst mit Papierkram vertrauen Sie PHI externen Systemen an.',
+        'compliance_legal': '<strong>Recht:</strong> Das Anwalt-Mandanten-Privileg kann aufgehoben werden, wenn Gespräche ohne angemessene Schutzmaßnahmen auf Drittanbieter-Server hochgeladen werden.',
+        'compliance_finance': '<strong>Finanzen:</strong> M&A-Diskussionen, Vorstandssitzungen und Produkt-Roadmaps sind genau die Art von sensiblen Inhalten, die nicht die KI eines anderen trainieren sollten.',
+        'h2_alternative': 'Die Alternative: Lokale Aufzeichnung',
+        'alternative_p1': 'Das Kernproblem mit Cloud-basierten KI-Meeting-Tools ist architektonisch: Ihr Audio verlässt Ihr Gerät, geht auf die Server eines anderen, und Sie verlieren die Kontrolle darüber, was damit passiert.',
+        'alternative_p2': 'Lokale Tools lösen dies, indem alles auf Ihrem Computer bleibt:',
+        'alternative_li1': 'Audio wird auf dem Gerät mit lokaler KI verarbeitet (wie OpenAIs Whisper)',
+        'alternative_li2': 'Nichts wird in eine Cloud hochgeladen',
+        'alternative_li3': 'Keine Drittanbieter-Server bedeutet keine Business Associate Agreements erforderlich',
+        'alternative_li4': 'Keine Stimmabdrücke, die irgendwohin gesendet werden, bedeutet keine BIPA-Exposition',
+        'alternative_li5': 'Kein Training mit Ihren Daten, weil es keine Daten zum Trainieren gibt',
+        'alternative_p3': 'Deshalb haben wir <a href="/">Mono</a> gebaut, um alles lokal zu verarbeiten. Es zeichnet Audio von jeder App auf — Zoom, Teams, Meet, Discord, WhatsApp — aber die Transkription erfolgt vollständig auf Ihrem Gerät mit lokaler KI. Ihr Meeting-Audio verlässt niemals Ihren Computer.',
+        'alternative_p4': 'Es ist nicht der einzige Ansatz (Sie könnten auch einfach... Meetings nicht transkribieren), aber wenn Sie Transkription brauchen und Compliance wichtig ist, ist lokale Verarbeitung die einzige Architektur, die 2026 Sinn macht.',
+        'h2_action': 'Was Sie tun sollten',
+        'action_intro': 'Wenn Sie derzeit Cloud-basierte KI-Meeting-Tools verwenden:',
+        'action_li1': '<strong>Prüfen Sie die Richtlinie Ihres Unternehmens.</strong> Die IT hat diese Tools möglicherweise bereits blockiert, ohne es anzukündigen.',
+        'action_li2': '<strong>Überprüfen Sie den Einwilligungsablauf.</strong> Holt das Tool die ausdrückliche Einwilligung jedes Teilnehmers ein, oder nur des Gastgebers?',
+        'action_li3': '<strong>Prüfen Sie die Datenschutzrichtlinie.</strong> Werden Ihre Daten für Training verwendet? Gibt es eine Datenaufbewahrungsrichtlinie?',
+        'action_li4': '<strong>Berücksichtigen Sie Ihre Gerichtsbarkeit.</strong> Sind Sie in einem Staat mit beidseitiger Einwilligung? Sind es Teilnehmer?',
+        'action_li5': '<strong>Bewerten Sie lokale Alternativen.</strong> Wenn Compliance wichtig ist, eliminiert lokale Verarbeitung die meisten Risiken.',
+        'action_conclusion': 'Die KI-Meeting-Tool-Branche bewegte sich schnell und brach Dinge — speziell Datenschutzgesetze. Die Klagen, die jetzt durch die Gerichte gehen, werden Präzedenzfälle schaffen, aber Sie müssen nicht auf die Urteile warten, um sich zu schützen.',
+        'cta_title': 'Meetings ohne rechtliches Risiko aufzeichnen',
+        'cta_sub': 'Mono transkribiert lokal mit On-Device-KI. Kein Cloud-Upload. Keine Bots. Keine Einwilligungsprobleme. Einmalig 50 $, kein Abo.',
+        'cta_buy': 'Mono kaufen — 50 $',
+        'cta_download': 'Kostenlos herunterladen'
+    },
+    zh: {
+        'back_link': '← 博客',
+        'category': '[安全]',
+        'title': '2026年AI会议录制器已成为法律风险',
+        'meta': '2026年3月17日 · 阅读时间10分钟 · 作者：Daniil Lefanov',
+        'disclosure': '声明：Mono是我们的产品。我们在本文中将其作为本地优先的替代方案，但您应该知道我们对此有利益关系。',
+        'intro_p1': '2024年9月，一家风险投资公司使用Otter.ai录制了与一位创始人的Zoom通话。会议结束后，<a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">Otter意外地向创始人发送了一份包含数小时私人投资者对话的转录稿</a>——这些讨论发生在他离开通话之后。交易因此取消。',
+        'intro_p2': '这一事件预示了AI会议工具行业正在发生的事情。在2025年和2026年初，针对Otter.ai、Fireflies.ai和Microsoft Teams的集体诉讼已经提起。大学正在禁止这些工具。公司正在防火墙层面阻止它们。',
+        'intro_p3': '如果您正在使用基于云的AI会议录制器——或者让其他人在与您的会议中使用它们——以下是您需要了解的内容。',
+        'tldr_label': '概要',
+        'tldr_1': '<strong>Otter.ai</strong>——因未经同意录制+使用数据训练AI而面临集体诉讼',
+        'tldr_2': '<strong>Fireflies.ai</strong>——因未经BIPA要求的同意收集声纹而被起诉',
+        'tldr_3': '<strong>Microsoft Teams</strong>——2026年2月的诉讼指控非法收集声纹',
+        'tldr_4': '<strong>斯坦福、牛津、塔夫茨</strong>——已禁止第三方AI会议机器人',
+        'tldr_5': '<strong>本地优先工具</strong>——通过将数据保留在设备上完全避免这些问题',
+        'h2_lawsuits': '诉讼案件',
+        'lawsuits_intro': '三个主要的AI会议工具现在正在联邦法院为自己辩护。指控很严重：未经同意录制、非法收集生物特征数据，以及使用私人对话来训练AI模型。',
+        'tag_ongoing': '进行中',
+        'otter_case_title': 'Brewer诉Otter.ai案（2025年8月）',
+        'otter_case_p1': '这起<a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">集体诉讼</a>在加利福尼亚联邦法院提起，指控Otter.ai"欺骗性地、秘密地"录制私人对话，未获得所有参与者的适当同意。',
+        'otter_case_p2': '核心问题是：当拥有Otter账户的人加入会议时，<a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">机器人可以自动加入并录制，而无需征求非账户持有人的许可</a>。诉讼还指控Otter使用录制的对话来训练其AI模型。',
+        'otter_case_claims': '<strong>指控：</strong>ECPA、CFAA、加利福尼亚隐私侵犯法（CIPA）、不正当竞争法',
+        'tag_bipa': 'BIPA违规',
+        'tag_bipa2': 'BIPA违规',
+        'fireflies_case_title': 'Cruz诉Fireflies.AI案（2025年12月）',
+        'fireflies_case_p1': '一名伊利诺伊州居民提起了这起<a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">集体诉讼，指控Fireflies.ai非法收集生物特征声纹</a>——用于识别说话者的独特声音特征。',
+        'fireflies_case_p2': '投诉称Fireflies从"从未创建过Fireflies账户、从未同意其服务条款、从未给予书面同意的人"那里收集这些数据。该公司据称也没有发布关于其保留生物特征数据多长时间的政策。',
+        'fireflies_case_claims': '<strong>指控：</strong>伊利诺伊州生物特征信息隐私法（BIPA）——每次违规最高5,000美元',
+        'teams_case_title': 'Microsoft Teams集体诉讼（2026年2月）',
+        'teams_case_p1': '五名伊利诺伊州居民<a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">于2026年2月起诉微软</a>，指控Teams的实时转录功能通过分析音高、音调和音色来识别说话者，从而创建"声纹"。',
+        'teams_case_p2': '诉讼认为微软应该"明确告知用户数据将如何使用以及存储多长时间"——据称它没有这样做。',
+        'teams_case_claims': '<strong>指控：</strong>伊利诺伊州BIPA——寻求每次违规1,000-5,000美元',
+        'h2_legal_minefield': '法律雷区',
+        'legal_intro': '这些诉讼突出了基于云的会议录制器的一个根本问题：它们以可能违反多项法律的方式收集敏感数据。',
+        'h3_two_party': '双方同意州',
+        'two_party_p1': '美国十三个州要求在录制对话之前<strong>所有各方</strong>必须同意：',
+        'two_party_states': '加利福尼亚州、康涅狄格州、特拉华州、佛罗里达州、伊利诺伊州、马里兰州、马萨诸塞州、密歇根州、蒙大拿州、内华达州、新罕布什尔州、宾夕法尼亚州、华盛顿州',
+        'two_party_p2': '在加利福尼亚州，<a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">加利福尼亚隐私侵犯法（CIPA）</a>允许受害者就每次违规起诉最高5,000美元。当AI机器人在未获得每位参与者明确同意的情况下自动加入会议时，可能正在违反这项法律。',
+        'h3_biometric': '生物特征数据法',
+        'biometric_p1': '伊利诺伊州BIPA是美国最严格的生物特征隐私法。它要求：',
+        'biometric_li1': '书面通知将收集生物特征数据',
+        'biometric_li2': '收集前获得明确的书面同意',
+        'biometric_li3': '发布保留和销毁政策',
+        'biometric_p2': '声音是生物特征数据。当AI工具分析您的声音以识别谁在说话（说话人分离）时，它们正在创建声纹——BIPA对此进行监管。<a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">简单地点击"我同意"一般服务条款不满足BIPA的要求</a>。',
+        'h3_data_training': '数据训练问题',
+        'data_training_p1': 'Otter.ai诉讼明确指控会议转录稿被用于训练AI模型。即使您同意了转录，您是否同意您的私人对话成为训练数据？',
+        'data_training_p2': '<a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">正如一位安全研究人员所说</a>："主要风险是您的敏感商业或客户数据被泄露或用于训练大型语言模型。"',
+        'h2_bans': '大学和公司正在禁止AI机器人',
+        'bans_intro': '机构不等诉讼结果。它们现在就在封锁这些工具。',
+        'th_institution': '机构',
+        'th_action': '行动',
+        'th_tools': '被封锁的工具',
+        'stanford_action': '从Zoom封锁',
+        'oxford_action': '封锁 + SSO禁用',
+        'tufts_action': '从Zoom + Teams封锁',
+        'tufts_tools': '所有未经批准的AI机器人（仅允许Zoom AI Companion）',
+        'chapman_action': '禁止',
+        'bans_stanford': '斯坦福大学IT部门<a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">明确警告</a>，第三方机器人可能"抓取日历、在不知情的情况下转录会议、在未知位置保存会议，甚至在用户不在场时加入会议。"',
+        'bans_corporate': '企业IT部门正在采取类似行动。正如一个<a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">Gartner同行社区讨论</a>所指出的："大多数公司的政策是在了解所带来的数据风险之前不启用这些功能。"',
+        'h2_compliance': '合规问题',
+        'compliance_intro': '对于某些行业，基于云的会议转录是不可接受的：',
+        'compliance_healthcare': '<strong>医疗保健：</strong>HIPAA要求对患者数据进行严格控制。<a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">云转录API需要商业伙伴协议</a>，但即使有文书工作，您也在将受保护的健康信息委托给外部系统。',
+        'compliance_legal': '<strong>法律：</strong>如果对话在没有适当保护措施的情况下上传到第三方服务器，律师-客户特权可能会被放弃。',
+        'compliance_finance': '<strong>金融：</strong>并购讨论、董事会会议和产品路线图正是不应该训练别人AI的敏感内容。',
+        'h2_alternative': '替代方案：本地优先录制',
+        'alternative_p1': '基于云的AI会议工具的核心问题是架构性的：您的音频离开您的设备，进入别人的服务器，您失去了对其发生什么的控制。',
+        'alternative_p2': '本地优先工具通过将所有内容保留在您的计算机上来解决这个问题：',
+        'alternative_li1': '音频在设备上使用本地AI处理（如OpenAI的Whisper）',
+        'alternative_li2': '不上传任何内容到云端',
+        'alternative_li3': '没有第三方服务器意味着不需要商业伙伴协议',
+        'alternative_li4': '没有声纹发送到任何地方意味着没有BIPA风险',
+        'alternative_li5': '不用您的数据训练，因为没有数据可以训练',
+        'alternative_p3': '这就是我们构建<a href="/">Mono</a>来本地处理一切的原因。它可以录制任何应用的音频——Zoom、Teams、Meet、Discord、WhatsApp——但转录完全在您的设备上使用本地AI进行。您的会议音频永远不会离开您的计算机。',
+        'alternative_p4': '这不是唯一的方法（您也可以干脆……不转录会议），但如果您需要转录并且关心合规性，本地处理是2026年唯一有意义的架构。',
+        'h2_action': '您应该做什么',
+        'action_intro': '如果您目前正在使用基于云的AI会议工具：',
+        'action_li1': '<strong>检查您公司的政策。</strong>IT可能已经在未宣布的情况下封锁了这些工具。',
+        'action_li2': '<strong>审查同意流程。</strong>该工具是否获得每位参与者的明确同意，还是只获得主持人的同意？',
+        'action_li3': '<strong>检查隐私政策。</strong>您的数据是否用于训练？是否有数据保留政策？',
+        'action_li4': '<strong>考虑您的管辖区。</strong>您是否在双方同意州？是否有参与者在？',
+        'action_li5': '<strong>评估本地替代方案。</strong>如果合规性重要，本地处理可以消除大部分风险。',
+        'action_conclusion': 'AI会议工具行业快速发展并破坏了东西——具体来说是隐私法。正在法院进行的诉讼将建立先例，但您不必等待判决来保护自己。',
+        'cta_title': '无法律风险地录制会议',
+        'cta_sub': 'Mono使用设备端AI在本地转录。无云上传。无机器人。无同意问题。一次性50美元，无订阅。',
+        'cta_buy': '购买Mono — 50美元',
+        'cta_download': '免费下载'
+    },
+    ru: {
+        'back_link': '← блог',
+        'category': '[Безопасность]',
+        'title': 'ИИ-записи встреч — юридический риск в 2026 году',
+        'meta': '17 марта 2026 · 10 мин чтения · Автор Daniil Lefanov',
+        'disclosure': 'Раскрытие информации: Mono — наш продукт. Мы включили его в эту статью как локальную альтернативу, но вы должны знать, что у нас есть заинтересованность.',
+        'intro_p1': 'В сентябре 2024 года венчурная фирма использовала Otter.ai для записи Zoom-звонка с основателем. После встречи <a href="https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents/otter-ai-transcription-leaks-confidential-investor-call" target="_blank" rel="noopener">Otter случайно отправил основателю транскрипцию, включавшую часы частных разговоров инвесторов</a> — обсуждения, которые происходили после того, как он покинул звонок. Сделка была отменена.',
+        'intro_p2': 'Этот инцидент был предвестником того, что сейчас разворачивается в индустрии ИИ-инструментов для встреч. В 2025 и начале 2026 года были поданы коллективные иски против Otter.ai, Fireflies.ai и Microsoft Teams. Университеты запрещают эти инструменты. Компании блокируют их на уровне файрвола.',
+        'intro_p3': 'Если вы используете облачные ИИ-записывающие устройства для встреч — или позволяете другим использовать их на встречах с вами — вот что вам нужно знать.',
+        'tldr_label': 'Кратко',
+        'tldr_1': '<strong>Otter.ai</strong> — столкнулся с коллективным иском за запись без согласия + использование данных для обучения ИИ',
+        'tldr_2': '<strong>Fireflies.ai</strong> — подан иск за сбор голосовых отпечатков без требуемого BIPA согласия',
+        'tldr_3': '<strong>Microsoft Teams</strong> — иск от февраля 2026 утверждает о незаконном сборе голосовых отпечатков',
+        'tldr_4': '<strong>Стэнфорд, Оксфорд, Тафтс</strong> — запретили сторонних ИИ-ботов для встреч',
+        'tldr_5': '<strong>Локальные инструменты</strong> — полностью избегают этих проблем, сохраняя данные на устройстве',
+        'h2_lawsuits': 'Судебные иски',
+        'lawsuits_intro': 'Три крупных ИИ-инструмента для встреч сейчас защищаются в федеральном суде. Обвинения серьёзные: запись без согласия, незаконный сбор биометрических данных и использование частных разговоров для обучения ИИ-моделей.',
+        'tag_ongoing': 'В процессе',
+        'otter_case_title': 'Брюер против Otter.ai (август 2025)',
+        'otter_case_p1': 'Этот <a href="https://www.npr.org/2025/08/15/g-s1-83087/otter-ai-transcription-class-action-lawsuit" target="_blank" rel="noopener">коллективный иск</a>, поданный в федеральный суд Калифорнии, утверждает, что Otter.ai "обманчиво и тайно" записывал частные разговоры без получения надлежащего согласия всех участников.',
+        'otter_case_p2': 'Основная проблема: когда кто-то с аккаунтом Otter присоединяется к встрече, <a href="https://natlawreview.com/article/ai-notetaking-tools-under-fire-lessons-otterai-class-action-complaint" target="_blank" rel="noopener">бот может автоматически присоединиться и записывать, не спрашивая разрешения у тех, у кого нет аккаунта</a>. Иск также утверждает, что Otter использовал записанные разговоры для обучения своих ИИ-моделей.',
+        'otter_case_claims': '<strong>Обвинения:</strong> ECPA, CFAA, California Invasion of Privacy Act (CIPA), Закон о недобросовестной конкуренции',
+        'tag_bipa': 'Нарушение BIPA',
+        'tag_bipa2': 'Нарушение BIPA',
+        'fireflies_case_title': 'Круз против Fireflies.AI (декабрь 2025)',
+        'fireflies_case_p1': 'Житель Иллинойса подал этот <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener">коллективный иск, утверждая, что Fireflies.ai незаконно собирает биометрические голосовые отпечатки</a> — уникальные голосовые характеристики, используемые для идентификации говорящих.',
+        'fireflies_case_p2': 'В жалобе говорится, что Fireflies собирает эти данные у "людей, которые никогда не создавали аккаунт Fireflies, никогда не соглашались с условиями обслуживания и никогда не давали письменного согласия." Компания также, предположительно, не имеет опубликованной политики о том, как долго она хранит биометрические данные.',
+        'fireflies_case_claims': '<strong>Обвинения:</strong> Illinois Biometric Information Privacy Act (BIPA) — до 5 000 долларов за нарушение',
+        'teams_case_title': 'Коллективный иск против Microsoft Teams (февраль 2026)',
+        'teams_case_p1': 'Пять жителей Иллинойса <a href="https://www.uctoday.com/unified-communications/microsoft-teams-lawsuit-bipa-voice-data/" target="_blank" rel="noopener">подали в суд на Microsoft в феврале 2026</a>, утверждая, что функция транскрипции Teams в реальном времени создаёт "голосовые отпечатки", анализируя высоту, тон и тембр для идентификации говорящих.',
+        'teams_case_p2': 'Иск утверждает, что Microsoft должен был "категорически информировать пользователей о том, как данные будут использоваться и как долго храниться" — чего он якобы не сделал.',
+        'teams_case_claims': '<strong>Обвинения:</strong> Illinois BIPA — требуется 1 000-5 000 долларов за нарушение',
+        'h2_legal_minefield': 'Юридическое минное поле',
+        'legal_intro': 'Эти иски выявляют фундаментальную проблему облачных записывающих устройств для встреч: они собирают конфиденциальные данные способами, которые могут нарушать несколько законов.',
+        'h3_two_party': 'Штаты с двусторонним согласием',
+        'two_party_p1': 'Тринадцать штатов США требуют, чтобы <strong>все стороны</strong> дали согласие перед записью разговора:',
+        'two_party_states': 'Калифорния, Коннектикут, Делавэр, Флорида, Иллинойс, Мэриленд, Массачусетс, Мичиган, Монтана, Невада, Нью-Гэмпшир, Пенсильвания, Вашингтон',
+        'two_party_p2': 'В Калифорнии <a href="https://www.shouselaw.com/ca/defense/laws/california-invasion-of-privacy-act/" target="_blank" rel="noopener">California Invasion of Privacy Act (CIPA)</a> позволяет жертвам подавать в суд на сумму до 5 000 долларов за нарушение. Когда ИИ-бот автоматически присоединяется к встрече без явного согласия каждого участника, он может нарушать этот закон.',
+        'h3_biometric': 'Законы о биометрических данных',
+        'biometric_p1': 'BIPA Иллинойса — самый строгий закон о конфиденциальности биометрических данных в США. Он требует:',
+        'biometric_li1': 'Письменное уведомление о том, что биометрические данные будут собираться',
+        'biometric_li2': 'Явное письменное согласие перед сбором',
+        'biometric_li3': 'Опубликованную политику хранения и уничтожения',
+        'biometric_p2': 'Голос — это биометрические данные. Когда ИИ-инструменты анализируют ваш голос для определения говорящего (диаризация), они создают голосовой отпечаток — который регулирует BIPA. <a href="https://www.ailawandpolicy.com/2026/01/illinois-bipa-suit-targets-ai-note%E2%80%91takers-practical-lessons-for-meeting-transcription/" target="_blank" rel="noopener">Простое нажатие "Я согласен" на общие условия обслуживания не удовлетворяет требованиям BIPA</a>.',
+        'h3_data_training': 'Проблемы обучения на данных',
+        'data_training_p1': 'Иск против Otter.ai конкретно утверждает, что транскрипции встреч использовались для обучения ИИ-моделей. Даже если вы согласились на транскрипцию, согласились ли вы на то, чтобы ваши частные разговоры стали данными для обучения?',
+        'data_training_p2': '<a href="https://medium.com/@len213noe/your-ai-meeting-assistant-might-be-the-biggest-security-risk-in-your-office-4cf7c2f63edf" target="_blank" rel="noopener">Как выразился один исследователь безопасности</a>: "Основной риск — это утечка ваших конфиденциальных бизнес-данных или данных клиентов или их использование для обучения больших языковых моделей."',
+        'h2_bans': 'Университеты и компании запрещают ИИ-ботов',
+        'bans_intro': 'Учреждения не ждут исхода судебных процессов. Они блокируют эти инструменты сейчас.',
+        'th_institution': 'Учреждение',
+        'th_action': 'Действие',
+        'th_tools': 'Заблокированные инструменты',
+        'stanford_action': 'Заблокирован в Zoom',
+        'oxford_action': 'Заблокирован + SSO отключён',
+        'tufts_action': 'Заблокирован в Zoom + Teams',
+        'tufts_tools': 'Все неодобренные ИИ-боты (разрешён только Zoom AI Companion)',
+        'chapman_action': 'Запрещён',
+        'bans_stanford': 'ИТ-отдел Стэнфорда <a href="https://uit.stanford.edu/news/avoiding-third-party-bots-meeting-help" target="_blank" rel="noopener">явно предупреждает</a>, что сторонние боты могут "собирать календари, неосознанно транскрибировать встречи, сохранять встречи в неизвестных местах и присоединяться к встречам даже когда пользователи отсутствуют."',
+        'bans_corporate': 'Корпоративные ИТ-отделы принимают аналогичные меры. Как отметила одна <a href="https://www.gartner.com/peer-community/post/how-managing-risk-ai-transcription-bots-like-otter-ai-fireflies-ai" target="_blank" rel="noopener">дискуссия сообщества Gartner</a>: "Политика большинства компаний — не включать эти возможности, пока они не поймут связанные с данными риски."',
+        'h2_compliance': 'Проблема соответствия требованиям',
+        'compliance_intro': 'Для определённых отраслей облачная транскрипция встреч неприемлема:',
+        'compliance_healthcare': '<strong>Здравоохранение:</strong> HIPAA требует строгого контроля над данными пациентов. <a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-hipaa-compliant-medical-transcription-with-local-ai/4490777" target="_blank" rel="noopener">Облачные API транскрипции требуют соглашений о деловом партнёрстве</a>, но даже с документами вы доверяете защищённую медицинскую информацию внешним системам.',
+        'compliance_legal': '<strong>Юриспруденция:</strong> Адвокатская тайна может быть нарушена, если разговоры загружаются на сторонние серверы без надлежащих мер защиты.',
+        'compliance_finance': '<strong>Финансы:</strong> Обсуждения M&A, заседания совета директоров и дорожные карты продуктов — это именно тот тип конфиденциального контента, который не должен обучать чужой ИИ.',
+        'h2_alternative': 'Альтернатива: локальная запись',
+        'alternative_p1': 'Основная проблема облачных ИИ-инструментов для встреч — архитектурная: ваше аудио покидает ваше устройство, отправляется на серверы других людей, и вы теряете контроль над тем, что с ним происходит.',
+        'alternative_p2': 'Локальные инструменты решают это, сохраняя всё на вашем компьютере:',
+        'alternative_li1': 'Аудио обрабатывается на устройстве с использованием локального ИИ (например, Whisper от OpenAI)',
+        'alternative_li2': 'Ничего не загружается в облако',
+        'alternative_li3': 'Отсутствие сторонних серверов означает отсутствие необходимости в соглашениях о деловом партнёрстве',
+        'alternative_li4': 'Отсутствие голосовых отпечатков, отправляемых куда-либо, означает отсутствие риска BIPA',
+        'alternative_li5': 'Нет обучения на ваших данных, потому что нет данных для обучения',
+        'alternative_p3': 'Вот почему мы создали <a href="/">Mono</a> для локальной обработки всего. Он записывает аудио из любого приложения — Zoom, Teams, Meet, Discord, WhatsApp — но транскрипция происходит полностью на вашем устройстве с использованием локального ИИ. Аудио вашей встречи никогда не покидает ваш компьютер.',
+        'alternative_p4': 'Это не единственный подход (вы также можете просто... не транскрибировать встречи), но если вам нужна транскрипция и важно соответствие требованиям, локальная обработка — единственная архитектура, которая имеет смысл в 2026 году.',
+        'h2_action': 'Что вам следует сделать',
+        'action_intro': 'Если вы в настоящее время используете облачные ИИ-инструменты для встреч:',
+        'action_li1': '<strong>Проверьте политику вашей компании.</strong> ИТ-отдел мог уже заблокировать эти инструменты без объявления.',
+        'action_li2': '<strong>Проверьте процесс получения согласия.</strong> Получает ли инструмент явное согласие от каждого участника или только от организатора?',
+        'action_li3': '<strong>Проверьте политику конфиденциальности.</strong> Используются ли ваши данные для обучения? Есть ли политика хранения данных?',
+        'action_li4': '<strong>Учитывайте вашу юрисдикцию.</strong> Находитесь ли вы в штате с двусторонним согласием? Находятся ли там участники?',
+        'action_li5': '<strong>Оцените локальные альтернативы.</strong> Если соответствие требованиям важно, локальная обработка устраняет большинство рисков.',
+        'action_conclusion': 'Индустрия ИИ-инструментов для встреч двигалась быстро и ломала вещи — конкретно, законы о конфиденциальности. Судебные процессы, которые сейчас идут через суды, установят прецеденты, но вам не нужно ждать вердиктов, чтобы защитить себя.',
+        'cta_title': 'Записывайте встречи без юридического риска',
+        'cta_sub': 'Mono транскрибирует локально с использованием ИИ на устройстве. Без загрузки в облако. Без ботов. Без проблем с согласием. $50 единоразово, без подписки.',
+        'cta_buy': 'Купить Mono — $50',
+        'cta_download': 'Скачать бесплатно'
+    }
+};
+
+let currentLang = 'en';
+const siteNav = document.querySelector('site-nav');
+
+siteNav.addEventListener('language-change', (e) => {
+    const lang = e.detail.language;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+});
+</script>
 </body>
 </html>

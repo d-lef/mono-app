@@ -156,45 +156,45 @@
     <site-nav base-path="../"></site-nav>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">← blog</a>
+        <a href="./" class="back-link" data-i18n="back_link">← blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to Save $300/Year on AI Subscriptions with Local Models</h1>
-            <p class="article-meta">Mar 11, 2026 · 10 min read · By Daniil Lefanov</p>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Save $300/Year on AI Subscriptions with Local Models</h1>
+            <p class="article-meta" data-i18n="meta">Mar 11, 2026 · 10 min read · By Daniil Lefanov</p>
         </header>
 
         <div class="article-body">
 
-            <p>AI subscriptions add up fast. ChatGPT Plus is $20/month. Claude Pro is $20/month. GitHub Copilot is $10/month. Otter.ai is $17/month. If you're using multiple AI tools, you're easily spending $300-500 per year on services that — for many tasks — can now run entirely on your own computer.</p>
+            <p data-i18n="intro_p1">AI subscriptions add up fast. ChatGPT Plus is $20/month. Claude Pro is $20/month. GitHub Copilot is $10/month. Otter.ai is $17/month. If you're using multiple AI tools, you're easily spending $300-500 per year on services that — for many tasks — can now run entirely on your own computer.</p>
 
-            <p>The shift happened quietly. Open-source models got good. Apple Silicon made local inference fast. And a growing ecosystem of tools now lets you run AI for writing, coding, transcription, and image generation without sending data to the cloud or paying monthly fees.</p>
+            <p data-i18n="intro_p2">The shift happened quietly. Open-source models got good. Apple Silicon made local inference fast. And a growing ecosystem of tools now lets you run AI for writing, coding, transcription, and image generation without sending data to the cloud or paying monthly fees.</p>
 
-            <p>This guide covers what you can realistically run locally in 2026, what hardware you need, and where local models genuinely match (or beat) their cloud counterparts.</p>
+            <p data-i18n="intro_p3">This guide covers what you can realistically run locally in 2026, what hardware you need, and where local models genuinely match (or beat) their cloud counterparts.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li><strong>Meeting transcription:</strong> Whisper locally matches cloud quality — Mono ($50 once) vs Otter.ai ($200/year)</li>
-                    <li><strong>Writing/chat:</strong> Llama 3, Gemma, Mistral via Ollama — free, runs on 8GB RAM</li>
-                    <li><strong>Code completion:</strong> Continue.dev + local model — free vs Copilot ($100/year)</li>
-                    <li><strong>Image generation:</strong> Stable Diffusion — free vs Midjourney ($120/year)</li>
-                    <li><strong>Break-even:</strong> Most setups pay for themselves in 2-4 months</li>
+                    <li data-i18n="tldr_1"><strong>Meeting transcription:</strong> Whisper locally matches cloud quality — Mono ($50 once) vs Otter.ai ($200/year)</li>
+                    <li data-i18n="tldr_2"><strong>Writing/chat:</strong> Llama 3, Gemma, Mistral via Ollama — free, runs on 8GB RAM</li>
+                    <li data-i18n="tldr_3"><strong>Code completion:</strong> Continue.dev + local model — free vs Copilot ($100/year)</li>
+                    <li data-i18n="tldr_4"><strong>Image generation:</strong> Stable Diffusion — free vs Midjourney ($120/year)</li>
+                    <li data-i18n="tldr_5"><strong>Break-even:</strong> Most setups pay for themselves in 2-4 months</li>
                 </ul>
             </div>
 
-            <h2>The Real Cost of AI Subscriptions</h2>
+            <h2 data-i18n="h2_real_cost">The Real Cost of AI Subscriptions</h2>
 
-            <p>Let's add up what a typical "AI-enhanced" workflow costs per year:</p>
+            <p data-i18n="real_cost_p1">Let's add up what a typical "AI-enhanced" workflow costs per year:</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Service</th>
-                            <th>Monthly</th>
-                            <th>Yearly</th>
-                            <th>What You Get</th>
+                            <th data-i18n="th_service">Service</th>
+                            <th data-i18n="th_monthly">Monthly</th>
+                            <th data-i18n="th_yearly">Yearly</th>
+                            <th data-i18n="th_what_you_get">What You Get</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -202,34 +202,34 @@
                             <td>ChatGPT Plus</td>
                             <td>$20</td>
                             <td>$240</td>
-                            <td>GPT-4, writing assistance</td>
+                            <td data-i18n="td_chatgpt">GPT-4, writing assistance</td>
                         </tr>
                         <tr>
                             <td>Claude Pro</td>
                             <td>$20</td>
                             <td>$240</td>
-                            <td>Claude, long context</td>
+                            <td data-i18n="td_claude">Claude, long context</td>
                         </tr>
                         <tr>
                             <td>GitHub Copilot</td>
                             <td>$10</td>
                             <td>$100</td>
-                            <td>Code completion</td>
+                            <td data-i18n="td_copilot">Code completion</td>
                         </tr>
                         <tr>
                             <td>Otter.ai Pro</td>
                             <td>$17</td>
                             <td>$200</td>
-                            <td>Meeting transcription</td>
+                            <td data-i18n="td_otter">Meeting transcription</td>
                         </tr>
                         <tr>
                             <td>Midjourney</td>
                             <td>$10</td>
                             <td>$120</td>
-                            <td>Image generation</td>
+                            <td data-i18n="td_midjourney">Image generation</td>
                         </tr>
                         <tr class="highlight-row">
-                            <td><strong>Total</strong></td>
+                            <td><strong data-i18n="td_total">Total</strong></td>
                             <td><strong>$77</strong></td>
                             <td><strong>$900</strong></td>
                             <td></td>
@@ -238,203 +238,203 @@
                 </table>
             </div>
 
-            <p>Not everyone uses all of these. But even a modest stack — say, ChatGPT Plus and Otter.ai — runs $440/year. That's real money for capabilities that increasingly exist in free, local alternatives.</p>
+            <p data-i18n="real_cost_p2">Not everyone uses all of these. But even a modest stack — say, ChatGPT Plus and Otter.ai — runs $440/year. That's real money for capabilities that increasingly exist in free, local alternatives.</p>
 
-            <h2>The Shift to Local AI</h2>
+            <h2 data-i18n="h2_shift">The Shift to Local AI</h2>
 
-            <p>This isn't just about saving money — it's a fundamental shift in how AI gets deployed. The numbers tell the story:</p>
+            <p data-i18n="shift_p1">This isn't just about saving money — it's a fundamental shift in how AI gets deployed. The numbers tell the story:</p>
 
-            <p><strong>Market growth:</strong> The AI inference market is projected to grow from $106 billion in 2025 to $255 billion by 2030. On-device inference chips alone will exceed $50 billion in 2026. Mobile on-device LLMs are growing from $1.92 billion (2024) to $16.8 billion by 2033.</p>
+            <p data-i18n="shift_p2"><strong>Market growth:</strong> The AI inference market is projected to grow from $106 billion in 2025 to $255 billion by 2030. On-device inference chips alone will exceed $50 billion in 2026. Mobile on-device LLMs are growing from $1.92 billion (2024) to $16.8 billion by 2033.</p>
 
-            <p><strong>Adoption shift:</strong> AI-capable PCs will reach 55% market share in 2026, up from 31% in 2025. Inference workloads running locally have grown from 33% of all AI compute in 2023 to 50% in 2025, and are projected to hit 66% in 2026.</p>
+            <p data-i18n="shift_p3"><strong>Adoption shift:</strong> AI-capable PCs will reach 55% market share in 2026, up from 31% in 2025. Inference workloads running locally have grown from 33% of all AI compute in 2023 to 50% in 2025, and are projected to hit 66% in 2026.</p>
 
             <figure class="article-figure">
                 <img src="images/local-ai-market-growth.png" alt="Chart showing the growth of local AI inference market from 2023 to 2030" loading="lazy">
-                <figcaption>The shift to on-device AI: inference workloads moving from cloud to local</figcaption>
+                <figcaption data-i18n="fig_market">The shift to on-device AI: inference workloads moving from cloud to local</figcaption>
             </figure>
 
-            <p>Meanwhile, cloud API pricing fell 60-80% in 2025-2026 as competition intensified. The result: local AI became cost-competitive even before factoring in subscription fatigue and privacy concerns.</p>
+            <p data-i18n="shift_p4">Meanwhile, cloud API pricing fell 60-80% in 2025-2026 as competition intensified. The result: local AI became cost-competitive even before factoring in subscription fatigue and privacy concerns.</p>
 
-            <h2>What Can Actually Run Locally in 2026</h2>
+            <h2 data-i18n="h2_what_runs">What Can Actually Run Locally in 2026</h2>
 
-            <p>Local AI has come a long way. Here's what genuinely works on consumer hardware:</p>
+            <p data-i18n="what_runs_p1">Local AI has come a long way. Here's what genuinely works on consumer hardware:</p>
 
-            <h3>1. Meeting Transcription (Replaces Otter.ai)</h3>
+            <h3 data-i18n="h3_transcription">1. Meeting Transcription (Replaces Otter.ai)</h3>
 
-            <p><strong>The tool:</strong> Whisper (via Mono, MacWhisper, or whisper.cpp)</p>
+            <p data-i18n="transcription_p1"><strong>The tool:</strong> Whisper (via Mono, MacWhisper, or whisper.cpp)</p>
 
-            <p>OpenAI's Whisper model runs entirely locally and matches cloud transcription quality. It supports 95+ languages, handles accents well, and produces accurate timestamps.</p>
+            <p data-i18n="transcription_p2">OpenAI's Whisper model runs entirely locally and matches cloud transcription quality. It supports 95+ languages, handles accents well, and produces accurate timestamps.</p>
 
-            <p><strong>Mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter's $200/year, so it pays for itself in about 3 months.</p>
+            <p data-i18n="transcription_p3"><strong>Mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter's $200/year, so it pays for itself in about 3 months.</p>
 
             <figure class="article-figure">
                 <img src="images/mono-ai-profiles.png" alt="Mono AI Profiles showing Local Models with Faster-Whisper for transcription" loading="lazy">
-                <figcaption>Mono's AI profiles: choose between local models (free) or cloud APIs</figcaption>
+                <figcaption data-i18n="fig_mono">Mono's AI profiles: choose between local models (free) or cloud APIs</figcaption>
             </figure>
 
             <div class="tip-box">
-                <p><strong>Savings:</strong> $150-200/year compared to Otter.ai, Fireflies, or similar services.</p>
+                <p data-i18n="tip_transcription"><strong>Savings:</strong> $150-200/year compared to Otter.ai, Fireflies, or similar services.</p>
             </div>
 
-            <h3>2. Writing and Chat (Replaces ChatGPT Plus)</h3>
+            <h3 data-i18n="h3_writing">2. Writing and Chat (Replaces ChatGPT Plus)</h3>
 
-            <p><strong>The tools:</strong> Ollama, LM Studio, or Jan</p>
+            <p data-i18n="writing_p1"><strong>The tools:</strong> Ollama, LM Studio, or Jan</p>
 
-            <p>Running a local LLM used to require technical setup. Now you download an app, pick a model, and start chatting. The best options in 2026:</p>
+            <p data-i18n="writing_p2">Running a local LLM used to require technical setup. Now you download an app, pick a model, and start chatting. The best options in 2026:</p>
 
             <ul>
-                <li><strong>Llama 3 8B:</strong> Meta's open model, excellent for general tasks</li>
-                <li><strong>Gemma 2 9B:</strong> Google's efficient model, great on limited RAM</li>
-                <li><strong>Mistral 7B:</strong> Strong reasoning, runs fast on most machines</li>
-                <li><strong>Qwen 2.5:</strong> Particularly good for coding tasks</li>
+                <li data-i18n="writing_li1"><strong>Llama 3 8B:</strong> Meta's open model, excellent for general tasks</li>
+                <li data-i18n="writing_li2"><strong>Gemma 2 9B:</strong> Google's efficient model, great on limited RAM</li>
+                <li data-i18n="writing_li3"><strong>Mistral 7B:</strong> Strong reasoning, runs fast on most machines</li>
+                <li data-i18n="writing_li4"><strong>Qwen 2.5:</strong> Particularly good for coding tasks</li>
             </ul>
 
-            <p>For everyday writing — emails, brainstorming, summarization, Q&A — these models handle 80-90% of what people use ChatGPT for. The remaining 10-20% (cutting-edge reasoning, very long documents) still favors cloud models.</p>
+            <p data-i18n="writing_p3">For everyday writing — emails, brainstorming, summarization, Q&A — these models handle 80-90% of what people use ChatGPT for. The remaining 10-20% (cutting-edge reasoning, very long documents) still favors cloud models.</p>
 
             <div class="tip-box">
-                <p><strong>Savings:</strong> $240/year if replacing ChatGPT Plus entirely. Many users keep a free ChatGPT tier for occasional complex tasks and use local models daily.</p>
+                <p data-i18n="tip_writing"><strong>Savings:</strong> $240/year if replacing ChatGPT Plus entirely. Many users keep a free ChatGPT tier for occasional complex tasks and use local models daily.</p>
             </div>
 
-            <h3>3. Code Completion (Replaces GitHub Copilot)</h3>
+            <h3 data-i18n="h3_code">3. Code Completion (Replaces GitHub Copilot)</h3>
 
-            <p><strong>The tool:</strong> Continue.dev + local model</p>
+            <p data-i18n="code_p1"><strong>The tool:</strong> Continue.dev + local model</p>
 
-            <p>Continue is an open-source VS Code/JetBrains extension that connects to local models for code completion and chat. Pair it with a coding-focused model like CodeLlama or Qwen 2.5 Coder, and you get Copilot-like autocomplete without the subscription.</p>
+            <p data-i18n="code_p2">Continue is an open-source VS Code/JetBrains extension that connects to local models for code completion and chat. Pair it with a coding-focused model like CodeLlama or Qwen 2.5 Coder, and you get Copilot-like autocomplete without the subscription.</p>
 
-            <p>The experience isn't quite as polished as Copilot — completions can be slightly slower, and the model occasionally misses context. But for many developers, it's close enough to save $100/year.</p>
+            <p data-i18n="code_p3">The experience isn't quite as polished as Copilot — completions can be slightly slower, and the model occasionally misses context. But for many developers, it's close enough to save $100/year.</p>
 
             <div class="tip-box">
-                <p><strong>Savings:</strong> $100/year. Works best for developers who don't need completions in every keystroke.</p>
+                <p data-i18n="tip_code"><strong>Savings:</strong> $100/year. Works best for developers who don't need completions in every keystroke.</p>
             </div>
 
-            <h3>4. Image Generation (Replaces Midjourney)</h3>
+            <h3 data-i18n="h3_image">4. Image Generation (Replaces Midjourney)</h3>
 
-            <p><strong>The tools:</strong> Stable Diffusion via ComfyUI, Automatic1111, or Fooocus</p>
+            <p data-i18n="image_p1"><strong>The tools:</strong> Stable Diffusion via ComfyUI, Automatic1111, or Fooocus</p>
 
-            <p>Local image generation has matured significantly. Stable Diffusion XL and SD 3 produce high-quality images, and tools like Fooocus make the workflow almost as simple as typing a prompt.</p>
+            <p data-i18n="image_p2">Local image generation has matured significantly. Stable Diffusion XL and SD 3 produce high-quality images, and tools like Fooocus make the workflow almost as simple as typing a prompt.</p>
 
-            <p>The catch: you need a decent GPU. NVIDIA cards with 8GB+ VRAM work best. Apple Silicon runs Stable Diffusion but slower than dedicated GPUs. Without a good GPU, this one's harder to replace locally.</p>
+            <p data-i18n="image_p3">The catch: you need a decent GPU. NVIDIA cards with 8GB+ VRAM work best. Apple Silicon runs Stable Diffusion but slower than dedicated GPUs. Without a good GPU, this one's harder to replace locally.</p>
 
             <div class="tip-box">
-                <p><strong>Savings:</strong> $120/year if you have the hardware. If you'd need to buy a GPU specifically for this, the math changes.</p>
+                <p data-i18n="tip_image"><strong>Savings:</strong> $120/year if you have the hardware. If you'd need to buy a GPU specifically for this, the math changes.</p>
             </div>
 
-            <h3>5. Document Q&A and RAG</h3>
+            <h3 data-i18n="h3_rag">5. Document Q&A and RAG</h3>
 
-            <p><strong>The tools:</strong> PrivateGPT, AnythingLLM, or Khoj</p>
+            <p data-i18n="rag_p1"><strong>The tools:</strong> PrivateGPT, AnythingLLM, or Khoj</p>
 
-            <p>Want to chat with your documents locally? These tools combine local embedding models with local LLMs to create private RAG (retrieval-augmented generation) systems. Upload PDFs, notes, or documents and ask questions — entirely offline.</p>
+            <p data-i18n="rag_p2">Want to chat with your documents locally? These tools combine local embedding models with local LLMs to create private RAG (retrieval-augmented generation) systems. Upload PDFs, notes, or documents and ask questions — entirely offline.</p>
 
-            <p>This replaces paid features in ChatGPT (file upload), Notion AI, and similar tools.</p>
+            <p data-i18n="rag_p3">This replaces paid features in ChatGPT (file upload), Notion AI, and similar tools.</p>
 
-            <h2>Hardware Reality Check</h2>
+            <h2 data-i18n="h2_hardware">Hardware Reality Check</h2>
 
-            <p>Local AI isn't free — it trades subscription costs for hardware requirements. Here's what you actually need:</p>
+            <p data-i18n="hardware_p1">Local AI isn't free — it trades subscription costs for hardware requirements. Here's what you actually need:</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Use Case</th>
-                            <th>Minimum Specs</th>
-                            <th>Recommended</th>
+                            <th data-i18n="th_use_case">Use Case</th>
+                            <th data-i18n="th_minimum">Minimum Specs</th>
+                            <th data-i18n="th_recommended">Recommended</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Transcription (Whisper)</td>
-                            <td>8GB RAM, any modern CPU</td>
-                            <td>16GB RAM, Apple Silicon or dedicated GPU</td>
+                            <td data-i18n="hw_transcription">Transcription (Whisper)</td>
+                            <td data-i18n="hw_transcription_min">8GB RAM, any modern CPU</td>
+                            <td data-i18n="hw_transcription_rec">16GB RAM, Apple Silicon or dedicated GPU</td>
                         </tr>
                         <tr>
-                            <td>Chat/Writing (7-8B models)</td>
-                            <td>8GB RAM</td>
-                            <td>16GB RAM, Apple Silicon</td>
+                            <td data-i18n="hw_chat_small">Chat/Writing (7-8B models)</td>
+                            <td data-i18n="hw_chat_small_min">8GB RAM</td>
+                            <td data-i18n="hw_chat_small_rec">16GB RAM, Apple Silicon</td>
                         </tr>
                         <tr>
-                            <td>Chat/Writing (larger models)</td>
-                            <td>16GB RAM</td>
-                            <td>32GB+ RAM or GPU with 12GB+ VRAM</td>
+                            <td data-i18n="hw_chat_large">Chat/Writing (larger models)</td>
+                            <td data-i18n="hw_chat_large_min">16GB RAM</td>
+                            <td data-i18n="hw_chat_large_rec">32GB+ RAM or GPU with 12GB+ VRAM</td>
                         </tr>
                         <tr>
-                            <td>Code completion</td>
-                            <td>16GB RAM</td>
-                            <td>32GB RAM, fast SSD</td>
+                            <td data-i18n="hw_code">Code completion</td>
+                            <td data-i18n="hw_code_min">16GB RAM</td>
+                            <td data-i18n="hw_code_rec">32GB RAM, fast SSD</td>
                         </tr>
                         <tr>
-                            <td>Image generation</td>
-                            <td>GPU with 6GB VRAM</td>
-                            <td>GPU with 12GB+ VRAM</td>
+                            <td data-i18n="hw_image">Image generation</td>
+                            <td data-i18n="hw_image_min">GPU with 6GB VRAM</td>
+                            <td data-i18n="hw_image_rec">GPU with 12GB+ VRAM</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <p><strong>The Apple Silicon sweet spot:</strong> M1/M2/M3 Macs with 16GB unified memory handle transcription, chat, and code completion well. The unified memory architecture means the RAM is shared with the GPU, making these machines surprisingly capable for local AI.</p>
+            <p data-i18n="hardware_p2"><strong>The Apple Silicon sweet spot:</strong> M1/M2/M3 Macs with 16GB unified memory handle transcription, chat, and code completion well. The unified memory architecture means the RAM is shared with the GPU, making these machines surprisingly capable for local AI.</p>
 
-            <p><strong>Windows/Linux:</strong> A dedicated NVIDIA GPU (RTX 3060 or better) unlocks faster inference and image generation. Without a GPU, you're limited to CPU inference, which works but is slower.</p>
+            <p data-i18n="hardware_p3"><strong>Windows/Linux:</strong> A dedicated NVIDIA GPU (RTX 3060 or better) unlocks faster inference and image generation. Without a GPU, you're limited to CPU inference, which works but is slower.</p>
 
-            <p>If you already have capable hardware, local AI is essentially free beyond the software. If you'd need to upgrade, factor that into the break-even calculation.</p>
+            <p data-i18n="hardware_p4">If you already have capable hardware, local AI is essentially free beyond the software. If you'd need to upgrade, factor that into the break-even calculation.</p>
 
-            <h2>When Cloud Still Wins</h2>
+            <h2 data-i18n="h2_cloud_wins">When Cloud Still Wins</h2>
 
-            <p>Local models aren't better at everything. Keep cloud subscriptions for:</p>
+            <p data-i18n="cloud_wins_p1">Local models aren't better at everything. Keep cloud subscriptions for:</p>
 
             <ul>
-                <li><strong>Cutting-edge capabilities:</strong> GPT-4 and Claude Opus still outperform local models on complex reasoning, very long documents, and nuanced tasks.</li>
-                <li><strong>Mobile workflows:</strong> Local models require your computer. If you need AI on your phone or across devices, cloud services are more practical.</li>
-                <li><strong>Team features:</strong> Shared workspaces, collaboration, and admin controls typically require cloud infrastructure.</li>
-                <li><strong>Zero setup:</strong> Cloud services just work. Local tools require some configuration, even if it's gotten easier.</li>
+                <li data-i18n="cloud_li1"><strong>Cutting-edge capabilities:</strong> GPT-4 and Claude Opus still outperform local models on complex reasoning, very long documents, and nuanced tasks.</li>
+                <li data-i18n="cloud_li2"><strong>Mobile workflows:</strong> Local models require your computer. If you need AI on your phone or across devices, cloud services are more practical.</li>
+                <li data-i18n="cloud_li3"><strong>Team features:</strong> Shared workspaces, collaboration, and admin controls typically require cloud infrastructure.</li>
+                <li data-i18n="cloud_li4"><strong>Zero setup:</strong> Cloud services just work. Local tools require some configuration, even if it's gotten easier.</li>
             </ul>
 
-            <p>The practical approach: use local models for daily tasks (80% of usage) and keep a free or minimal cloud tier for occasional complex work.</p>
+            <p data-i18n="cloud_wins_p2">The practical approach: use local models for daily tasks (80% of usage) and keep a free or minimal cloud tier for occasional complex work.</p>
 
-            <h2>Getting Started: A Minimal Local AI Stack</h2>
+            <h2 data-i18n="h2_getting_started">Getting Started: A Minimal Local AI Stack</h2>
 
-            <p>Here's a practical starting point that replaces ~$400/year in subscriptions:</p>
+            <p data-i18n="getting_started_p1">Here's a practical starting point that replaces ~$400/year in subscriptions:</p>
 
-            <h3>For transcription:</h3>
-            <p><strong>Mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.</p>
+            <h3 data-i18n="h3_for_transcription">For transcription:</h3>
+            <p data-i18n="for_transcription_p"><strong>Mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.</p>
 
-            <h3>For chat and writing:</h3>
-            <p><strong>Ollama</strong> (free) + <strong>Llama 3 8B</strong> — download Ollama, run <code>ollama pull llama3</code>, start chatting. Add a UI like Open WebUI for a ChatGPT-like experience.</p>
+            <h3 data-i18n="h3_for_chat">For chat and writing:</h3>
+            <p data-i18n="for_chat_p"><strong>Ollama</strong> (free) + <strong>Llama 3 8B</strong> — download Ollama, run <code>ollama pull llama3</code>, start chatting. Add a UI like Open WebUI for a ChatGPT-like experience.</p>
 
-            <h3>For coding:</h3>
-            <p><strong>Continue.dev</strong> (free) + <strong>Qwen 2.5 Coder</strong> — install the VS Code extension, point it at your local Ollama instance.</p>
+            <h3 data-i18n="h3_for_coding">For coding:</h3>
+            <p data-i18n="for_coding_p"><strong>Continue.dev</strong> (free) + <strong>Qwen 2.5 Coder</strong> — install the VS Code extension, point it at your local Ollama instance.</p>
 
             <div class="savings-callout">
-                <div class="savings-amount">$350+</div>
-                <div class="savings-label">potential yearly savings with this stack</div>
+                <div class="savings-amount" data-i18n="savings_amount">$350+</div>
+                <div class="savings-label" data-i18n="savings_label">potential yearly savings with this stack</div>
             </div>
 
-            <h2>The Privacy Bonus</h2>
+            <h2 data-i18n="h2_privacy">The Privacy Bonus</h2>
 
-            <p>Beyond cost savings, local AI keeps your data private by default:</p>
+            <p data-i18n="privacy_p1">Beyond cost savings, local AI keeps your data private by default:</p>
 
             <ul>
-                <li>Your meeting recordings stay on your device</li>
-                <li>Your documents aren't uploaded for training</li>
-                <li>Your code doesn't pass through third-party servers</li>
-                <li>You work offline without interruption</li>
+                <li data-i18n="privacy_li1">Your meeting recordings stay on your device</li>
+                <li data-i18n="privacy_li2">Your documents aren't uploaded for training</li>
+                <li data-i18n="privacy_li3">Your code doesn't pass through third-party servers</li>
+                <li data-i18n="privacy_li4">You work offline without interruption</li>
             </ul>
 
-            <p>For sensitive work — legal, medical, financial, or simply personal — this matters more than the subscription savings.</p>
+            <p data-i18n="privacy_p2">For sensitive work — legal, medical, financial, or simply personal — this matters more than the subscription savings.</p>
 
-            <h2>Is It Worth It?</h2>
+            <h2 data-i18n="h2_worth_it">Is It Worth It?</h2>
 
-            <p>If you have modern hardware (2020 or newer Mac, or a PC with a decent GPU), local AI makes financial sense within a few months. The tools have matured past the early-adopter phase into genuine daily-driver territory.</p>
+            <p data-i18n="worth_it_p1">If you have modern hardware (2020 or newer Mac, or a PC with a decent GPU), local AI makes financial sense within a few months. The tools have matured past the early-adopter phase into genuine daily-driver territory.</p>
 
-            <p>If you'd need significant hardware upgrades, the math is less clear. A new GPU costs $300-500 — that's 1-2 years of some subscriptions. At that point, you're buying into local AI for reasons beyond pure cost savings (privacy, offline access, ownership).</p>
+            <p data-i18n="worth_it_p2">If you'd need significant hardware upgrades, the math is less clear. A new GPU costs $300-500 — that's 1-2 years of some subscriptions. At that point, you're buying into local AI for reasons beyond pure cost savings (privacy, offline access, ownership).</p>
 
-            <p>For most people with existing capable hardware, the answer is simple: try the free tools (Ollama, Continue.dev) and see if they fit your workflow. If they do, the subscription cancellations follow naturally.</p>
+            <p data-i18n="worth_it_p3">For most people with existing capable hardware, the answer is simple: try the free tools (Ollama, Continue.dev) and see if they fit your workflow. If they do, the subscription cancellations follow naturally.</p>
 
             <div class="cta-card">
-                <p class="cta-title">Try Mono free</p>
-                <p class="cta-sub">One recording limit, no account needed. $50 to unlock everything — local AI transcription, speaker ID, semantic search, no subscription.</p>
+                <p class="cta-title" data-i18n="cta_title">Try Mono free</p>
+                <p class="cta-sub" data-i18n="cta_sub">One recording limit, no account needed. $50 to unlock everything — local AI transcription, speaker ID, semantic search, no subscription.</p>
                 <div class="cta-buttons">
                     <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
-                       class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
-                    <a href="../?buy" class="cta-btn-secondary">Download free</a>
+                       class="cta-btn-primary" target="_blank" rel="noopener sponsored" data-i18n="cta_buy">Buy Mono — $50</a>
+                    <a href="../?buy" class="cta-btn-secondary" data-i18n="cta_download">Download free</a>
                 </div>
             </div>
 
@@ -445,5 +445,744 @@
         // Fold effect
         if (window.initFoldEffect) window.initFoldEffect();
     </script>
+
+<script>
+const translations = {
+    en: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'How to Save $300/Year on AI Subscriptions with Local Models',
+        'meta': 'Mar 11, 2026 · 10 min read · By Daniil Lefanov',
+        'intro_p1': 'AI subscriptions add up fast. ChatGPT Plus is $20/month. Claude Pro is $20/month. GitHub Copilot is $10/month. Otter.ai is $17/month. If you\'re using multiple AI tools, you\'re easily spending $300-500 per year on services that — for many tasks — can now run entirely on your own computer.',
+        'intro_p2': 'The shift happened quietly. Open-source models got good. Apple Silicon made local inference fast. And a growing ecosystem of tools now lets you run AI for writing, coding, transcription, and image generation without sending data to the cloud or paying monthly fees.',
+        'intro_p3': 'This guide covers what you can realistically run locally in 2026, what hardware you need, and where local models genuinely match (or beat) their cloud counterparts.',
+        'tldr_label': 'TL;DR',
+        'tldr_1': '<strong>Meeting transcription:</strong> Whisper locally matches cloud quality — Mono ($50 once) vs Otter.ai ($200/year)',
+        'tldr_2': '<strong>Writing/chat:</strong> Llama 3, Gemma, Mistral via Ollama — free, runs on 8GB RAM',
+        'tldr_3': '<strong>Code completion:</strong> Continue.dev + local model — free vs Copilot ($100/year)',
+        'tldr_4': '<strong>Image generation:</strong> Stable Diffusion — free vs Midjourney ($120/year)',
+        'tldr_5': '<strong>Break-even:</strong> Most setups pay for themselves in 2-4 months',
+        'h2_real_cost': 'The Real Cost of AI Subscriptions',
+        'real_cost_p1': 'Let\'s add up what a typical "AI-enhanced" workflow costs per year:',
+        'th_service': 'Service',
+        'th_monthly': 'Monthly',
+        'th_yearly': 'Yearly',
+        'th_what_you_get': 'What You Get',
+        'td_chatgpt': 'GPT-4, writing assistance',
+        'td_claude': 'Claude, long context',
+        'td_copilot': 'Code completion',
+        'td_otter': 'Meeting transcription',
+        'td_midjourney': 'Image generation',
+        'td_total': 'Total',
+        'real_cost_p2': 'Not everyone uses all of these. But even a modest stack — say, ChatGPT Plus and Otter.ai — runs $440/year. That\'s real money for capabilities that increasingly exist in free, local alternatives.',
+        'h2_shift': 'The Shift to Local AI',
+        'shift_p1': 'This isn\'t just about saving money — it\'s a fundamental shift in how AI gets deployed. The numbers tell the story:',
+        'shift_p2': '<strong>Market growth:</strong> The AI inference market is projected to grow from $106 billion in 2025 to $255 billion by 2030. On-device inference chips alone will exceed $50 billion in 2026. Mobile on-device LLMs are growing from $1.92 billion (2024) to $16.8 billion by 2033.',
+        'shift_p3': '<strong>Adoption shift:</strong> AI-capable PCs will reach 55% market share in 2026, up from 31% in 2025. Inference workloads running locally have grown from 33% of all AI compute in 2023 to 50% in 2025, and are projected to hit 66% in 2026.',
+        'fig_market': 'The shift to on-device AI: inference workloads moving from cloud to local',
+        'shift_p4': 'Meanwhile, cloud API pricing fell 60-80% in 2025-2026 as competition intensified. The result: local AI became cost-competitive even before factoring in subscription fatigue and privacy concerns.',
+        'h2_what_runs': 'What Can Actually Run Locally in 2026',
+        'what_runs_p1': 'Local AI has come a long way. Here\'s what genuinely works on consumer hardware:',
+        'h3_transcription': '1. Meeting Transcription (Replaces Otter.ai)',
+        'transcription_p1': '<strong>The tool:</strong> Whisper (via Mono, MacWhisper, or whisper.cpp)',
+        'transcription_p2': 'OpenAI\'s Whisper model runs entirely locally and matches cloud transcription quality. It supports 95+ languages, handles accents well, and produces accurate timestamps.',
+        'transcription_p3': '<strong>Mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter\'s $200/year, so it pays for itself in about 3 months.',
+        'fig_mono': 'Mono\'s AI profiles: choose between local models (free) or cloud APIs',
+        'tip_transcription': '<strong>Savings:</strong> $150-200/year compared to Otter.ai, Fireflies, or similar services.',
+        'h3_writing': '2. Writing and Chat (Replaces ChatGPT Plus)',
+        'writing_p1': '<strong>The tools:</strong> Ollama, LM Studio, or Jan',
+        'writing_p2': 'Running a local LLM used to require technical setup. Now you download an app, pick a model, and start chatting. The best options in 2026:',
+        'writing_li1': '<strong>Llama 3 8B:</strong> Meta\'s open model, excellent for general tasks',
+        'writing_li2': '<strong>Gemma 2 9B:</strong> Google\'s efficient model, great on limited RAM',
+        'writing_li3': '<strong>Mistral 7B:</strong> Strong reasoning, runs fast on most machines',
+        'writing_li4': '<strong>Qwen 2.5:</strong> Particularly good for coding tasks',
+        'writing_p3': 'For everyday writing — emails, brainstorming, summarization, Q&A — these models handle 80-90% of what people use ChatGPT for. The remaining 10-20% (cutting-edge reasoning, very long documents) still favors cloud models.',
+        'tip_writing': '<strong>Savings:</strong> $240/year if replacing ChatGPT Plus entirely. Many users keep a free ChatGPT tier for occasional complex tasks and use local models daily.',
+        'h3_code': '3. Code Completion (Replaces GitHub Copilot)',
+        'code_p1': '<strong>The tool:</strong> Continue.dev + local model',
+        'code_p2': 'Continue is an open-source VS Code/JetBrains extension that connects to local models for code completion and chat. Pair it with a coding-focused model like CodeLlama or Qwen 2.5 Coder, and you get Copilot-like autocomplete without the subscription.',
+        'code_p3': 'The experience isn\'t quite as polished as Copilot — completions can be slightly slower, and the model occasionally misses context. But for many developers, it\'s close enough to save $100/year.',
+        'tip_code': '<strong>Savings:</strong> $100/year. Works best for developers who don\'t need completions in every keystroke.',
+        'h3_image': '4. Image Generation (Replaces Midjourney)',
+        'image_p1': '<strong>The tools:</strong> Stable Diffusion via ComfyUI, Automatic1111, or Fooocus',
+        'image_p2': 'Local image generation has matured significantly. Stable Diffusion XL and SD 3 produce high-quality images, and tools like Fooocus make the workflow almost as simple as typing a prompt.',
+        'image_p3': 'The catch: you need a decent GPU. NVIDIA cards with 8GB+ VRAM work best. Apple Silicon runs Stable Diffusion but slower than dedicated GPUs. Without a good GPU, this one\'s harder to replace locally.',
+        'tip_image': '<strong>Savings:</strong> $120/year if you have the hardware. If you\'d need to buy a GPU specifically for this, the math changes.',
+        'h3_rag': '5. Document Q&A and RAG',
+        'rag_p1': '<strong>The tools:</strong> PrivateGPT, AnythingLLM, or Khoj',
+        'rag_p2': 'Want to chat with your documents locally? These tools combine local embedding models with local LLMs to create private RAG (retrieval-augmented generation) systems. Upload PDFs, notes, or documents and ask questions — entirely offline.',
+        'rag_p3': 'This replaces paid features in ChatGPT (file upload), Notion AI, and similar tools.',
+        'h2_hardware': 'Hardware Reality Check',
+        'hardware_p1': 'Local AI isn\'t free — it trades subscription costs for hardware requirements. Here\'s what you actually need:',
+        'th_use_case': 'Use Case',
+        'th_minimum': 'Minimum Specs',
+        'th_recommended': 'Recommended',
+        'hw_transcription': 'Transcription (Whisper)',
+        'hw_transcription_min': '8GB RAM, any modern CPU',
+        'hw_transcription_rec': '16GB RAM, Apple Silicon or dedicated GPU',
+        'hw_chat_small': 'Chat/Writing (7-8B models)',
+        'hw_chat_small_min': '8GB RAM',
+        'hw_chat_small_rec': '16GB RAM, Apple Silicon',
+        'hw_chat_large': 'Chat/Writing (larger models)',
+        'hw_chat_large_min': '16GB RAM',
+        'hw_chat_large_rec': '32GB+ RAM or GPU with 12GB+ VRAM',
+        'hw_code': 'Code completion',
+        'hw_code_min': '16GB RAM',
+        'hw_code_rec': '32GB RAM, fast SSD',
+        'hw_image': 'Image generation',
+        'hw_image_min': 'GPU with 6GB VRAM',
+        'hw_image_rec': 'GPU with 12GB+ VRAM',
+        'hardware_p2': '<strong>The Apple Silicon sweet spot:</strong> M1/M2/M3 Macs with 16GB unified memory handle transcription, chat, and code completion well. The unified memory architecture means the RAM is shared with the GPU, making these machines surprisingly capable for local AI.',
+        'hardware_p3': '<strong>Windows/Linux:</strong> A dedicated NVIDIA GPU (RTX 3060 or better) unlocks faster inference and image generation. Without a GPU, you\'re limited to CPU inference, which works but is slower.',
+        'hardware_p4': 'If you already have capable hardware, local AI is essentially free beyond the software. If you\'d need to upgrade, factor that into the break-even calculation.',
+        'h2_cloud_wins': 'When Cloud Still Wins',
+        'cloud_wins_p1': 'Local models aren\'t better at everything. Keep cloud subscriptions for:',
+        'cloud_li1': '<strong>Cutting-edge capabilities:</strong> GPT-4 and Claude Opus still outperform local models on complex reasoning, very long documents, and nuanced tasks.',
+        'cloud_li2': '<strong>Mobile workflows:</strong> Local models require your computer. If you need AI on your phone or across devices, cloud services are more practical.',
+        'cloud_li3': '<strong>Team features:</strong> Shared workspaces, collaboration, and admin controls typically require cloud infrastructure.',
+        'cloud_li4': '<strong>Zero setup:</strong> Cloud services just work. Local tools require some configuration, even if it\'s gotten easier.',
+        'cloud_wins_p2': 'The practical approach: use local models for daily tasks (80% of usage) and keep a free or minimal cloud tier for occasional complex work.',
+        'h2_getting_started': 'Getting Started: A Minimal Local AI Stack',
+        'getting_started_p1': 'Here\'s a practical starting point that replaces ~$400/year in subscriptions:',
+        'h3_for_transcription': 'For transcription:',
+        'for_transcription_p': '<strong>Mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.',
+        'h3_for_chat': 'For chat and writing:',
+        'for_chat_p': '<strong>Ollama</strong> (free) + <strong>Llama 3 8B</strong> — download Ollama, run <code>ollama pull llama3</code>, start chatting. Add a UI like Open WebUI for a ChatGPT-like experience.',
+        'h3_for_coding': 'For coding:',
+        'for_coding_p': '<strong>Continue.dev</strong> (free) + <strong>Qwen 2.5 Coder</strong> — install the VS Code extension, point it at your local Ollama instance.',
+        'savings_amount': '$350+',
+        'savings_label': 'potential yearly savings with this stack',
+        'h2_privacy': 'The Privacy Bonus',
+        'privacy_p1': 'Beyond cost savings, local AI keeps your data private by default:',
+        'privacy_li1': 'Your meeting recordings stay on your device',
+        'privacy_li2': 'Your documents aren\'t uploaded for training',
+        'privacy_li3': 'Your code doesn\'t pass through third-party servers',
+        'privacy_li4': 'You work offline without interruption',
+        'privacy_p2': 'For sensitive work — legal, medical, financial, or simply personal — this matters more than the subscription savings.',
+        'h2_worth_it': 'Is It Worth It?',
+        'worth_it_p1': 'If you have modern hardware (2020 or newer Mac, or a PC with a decent GPU), local AI makes financial sense within a few months. The tools have matured past the early-adopter phase into genuine daily-driver territory.',
+        'worth_it_p2': 'If you\'d need significant hardware upgrades, the math is less clear. A new GPU costs $300-500 — that\'s 1-2 years of some subscriptions. At that point, you\'re buying into local AI for reasons beyond pure cost savings (privacy, offline access, ownership).',
+        'worth_it_p3': 'For most people with existing capable hardware, the answer is simple: try the free tools (Ollama, Continue.dev) and see if they fit your workflow. If they do, the subscription cancellations follow naturally.',
+        'cta_title': 'Try Mono free',
+        'cta_sub': 'One recording limit, no account needed. $50 to unlock everything — local AI transcription, speaker ID, semantic search, no subscription.',
+        'cta_buy': 'Buy Mono — $50',
+        'cta_download': 'Download free'
+    },
+    es: {
+        'back_link': '← blog',
+        'category': '[Guía]',
+        'title': 'Cómo ahorrar $300 al año en suscripciones de IA con modelos locales',
+        'meta': '11 mar 2026 · 10 min de lectura · Por Daniil Lefanov',
+        'intro_p1': 'Las suscripciones de IA se acumulan rápido. ChatGPT Plus cuesta $20/mes. Claude Pro cuesta $20/mes. GitHub Copilot cuesta $10/mes. Otter.ai cuesta $17/mes. Si usas varias herramientas de IA, fácilmente gastas $300-500 al año en servicios que — para muchas tareas — ahora pueden funcionar completamente en tu propia computadora.',
+        'intro_p2': 'El cambio ocurrió silenciosamente. Los modelos de código abierto mejoraron. Apple Silicon hizo que la inferencia local fuera rápida. Y un ecosistema creciente de herramientas ahora te permite ejecutar IA para escritura, programación, transcripción y generación de imágenes sin enviar datos a la nube ni pagar cuotas mensuales.',
+        'intro_p3': 'Esta guía cubre lo que realmente puedes ejecutar localmente en 2026, qué hardware necesitas y dónde los modelos locales genuinamente igualan (o superan) a sus contrapartes en la nube.',
+        'tldr_label': 'Resumen',
+        'tldr_1': '<strong>Transcripción de reuniones:</strong> Whisper local iguala la calidad de la nube — Mono ($50 una vez) vs Otter.ai ($200/año)',
+        'tldr_2': '<strong>Escritura/chat:</strong> Llama 3, Gemma, Mistral vía Ollama — gratis, funciona con 8GB RAM',
+        'tldr_3': '<strong>Autocompletado de código:</strong> Continue.dev + modelo local — gratis vs Copilot ($100/año)',
+        'tldr_4': '<strong>Generación de imágenes:</strong> Stable Diffusion — gratis vs Midjourney ($120/año)',
+        'tldr_5': '<strong>Punto de equilibrio:</strong> La mayoría de las configuraciones se amortizan en 2-4 meses',
+        'h2_real_cost': 'El verdadero costo de las suscripciones de IA',
+        'real_cost_p1': 'Sumemos lo que cuesta al año un flujo de trabajo típico "potenciado con IA":',
+        'th_service': 'Servicio',
+        'th_monthly': 'Mensual',
+        'th_yearly': 'Anual',
+        'th_what_you_get': 'Lo que obtienes',
+        'td_chatgpt': 'GPT-4, asistencia de escritura',
+        'td_claude': 'Claude, contexto extenso',
+        'td_copilot': 'Autocompletado de código',
+        'td_otter': 'Transcripción de reuniones',
+        'td_midjourney': 'Generación de imágenes',
+        'td_total': 'Total',
+        'real_cost_p2': 'No todos usan todo esto. Pero incluso una combinación modesta — digamos, ChatGPT Plus y Otter.ai — suma $440/año. Eso es dinero real por capacidades que cada vez más existen en alternativas locales gratuitas.',
+        'h2_shift': 'El cambio hacia la IA local',
+        'shift_p1': 'No se trata solo de ahorrar dinero — es un cambio fundamental en cómo se despliega la IA. Los números cuentan la historia:',
+        'shift_p2': '<strong>Crecimiento del mercado:</strong> Se proyecta que el mercado de inferencia de IA crezca de $106 mil millones en 2025 a $255 mil millones para 2030. Solo los chips de inferencia en dispositivo superarán los $50 mil millones en 2026. Los LLM móviles en dispositivo están creciendo de $1.92 mil millones (2024) a $16.8 mil millones para 2033.',
+        'shift_p3': '<strong>Cambio en la adopción:</strong> Las PC con capacidad de IA alcanzarán el 55% de participación de mercado en 2026, frente al 31% en 2025. Las cargas de trabajo de inferencia que se ejecutan localmente han crecido del 33% de todo el cómputo de IA en 2023 al 50% en 2025, y se proyecta que lleguen al 66% en 2026.',
+        'fig_market': 'El cambio hacia la IA en dispositivo: cargas de trabajo de inferencia pasando de la nube a lo local',
+        'shift_p4': 'Mientras tanto, los precios de las API en la nube cayeron 60-80% en 2025-2026 a medida que la competencia se intensificó. El resultado: la IA local se volvió competitiva en costos incluso antes de considerar la fatiga de suscripciones y las preocupaciones de privacidad.',
+        'h2_what_runs': 'Qué puede ejecutarse localmente en 2026',
+        'what_runs_p1': 'La IA local ha avanzado mucho. Esto es lo que genuinamente funciona en hardware de consumo:',
+        'h3_transcription': '1. Transcripción de reuniones (Reemplaza Otter.ai)',
+        'transcription_p1': '<strong>La herramienta:</strong> Whisper (vía Mono, MacWhisper o whisper.cpp)',
+        'transcription_p2': 'El modelo Whisper de OpenAI se ejecuta completamente en local e iguala la calidad de transcripción en la nube. Soporta más de 95 idiomas, maneja bien los acentos y produce marcas de tiempo precisas.',
+        'transcription_p3': '<strong>Mono</strong> combina Whisper con identificación de hablantes, búsqueda semántica e interfaz de grabación — esencialmente un reemplazo local de Otter.ai. Cuesta $50 una vez versus los $200/año de Otter, así que se amortiza en unos 3 meses.',
+        'fig_mono': 'Perfiles de IA de Mono: elige entre modelos locales (gratis) o APIs en la nube',
+        'tip_transcription': '<strong>Ahorro:</strong> $150-200/año comparado con Otter.ai, Fireflies o servicios similares.',
+        'h3_writing': '2. Escritura y chat (Reemplaza ChatGPT Plus)',
+        'writing_p1': '<strong>Las herramientas:</strong> Ollama, LM Studio o Jan',
+        'writing_p2': 'Ejecutar un LLM local solía requerir configuración técnica. Ahora descargas una app, eliges un modelo y empiezas a chatear. Las mejores opciones en 2026:',
+        'writing_li1': '<strong>Llama 3 8B:</strong> Modelo abierto de Meta, excelente para tareas generales',
+        'writing_li2': '<strong>Gemma 2 9B:</strong> Modelo eficiente de Google, genial con RAM limitada',
+        'writing_li3': '<strong>Mistral 7B:</strong> Fuerte razonamiento, rápido en la mayoría de las máquinas',
+        'writing_li4': '<strong>Qwen 2.5:</strong> Particularmente bueno para tareas de programación',
+        'writing_p3': 'Para escritura cotidiana — correos, lluvia de ideas, resúmenes, preguntas y respuestas — estos modelos manejan el 80-90% de lo que la gente usa ChatGPT. El 10-20% restante (razonamiento de vanguardia, documentos muy largos) todavía favorece los modelos en la nube.',
+        'tip_writing': '<strong>Ahorro:</strong> $240/año si reemplazas ChatGPT Plus por completo. Muchos usuarios mantienen un nivel gratuito de ChatGPT para tareas complejas ocasionales y usan modelos locales a diario.',
+        'h3_code': '3. Autocompletado de código (Reemplaza GitHub Copilot)',
+        'code_p1': '<strong>La herramienta:</strong> Continue.dev + modelo local',
+        'code_p2': 'Continue es una extensión de código abierto para VS Code/JetBrains que conecta con modelos locales para autocompletado de código y chat. Combínalo con un modelo enfocado en código como CodeLlama o Qwen 2.5 Coder, y obtienes autocompletado tipo Copilot sin la suscripción.',
+        'code_p3': 'La experiencia no es tan pulida como Copilot — los autocompletados pueden ser ligeramente más lentos, y el modelo ocasionalmente pierde contexto. Pero para muchos desarrolladores, es suficientemente cercano para ahorrar $100/año.',
+        'tip_code': '<strong>Ahorro:</strong> $100/año. Funciona mejor para desarrolladores que no necesitan autocompletado en cada tecla.',
+        'h3_image': '4. Generación de imágenes (Reemplaza Midjourney)',
+        'image_p1': '<strong>Las herramientas:</strong> Stable Diffusion vía ComfyUI, Automatic1111 o Fooocus',
+        'image_p2': 'La generación de imágenes local ha madurado significativamente. Stable Diffusion XL y SD 3 producen imágenes de alta calidad, y herramientas como Fooocus hacen el flujo de trabajo casi tan simple como escribir un prompt.',
+        'image_p3': 'El detalle: necesitas una GPU decente. Las tarjetas NVIDIA con 8GB+ de VRAM funcionan mejor. Apple Silicon ejecuta Stable Diffusion pero más lento que GPUs dedicadas. Sin una buena GPU, este es más difícil de reemplazar localmente.',
+        'tip_image': '<strong>Ahorro:</strong> $120/año si tienes el hardware. Si necesitaras comprar una GPU específicamente para esto, los números cambian.',
+        'h3_rag': '5. Preguntas sobre documentos y RAG',
+        'rag_p1': '<strong>Las herramientas:</strong> PrivateGPT, AnythingLLM o Khoj',
+        'rag_p2': '¿Quieres chatear con tus documentos localmente? Estas herramientas combinan modelos de embedding locales con LLMs locales para crear sistemas RAG (generación aumentada por recuperación) privados. Sube PDFs, notas o documentos y haz preguntas — completamente sin conexión.',
+        'rag_p3': 'Esto reemplaza funciones de pago en ChatGPT (carga de archivos), Notion AI y herramientas similares.',
+        'h2_hardware': 'Verificación de realidad del hardware',
+        'hardware_p1': 'La IA local no es gratis — intercambia costos de suscripción por requisitos de hardware. Esto es lo que realmente necesitas:',
+        'th_use_case': 'Caso de uso',
+        'th_minimum': 'Especificaciones mínimas',
+        'th_recommended': 'Recomendado',
+        'hw_transcription': 'Transcripción (Whisper)',
+        'hw_transcription_min': '8GB RAM, cualquier CPU moderno',
+        'hw_transcription_rec': '16GB RAM, Apple Silicon o GPU dedicada',
+        'hw_chat_small': 'Chat/Escritura (modelos 7-8B)',
+        'hw_chat_small_min': '8GB RAM',
+        'hw_chat_small_rec': '16GB RAM, Apple Silicon',
+        'hw_chat_large': 'Chat/Escritura (modelos más grandes)',
+        'hw_chat_large_min': '16GB RAM',
+        'hw_chat_large_rec': '32GB+ RAM o GPU con 12GB+ VRAM',
+        'hw_code': 'Autocompletado de código',
+        'hw_code_min': '16GB RAM',
+        'hw_code_rec': '32GB RAM, SSD rápido',
+        'hw_image': 'Generación de imágenes',
+        'hw_image_min': 'GPU con 6GB VRAM',
+        'hw_image_rec': 'GPU con 12GB+ VRAM',
+        'hardware_p2': '<strong>El punto dulce de Apple Silicon:</strong> Los Mac M1/M2/M3 con 16GB de memoria unificada manejan bien transcripción, chat y autocompletado de código. La arquitectura de memoria unificada significa que la RAM se comparte con la GPU, haciendo estas máquinas sorprendentemente capaces para IA local.',
+        'hardware_p3': '<strong>Windows/Linux:</strong> Una GPU NVIDIA dedicada (RTX 3060 o mejor) desbloquea inferencia más rápida y generación de imágenes. Sin GPU, estás limitado a inferencia por CPU, que funciona pero es más lenta.',
+        'hardware_p4': 'Si ya tienes hardware capaz, la IA local es esencialmente gratis más allá del software. Si necesitaras actualizar, considera eso en el cálculo de amortización.',
+        'h2_cloud_wins': 'Cuándo la nube sigue ganando',
+        'cloud_wins_p1': 'Los modelos locales no son mejores en todo. Mantén suscripciones en la nube para:',
+        'cloud_li1': '<strong>Capacidades de vanguardia:</strong> GPT-4 y Claude Opus todavía superan a los modelos locales en razonamiento complejo, documentos muy largos y tareas matizadas.',
+        'cloud_li2': '<strong>Flujos de trabajo móviles:</strong> Los modelos locales requieren tu computadora. Si necesitas IA en tu teléfono o entre dispositivos, los servicios en la nube son más prácticos.',
+        'cloud_li3': '<strong>Funciones de equipo:</strong> Espacios de trabajo compartidos, colaboración y controles de administrador típicamente requieren infraestructura en la nube.',
+        'cloud_li4': '<strong>Cero configuración:</strong> Los servicios en la nube simplemente funcionan. Las herramientas locales requieren algo de configuración, aunque se ha vuelto más fácil.',
+        'cloud_wins_p2': 'El enfoque práctico: usa modelos locales para tareas diarias (80% del uso) y mantén un nivel gratuito o mínimo en la nube para trabajo complejo ocasional.',
+        'h2_getting_started': 'Primeros pasos: Un stack mínimo de IA local',
+        'getting_started_p1': 'Aquí hay un punto de partida práctico que reemplaza ~$400/año en suscripciones:',
+        'h3_for_transcription': 'Para transcripción:',
+        'for_transcription_p': '<strong>Mono</strong> ($50 una vez) — graba cualquier app, transcribe localmente con Whisper, incluye identificación de hablantes y búsqueda. Reemplaza Otter.ai.',
+        'h3_for_chat': 'Para chat y escritura:',
+        'for_chat_p': '<strong>Ollama</strong> (gratis) + <strong>Llama 3 8B</strong> — descarga Ollama, ejecuta <code>ollama pull llama3</code>, empieza a chatear. Añade una interfaz como Open WebUI para una experiencia tipo ChatGPT.',
+        'h3_for_coding': 'Para programación:',
+        'for_coding_p': '<strong>Continue.dev</strong> (gratis) + <strong>Qwen 2.5 Coder</strong> — instala la extensión de VS Code, apúntala a tu instancia local de Ollama.',
+        'savings_amount': '$350+',
+        'savings_label': 'ahorro potencial anual con este stack',
+        'h2_privacy': 'La ventaja de privacidad',
+        'privacy_p1': 'Más allá del ahorro de costos, la IA local mantiene tus datos privados por defecto:',
+        'privacy_li1': 'Tus grabaciones de reuniones permanecen en tu dispositivo',
+        'privacy_li2': 'Tus documentos no se suben para entrenamiento',
+        'privacy_li3': 'Tu código no pasa por servidores de terceros',
+        'privacy_li4': 'Trabajas sin conexión sin interrupciones',
+        'privacy_p2': 'Para trabajo sensible — legal, médico, financiero o simplemente personal — esto importa más que el ahorro en suscripciones.',
+        'h2_worth_it': '¿Vale la pena?',
+        'worth_it_p1': 'Si tienes hardware moderno (Mac de 2020 o más nuevo, o una PC con GPU decente), la IA local tiene sentido financiero en pocos meses. Las herramientas han madurado más allá de la fase de early adopter hacia territorio de uso diario genuino.',
+        'worth_it_p2': 'Si necesitaras actualizaciones significativas de hardware, los números son menos claros. Una nueva GPU cuesta $300-500 — eso es 1-2 años de algunas suscripciones. En ese punto, estás comprando IA local por razones más allá del puro ahorro de costos (privacidad, acceso sin conexión, propiedad).',
+        'worth_it_p3': 'Para la mayoría de personas con hardware capaz existente, la respuesta es simple: prueba las herramientas gratuitas (Ollama, Continue.dev) y ve si encajan en tu flujo de trabajo. Si lo hacen, las cancelaciones de suscripciones siguen naturalmente.',
+        'cta_title': 'Prueba Mono gratis',
+        'cta_sub': 'Límite de una grabación, sin necesidad de cuenta. $50 para desbloquear todo — transcripción con IA local, identificación de hablantes, búsqueda semántica, sin suscripción.',
+        'cta_buy': 'Comprar Mono — $50',
+        'cta_download': 'Descargar gratis'
+    },
+    fr: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'Comment économiser 300$/an sur les abonnements IA avec des modèles locaux',
+        'meta': '11 mars 2026 · 10 min de lecture · Par Daniil Lefanov',
+        'intro_p1': 'Les abonnements IA s\'accumulent vite. ChatGPT Plus coûte 20$/mois. Claude Pro coûte 20$/mois. GitHub Copilot coûte 10$/mois. Otter.ai coûte 17$/mois. Si vous utilisez plusieurs outils IA, vous dépensez facilement 300-500$ par an pour des services qui — pour de nombreuses tâches — peuvent maintenant fonctionner entièrement sur votre propre ordinateur.',
+        'intro_p2': 'Le changement s\'est produit discrètement. Les modèles open-source sont devenus performants. Apple Silicon a rendu l\'inférence locale rapide. Et un écosystème croissant d\'outils vous permet désormais d\'exécuter l\'IA pour l\'écriture, le code, la transcription et la génération d\'images sans envoyer de données dans le cloud ni payer de frais mensuels.',
+        'intro_p3': 'Ce guide couvre ce que vous pouvez réellement exécuter localement en 2026, le matériel dont vous avez besoin, et où les modèles locaux égalent (ou dépassent) véritablement leurs homologues cloud.',
+        'tldr_label': 'En bref',
+        'tldr_1': '<strong>Transcription de réunions :</strong> Whisper local égale la qualité cloud — Mono (50$ une fois) vs Otter.ai (200$/an)',
+        'tldr_2': '<strong>Écriture/chat :</strong> Llama 3, Gemma, Mistral via Ollama — gratuit, fonctionne avec 8Go RAM',
+        'tldr_3': '<strong>Complétion de code :</strong> Continue.dev + modèle local — gratuit vs Copilot (100$/an)',
+        'tldr_4': '<strong>Génération d\'images :</strong> Stable Diffusion — gratuit vs Midjourney (120$/an)',
+        'tldr_5': '<strong>Rentabilité :</strong> La plupart des configurations s\'amortissent en 2-4 mois',
+        'h2_real_cost': 'Le vrai coût des abonnements IA',
+        'real_cost_p1': 'Additionnons ce que coûte par an un flux de travail typique "augmenté par l\'IA" :',
+        'th_service': 'Service',
+        'th_monthly': 'Mensuel',
+        'th_yearly': 'Annuel',
+        'th_what_you_get': 'Ce que vous obtenez',
+        'td_chatgpt': 'GPT-4, assistance à l\'écriture',
+        'td_claude': 'Claude, contexte long',
+        'td_copilot': 'Complétion de code',
+        'td_otter': 'Transcription de réunions',
+        'td_midjourney': 'Génération d\'images',
+        'td_total': 'Total',
+        'real_cost_p2': 'Tout le monde n\'utilise pas tout cela. Mais même une combinaison modeste — disons, ChatGPT Plus et Otter.ai — revient à 440$/an. C\'est de l\'argent réel pour des capacités qui existent de plus en plus dans des alternatives locales gratuites.',
+        'h2_shift': 'Le virage vers l\'IA locale',
+        'shift_p1': 'Il ne s\'agit pas seulement d\'économiser de l\'argent — c\'est un changement fondamental dans la façon dont l\'IA est déployée. Les chiffres parlent d\'eux-mêmes :',
+        'shift_p2': '<strong>Croissance du marché :</strong> Le marché de l\'inférence IA devrait passer de 106 milliards de dollars en 2025 à 255 milliards d\'ici 2030. Les puces d\'inférence sur appareil seules dépasseront 50 milliards de dollars en 2026. Les LLM mobiles sur appareil passent de 1,92 milliard (2024) à 16,8 milliards d\'ici 2033.',
+        'shift_p3': '<strong>Évolution de l\'adoption :</strong> Les PC compatibles IA atteindront 55% de part de marché en 2026, contre 31% en 2025. Les charges de travail d\'inférence exécutées localement sont passées de 33% de tout le calcul IA en 2023 à 50% en 2025, et devraient atteindre 66% en 2026.',
+        'fig_market': 'Le virage vers l\'IA sur appareil : les charges d\'inférence passent du cloud au local',
+        'shift_p4': 'Pendant ce temps, les prix des API cloud ont chuté de 60-80% en 2025-2026 alors que la concurrence s\'intensifiait. Le résultat : l\'IA locale est devenue compétitive en coût avant même de prendre en compte la lassitude des abonnements et les préoccupations de confidentialité.',
+        'h2_what_runs': 'Ce qui peut vraiment fonctionner localement en 2026',
+        'what_runs_p1': 'L\'IA locale a fait du chemin. Voici ce qui fonctionne véritablement sur du matériel grand public :',
+        'h3_transcription': '1. Transcription de réunions (Remplace Otter.ai)',
+        'transcription_p1': '<strong>L\'outil :</strong> Whisper (via Mono, MacWhisper ou whisper.cpp)',
+        'transcription_p2': 'Le modèle Whisper d\'OpenAI fonctionne entièrement en local et égale la qualité de transcription cloud. Il prend en charge plus de 95 langues, gère bien les accents et produit des horodatages précis.',
+        'transcription_p3': '<strong>Mono</strong> combine Whisper avec l\'identification des intervenants, la recherche sémantique et une interface d\'enregistrement — essentiellement un remplacement local d\'Otter.ai. Il coûte 50$ une fois contre 200$/an pour Otter, donc il s\'amortit en environ 3 mois.',
+        'fig_mono': 'Profils IA de Mono : choisissez entre modèles locaux (gratuits) ou APIs cloud',
+        'tip_transcription': '<strong>Économies :</strong> 150-200$/an par rapport à Otter.ai, Fireflies ou services similaires.',
+        'h3_writing': '2. Écriture et chat (Remplace ChatGPT Plus)',
+        'writing_p1': '<strong>Les outils :</strong> Ollama, LM Studio ou Jan',
+        'writing_p2': 'Exécuter un LLM local nécessitait auparavant une configuration technique. Maintenant vous téléchargez une app, choisissez un modèle et commencez à discuter. Les meilleures options en 2026 :',
+        'writing_li1': '<strong>Llama 3 8B :</strong> Modèle ouvert de Meta, excellent pour les tâches générales',
+        'writing_li2': '<strong>Gemma 2 9B :</strong> Modèle efficace de Google, idéal avec une RAM limitée',
+        'writing_li3': '<strong>Mistral 7B :</strong> Raisonnement solide, rapide sur la plupart des machines',
+        'writing_li4': '<strong>Qwen 2.5 :</strong> Particulièrement bon pour les tâches de programmation',
+        'writing_p3': 'Pour l\'écriture quotidienne — emails, brainstorming, résumés, Q&R — ces modèles gèrent 80-90% de ce pour quoi les gens utilisent ChatGPT. Les 10-20% restants (raisonnement de pointe, documents très longs) favorisent encore les modèles cloud.',
+        'tip_writing': '<strong>Économies :</strong> 240$/an si vous remplacez entièrement ChatGPT Plus. Beaucoup d\'utilisateurs gardent un niveau gratuit de ChatGPT pour des tâches complexes occasionnelles et utilisent les modèles locaux au quotidien.',
+        'h3_code': '3. Complétion de code (Remplace GitHub Copilot)',
+        'code_p1': '<strong>L\'outil :</strong> Continue.dev + modèle local',
+        'code_p2': 'Continue est une extension open-source pour VS Code/JetBrains qui se connecte aux modèles locaux pour la complétion de code et le chat. Associez-la à un modèle orienté code comme CodeLlama ou Qwen 2.5 Coder, et vous obtenez une autocomplétion type Copilot sans l\'abonnement.',
+        'code_p3': 'L\'expérience n\'est pas aussi polie que Copilot — les complétions peuvent être légèrement plus lentes, et le modèle rate parfois le contexte. Mais pour beaucoup de développeurs, c\'est suffisamment proche pour économiser 100$/an.',
+        'tip_code': '<strong>Économies :</strong> 100$/an. Fonctionne mieux pour les développeurs qui n\'ont pas besoin de complétions à chaque frappe.',
+        'h3_image': '4. Génération d\'images (Remplace Midjourney)',
+        'image_p1': '<strong>Les outils :</strong> Stable Diffusion via ComfyUI, Automatic1111 ou Fooocus',
+        'image_p2': 'La génération d\'images locale a considérablement mûri. Stable Diffusion XL et SD 3 produisent des images de haute qualité, et des outils comme Fooocus rendent le flux de travail presque aussi simple que taper un prompt.',
+        'image_p3': 'Le hic : vous avez besoin d\'un GPU correct. Les cartes NVIDIA avec 8Go+ de VRAM fonctionnent le mieux. Apple Silicon fait tourner Stable Diffusion mais plus lentement que les GPU dédiés. Sans bon GPU, celui-ci est plus difficile à remplacer localement.',
+        'tip_image': '<strong>Économies :</strong> 120$/an si vous avez le matériel. Si vous deviez acheter un GPU spécifiquement pour ça, le calcul change.',
+        'h3_rag': '5. Questions sur documents et RAG',
+        'rag_p1': '<strong>Les outils :</strong> PrivateGPT, AnythingLLM ou Khoj',
+        'rag_p2': 'Vous voulez discuter avec vos documents localement ? Ces outils combinent des modèles d\'embedding locaux avec des LLM locaux pour créer des systèmes RAG (génération augmentée par récupération) privés. Téléchargez des PDF, notes ou documents et posez des questions — entièrement hors ligne.',
+        'rag_p3': 'Cela remplace les fonctionnalités payantes de ChatGPT (téléchargement de fichiers), Notion AI et outils similaires.',
+        'h2_hardware': 'Vérification de la réalité matérielle',
+        'hardware_p1': 'L\'IA locale n\'est pas gratuite — elle échange les coûts d\'abonnement contre des exigences matérielles. Voici ce dont vous avez vraiment besoin :',
+        'th_use_case': 'Cas d\'usage',
+        'th_minimum': 'Spécifications minimales',
+        'th_recommended': 'Recommandé',
+        'hw_transcription': 'Transcription (Whisper)',
+        'hw_transcription_min': '8Go RAM, tout CPU moderne',
+        'hw_transcription_rec': '16Go RAM, Apple Silicon ou GPU dédié',
+        'hw_chat_small': 'Chat/Écriture (modèles 7-8B)',
+        'hw_chat_small_min': '8Go RAM',
+        'hw_chat_small_rec': '16Go RAM, Apple Silicon',
+        'hw_chat_large': 'Chat/Écriture (modèles plus grands)',
+        'hw_chat_large_min': '16Go RAM',
+        'hw_chat_large_rec': '32Go+ RAM ou GPU avec 12Go+ VRAM',
+        'hw_code': 'Complétion de code',
+        'hw_code_min': '16Go RAM',
+        'hw_code_rec': '32Go RAM, SSD rapide',
+        'hw_image': 'Génération d\'images',
+        'hw_image_min': 'GPU avec 6Go VRAM',
+        'hw_image_rec': 'GPU avec 12Go+ VRAM',
+        'hardware_p2': '<strong>Le sweet spot Apple Silicon :</strong> Les Mac M1/M2/M3 avec 16Go de mémoire unifiée gèrent bien la transcription, le chat et la complétion de code. L\'architecture de mémoire unifiée signifie que la RAM est partagée avec le GPU, rendant ces machines étonnamment capables pour l\'IA locale.',
+        'hardware_p3': '<strong>Windows/Linux :</strong> Un GPU NVIDIA dédié (RTX 3060 ou mieux) débloque une inférence plus rapide et la génération d\'images. Sans GPU, vous êtes limité à l\'inférence CPU, qui fonctionne mais est plus lente.',
+        'hardware_p4': 'Si vous avez déjà du matériel capable, l\'IA locale est essentiellement gratuite au-delà du logiciel. Si vous deviez upgrader, intégrez cela dans le calcul d\'amortissement.',
+        'h2_cloud_wins': 'Quand le cloud gagne encore',
+        'cloud_wins_p1': 'Les modèles locaux ne sont pas meilleurs en tout. Gardez les abonnements cloud pour :',
+        'cloud_li1': '<strong>Capacités de pointe :</strong> GPT-4 et Claude Opus surpassent encore les modèles locaux sur le raisonnement complexe, les documents très longs et les tâches nuancées.',
+        'cloud_li2': '<strong>Flux de travail mobile :</strong> Les modèles locaux nécessitent votre ordinateur. Si vous avez besoin d\'IA sur votre téléphone ou entre appareils, les services cloud sont plus pratiques.',
+        'cloud_li3': '<strong>Fonctionnalités d\'équipe :</strong> Espaces de travail partagés, collaboration et contrôles admin nécessitent généralement une infrastructure cloud.',
+        'cloud_li4': '<strong>Zéro configuration :</strong> Les services cloud fonctionnent directement. Les outils locaux nécessitent une certaine configuration, même si c\'est devenu plus facile.',
+        'cloud_wins_p2': 'L\'approche pratique : utilisez les modèles locaux pour les tâches quotidiennes (80% de l\'utilisation) et gardez un niveau cloud gratuit ou minimal pour le travail complexe occasionnel.',
+        'h2_getting_started': 'Commencer : Un stack IA local minimal',
+        'getting_started_p1': 'Voici un point de départ pratique qui remplace ~400$/an d\'abonnements :',
+        'h3_for_transcription': 'Pour la transcription :',
+        'for_transcription_p': '<strong>Mono</strong> (50$ une fois) — enregistre n\'importe quelle app, transcrit localement avec Whisper, inclut l\'identification des intervenants et la recherche. Remplace Otter.ai.',
+        'h3_for_chat': 'Pour le chat et l\'écriture :',
+        'for_chat_p': '<strong>Ollama</strong> (gratuit) + <strong>Llama 3 8B</strong> — téléchargez Ollama, exécutez <code>ollama pull llama3</code>, commencez à discuter. Ajoutez une interface comme Open WebUI pour une expérience type ChatGPT.',
+        'h3_for_coding': 'Pour le code :',
+        'for_coding_p': '<strong>Continue.dev</strong> (gratuit) + <strong>Qwen 2.5 Coder</strong> — installez l\'extension VS Code, pointez-la vers votre instance Ollama locale.',
+        'savings_amount': '350$+',
+        'savings_label': 'économies annuelles potentielles avec ce stack',
+        'h2_privacy': 'Le bonus confidentialité',
+        'privacy_p1': 'Au-delà des économies, l\'IA locale garde vos données privées par défaut :',
+        'privacy_li1': 'Vos enregistrements de réunions restent sur votre appareil',
+        'privacy_li2': 'Vos documents ne sont pas téléchargés pour l\'entraînement',
+        'privacy_li3': 'Votre code ne passe pas par des serveurs tiers',
+        'privacy_li4': 'Vous travaillez hors ligne sans interruption',
+        'privacy_p2': 'Pour le travail sensible — juridique, médical, financier ou simplement personnel — cela compte plus que les économies d\'abonnement.',
+        'h2_worth_it': 'Est-ce que ça vaut le coup ?',
+        'worth_it_p1': 'Si vous avez du matériel moderne (Mac de 2020 ou plus récent, ou PC avec un GPU correct), l\'IA locale a un sens financier en quelques mois. Les outils ont mûri au-delà de la phase early-adopter vers un territoire d\'utilisation quotidienne véritable.',
+        'worth_it_p2': 'Si vous aviez besoin d\'upgrades matériels significatifs, le calcul est moins clair. Un nouveau GPU coûte 300-500$ — c\'est 1-2 ans de certains abonnements. À ce stade, vous achetez l\'IA locale pour des raisons au-delà des pures économies (confidentialité, accès hors ligne, propriété).',
+        'worth_it_p3': 'Pour la plupart des gens avec du matériel capable existant, la réponse est simple : essayez les outils gratuits (Ollama, Continue.dev) et voyez s\'ils correspondent à votre flux de travail. Si c\'est le cas, les résiliations d\'abonnements suivent naturellement.',
+        'cta_title': 'Essayez Mono gratuitement',
+        'cta_sub': 'Limite d\'un enregistrement, pas de compte nécessaire. 50$ pour tout débloquer — transcription IA locale, identification des intervenants, recherche sémantique, sans abonnement.',
+        'cta_buy': 'Acheter Mono — 50$',
+        'cta_download': 'Télécharger gratuitement'
+    },
+    de: {
+        'back_link': '← Blog',
+        'category': '[Anleitung]',
+        'title': 'So sparen Sie 300$/Jahr bei KI-Abonnements mit lokalen Modellen',
+        'meta': '11. März 2026 · 10 Min. Lesezeit · Von Daniil Lefanov',
+        'intro_p1': 'KI-Abonnements summieren sich schnell. ChatGPT Plus kostet 20$/Monat. Claude Pro kostet 20$/Monat. GitHub Copilot kostet 10$/Monat. Otter.ai kostet 17$/Monat. Wenn Sie mehrere KI-Tools nutzen, geben Sie leicht 300-500$ pro Jahr für Dienste aus, die — für viele Aufgaben — jetzt vollständig auf Ihrem eigenen Computer laufen können.',
+        'intro_p2': 'Der Wandel geschah leise. Open-Source-Modelle wurden gut. Apple Silicon machte lokale Inferenz schnell. Und ein wachsendes Ökosystem von Tools ermöglicht es Ihnen jetzt, KI für Schreiben, Programmieren, Transkription und Bildgenerierung auszuführen, ohne Daten in die Cloud zu senden oder monatliche Gebühren zu zahlen.',
+        'intro_p3': 'Diese Anleitung behandelt, was Sie 2026 realistisch lokal ausführen können, welche Hardware Sie benötigen und wo lokale Modelle ihre Cloud-Gegenstücke wirklich erreichen (oder übertreffen).',
+        'tldr_label': 'Kurzfassung',
+        'tldr_1': '<strong>Meeting-Transkription:</strong> Whisper lokal erreicht Cloud-Qualität — Mono (50$ einmalig) vs Otter.ai (200$/Jahr)',
+        'tldr_2': '<strong>Schreiben/Chat:</strong> Llama 3, Gemma, Mistral über Ollama — kostenlos, läuft mit 8GB RAM',
+        'tldr_3': '<strong>Code-Vervollständigung:</strong> Continue.dev + lokales Modell — kostenlos vs Copilot (100$/Jahr)',
+        'tldr_4': '<strong>Bildgenerierung:</strong> Stable Diffusion — kostenlos vs Midjourney (120$/Jahr)',
+        'tldr_5': '<strong>Amortisation:</strong> Die meisten Setups amortisieren sich in 2-4 Monaten',
+        'h2_real_cost': 'Die wahren Kosten von KI-Abonnements',
+        'real_cost_p1': 'Rechnen wir zusammen, was ein typischer "KI-unterstützter" Workflow pro Jahr kostet:',
+        'th_service': 'Dienst',
+        'th_monthly': 'Monatlich',
+        'th_yearly': 'Jährlich',
+        'th_what_you_get': 'Was Sie bekommen',
+        'td_chatgpt': 'GPT-4, Schreibassistenz',
+        'td_claude': 'Claude, langer Kontext',
+        'td_copilot': 'Code-Vervollständigung',
+        'td_otter': 'Meeting-Transkription',
+        'td_midjourney': 'Bildgenerierung',
+        'td_total': 'Gesamt',
+        'real_cost_p2': 'Nicht jeder nutzt all das. Aber selbst eine bescheidene Kombination — sagen wir, ChatGPT Plus und Otter.ai — kostet 440$/Jahr. Das ist echtes Geld für Funktionen, die zunehmend in kostenlosen, lokalen Alternativen existieren.',
+        'h2_shift': 'Der Wandel zur lokalen KI',
+        'shift_p1': 'Es geht nicht nur ums Geldsparen — es ist ein grundlegender Wandel in der Art, wie KI eingesetzt wird. Die Zahlen erzählen die Geschichte:',
+        'shift_p2': '<strong>Marktwachstum:</strong> Der KI-Inferenz-Markt soll von 106 Milliarden Dollar in 2025 auf 255 Milliarden bis 2030 wachsen. Allein On-Device-Inferenz-Chips werden 2026 50 Milliarden Dollar übersteigen. Mobile On-Device-LLMs wachsen von 1,92 Milliarden (2024) auf 16,8 Milliarden bis 2033.',
+        'shift_p3': '<strong>Adoptionswandel:</strong> KI-fähige PCs werden 2026 einen Marktanteil von 55% erreichen, gegenüber 31% in 2025. Lokal laufende Inferenz-Workloads sind von 33% aller KI-Berechnungen in 2023 auf 50% in 2025 gewachsen und werden voraussichtlich 2026 66% erreichen.',
+        'fig_market': 'Der Wandel zur On-Device-KI: Inferenz-Workloads verlagern sich von der Cloud zum Lokalen',
+        'shift_p4': 'Währenddessen fielen die Cloud-API-Preise 2025-2026 um 60-80%, als der Wettbewerb intensiver wurde. Das Ergebnis: Lokale KI wurde preislich wettbewerbsfähig, noch bevor Abonnement-Müdigkeit und Datenschutzbedenken eingerechnet wurden.',
+        'h2_what_runs': 'Was 2026 wirklich lokal laufen kann',
+        'what_runs_p1': 'Lokale KI hat einen weiten Weg zurückgelegt. Das funktioniert wirklich auf Consumer-Hardware:',
+        'h3_transcription': '1. Meeting-Transkription (Ersetzt Otter.ai)',
+        'transcription_p1': '<strong>Das Tool:</strong> Whisper (über Mono, MacWhisper oder whisper.cpp)',
+        'transcription_p2': 'OpenAIs Whisper-Modell läuft vollständig lokal und erreicht Cloud-Transkriptionsqualität. Es unterstützt über 95 Sprachen, kommt gut mit Akzenten zurecht und erzeugt genaue Zeitstempel.',
+        'transcription_p3': '<strong>Mono</strong> bündelt Whisper mit Sprechererkennung, semantischer Suche und einer Aufnahme-Oberfläche — im Wesentlichen ein lokaler Otter.ai-Ersatz. Es kostet einmalig 50$ gegenüber Otters 200$/Jahr, amortisiert sich also in etwa 3 Monaten.',
+        'fig_mono': 'Monos KI-Profile: Wählen Sie zwischen lokalen Modellen (kostenlos) oder Cloud-APIs',
+        'tip_transcription': '<strong>Ersparnis:</strong> 150-200$/Jahr im Vergleich zu Otter.ai, Fireflies oder ähnlichen Diensten.',
+        'h3_writing': '2. Schreiben und Chat (Ersetzt ChatGPT Plus)',
+        'writing_p1': '<strong>Die Tools:</strong> Ollama, LM Studio oder Jan',
+        'writing_p2': 'Ein lokales LLM zu betreiben erforderte früher technisches Setup. Jetzt laden Sie eine App herunter, wählen ein Modell und beginnen zu chatten. Die besten Optionen 2026:',
+        'writing_li1': '<strong>Llama 3 8B:</strong> Metas offenes Modell, exzellent für allgemeine Aufgaben',
+        'writing_li2': '<strong>Gemma 2 9B:</strong> Googles effizientes Modell, großartig bei begrenztem RAM',
+        'writing_li3': '<strong>Mistral 7B:</strong> Starkes Reasoning, läuft schnell auf den meisten Maschinen',
+        'writing_li4': '<strong>Qwen 2.5:</strong> Besonders gut für Programmieraufgaben',
+        'writing_p3': 'Für alltägliches Schreiben — E-Mails, Brainstorming, Zusammenfassungen, Fragen — bewältigen diese Modelle 80-90% dessen, wofür Leute ChatGPT nutzen. Die restlichen 10-20% (Spitzen-Reasoning, sehr lange Dokumente) favorisieren noch Cloud-Modelle.',
+        'tip_writing': '<strong>Ersparnis:</strong> 240$/Jahr bei vollständigem Ersatz von ChatGPT Plus. Viele Nutzer behalten eine kostenlose ChatGPT-Stufe für gelegentliche komplexe Aufgaben und nutzen lokale Modelle täglich.',
+        'h3_code': '3. Code-Vervollständigung (Ersetzt GitHub Copilot)',
+        'code_p1': '<strong>Das Tool:</strong> Continue.dev + lokales Modell',
+        'code_p2': 'Continue ist eine Open-Source VS Code/JetBrains-Erweiterung, die sich mit lokalen Modellen für Code-Vervollständigung und Chat verbindet. Kombinieren Sie es mit einem Code-fokussierten Modell wie CodeLlama oder Qwen 2.5 Coder, und Sie erhalten Copilot-ähnliche Autovervollständigung ohne Abonnement.',
+        'code_p3': 'Das Erlebnis ist nicht ganz so ausgereift wie Copilot — Vervollständigungen können etwas langsamer sein, und das Modell verpasst gelegentlich den Kontext. Aber für viele Entwickler ist es nah genug, um 100$/Jahr zu sparen.',
+        'tip_code': '<strong>Ersparnis:</strong> 100$/Jahr. Funktioniert am besten für Entwickler, die nicht bei jedem Tastendruck Vervollständigungen brauchen.',
+        'h3_image': '4. Bildgenerierung (Ersetzt Midjourney)',
+        'image_p1': '<strong>Die Tools:</strong> Stable Diffusion über ComfyUI, Automatic1111 oder Fooocus',
+        'image_p2': 'Lokale Bildgenerierung ist erheblich gereift. Stable Diffusion XL und SD 3 produzieren hochwertige Bilder, und Tools wie Fooocus machen den Workflow fast so einfach wie das Tippen eines Prompts.',
+        'image_p3': 'Der Haken: Sie brauchen eine ordentliche GPU. NVIDIA-Karten mit 8GB+ VRAM funktionieren am besten. Apple Silicon führt Stable Diffusion aus, aber langsamer als dedizierte GPUs. Ohne gute GPU ist dieses schwieriger lokal zu ersetzen.',
+        'tip_image': '<strong>Ersparnis:</strong> 120$/Jahr wenn Sie die Hardware haben. Wenn Sie speziell dafür eine GPU kaufen müssten, ändert sich die Rechnung.',
+        'h3_rag': '5. Dokumenten-Q&A und RAG',
+        'rag_p1': '<strong>Die Tools:</strong> PrivateGPT, AnythingLLM oder Khoj',
+        'rag_p2': 'Möchten Sie lokal mit Ihren Dokumenten chatten? Diese Tools kombinieren lokale Embedding-Modelle mit lokalen LLMs, um private RAG-Systeme (Retrieval-Augmented Generation) zu erstellen. Laden Sie PDFs, Notizen oder Dokumente hoch und stellen Sie Fragen — vollständig offline.',
+        'rag_p3': 'Das ersetzt kostenpflichtige Funktionen in ChatGPT (Datei-Upload), Notion AI und ähnlichen Tools.',
+        'h2_hardware': 'Hardware-Realitätscheck',
+        'hardware_p1': 'Lokale KI ist nicht kostenlos — sie tauscht Abonnementkosten gegen Hardware-Anforderungen. Das brauchen Sie wirklich:',
+        'th_use_case': 'Anwendungsfall',
+        'th_minimum': 'Mindestspezifikationen',
+        'th_recommended': 'Empfohlen',
+        'hw_transcription': 'Transkription (Whisper)',
+        'hw_transcription_min': '8GB RAM, jede moderne CPU',
+        'hw_transcription_rec': '16GB RAM, Apple Silicon oder dedizierte GPU',
+        'hw_chat_small': 'Chat/Schreiben (7-8B Modelle)',
+        'hw_chat_small_min': '8GB RAM',
+        'hw_chat_small_rec': '16GB RAM, Apple Silicon',
+        'hw_chat_large': 'Chat/Schreiben (größere Modelle)',
+        'hw_chat_large_min': '16GB RAM',
+        'hw_chat_large_rec': '32GB+ RAM oder GPU mit 12GB+ VRAM',
+        'hw_code': 'Code-Vervollständigung',
+        'hw_code_min': '16GB RAM',
+        'hw_code_rec': '32GB RAM, schnelle SSD',
+        'hw_image': 'Bildgenerierung',
+        'hw_image_min': 'GPU mit 6GB VRAM',
+        'hw_image_rec': 'GPU mit 12GB+ VRAM',
+        'hardware_p2': '<strong>Der Apple Silicon Sweet Spot:</strong> M1/M2/M3 Macs mit 16GB Unified Memory bewältigen Transkription, Chat und Code-Vervollständigung gut. Die Unified-Memory-Architektur bedeutet, dass der RAM mit der GPU geteilt wird, was diese Maschinen überraschend fähig für lokale KI macht.',
+        'hardware_p3': '<strong>Windows/Linux:</strong> Eine dedizierte NVIDIA GPU (RTX 3060 oder besser) ermöglicht schnellere Inferenz und Bildgenerierung. Ohne GPU sind Sie auf CPU-Inferenz beschränkt, die funktioniert, aber langsamer ist.',
+        'hardware_p4': 'Wenn Sie bereits fähige Hardware haben, ist lokale KI im Wesentlichen kostenlos jenseits der Software. Wenn Sie upgraden müssten, berücksichtigen Sie das in der Amortisationsrechnung.',
+        'h2_cloud_wins': 'Wann die Cloud noch gewinnt',
+        'cloud_wins_p1': 'Lokale Modelle sind nicht in allem besser. Behalten Sie Cloud-Abonnements für:',
+        'cloud_li1': '<strong>Spitzenfähigkeiten:</strong> GPT-4 und Claude Opus übertreffen lokale Modelle noch bei komplexem Reasoning, sehr langen Dokumenten und nuancierten Aufgaben.',
+        'cloud_li2': '<strong>Mobile Workflows:</strong> Lokale Modelle erfordern Ihren Computer. Wenn Sie KI auf Ihrem Handy oder geräteübergreifend brauchen, sind Cloud-Dienste praktischer.',
+        'cloud_li3': '<strong>Team-Funktionen:</strong> Geteilte Arbeitsbereiche, Zusammenarbeit und Admin-Kontrollen erfordern typischerweise Cloud-Infrastruktur.',
+        'cloud_li4': '<strong>Null Setup:</strong> Cloud-Dienste funktionieren einfach. Lokale Tools erfordern etwas Konfiguration, auch wenn es einfacher geworden ist.',
+        'cloud_wins_p2': 'Der praktische Ansatz: Nutzen Sie lokale Modelle für tägliche Aufgaben (80% der Nutzung) und behalten Sie eine kostenlose oder minimale Cloud-Stufe für gelegentliche komplexe Arbeit.',
+        'h2_getting_started': 'Loslegen: Ein minimaler lokaler KI-Stack',
+        'getting_started_p1': 'Hier ist ein praktischer Startpunkt, der ~400$/Jahr an Abonnements ersetzt:',
+        'h3_for_transcription': 'Für Transkription:',
+        'for_transcription_p': '<strong>Mono</strong> (50$ einmalig) — nimmt jede App auf, transkribiert lokal mit Whisper, enthält Sprechererkennung und Suche. Ersetzt Otter.ai.',
+        'h3_for_chat': 'Für Chat und Schreiben:',
+        'for_chat_p': '<strong>Ollama</strong> (kostenlos) + <strong>Llama 3 8B</strong> — laden Sie Ollama herunter, führen Sie <code>ollama pull llama3</code> aus, beginnen Sie zu chatten. Fügen Sie eine UI wie Open WebUI für ein ChatGPT-ähnliches Erlebnis hinzu.',
+        'h3_for_coding': 'Fürs Programmieren:',
+        'for_coding_p': '<strong>Continue.dev</strong> (kostenlos) + <strong>Qwen 2.5 Coder</strong> — installieren Sie die VS Code-Erweiterung, richten Sie sie auf Ihre lokale Ollama-Instanz.',
+        'savings_amount': '350$+',
+        'savings_label': 'potenzielle jährliche Ersparnis mit diesem Stack',
+        'h2_privacy': 'Der Datenschutz-Bonus',
+        'privacy_p1': 'Über Kosteneinsparungen hinaus hält lokale KI Ihre Daten standardmäßig privat:',
+        'privacy_li1': 'Ihre Meeting-Aufnahmen bleiben auf Ihrem Gerät',
+        'privacy_li2': 'Ihre Dokumente werden nicht zum Training hochgeladen',
+        'privacy_li3': 'Ihr Code läuft nicht über Drittanbieter-Server',
+        'privacy_li4': 'Sie arbeiten offline ohne Unterbrechung',
+        'privacy_p2': 'Für sensible Arbeit — rechtlich, medizinisch, finanziell oder einfach persönlich — ist das wichtiger als die Abonnement-Ersparnis.',
+        'h2_worth_it': 'Lohnt es sich?',
+        'worth_it_p1': 'Wenn Sie moderne Hardware haben (Mac von 2020 oder neuer, oder PC mit ordentlicher GPU), macht lokale KI innerhalb weniger Monate finanziell Sinn. Die Tools sind über die Early-Adopter-Phase hinaus zu echten Alltagstauglichen gereift.',
+        'worth_it_p2': 'Wenn Sie signifikante Hardware-Upgrades bräuchten, ist die Rechnung weniger klar. Eine neue GPU kostet 300-500$ — das sind 1-2 Jahre mancher Abonnements. An diesem Punkt kaufen Sie in lokale KI aus Gründen jenseits reiner Kostenersparnis ein (Datenschutz, Offline-Zugang, Eigentum).',
+        'worth_it_p3': 'Für die meisten Menschen mit vorhandener fähiger Hardware ist die Antwort einfach: Probieren Sie die kostenlosen Tools (Ollama, Continue.dev) und sehen Sie, ob sie zu Ihrem Workflow passen. Wenn ja, folgen die Abonnement-Kündigungen natürlich.',
+        'cta_title': 'Mono kostenlos testen',
+        'cta_sub': 'Limit von einer Aufnahme, kein Konto nötig. 50$ um alles freizuschalten — lokale KI-Transkription, Sprechererkennung, semantische Suche, kein Abonnement.',
+        'cta_buy': 'Mono kaufen — 50$',
+        'cta_download': 'Kostenlos herunterladen'
+    },
+    zh: {
+        'back_link': '← 博客',
+        'category': '[指南]',
+        'title': '如何通过本地模型每年节省300美元的AI订阅费',
+        'meta': '2026年3月11日 · 阅读时间10分钟 · 作者：Daniil Lefanov',
+        'intro_p1': 'AI订阅费累积得很快。ChatGPT Plus每月20美元。Claude Pro每月20美元。GitHub Copilot每月10美元。Otter.ai每月17美元。如果你使用多个AI工具，每年很容易就花费300-500美元在这些服务上——而对于许多任务，这些现在完全可以在你自己的电脑上运行。',
+        'intro_p2': '这个转变悄然发生。开源模型变得优秀。Apple Silicon让本地推理变得快速。一个不断增长的工具生态系统现在让你可以运行写作、编程、转录和图像生成的AI，无需将数据发送到云端或支付月费。',
+        'intro_p3': '本指南涵盖2026年你实际可以在本地运行什么、需要什么硬件，以及本地模型真正能匹配（或超越）云端同类产品的地方。',
+        'tldr_label': '概要',
+        'tldr_1': '<strong>会议转录：</strong>本地Whisper匹配云端质量——Mono（一次性50美元）vs Otter.ai（200美元/年）',
+        'tldr_2': '<strong>写作/聊天：</strong>通过Ollama使用Llama 3、Gemma、Mistral——免费，8GB RAM即可运行',
+        'tldr_3': '<strong>代码补全：</strong>Continue.dev + 本地模型——免费 vs Copilot（100美元/年）',
+        'tldr_4': '<strong>图像生成：</strong>Stable Diffusion——免费 vs Midjourney（120美元/年）',
+        'tldr_5': '<strong>回本周期：</strong>大多数配置在2-4个月内回本',
+        'h2_real_cost': 'AI订阅的真实成本',
+        'real_cost_p1': '让我们算算一个典型的"AI增强"工作流程每年要花多少钱：',
+        'th_service': '服务',
+        'th_monthly': '月费',
+        'th_yearly': '年费',
+        'th_what_you_get': '你得到什么',
+        'td_chatgpt': 'GPT-4，写作辅助',
+        'td_claude': 'Claude，长上下文',
+        'td_copilot': '代码补全',
+        'td_otter': '会议转录',
+        'td_midjourney': '图像生成',
+        'td_total': '总计',
+        'real_cost_p2': '不是每个人都用所有这些。但即使是一个适度的组合——比如ChatGPT Plus和Otter.ai——每年也要440美元。这是真金白银，而这些功能越来越多地存在于免费的本地替代方案中。',
+        'h2_shift': '向本地AI的转变',
+        'shift_p1': '这不仅仅是省钱——这是AI部署方式的根本性转变。数据说明一切：',
+        'shift_p2': '<strong>市场增长：</strong>AI推理市场预计将从2025年的1060亿美元增长到2030年的2550亿美元。仅设备端推理芯片在2026年就将超过500亿美元。移动端设备LLM正从2024年的19.2亿美元增长到2033年的168亿美元。',
+        'shift_p3': '<strong>采用转变：</strong>具备AI能力的PC将在2026年达到55%的市场份额，高于2025年的31%。本地运行的推理工作负载已从2023年占所有AI计算的33%增长到2025年的50%，预计2026年将达到66%。',
+        'fig_market': '向设备端AI的转变：推理工作负载从云端转向本地',
+        'shift_p4': '与此同时，云API定价在2025-2026年随着竞争加剧下降了60-80%。结果：在考虑订阅疲劳和隐私问题之前，本地AI就已经在成本上具有竞争力。',
+        'h2_what_runs': '2026年本地实际能运行什么',
+        'what_runs_p1': '本地AI已经走了很长的路。以下是在消费级硬件上真正有效的：',
+        'h3_transcription': '1. 会议转录（替代Otter.ai）',
+        'transcription_p1': '<strong>工具：</strong>Whisper（通过Mono、MacWhisper或whisper.cpp）',
+        'transcription_p2': 'OpenAI的Whisper模型完全在本地运行，匹配云端转录质量。它支持95+种语言，能很好地处理口音，并产生准确的时间戳。',
+        'transcription_p3': '<strong>Mono</strong>将Whisper与说话人识别、语义搜索和录音界面捆绑在一起——本质上是Otter.ai的本地替代品。它一次性收费50美元，而Otter是200美元/年，所以大约3个月就能回本。',
+        'fig_mono': 'Mono的AI配置文件：在本地模型（免费）或云API之间选择',
+        'tip_transcription': '<strong>节省：</strong>与Otter.ai、Fireflies或类似服务相比，每年节省150-200美元。',
+        'h3_writing': '2. 写作和聊天（替代ChatGPT Plus）',
+        'writing_p1': '<strong>工具：</strong>Ollama、LM Studio或Jan',
+        'writing_p2': '运行本地LLM过去需要技术设置。现在你下载一个应用，选择一个模型，然后开始聊天。2026年最佳选择：',
+        'writing_li1': '<strong>Llama 3 8B：</strong>Meta的开放模型，非常适合通用任务',
+        'writing_li2': '<strong>Gemma 2 9B：</strong>Google的高效模型，在有限RAM上表现出色',
+        'writing_li3': '<strong>Mistral 7B：</strong>推理能力强，在大多数机器上运行快速',
+        'writing_li4': '<strong>Qwen 2.5：</strong>特别擅长编程任务',
+        'writing_p3': '对于日常写作——电子邮件、头脑风暴、摘要、问答——这些模型处理了人们使用ChatGPT的80-90%。剩下的10-20%（前沿推理、超长文档）仍然有利于云端模型。',
+        'tip_writing': '<strong>节省：</strong>如果完全替代ChatGPT Plus，每年节省240美元。许多用户保留免费的ChatGPT层级用于偶尔的复杂任务，日常使用本地模型。',
+        'h3_code': '3. 代码补全（替代GitHub Copilot）',
+        'code_p1': '<strong>工具：</strong>Continue.dev + 本地模型',
+        'code_p2': 'Continue是一个开源的VS Code/JetBrains扩展，连接到本地模型进行代码补全和聊天。将它与CodeLlama或Qwen 2.5 Coder等专注于编程的模型配对，你就能获得类似Copilot的自动补全，无需订阅。',
+        'code_p3': '体验不如Copilot那么精致——补全可能稍慢，模型偶尔会错过上下文。但对于许多开发者来说，这足够接近以节省100美元/年。',
+        'tip_code': '<strong>节省：</strong>每年100美元。最适合不需要每次按键都有补全的开发者。',
+        'h3_image': '4. 图像生成（替代Midjourney）',
+        'image_p1': '<strong>工具：</strong>通过ComfyUI、Automatic1111或Fooocus使用Stable Diffusion',
+        'image_p2': '本地图像生成已经显著成熟。Stable Diffusion XL和SD 3产生高质量图像，Fooocus等工具使工作流程几乎像输入提示一样简单。',
+        'image_p3': '问题是：你需要一块不错的GPU。8GB+ VRAM的NVIDIA显卡效果最好。Apple Silicon可以运行Stable Diffusion，但比专用GPU慢。没有好的GPU，这个更难在本地替代。',
+        'tip_image': '<strong>节省：</strong>如果你有硬件，每年120美元。如果你需要专门为此购买GPU，计算就不同了。',
+        'h3_rag': '5. 文档问答和RAG',
+        'rag_p1': '<strong>工具：</strong>PrivateGPT、AnythingLLM或Khoj',
+        'rag_p2': '想在本地与你的文档对话？这些工具将本地嵌入模型与本地LLM结合，创建私有RAG（检索增强生成）系统。上传PDF、笔记或文档并提问——完全离线。',
+        'rag_p3': '这替代了ChatGPT（文件上传）、Notion AI和类似工具的付费功能。',
+        'h2_hardware': '硬件现实检查',
+        'hardware_p1': '本地AI不是免费的——它用订阅成本换取硬件要求。这是你实际需要的：',
+        'th_use_case': '使用场景',
+        'th_minimum': '最低配置',
+        'th_recommended': '推荐配置',
+        'hw_transcription': '转录（Whisper）',
+        'hw_transcription_min': '8GB RAM，任何现代CPU',
+        'hw_transcription_rec': '16GB RAM，Apple Silicon或独立GPU',
+        'hw_chat_small': '聊天/写作（7-8B模型）',
+        'hw_chat_small_min': '8GB RAM',
+        'hw_chat_small_rec': '16GB RAM，Apple Silicon',
+        'hw_chat_large': '聊天/写作（更大模型）',
+        'hw_chat_large_min': '16GB RAM',
+        'hw_chat_large_rec': '32GB+ RAM或12GB+ VRAM的GPU',
+        'hw_code': '代码补全',
+        'hw_code_min': '16GB RAM',
+        'hw_code_rec': '32GB RAM，快速SSD',
+        'hw_image': '图像生成',
+        'hw_image_min': '6GB VRAM的GPU',
+        'hw_image_rec': '12GB+ VRAM的GPU',
+        'hardware_p2': '<strong>Apple Silicon甜蜜点：</strong>配备16GB统一内存的M1/M2/M3 Mac能很好地处理转录、聊天和代码补全。统一内存架构意味着RAM与GPU共享，使这些机器在本地AI方面出人意料地强大。',
+        'hardware_p3': '<strong>Windows/Linux：</strong>专用NVIDIA GPU（RTX 3060或更好）能解锁更快的推理和图像生成。没有GPU，你只能使用CPU推理，可以工作但更慢。',
+        'hardware_p4': '如果你已经有合适的硬件，除了软件之外，本地AI基本上是免费的。如果你需要升级，将此纳入回本计算。',
+        'h2_cloud_wins': '云端仍然胜出的情况',
+        'cloud_wins_p1': '本地模型并非在所有方面都更好。以下情况保留云订阅：',
+        'cloud_li1': '<strong>前沿能力：</strong>GPT-4和Claude Opus在复杂推理、超长文档和细微任务上仍然超越本地模型。',
+        'cloud_li2': '<strong>移动工作流程：</strong>本地模型需要你的电脑。如果你需要在手机上或跨设备使用AI，云服务更实用。',
+        'cloud_li3': '<strong>团队功能：</strong>共享工作区、协作和管理员控制通常需要云基础设施。',
+        'cloud_li4': '<strong>零设置：</strong>云服务开箱即用。本地工具需要一些配置，尽管已经变得更容易。',
+        'cloud_wins_p2': '实用方法：日常任务使用本地模型（80%的使用量），为偶尔的复杂工作保留免费或最小的云层级。',
+        'h2_getting_started': '入门：最小本地AI堆栈',
+        'getting_started_p1': '这是一个实用的起点，可以替代约400美元/年的订阅：',
+        'h3_for_transcription': '转录：',
+        'for_transcription_p': '<strong>Mono</strong>（一次性50美元）——录制任何应用，使用Whisper本地转录，包括说话人识别和搜索。替代Otter.ai。',
+        'h3_for_chat': '聊天和写作：',
+        'for_chat_p': '<strong>Ollama</strong>（免费）+ <strong>Llama 3 8B</strong>——下载Ollama，运行<code>ollama pull llama3</code>，开始聊天。添加Open WebUI等界面获得类似ChatGPT的体验。',
+        'h3_for_coding': '编程：',
+        'for_coding_p': '<strong>Continue.dev</strong>（免费）+ <strong>Qwen 2.5 Coder</strong>——安装VS Code扩展，指向你的本地Ollama实例。',
+        'savings_amount': '350美元+',
+        'savings_label': '使用此堆栈的潜在年度节省',
+        'h2_privacy': '隐私红利',
+        'privacy_p1': '除了节省成本，本地AI默认保护你的数据隐私：',
+        'privacy_li1': '你的会议录音保留在你的设备上',
+        'privacy_li2': '你的文档不会被上传用于训练',
+        'privacy_li3': '你的代码不会经过第三方服务器',
+        'privacy_li4': '你可以离线工作而不中断',
+        'privacy_p2': '对于敏感工作——法律、医疗、金融或纯粹个人——这比订阅节省更重要。',
+        'h2_worth_it': '值得吗？',
+        'worth_it_p1': '如果你有现代硬件（2020年或更新的Mac，或有不错GPU的PC），本地AI在几个月内就有经济意义。这些工具已经从早期采用者阶段成熟到真正的日常使用领域。',
+        'worth_it_p2': '如果你需要显著的硬件升级，计算就不那么清晰了。新GPU要300-500美元——这是某些订阅的1-2年费用。到那时，你购买本地AI是出于纯成本节省之外的原因（隐私、离线访问、所有权）。',
+        'worth_it_p3': '对于大多数已有合适硬件的人来说，答案很简单：试试免费工具（Ollama、Continue.dev），看看它们是否适合你的工作流程。如果合适，取消订阅自然就会跟上。',
+        'cta_title': '免费试用Mono',
+        'cta_sub': '一次录音限制，无需账户。50美元解锁全部功能——本地AI转录、说话人识别、语义搜索，无需订阅。',
+        'cta_buy': '购买Mono——50美元',
+        'cta_download': '免费下载'
+    },
+    ru: {
+        'back_link': '← блог',
+        'category': '[Руководство]',
+        'title': 'Как сэкономить $300 в год на подписках ИИ с локальными моделями',
+        'meta': '11 марта 2026 · 10 мин чтения · Автор Daniil Lefanov',
+        'intro_p1': 'Подписки на ИИ быстро накапливаются. ChatGPT Plus стоит $20/месяц. Claude Pro стоит $20/месяц. GitHub Copilot стоит $10/месяц. Otter.ai стоит $17/месяц. Если вы используете несколько инструментов ИИ, вы легко тратите $300-500 в год на сервисы, которые — для многих задач — теперь могут полностью работать на вашем собственном компьютере.',
+        'intro_p2': 'Изменение произошло незаметно. Модели с открытым исходным кодом стали хорошими. Apple Silicon сделал локальный инференс быстрым. И растущая экосистема инструментов теперь позволяет запускать ИИ для написания текстов, программирования, транскрипции и генерации изображений без отправки данных в облако или оплаты ежемесячных сборов.',
+        'intro_p3': 'Это руководство охватывает то, что вы реально можете запустить локально в 2026 году, какое оборудование вам нужно и где локальные модели действительно соответствуют (или превосходят) своих облачных аналогов.',
+        'tldr_label': 'Кратко',
+        'tldr_1': '<strong>Транскрипция встреч:</strong> Локальный Whisper соответствует качеству облака — Mono ($50 единоразово) vs Otter.ai ($200/год)',
+        'tldr_2': '<strong>Написание/чат:</strong> Llama 3, Gemma, Mistral через Ollama — бесплатно, работает на 8GB RAM',
+        'tldr_3': '<strong>Автодополнение кода:</strong> Continue.dev + локальная модель — бесплатно vs Copilot ($100/год)',
+        'tldr_4': '<strong>Генерация изображений:</strong> Stable Diffusion — бесплатно vs Midjourney ($120/год)',
+        'tldr_5': '<strong>Окупаемость:</strong> Большинство конфигураций окупаются за 2-4 месяца',
+        'h2_real_cost': 'Реальная стоимость подписок на ИИ',
+        'real_cost_p1': 'Давайте посчитаем, сколько стоит в год типичный "ИИ-улучшенный" рабочий процесс:',
+        'th_service': 'Сервис',
+        'th_monthly': 'В месяц',
+        'th_yearly': 'В год',
+        'th_what_you_get': 'Что вы получаете',
+        'td_chatgpt': 'GPT-4, помощь в написании',
+        'td_claude': 'Claude, длинный контекст',
+        'td_copilot': 'Автодополнение кода',
+        'td_otter': 'Транскрипция встреч',
+        'td_midjourney': 'Генерация изображений',
+        'td_total': 'Итого',
+        'real_cost_p2': 'Не все используют всё это. Но даже скромная комбинация — скажем, ChatGPT Plus и Otter.ai — обходится в $440/год. Это реальные деньги за возможности, которые всё чаще существуют в бесплатных локальных альтернативах.',
+        'h2_shift': 'Переход к локальному ИИ',
+        'shift_p1': 'Дело не только в экономии денег — это фундаментальный сдвиг в том, как развёртывается ИИ. Цифры говорят сами за себя:',
+        'shift_p2': '<strong>Рост рынка:</strong> Прогнозируется, что рынок ИИ-инференса вырастет с $106 миллиардов в 2025 году до $255 миллиардов к 2030. Только чипы для инференса на устройствах превысят $50 миллиардов в 2026. Мобильные LLM на устройствах растут с $1,92 миллиарда (2024) до $16,8 миллиарда к 2033.',
+        'shift_p3': '<strong>Изменение в принятии:</strong> ПК с поддержкой ИИ достигнут 55% доли рынка в 2026, по сравнению с 31% в 2025. Рабочие нагрузки инференса, выполняемые локально, выросли с 33% всех вычислений ИИ в 2023 до 50% в 2025, и прогнозируется достичь 66% в 2026.',
+        'fig_market': 'Переход к ИИ на устройстве: рабочие нагрузки инференса перемещаются из облака в локальное',
+        'shift_p4': 'Тем временем цены на облачные API упали на 60-80% в 2025-2026 годах по мере усиления конкуренции. Результат: локальный ИИ стал конкурентоспособным по стоимости ещё до учёта усталости от подписок и проблем конфиденциальности.',
+        'h2_what_runs': 'Что реально может работать локально в 2026',
+        'what_runs_p1': 'Локальный ИИ прошёл долгий путь. Вот что действительно работает на потребительском оборудовании:',
+        'h3_transcription': '1. Транскрипция встреч (Заменяет Otter.ai)',
+        'transcription_p1': '<strong>Инструмент:</strong> Whisper (через Mono, MacWhisper или whisper.cpp)',
+        'transcription_p2': 'Модель Whisper от OpenAI работает полностью локально и соответствует качеству облачной транскрипции. Она поддерживает более 95 языков, хорошо справляется с акцентами и создаёт точные временные метки.',
+        'transcription_p3': '<strong>Mono</strong> объединяет Whisper с идентификацией говорящих, семантическим поиском и интерфейсом записи — по сути, локальная замена Otter.ai. Он стоит $50 единоразово против $200/год у Otter, так что окупается примерно за 3 месяца.',
+        'fig_mono': 'ИИ-профили Mono: выбирайте между локальными моделями (бесплатно) или облачными API',
+        'tip_transcription': '<strong>Экономия:</strong> $150-200/год по сравнению с Otter.ai, Fireflies или подобными сервисами.',
+        'h3_writing': '2. Написание и чат (Заменяет ChatGPT Plus)',
+        'writing_p1': '<strong>Инструменты:</strong> Ollama, LM Studio или Jan',
+        'writing_p2': 'Запуск локального LLM раньше требовал технической настройки. Теперь вы скачиваете приложение, выбираете модель и начинаете общаться. Лучшие варианты в 2026:',
+        'writing_li1': '<strong>Llama 3 8B:</strong> Открытая модель Meta, отлично подходит для общих задач',
+        'writing_li2': '<strong>Gemma 2 9B:</strong> Эффективная модель Google, отлично работает при ограниченной RAM',
+        'writing_li3': '<strong>Mistral 7B:</strong> Сильное рассуждение, быстро работает на большинстве машин',
+        'writing_li4': '<strong>Qwen 2.5:</strong> Особенно хорош для задач программирования',
+        'writing_p3': 'Для повседневного написания — письма, мозговые штурмы, резюме, вопросы-ответы — эти модели справляются с 80-90% того, для чего люди используют ChatGPT. Оставшиеся 10-20% (передовое рассуждение, очень длинные документы) всё ещё предпочитают облачные модели.',
+        'tip_writing': '<strong>Экономия:</strong> $240/год при полной замене ChatGPT Plus. Многие пользователи оставляют бесплатный уровень ChatGPT для редких сложных задач и используют локальные модели ежедневно.',
+        'h3_code': '3. Автодополнение кода (Заменяет GitHub Copilot)',
+        'code_p1': '<strong>Инструмент:</strong> Continue.dev + локальная модель',
+        'code_p2': 'Continue — это расширение с открытым исходным кодом для VS Code/JetBrains, которое подключается к локальным моделям для автодополнения кода и чата. Соедините его с моделью, ориентированной на код, такой как CodeLlama или Qwen 2.5 Coder, и вы получите автодополнение как у Copilot без подписки.',
+        'code_p3': 'Опыт не такой отполированный, как у Copilot — автодополнения могут быть немного медленнее, и модель иногда теряет контекст. Но для многих разработчиков этого достаточно, чтобы сэкономить $100/год.',
+        'tip_code': '<strong>Экономия:</strong> $100/год. Лучше всего работает для разработчиков, которым не нужны автодополнения при каждом нажатии клавиши.',
+        'h3_image': '4. Генерация изображений (Заменяет Midjourney)',
+        'image_p1': '<strong>Инструменты:</strong> Stable Diffusion через ComfyUI, Automatic1111 или Fooocus',
+        'image_p2': 'Локальная генерация изображений значительно созрела. Stable Diffusion XL и SD 3 производят высококачественные изображения, а такие инструменты, как Fooocus, делают рабочий процесс почти таким же простым, как ввод промпта.',
+        'image_p3': 'Подвох: вам нужна приличная видеокарта. Карты NVIDIA с 8GB+ VRAM работают лучше всего. Apple Silicon запускает Stable Diffusion, но медленнее, чем выделенные GPU. Без хорошей GPU это сложнее заменить локально.',
+        'tip_image': '<strong>Экономия:</strong> $120/год, если у вас есть оборудование. Если вам нужно покупать GPU специально для этого, расчёт меняется.',
+        'h3_rag': '5. Вопросы по документам и RAG',
+        'rag_p1': '<strong>Инструменты:</strong> PrivateGPT, AnythingLLM или Khoj',
+        'rag_p2': 'Хотите общаться с вашими документами локально? Эти инструменты объединяют локальные модели эмбеддингов с локальными LLM для создания частных RAG-систем (генерация с расширением по извлечению). Загружайте PDF, заметки или документы и задавайте вопросы — полностью офлайн.',
+        'rag_p3': 'Это заменяет платные функции в ChatGPT (загрузка файлов), Notion AI и подобных инструментах.',
+        'h2_hardware': 'Проверка реальности оборудования',
+        'hardware_p1': 'Локальный ИИ не бесплатен — он меняет стоимость подписок на требования к оборудованию. Вот что вам действительно нужно:',
+        'th_use_case': 'Сценарий использования',
+        'th_minimum': 'Минимальные характеристики',
+        'th_recommended': 'Рекомендуемые',
+        'hw_transcription': 'Транскрипция (Whisper)',
+        'hw_transcription_min': '8GB RAM, любой современный CPU',
+        'hw_transcription_rec': '16GB RAM, Apple Silicon или выделенная GPU',
+        'hw_chat_small': 'Чат/Написание (модели 7-8B)',
+        'hw_chat_small_min': '8GB RAM',
+        'hw_chat_small_rec': '16GB RAM, Apple Silicon',
+        'hw_chat_large': 'Чат/Написание (большие модели)',
+        'hw_chat_large_min': '16GB RAM',
+        'hw_chat_large_rec': '32GB+ RAM или GPU с 12GB+ VRAM',
+        'hw_code': 'Автодополнение кода',
+        'hw_code_min': '16GB RAM',
+        'hw_code_rec': '32GB RAM, быстрый SSD',
+        'hw_image': 'Генерация изображений',
+        'hw_image_min': 'GPU с 6GB VRAM',
+        'hw_image_rec': 'GPU с 12GB+ VRAM',
+        'hardware_p2': '<strong>Оптимальная точка Apple Silicon:</strong> Маки M1/M2/M3 с 16GB унифицированной памяти хорошо справляются с транскрипцией, чатом и автодополнением кода. Архитектура унифицированной памяти означает, что RAM делится с GPU, что делает эти машины удивительно способными для локального ИИ.',
+        'hardware_p3': '<strong>Windows/Linux:</strong> Выделенная видеокарта NVIDIA (RTX 3060 или лучше) открывает более быстрый инференс и генерацию изображений. Без GPU вы ограничены инференсом на CPU, который работает, но медленнее.',
+        'hardware_p4': 'Если у вас уже есть подходящее оборудование, локальный ИИ по сути бесплатен помимо программного обеспечения. Если вам нужно обновить оборудование, учтите это в расчёте окупаемости.',
+        'h2_cloud_wins': 'Когда облако всё ещё побеждает',
+        'cloud_wins_p1': 'Локальные модели не лучше во всём. Сохраните облачные подписки для:',
+        'cloud_li1': '<strong>Передовые возможности:</strong> GPT-4 и Claude Opus всё ещё превосходят локальные модели в сложных рассуждениях, очень длинных документах и тонких задачах.',
+        'cloud_li2': '<strong>Мобильные рабочие процессы:</strong> Локальные модели требуют вашего компьютера. Если вам нужен ИИ на телефоне или между устройствами, облачные сервисы практичнее.',
+        'cloud_li3': '<strong>Командные функции:</strong> Общие рабочие пространства, совместная работа и административные элементы управления обычно требуют облачной инфраструктуры.',
+        'cloud_li4': '<strong>Нулевая настройка:</strong> Облачные сервисы просто работают. Локальные инструменты требуют некоторой настройки, даже если она стала проще.',
+        'cloud_wins_p2': 'Практический подход: используйте локальные модели для повседневных задач (80% использования) и сохраните бесплатный или минимальный облачный уровень для редкой сложной работы.',
+        'h2_getting_started': 'Начало работы: Минимальный локальный ИИ-стек',
+        'getting_started_p1': 'Вот практическая отправная точка, которая заменяет ~$400/год подписок:',
+        'h3_for_transcription': 'Для транскрипции:',
+        'for_transcription_p': '<strong>Mono</strong> ($50 единоразово) — записывает любое приложение, транскрибирует локально с Whisper, включает идентификацию говорящих и поиск. Заменяет Otter.ai.',
+        'h3_for_chat': 'Для чата и написания:',
+        'for_chat_p': '<strong>Ollama</strong> (бесплатно) + <strong>Llama 3 8B</strong> — скачайте Ollama, запустите <code>ollama pull llama3</code>, начните общаться. Добавьте интерфейс вроде Open WebUI для опыта, похожего на ChatGPT.',
+        'h3_for_coding': 'Для программирования:',
+        'for_coding_p': '<strong>Continue.dev</strong> (бесплатно) + <strong>Qwen 2.5 Coder</strong> — установите расширение VS Code, направьте его на ваш локальный экземпляр Ollama.',
+        'savings_amount': '$350+',
+        'savings_label': 'потенциальная годовая экономия с этим стеком',
+        'h2_privacy': 'Бонус конфиденциальности',
+        'privacy_p1': 'Помимо экономии, локальный ИИ по умолчанию защищает ваши данные:',
+        'privacy_li1': 'Ваши записи встреч остаются на вашем устройстве',
+        'privacy_li2': 'Ваши документы не загружаются для обучения',
+        'privacy_li3': 'Ваш код не проходит через сторонние серверы',
+        'privacy_li4': 'Вы работаете офлайн без перерывов',
+        'privacy_p2': 'Для чувствительной работы — юридической, медицинской, финансовой или просто личной — это важнее, чем экономия на подписках.',
+        'h2_worth_it': 'Оно того стоит?',
+        'worth_it_p1': 'Если у вас современное оборудование (Mac 2020 года или новее, или ПК с приличной GPU), локальный ИИ имеет финансовый смысл в течение нескольких месяцев. Инструменты созрели за пределы фазы ранних последователей до настоящей территории ежедневного использования.',
+        'worth_it_p2': 'Если вам нужны значительные обновления оборудования, расчёт менее ясен. Новая GPU стоит $300-500 — это 1-2 года некоторых подписок. В этот момент вы покупаете локальный ИИ по причинам помимо чистой экономии (конфиденциальность, офлайн-доступ, владение).',
+        'worth_it_p3': 'Для большинства людей с существующим подходящим оборудованием ответ прост: попробуйте бесплатные инструменты (Ollama, Continue.dev) и посмотрите, подходят ли они вашему рабочему процессу. Если да, отмены подписок последуют естественно.',
+        'cta_title': 'Попробуйте Mono бесплатно',
+        'cta_sub': 'Лимит одной записи, аккаунт не нужен. $50 чтобы разблокировать всё — локальная ИИ-транскрипция, идентификация говорящих, семантический поиск, без подписки.',
+        'cta_buy': 'Купить Mono — $50',
+        'cta_download': 'Скачать бесплатно'
+    }
+};
+
+let currentLang = 'en';
+const siteNav = document.querySelector('site-nav');
+
+siteNav.addEventListener('language-change', (e) => {
+    const lang = e.detail.language;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+});
+</script>
 </body>
 </html>
