@@ -128,6 +128,12 @@
         .article-figure { margin: 32px 0; }
         .article-figure img { width: 100%; height: auto; border-radius: 8px; }
         .article-figure figcaption { font-size: 13px; color: var(--text-secondary); margin-top: 12px; text-align: center; }
+        .toc { background: var(--bg-secondary); border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+        .toc-title { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 12px; }
+        .toc ul { list-style: none; padding: 0; margin: 0; }
+        .toc li { padding: 6px 0; }
+        .toc a { color: var(--text-primary); text-decoration: none; font-size: 14px; }
+        .toc a:hover { text-decoration: underline; }
 
         /* Related articles */
         .related-articles { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); }
@@ -174,13 +180,29 @@
                 </ul>
             </div>
 
-            <h2 data-i18n="h2_why">Why Record Teams Meetings?</h2>
+            <nav class="toc">
+                <p class="toc-title" data-i18n="toc_title">In This Guide</p>
+                <ul>
+                    <li><a href="#why" data-i18n="toc_why">Why Record Teams Meetings?</a></li>
+                    <li><a href="#comparison" data-i18n="toc_comparison">Quick Comparison</a></li>
+                    <li><a href="#mono" data-i18n="toc_mono">Method 1: Mono (Recommended)</a></li>
+                    <li><a href="#obs" data-i18n="toc_obs">Method 2: OBS Studio (Free)</a></li>
+                    <li><a href="#builtin" data-i18n="toc_builtin">Method 3: Teams Built-in Recording</a></li>
+                    <li><a href="#bots" data-i18n="toc_bots">Method 4: Bot-Based Recorders</a></li>
+                    <li><a href="#copilot" data-i18n="toc_copilot">Teams vs Copilot vs Third-Party Tools</a></li>
+                    <li><a href="#troubleshooting" data-i18n="toc_troubleshooting">Troubleshooting Recording Issues</a></li>
+                    <li><a href="#permissions" data-i18n="toc_permissions">Teams Recording Permissions</a></li>
+                    <li><a href="#legal" data-i18n="toc_legal">Legal Considerations</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="why" data-i18n="h2_why">Why Record Teams Meetings?</h2>
 
             <p data-i18n="why_p1">Teams meetings contain critical business information. Project managers record standups for documentation. Sales teams capture client calls for CRM updates and training. HR records interviews for compliance. Legal teams document discussions for audit trails. Remote workers record meetings they can't attend live.</p>
 
             <p data-i18n="why_p2">The challenge is that Teams' built-in recording requires Microsoft 365 Business Basic or higher, stores recordings in the cloud (OneDrive or SharePoint), and shows a "Recording started" notification to everyone. For personal notes, sensitive conversations, or when you lack admin permissions, you need an alternative approach.</p>
 
-            <h2 data-i18n="h2_comparison">Quick Comparison</h2>
+            <h2 id="comparison" data-i18n="h2_comparison">Quick Comparison</h2>
 
             <div class="table-wrap">
                 <table class="compare-table">
@@ -221,7 +243,7 @@
                 </table>
             </div>
 
-            <h2 data-i18n="h2_method1">Method 1: Mono (Recommended)</h2>
+            <h2 id="mono" data-i18n="h2_method1">Method 1: Mono (Recommended)</h2>
 
             <p data-i18n="method1_p1">Mono records Teams by capturing audio directly from your computer's sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you don't have admin permissions or want to keep notes private.</p>
 
@@ -250,7 +272,7 @@
 
             <p data-i18n="mono_cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
-            <h2 data-i18n="h2_method2">Method 2: OBS Studio (Free)</h2>
+            <h2 id="obs" data-i18n="h2_method2">Method 2: OBS Studio (Free)</h2>
 
             <p data-i18n="method2_p1">OBS Studio is a free, open-source screen recorder that can capture system audio and optionally your screen. It doesn't join the Teams meeting as a participant, so it's completely invisible to others. OBS is popular with streamers but works just as well for recording Teams calls.</p>
 
@@ -275,7 +297,7 @@
 
             <p data-i18n="obs_cons"><strong>Cons:</strong> Requires initial setup, you must manually start and stop recording for each meeting, no transcription — produces raw audio/video files only.</p>
 
-            <h2 data-i18n="h2_method3">Method 3: Teams Built-in Recording</h2>
+            <h2 id="builtin" data-i18n="h2_method3">Method 3: Teams Built-in Recording</h2>
 
             <p data-i18n="method3_p1">Microsoft Teams has native recording functionality, but with significant limitations. You need a Microsoft 365 Business Basic, Business Standard, or Enterprise license. The meeting organizer or someone in the same organization must start the recording. All participants see a "Recording has started" notification — there's no way to record discreetly.</p>
 
@@ -301,7 +323,7 @@
 
             <p data-i18n="teams_cons"><strong>Cons:</strong> Requires M365 Business/Enterprise license, visible notification to all participants, recordings expire after 120 days by default, stored in cloud (privacy concern for some), requires admin to enable transcription.</p>
 
-            <h2 data-i18n="h2_method4">Method 4: Bot-Based Recorders (Otter.ai, Fireflies, Fathom)</h2>
+            <h2 id="bots" data-i18n="h2_method4">Method 4: Bot-Based Recorders (Otter.ai, Fireflies, Fathom)</h2>
 
             <p data-i18n="method4_p1">Tools like Otter.ai, Fireflies, and Fathom work by joining your Teams meeting as a bot participant. The bot appears in the participant list with a name like "Otter.ai's Notetaker" or "Fireflies.ai Notetaker." Your audio is uploaded to their servers for transcription.</p>
 
@@ -311,7 +333,96 @@
 
             <p data-i18n="bot_cons"><strong>Cons:</strong> Bot is visible to all participants, audio uploaded to third-party cloud servers, monthly subscription fees ($10–30/month), may be blocked by IT policies, creates awkwardness in client meetings.</p>
 
-            <h2 data-i18n="h2_permissions">Teams Recording Permissions</h2>
+            <h2 id="copilot" data-i18n="h2_copilot">Teams vs Copilot vs Third-Party Tools</h2>
+
+            <p data-i18n="copilot_p1">Microsoft's Copilot in Teams (part of the $30/month Copilot for Microsoft 365 add-on) provides AI meeting summaries, action items, and real-time transcription. However, Copilot doesn't replace meeting recording — it augments it. You still need Teams recording enabled to capture the full meeting.</p>
+
+            <p data-i18n="copilot_p2"><strong>Key difference:</strong> Copilot generates summaries from Teams' built-in transcription, while third-party bots (Otter.ai, Fireflies) join your meeting as participants. Starting May 2026, Microsoft is restricting third-party bots from accessing Teams meetings via their API, pushing organizations toward native tools.</p>
+
+            <p data-i18n="copilot_p3"><strong>Why this matters:</strong> If you rely on bot-based recorders, you may lose access when Microsoft enforces these restrictions. Local recording tools like Mono work independently of Microsoft's API — they capture your system audio directly, so they'll continue working regardless of policy changes.</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="copilot_th_feature">Feature</th>
+                            <th data-i18n="copilot_th_builtin">Teams Built-in</th>
+                            <th data-i18n="copilot_th_copilot">+ Copilot</th>
+                            <th data-i18n="copilot_th_bots">Third-Party Bots</th>
+                            <th data-i18n="copilot_th_local">Local (Mono)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="copilot_row1_feature">Recording</td>
+                            <td data-i18n="copilot_row1_builtin">Yes (cloud)</td>
+                            <td data-i18n="copilot_row1_copilot">Yes (cloud)</td>
+                            <td data-i18n="copilot_row1_bots">Yes (cloud)</td>
+                            <td data-i18n="copilot_row1_local">Yes (local)</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="copilot_row2_feature">Transcription</td>
+                            <td data-i18n="copilot_row2_builtin">Requires admin</td>
+                            <td data-i18n="copilot_row2_copilot">Real-time</td>
+                            <td data-i18n="copilot_row2_bots">Real-time</td>
+                            <td data-i18n="copilot_row2_local">Local AI</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="copilot_row3_feature">AI Summaries</td>
+                            <td data-i18n="copilot_row3_builtin">No</td>
+                            <td data-i18n="copilot_row3_copilot">Yes</td>
+                            <td data-i18n="copilot_row3_bots">Yes</td>
+                            <td data-i18n="copilot_row3_local">Coming soon</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="copilot_row4_feature">Visibility</td>
+                            <td data-i18n="copilot_row4_builtin">All notified</td>
+                            <td data-i18n="copilot_row4_copilot">All notified</td>
+                            <td data-i18n="copilot_row4_bots">Bot visible</td>
+                            <td data-i18n="copilot_row4_local">Not visible</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="copilot_row5_feature">Data location</td>
+                            <td data-i18n="copilot_row5_builtin">Microsoft cloud</td>
+                            <td data-i18n="copilot_row5_copilot">Microsoft cloud</td>
+                            <td data-i18n="copilot_row5_bots">Third-party cloud</td>
+                            <td data-i18n="copilot_row5_local">Your device</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="copilot_row6_feature">May 2026 changes</td>
+                            <td data-i18n="copilot_row6_builtin">Unaffected</td>
+                            <td data-i18n="copilot_row6_copilot">Unaffected</td>
+                            <td data-i18n="copilot_row6_bots">Blocked</td>
+                            <td data-i18n="copilot_row6_local">Unaffected</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="copilot_row7_feature">Cost</td>
+                            <td data-i18n="copilot_row7_builtin">M365 license</td>
+                            <td data-i18n="copilot_row7_copilot">+$30/month</td>
+                            <td data-i18n="copilot_row7_bots">$10-30/month</td>
+                            <td data-i18n="copilot_row7_local">$50 once</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="troubleshooting" data-i18n="h2_troubleshooting">Troubleshooting Recording Issues</h2>
+
+            <p data-i18n="troubleshoot_intro">Recording not working in Teams? Here are the most common issues and how to fix them:</p>
+
+            <p data-i18n="troubleshoot_greyed"><strong>"Start Recording" is greyed out:</strong> This happens when your admin has disabled recording, you don't have the required M365 license (Business Basic or higher), or you're an attendee rather than organizer/presenter. Ask your IT admin to check the Teams admin center → Meeting policies → Recording settings.</p>
+
+            <p data-i18n="troubleshoot_storage"><strong>Recording stops or fails to save:</strong> Check your OneDrive/SharePoint storage quota. Teams recordings require available cloud storage. If storage is full, the recording may stop mid-meeting or fail to process. Free up space or contact IT to increase your quota.</p>
+
+            <p data-i18n="troubleshoot_transcription"><strong>Transcription not available:</strong> Transcription requires your admin to enable it in Teams admin center, and it's only available in certain languages. Go to Settings → Captions and transcripts to check if it's enabled for your account.</p>
+
+            <p data-i18n="troubleshoot_download"><strong>Can't download the recording:</strong> After a meeting ends, recordings take time to process (typically 5-30 minutes). If it's been over an hour, try signing out and back into Teams. Also check the meeting chat or SharePoint/OneDrive — recordings appear in different locations depending on meeting type.</p>
+
+            <p data-i18n="troubleshoot_quality"><strong>Poor audio quality in recording:</strong> Teams records exactly what it receives. If participants have poor connections or use laptop speakers instead of headphones, the recording will reflect that. For important meetings, ask participants to use headsets and stable internet connections.</p>
+
+            <p data-i18n="troubleshoot_bypass"><strong>Need to record without these limitations?</strong> Local tools like Mono bypass Teams' permission system entirely — they capture audio at the system level, so they work regardless of your Teams role, admin policies, or license tier. You'll get a recording even if you're just an attendee with no recording permissions.</p>
+
+            <h2 id="permissions" data-i18n="h2_permissions">Teams Recording Permissions</h2>
 
             <p data-i18n="permissions_p1">Microsoft Teams has specific policies about who can record:</p>
 
@@ -331,7 +442,7 @@
 
             <p data-i18n="video_audio_p3"><strong>Full video recording (OBS/Teams built-in):</strong> Captures video of participants or shared screens. Useful for training sessions, presentations with visual content, or when you need to reference what was shown. Files are much larger.</p>
 
-            <h2 data-i18n="h2_legal">Legal Considerations</h2>
+            <h2 id="legal" data-i18n="h2_legal">Legal Considerations</h2>
 
             <p data-i18n="legal_p1">Before recording Teams meetings, understand the legal requirements:</p>
 
@@ -508,7 +619,70 @@ const translations = {
         'related_otter_title': 'Otter.ai Alternatives in 2026',
         'related_otter_desc': 'Compare Otter, Fireflies, Fathom, and other meeting recorders.',
         'related_lawsuits_title': 'AI Meeting Recorder Lawsuits',
-        'related_lawsuits_desc': 'Why AI meeting bots are facing legal challenges in 2026.'
+        'related_lawsuits_desc': 'Why AI meeting bots are facing legal challenges in 2026.',
+        'toc_title': 'In This Guide',
+        'toc_why': 'Why Record Teams Meetings?',
+        'toc_comparison': 'Quick Comparison',
+        'toc_mono': 'Method 1: Mono (Recommended)',
+        'toc_obs': 'Method 2: OBS Studio (Free)',
+        'toc_builtin': 'Method 3: Teams Built-in Recording',
+        'toc_bots': 'Method 4: Bot-Based Recorders',
+        'toc_copilot': 'Teams vs Copilot vs Third-Party Tools',
+        'toc_troubleshooting': 'Troubleshooting Recording Issues',
+        'toc_permissions': 'Teams Recording Permissions',
+        'toc_legal': 'Legal Considerations',
+        'h2_copilot': 'Teams vs Copilot vs Third-Party Tools',
+        'copilot_p1': 'Microsoft\'s Copilot in Teams (part of the $30/month Copilot for Microsoft 365 add-on) provides AI meeting summaries, action items, and real-time transcription. However, Copilot doesn\'t replace meeting recording — it augments it. You still need Teams recording enabled to capture the full meeting.',
+        'copilot_p2': '<strong>Key difference:</strong> Copilot generates summaries from Teams\' built-in transcription, while third-party bots (Otter.ai, Fireflies) join your meeting as participants. Starting May 2026, Microsoft is restricting third-party bots from accessing Teams meetings via their API, pushing organizations toward native tools.',
+        'copilot_p3': '<strong>Why this matters:</strong> If you rely on bot-based recorders, you may lose access when Microsoft enforces these restrictions. Local recording tools like Mono work independently of Microsoft\'s API — they capture your system audio directly, so they\'ll continue working regardless of policy changes.',
+        'copilot_th_feature': 'Feature',
+        'copilot_th_builtin': 'Teams Built-in',
+        'copilot_th_copilot': '+ Copilot',
+        'copilot_th_bots': 'Third-Party Bots',
+        'copilot_th_local': 'Local (Mono)',
+        'copilot_row1_feature': 'Recording',
+        'copilot_row1_builtin': 'Yes (cloud)',
+        'copilot_row1_copilot': 'Yes (cloud)',
+        'copilot_row1_bots': 'Yes (cloud)',
+        'copilot_row1_local': 'Yes (local)',
+        'copilot_row2_feature': 'Transcription',
+        'copilot_row2_builtin': 'Requires admin',
+        'copilot_row2_copilot': 'Real-time',
+        'copilot_row2_bots': 'Real-time',
+        'copilot_row2_local': 'Local AI',
+        'copilot_row3_feature': 'AI Summaries',
+        'copilot_row3_builtin': 'No',
+        'copilot_row3_copilot': 'Yes',
+        'copilot_row3_bots': 'Yes',
+        'copilot_row3_local': 'Coming soon',
+        'copilot_row4_feature': 'Visibility',
+        'copilot_row4_builtin': 'All notified',
+        'copilot_row4_copilot': 'All notified',
+        'copilot_row4_bots': 'Bot visible',
+        'copilot_row4_local': 'Not visible',
+        'copilot_row5_feature': 'Data location',
+        'copilot_row5_builtin': 'Microsoft cloud',
+        'copilot_row5_copilot': 'Microsoft cloud',
+        'copilot_row5_bots': 'Third-party cloud',
+        'copilot_row5_local': 'Your device',
+        'copilot_row6_feature': 'May 2026 changes',
+        'copilot_row6_builtin': 'Unaffected',
+        'copilot_row6_copilot': 'Unaffected',
+        'copilot_row6_bots': 'Blocked',
+        'copilot_row6_local': 'Unaffected',
+        'copilot_row7_feature': 'Cost',
+        'copilot_row7_builtin': 'M365 license',
+        'copilot_row7_copilot': '+$30/month',
+        'copilot_row7_bots': '$10-30/month',
+        'copilot_row7_local': '$50 once',
+        'h2_troubleshooting': 'Troubleshooting Recording Issues',
+        'troubleshoot_intro': 'Recording not working in Teams? Here are the most common issues and how to fix them:',
+        'troubleshoot_greyed': '<strong>"Start Recording" is greyed out:</strong> This happens when your admin has disabled recording, you don\'t have the required M365 license (Business Basic or higher), or you\'re an attendee rather than organizer/presenter. Ask your IT admin to check the Teams admin center → Meeting policies → Recording settings.',
+        'troubleshoot_storage': '<strong>Recording stops or fails to save:</strong> Check your OneDrive/SharePoint storage quota. Teams recordings require available cloud storage. If storage is full, the recording may stop mid-meeting or fail to process. Free up space or contact IT to increase your quota.',
+        'troubleshoot_transcription': '<strong>Transcription not available:</strong> Transcription requires your admin to enable it in Teams admin center, and it\'s only available in certain languages. Go to Settings → Captions and transcripts to check if it\'s enabled for your account.',
+        'troubleshoot_download': '<strong>Can\'t download the recording:</strong> After a meeting ends, recordings take time to process (typically 5-30 minutes). If it\'s been over an hour, try signing out and back into Teams. Also check the meeting chat or SharePoint/OneDrive — recordings appear in different locations depending on meeting type.',
+        'troubleshoot_quality': '<strong>Poor audio quality in recording:</strong> Teams records exactly what it receives. If participants have poor connections or use laptop speakers instead of headphones, the recording will reflect that. For important meetings, ask participants to use headsets and stable internet connections.',
+        'troubleshoot_bypass': '<strong>Need to record without these limitations?</strong> Local tools like Mono bypass Teams\' permission system entirely — they capture audio at the system level, so they work regardless of your Teams role, admin policies, or license tier. You\'ll get a recording even if you\'re just an attendee with no recording permissions.'
     },
     es: {
         'back_link': '← blog',
@@ -624,7 +798,70 @@ const translations = {
         'related_otter_title': 'Alternativas a Otter.ai en 2026',
         'related_otter_desc': 'Compara Otter, Fireflies, Fathom y otros grabadores de reuniones.',
         'related_lawsuits_title': 'Demandas contra grabadores de reuniones con IA',
-        'related_lawsuits_desc': 'Por qué los bots de grabación de reuniones con IA enfrentan desafíos legales en 2026.'
+        'related_lawsuits_desc': 'Por qué los bots de grabación de reuniones con IA enfrentan desafíos legales en 2026.',
+        'toc_title': 'En esta guía',
+        'toc_why': '¿Por qué grabar reuniones de Teams?',
+        'toc_comparison': 'Comparación rápida',
+        'toc_mono': 'Método 1: Mono (Recomendado)',
+        'toc_obs': 'Método 2: OBS Studio (Gratis)',
+        'toc_builtin': 'Método 3: Grabación integrada de Teams',
+        'toc_bots': 'Método 4: Grabadores basados en bots',
+        'toc_copilot': 'Teams vs Copilot vs herramientas de terceros',
+        'toc_troubleshooting': 'Solución de problemas de grabación',
+        'toc_permissions': 'Permisos de grabación de Teams',
+        'toc_legal': 'Consideraciones legales',
+        'h2_copilot': 'Teams vs Copilot vs herramientas de terceros',
+        'copilot_p1': 'Copilot de Microsoft en Teams (parte del complemento Copilot para Microsoft 365 de $30/mes) proporciona resúmenes de reuniones con IA, elementos de acción y transcripción en tiempo real. Sin embargo, Copilot no reemplaza la grabación de reuniones — la complementa. Aún necesitas tener habilitada la grabación de Teams para capturar la reunión completa.',
+        'copilot_p2': '<strong>Diferencia clave:</strong> Copilot genera resúmenes a partir de la transcripción integrada de Teams, mientras que los bots de terceros (Otter.ai, Fireflies) se unen a tu reunión como participantes. A partir de mayo de 2026, Microsoft está restringiendo que los bots de terceros accedan a reuniones de Teams a través de su API, empujando a las organizaciones hacia herramientas nativas.',
+        'copilot_p3': '<strong>Por qué esto importa:</strong> Si dependes de grabadores basados en bots, podrías perder el acceso cuando Microsoft aplique estas restricciones. Las herramientas de grabación local como Mono funcionan independientemente de la API de Microsoft — capturan el audio de tu sistema directamente, por lo que seguirán funcionando independientemente de los cambios de política.',
+        'copilot_th_feature': 'Característica',
+        'copilot_th_builtin': 'Teams integrado',
+        'copilot_th_copilot': '+ Copilot',
+        'copilot_th_bots': 'Bots de terceros',
+        'copilot_th_local': 'Local (Mono)',
+        'copilot_row1_feature': 'Grabación',
+        'copilot_row1_builtin': 'Sí (nube)',
+        'copilot_row1_copilot': 'Sí (nube)',
+        'copilot_row1_bots': 'Sí (nube)',
+        'copilot_row1_local': 'Sí (local)',
+        'copilot_row2_feature': 'Transcripción',
+        'copilot_row2_builtin': 'Requiere admin',
+        'copilot_row2_copilot': 'Tiempo real',
+        'copilot_row2_bots': 'Tiempo real',
+        'copilot_row2_local': 'IA local',
+        'copilot_row3_feature': 'Resúmenes IA',
+        'copilot_row3_builtin': 'No',
+        'copilot_row3_copilot': 'Sí',
+        'copilot_row3_bots': 'Sí',
+        'copilot_row3_local': 'Próximamente',
+        'copilot_row4_feature': 'Visibilidad',
+        'copilot_row4_builtin': 'Todos notificados',
+        'copilot_row4_copilot': 'Todos notificados',
+        'copilot_row4_bots': 'Bot visible',
+        'copilot_row4_local': 'No visible',
+        'copilot_row5_feature': 'Ubicación datos',
+        'copilot_row5_builtin': 'Nube Microsoft',
+        'copilot_row5_copilot': 'Nube Microsoft',
+        'copilot_row5_bots': 'Nube de terceros',
+        'copilot_row5_local': 'Tu dispositivo',
+        'copilot_row6_feature': 'Cambios mayo 2026',
+        'copilot_row6_builtin': 'Sin efecto',
+        'copilot_row6_copilot': 'Sin efecto',
+        'copilot_row6_bots': 'Bloqueado',
+        'copilot_row6_local': 'Sin efecto',
+        'copilot_row7_feature': 'Costo',
+        'copilot_row7_builtin': 'Licencia M365',
+        'copilot_row7_copilot': '+$30/mes',
+        'copilot_row7_bots': '$10-30/mes',
+        'copilot_row7_local': '$50 una vez',
+        'h2_troubleshooting': 'Solución de problemas de grabación',
+        'troubleshoot_intro': '¿La grabación no funciona en Teams? Aquí están los problemas más comunes y cómo solucionarlos:',
+        'troubleshoot_greyed': '<strong>"Iniciar grabación" está en gris:</strong> Esto sucede cuando tu administrador ha deshabilitado la grabación, no tienes la licencia M365 requerida (Business Basic o superior), o eres un asistente en lugar de organizador/presentador. Pide a tu administrador de TI que verifique el centro de administración de Teams → Políticas de reuniones → Configuración de grabación.',
+        'troubleshoot_storage': '<strong>La grabación se detiene o no se guarda:</strong> Verifica tu cuota de almacenamiento en OneDrive/SharePoint. Las grabaciones de Teams requieren almacenamiento en la nube disponible. Si el almacenamiento está lleno, la grabación puede detenerse a mitad de la reunión o fallar al procesarse. Libera espacio o contacta a TI para aumentar tu cuota.',
+        'troubleshoot_transcription': '<strong>Transcripción no disponible:</strong> La transcripción requiere que tu administrador la habilite en el centro de administración de Teams, y solo está disponible en ciertos idiomas. Ve a Configuración → Subtítulos y transcripciones para verificar si está habilitada para tu cuenta.',
+        'troubleshoot_download': '<strong>No puedes descargar la grabación:</strong> Después de que termina una reunión, las grabaciones tardan en procesarse (típicamente 5-30 minutos). Si ha pasado más de una hora, intenta cerrar sesión y volver a iniciarla en Teams. También verifica el chat de la reunión o SharePoint/OneDrive — las grabaciones aparecen en diferentes ubicaciones según el tipo de reunión.',
+        'troubleshoot_quality': '<strong>Mala calidad de audio en la grabación:</strong> Teams graba exactamente lo que recibe. Si los participantes tienen malas conexiones o usan altavoces de laptop en lugar de auriculares, la grabación lo reflejará. Para reuniones importantes, pide a los participantes que usen auriculares y conexiones a internet estables.',
+        'troubleshoot_bypass': '<strong>¿Necesitas grabar sin estas limitaciones?</strong> Las herramientas locales como Mono evitan completamente el sistema de permisos de Teams — capturan audio a nivel del sistema, por lo que funcionan independientemente de tu rol en Teams, políticas de administrador o nivel de licencia. Obtendrás una grabación incluso si eres solo un asistente sin permisos de grabación.'
     },
     fr: {
         'back_link': '← blog',
@@ -740,7 +977,70 @@ const translations = {
         'related_otter_title': 'Alternatives à Otter.ai en 2026',
         'related_otter_desc': 'Comparez Otter, Fireflies, Fathom et d\'autres enregistreurs de réunions.',
         'related_lawsuits_title': 'Procès contre les enregistreurs IA',
-        'related_lawsuits_desc': 'Pourquoi les bots d\'enregistrement IA font face à des contestations juridiques en 2026.'
+        'related_lawsuits_desc': 'Pourquoi les bots d\'enregistrement IA font face à des contestations juridiques en 2026.',
+        'toc_title': 'Dans ce guide',
+        'toc_why': 'Pourquoi enregistrer des réunions Teams ?',
+        'toc_comparison': 'Comparaison rapide',
+        'toc_mono': 'Méthode 1 : Mono (Recommandé)',
+        'toc_obs': 'Méthode 2 : OBS Studio (Gratuit)',
+        'toc_builtin': 'Méthode 3 : Enregistrement intégré Teams',
+        'toc_bots': 'Méthode 4 : Enregistreurs basés sur bot',
+        'toc_copilot': 'Teams vs Copilot vs outils tiers',
+        'toc_troubleshooting': 'Résolution des problèmes d\'enregistrement',
+        'toc_permissions': 'Permissions d\'enregistrement Teams',
+        'toc_legal': 'Considérations légales',
+        'h2_copilot': 'Teams vs Copilot vs outils tiers',
+        'copilot_p1': 'Copilot de Microsoft dans Teams (partie du module Copilot pour Microsoft 365 à 30 $/mois) fournit des résumés de réunions IA, des éléments d\'action et une transcription en temps réel. Cependant, Copilot ne remplace pas l\'enregistrement de réunions — il le complète. Vous devez toujours avoir l\'enregistrement Teams activé pour capturer la réunion complète.',
+        'copilot_p2': '<strong>Différence clé :</strong> Copilot génère des résumés à partir de la transcription intégrée de Teams, tandis que les bots tiers (Otter.ai, Fireflies) rejoignent votre réunion en tant que participants. À partir de mai 2026, Microsoft restreint l\'accès des bots tiers aux réunions Teams via leur API, poussant les organisations vers les outils natifs.',
+        'copilot_p3': '<strong>Pourquoi c\'est important :</strong> Si vous comptez sur des enregistreurs basés sur bot, vous pourriez perdre l\'accès lorsque Microsoft appliquera ces restrictions. Les outils d\'enregistrement locaux comme Mono fonctionnent indépendamment de l\'API de Microsoft — ils capturent l\'audio de votre système directement, donc ils continueront à fonctionner quels que soient les changements de politique.',
+        'copilot_th_feature': 'Fonctionnalité',
+        'copilot_th_builtin': 'Teams intégré',
+        'copilot_th_copilot': '+ Copilot',
+        'copilot_th_bots': 'Bots tiers',
+        'copilot_th_local': 'Local (Mono)',
+        'copilot_row1_feature': 'Enregistrement',
+        'copilot_row1_builtin': 'Oui (cloud)',
+        'copilot_row1_copilot': 'Oui (cloud)',
+        'copilot_row1_bots': 'Oui (cloud)',
+        'copilot_row1_local': 'Oui (local)',
+        'copilot_row2_feature': 'Transcription',
+        'copilot_row2_builtin': 'Admin requis',
+        'copilot_row2_copilot': 'Temps réel',
+        'copilot_row2_bots': 'Temps réel',
+        'copilot_row2_local': 'IA locale',
+        'copilot_row3_feature': 'Résumés IA',
+        'copilot_row3_builtin': 'Non',
+        'copilot_row3_copilot': 'Oui',
+        'copilot_row3_bots': 'Oui',
+        'copilot_row3_local': 'Bientôt',
+        'copilot_row4_feature': 'Visibilité',
+        'copilot_row4_builtin': 'Tous notifiés',
+        'copilot_row4_copilot': 'Tous notifiés',
+        'copilot_row4_bots': 'Bot visible',
+        'copilot_row4_local': 'Non visible',
+        'copilot_row5_feature': 'Emplacement données',
+        'copilot_row5_builtin': 'Cloud Microsoft',
+        'copilot_row5_copilot': 'Cloud Microsoft',
+        'copilot_row5_bots': 'Cloud tiers',
+        'copilot_row5_local': 'Votre appareil',
+        'copilot_row6_feature': 'Changements mai 2026',
+        'copilot_row6_builtin': 'Non affecté',
+        'copilot_row6_copilot': 'Non affecté',
+        'copilot_row6_bots': 'Bloqué',
+        'copilot_row6_local': 'Non affecté',
+        'copilot_row7_feature': 'Coût',
+        'copilot_row7_builtin': 'Licence M365',
+        'copilot_row7_copilot': '+30 $/mois',
+        'copilot_row7_bots': '10-30 $/mois',
+        'copilot_row7_local': '50 $ une fois',
+        'h2_troubleshooting': 'Résolution des problèmes d\'enregistrement',
+        'troubleshoot_intro': 'L\'enregistrement ne fonctionne pas dans Teams ? Voici les problèmes les plus courants et comment les résoudre :',
+        'troubleshoot_greyed': '<strong>« Démarrer l\'enregistrement » est grisé :</strong> Cela se produit lorsque votre administrateur a désactivé l\'enregistrement, que vous n\'avez pas la licence M365 requise (Business Basic ou supérieur), ou que vous êtes un participant plutôt qu\'organisateur/présentateur. Demandez à votre administrateur IT de vérifier le centre d\'administration Teams → Politiques de réunion → Paramètres d\'enregistrement.',
+        'troubleshoot_storage': '<strong>L\'enregistrement s\'arrête ou ne s\'enregistre pas :</strong> Vérifiez votre quota de stockage OneDrive/SharePoint. Les enregistrements Teams nécessitent un stockage cloud disponible. Si le stockage est plein, l\'enregistrement peut s\'arrêter en cours de réunion ou échouer lors du traitement. Libérez de l\'espace ou contactez l\'IT pour augmenter votre quota.',
+        'troubleshoot_transcription': '<strong>Transcription non disponible :</strong> La transcription nécessite que votre administrateur l\'active dans le centre d\'administration Teams, et elle n\'est disponible que dans certaines langues. Allez dans Paramètres → Sous-titres et transcriptions pour vérifier si elle est activée pour votre compte.',
+        'troubleshoot_download': '<strong>Impossible de télécharger l\'enregistrement :</strong> Après la fin d\'une réunion, les enregistrements prennent du temps à être traités (généralement 5-30 minutes). Si cela fait plus d\'une heure, essayez de vous déconnecter puis de vous reconnecter à Teams. Vérifiez également le chat de réunion ou SharePoint/OneDrive — les enregistrements apparaissent à différents endroits selon le type de réunion.',
+        'troubleshoot_quality': '<strong>Mauvaise qualité audio dans l\'enregistrement :</strong> Teams enregistre exactement ce qu\'il reçoit. Si les participants ont de mauvaises connexions ou utilisent des haut-parleurs d\'ordinateur portable au lieu d\'écouteurs, l\'enregistrement le reflétera. Pour les réunions importantes, demandez aux participants d\'utiliser des casques et des connexions internet stables.',
+        'troubleshoot_bypass': '<strong>Besoin d\'enregistrer sans ces limitations ?</strong> Les outils locaux comme Mono contournent entièrement le système de permissions de Teams — ils capturent l\'audio au niveau du système, donc ils fonctionnent quel que soit votre rôle Teams, les politiques d\'administration ou le niveau de licence. Vous obtiendrez un enregistrement même si vous êtes juste un participant sans permissions d\'enregistrement.'
     },
     de: {
         'back_link': '← Blog',
@@ -856,7 +1156,70 @@ const translations = {
         'related_otter_title': 'Otter.ai-Alternativen 2026',
         'related_otter_desc': 'Vergleichen Sie Otter, Fireflies, Fathom und andere Meeting-Rekorder.',
         'related_lawsuits_title': 'KI-Meeting-Rekorder-Klagen',
-        'related_lawsuits_desc': 'Warum KI-Meeting-Bots 2026 rechtlichen Herausforderungen gegenüberstehen.'
+        'related_lawsuits_desc': 'Warum KI-Meeting-Bots 2026 rechtlichen Herausforderungen gegenüberstehen.',
+        'toc_title': 'In diesem Leitfaden',
+        'toc_why': 'Warum Teams-Meetings aufzeichnen?',
+        'toc_comparison': 'Schnellvergleich',
+        'toc_mono': 'Methode 1: Mono (Empfohlen)',
+        'toc_obs': 'Methode 2: OBS Studio (Kostenlos)',
+        'toc_builtin': 'Methode 3: Teams integrierte Aufnahme',
+        'toc_bots': 'Methode 4: Bot-basierte Rekorder',
+        'toc_copilot': 'Teams vs Copilot vs Drittanbieter-Tools',
+        'toc_troubleshooting': 'Aufnahmeprobleme beheben',
+        'toc_permissions': 'Teams-Aufnahmeberechtigungen',
+        'toc_legal': 'Rechtliche Überlegungen',
+        'h2_copilot': 'Teams vs Copilot vs Drittanbieter-Tools',
+        'copilot_p1': 'Microsofts Copilot in Teams (Teil des 30 $/Monat Copilot für Microsoft 365-Add-ons) bietet KI-Meeting-Zusammenfassungen, Aktionspunkte und Echtzeit-Transkription. Copilot ersetzt jedoch nicht die Meeting-Aufnahme — es ergänzt sie. Sie benötigen weiterhin die aktivierte Teams-Aufnahme, um das vollständige Meeting zu erfassen.',
+        'copilot_p2': '<strong>Wichtiger Unterschied:</strong> Copilot generiert Zusammenfassungen aus der integrierten Teams-Transkription, während Drittanbieter-Bots (Otter.ai, Fireflies) Ihrem Meeting als Teilnehmer beitreten. Ab Mai 2026 schränkt Microsoft den Zugang von Drittanbieter-Bots zu Teams-Meetings über ihre API ein und drängt Organisationen zu nativen Tools.',
+        'copilot_p3': '<strong>Warum das wichtig ist:</strong> Wenn Sie auf Bot-basierte Rekorder angewiesen sind, könnten Sie den Zugang verlieren, wenn Microsoft diese Einschränkungen durchsetzt. Lokale Aufnahmetools wie Mono arbeiten unabhängig von Microsofts API — sie erfassen Ihren Systemton direkt, sodass sie unabhängig von Richtlinienänderungen weiter funktionieren.',
+        'copilot_th_feature': 'Funktion',
+        'copilot_th_builtin': 'Teams integriert',
+        'copilot_th_copilot': '+ Copilot',
+        'copilot_th_bots': 'Drittanbieter-Bots',
+        'copilot_th_local': 'Lokal (Mono)',
+        'copilot_row1_feature': 'Aufnahme',
+        'copilot_row1_builtin': 'Ja (Cloud)',
+        'copilot_row1_copilot': 'Ja (Cloud)',
+        'copilot_row1_bots': 'Ja (Cloud)',
+        'copilot_row1_local': 'Ja (lokal)',
+        'copilot_row2_feature': 'Transkription',
+        'copilot_row2_builtin': 'Admin erforderlich',
+        'copilot_row2_copilot': 'Echtzeit',
+        'copilot_row2_bots': 'Echtzeit',
+        'copilot_row2_local': 'Lokale KI',
+        'copilot_row3_feature': 'KI-Zusammenfassungen',
+        'copilot_row3_builtin': 'Nein',
+        'copilot_row3_copilot': 'Ja',
+        'copilot_row3_bots': 'Ja',
+        'copilot_row3_local': 'Demnächst',
+        'copilot_row4_feature': 'Sichtbarkeit',
+        'copilot_row4_builtin': 'Alle benachrichtigt',
+        'copilot_row4_copilot': 'Alle benachrichtigt',
+        'copilot_row4_bots': 'Bot sichtbar',
+        'copilot_row4_local': 'Nicht sichtbar',
+        'copilot_row5_feature': 'Datenspeicherort',
+        'copilot_row5_builtin': 'Microsoft Cloud',
+        'copilot_row5_copilot': 'Microsoft Cloud',
+        'copilot_row5_bots': 'Drittanbieter-Cloud',
+        'copilot_row5_local': 'Ihr Gerät',
+        'copilot_row6_feature': 'Änderungen Mai 2026',
+        'copilot_row6_builtin': 'Nicht betroffen',
+        'copilot_row6_copilot': 'Nicht betroffen',
+        'copilot_row6_bots': 'Blockiert',
+        'copilot_row6_local': 'Nicht betroffen',
+        'copilot_row7_feature': 'Kosten',
+        'copilot_row7_builtin': 'M365-Lizenz',
+        'copilot_row7_copilot': '+30 $/Monat',
+        'copilot_row7_bots': '10-30 $/Monat',
+        'copilot_row7_local': '50 $ einmalig',
+        'h2_troubleshooting': 'Aufnahmeprobleme beheben',
+        'troubleshoot_intro': 'Aufnahme funktioniert nicht in Teams? Hier sind die häufigsten Probleme und wie man sie behebt:',
+        'troubleshoot_greyed': '<strong>„Aufnahme starten" ist ausgegraut:</strong> Dies passiert, wenn Ihr Administrator die Aufnahme deaktiviert hat, Sie nicht die erforderliche M365-Lizenz (Business Basic oder höher) haben oder Sie ein Teilnehmer statt Organisator/Präsentator sind. Bitten Sie Ihren IT-Administrator, das Teams Admin Center → Meeting-Richtlinien → Aufnahmeeinstellungen zu überprüfen.',
+        'troubleshoot_storage': '<strong>Aufnahme stoppt oder wird nicht gespeichert:</strong> Überprüfen Sie Ihr OneDrive/SharePoint-Speicherkontingent. Teams-Aufnahmen benötigen verfügbaren Cloud-Speicher. Wenn der Speicher voll ist, kann die Aufnahme mitten im Meeting stoppen oder bei der Verarbeitung fehlschlagen. Schaffen Sie Platz frei oder kontaktieren Sie die IT, um Ihr Kontingent zu erhöhen.',
+        'troubleshoot_transcription': '<strong>Transkription nicht verfügbar:</strong> Die Transkription erfordert, dass Ihr Administrator sie im Teams Admin Center aktiviert, und sie ist nur in bestimmten Sprachen verfügbar. Gehen Sie zu Einstellungen → Untertitel und Transkripte, um zu prüfen, ob sie für Ihr Konto aktiviert ist.',
+        'troubleshoot_download': '<strong>Aufnahme kann nicht heruntergeladen werden:</strong> Nach Meeting-Ende brauchen Aufnahmen Zeit zur Verarbeitung (typischerweise 5-30 Minuten). Wenn es über eine Stunde her ist, versuchen Sie, sich bei Teams ab- und wieder anzumelden. Prüfen Sie auch den Meeting-Chat oder SharePoint/OneDrive — Aufnahmen erscheinen je nach Meeting-Typ an verschiedenen Orten.',
+        'troubleshoot_quality': '<strong>Schlechte Audioqualität in der Aufnahme:</strong> Teams zeichnet genau das auf, was es empfängt. Wenn Teilnehmer schlechte Verbindungen haben oder Laptop-Lautsprecher statt Kopfhörer verwenden, wird die Aufnahme das widerspiegeln. Bitten Sie bei wichtigen Meetings die Teilnehmer, Headsets und stabile Internetverbindungen zu verwenden.',
+        'troubleshoot_bypass': '<strong>Müssen Sie ohne diese Einschränkungen aufnehmen?</strong> Lokale Tools wie Mono umgehen das Teams-Berechtigungssystem vollständig — sie erfassen Audio auf Systemebene, sodass sie unabhängig von Ihrer Teams-Rolle, Admin-Richtlinien oder Lizenzebene funktionieren. Sie erhalten eine Aufnahme, auch wenn Sie nur ein Teilnehmer ohne Aufnahmeberechtigungen sind.'
     },
     zh: {
         'back_link': '← 博客',
@@ -972,7 +1335,70 @@ const translations = {
         'related_otter_title': '2026 年 Otter.ai 替代品',
         'related_otter_desc': '比较 Otter、Fireflies、Fathom 和其他会议录制器。',
         'related_lawsuits_title': 'AI 会议录制器诉讼',
-        'related_lawsuits_desc': '为什么 AI 会议机器人在2026年面临法律挑战。'
+        'related_lawsuits_desc': '为什么 AI 会议机器人在2026年面临法律挑战。',
+        'toc_title': '本指南内容',
+        'toc_why': '为什么要录制 Teams 会议？',
+        'toc_comparison': '快速对比',
+        'toc_mono': '方法 1：Mono（推荐）',
+        'toc_obs': '方法 2：OBS Studio（免费）',
+        'toc_builtin': '方法 3：Teams 内置录制',
+        'toc_bots': '方法 4：基于机器人的录制器',
+        'toc_copilot': 'Teams vs Copilot vs 第三方工具',
+        'toc_troubleshooting': '录制问题排查',
+        'toc_permissions': 'Teams 录制权限',
+        'toc_legal': '法律注意事项',
+        'h2_copilot': 'Teams vs Copilot vs 第三方工具',
+        'copilot_p1': 'Microsoft 的 Teams Copilot（属于每月 30 美元的 Microsoft 365 Copilot 附加组件）提供 AI 会议摘要、行动项目和实时转录。但是，Copilot 不能替代会议录制——它是补充。您仍需要启用 Teams 录制才能捕获完整会议。',
+        'copilot_p2': '<strong>关键区别：</strong>Copilot 从 Teams 内置转录生成摘要，而第三方机器人（Otter.ai、Fireflies）作为参与者加入您的会议。从2026年5月开始，Microsoft 将限制第三方机器人通过其 API 访问 Teams 会议，推动组织使用原生工具。',
+        'copilot_p3': '<strong>为什么这很重要：</strong>如果您依赖基于机器人的录制器，当 Microsoft 执行这些限制时，您可能会失去访问权限。像 Mono 这样的本地录制工具独立于 Microsoft 的 API 工作——它们直接捕获您的系统音频，因此无论政策如何变化都会继续工作。',
+        'copilot_th_feature': '功能',
+        'copilot_th_builtin': 'Teams 内置',
+        'copilot_th_copilot': '+ Copilot',
+        'copilot_th_bots': '第三方机器人',
+        'copilot_th_local': '本地（Mono）',
+        'copilot_row1_feature': '录制',
+        'copilot_row1_builtin': '是（云端）',
+        'copilot_row1_copilot': '是（云端）',
+        'copilot_row1_bots': '是（云端）',
+        'copilot_row1_local': '是（本地）',
+        'copilot_row2_feature': '转录',
+        'copilot_row2_builtin': '需要管理员',
+        'copilot_row2_copilot': '实时',
+        'copilot_row2_bots': '实时',
+        'copilot_row2_local': '本地 AI',
+        'copilot_row3_feature': 'AI 摘要',
+        'copilot_row3_builtin': '否',
+        'copilot_row3_copilot': '是',
+        'copilot_row3_bots': '是',
+        'copilot_row3_local': '即将推出',
+        'copilot_row4_feature': '可见性',
+        'copilot_row4_builtin': '全员通知',
+        'copilot_row4_copilot': '全员通知',
+        'copilot_row4_bots': '机器人可见',
+        'copilot_row4_local': '不可见',
+        'copilot_row5_feature': '数据位置',
+        'copilot_row5_builtin': 'Microsoft 云',
+        'copilot_row5_copilot': 'Microsoft 云',
+        'copilot_row5_bots': '第三方云',
+        'copilot_row5_local': '您的设备',
+        'copilot_row6_feature': '2026年5月变更',
+        'copilot_row6_builtin': '不受影响',
+        'copilot_row6_copilot': '不受影响',
+        'copilot_row6_bots': '被阻止',
+        'copilot_row6_local': '不受影响',
+        'copilot_row7_feature': '费用',
+        'copilot_row7_builtin': 'M365 许可证',
+        'copilot_row7_copilot': '+30 美元/月',
+        'copilot_row7_bots': '10-30 美元/月',
+        'copilot_row7_local': '50 美元一次性',
+        'h2_troubleshooting': '录制问题排查',
+        'troubleshoot_intro': 'Teams 中录制不起作用？以下是最常见的问题及解决方法：',
+        'troubleshoot_greyed': '<strong>"开始录制"是灰色的：</strong>这种情况发生在您的管理员禁用了录制、您没有所需的 M365 许可证（Business Basic 或更高版本）、或者您是参与者而非组织者/演示者时。请让您的 IT 管理员检查 Teams 管理中心 → 会议策略 → 录制设置。',
+        'troubleshoot_storage': '<strong>录制停止或保存失败：</strong>检查您的 OneDrive/SharePoint 存储配额。Teams 录制需要可用的云存储。如果存储已满，录制可能会在会议中途停止或处理失败。清理空间或联系 IT 增加您的配额。',
+        'troubleshoot_transcription': '<strong>转录不可用：</strong>转录需要您的管理员在 Teams 管理中心启用，并且只支持某些语言。转到设置 → 字幕和转录，检查是否为您的账户启用。',
+        'troubleshoot_download': '<strong>无法下载录制：</strong>会议结束后，录制需要时间处理（通常5-30分钟）。如果已经超过一小时，请尝试退出并重新登录 Teams。另外检查会议聊天或 SharePoint/OneDrive——根据会议类型，录制会出现在不同位置。',
+        'troubleshoot_quality': '<strong>录制音频质量差：</strong>Teams 录制的正是它收到的内容。如果参与者网络连接差或使用笔记本电脑扬声器而非耳机，录制会反映这一点。对于重要会议，请让参与者使用耳机和稳定的网络连接。',
+        'troubleshoot_bypass': '<strong>需要在没有这些限制的情况下录制？</strong>像 Mono 这样的本地工具完全绕过 Teams 的权限系统——它们在系统级别捕获音频，因此无论您的 Teams 角色、管理员策略或许可证级别如何都能工作。即使您只是没有录制权限的参与者，也能获得录制。'
     },
     ru: {
         'back_link': '← блог',
@@ -1088,7 +1514,70 @@ const translations = {
         'related_otter_title': 'Альтернативы Otter.ai в 2026',
         'related_otter_desc': 'Сравнение Otter, Fireflies, Fathom и других записывающих устройств для встреч.',
         'related_lawsuits_title': 'Судебные иски к AI-записывающим устройствам',
-        'related_lawsuits_desc': 'Почему AI-боты для встреч сталкиваются с юридическими проблемами в 2026 году.'
+        'related_lawsuits_desc': 'Почему AI-боты для встреч сталкиваются с юридическими проблемами в 2026 году.',
+        'toc_title': 'В этом руководстве',
+        'toc_why': 'Зачем записывать встречи Teams?',
+        'toc_comparison': 'Быстрое сравнение',
+        'toc_mono': 'Способ 1: Mono (Рекомендуемый)',
+        'toc_obs': 'Способ 2: OBS Studio (Бесплатно)',
+        'toc_builtin': 'Способ 3: Встроенная запись Teams',
+        'toc_bots': 'Способ 4: Записывающие боты',
+        'toc_copilot': 'Teams vs Copilot vs сторонние инструменты',
+        'toc_troubleshooting': 'Устранение проблем с записью',
+        'toc_permissions': 'Разрешения на запись Teams',
+        'toc_legal': 'Правовые аспекты',
+        'h2_copilot': 'Teams vs Copilot vs сторонние инструменты',
+        'copilot_p1': 'Microsoft Copilot в Teams (часть дополнения Copilot для Microsoft 365 за $30/месяц) предоставляет AI-сводки встреч, пункты действий и транскрипцию в реальном времени. Однако Copilot не заменяет запись встреч — он дополняет её. Вам по-прежнему нужна включённая запись Teams для захвата полной встречи.',
+        'copilot_p2': '<strong>Ключевое отличие:</strong> Copilot генерирует сводки из встроенной транскрипции Teams, тогда как сторонние боты (Otter.ai, Fireflies) присоединяются к вашей встрече как участники. Начиная с мая 2026 года, Microsoft ограничивает доступ сторонних ботов к встречам Teams через их API, подталкивая организации к нативным инструментам.',
+        'copilot_p3': '<strong>Почему это важно:</strong> Если вы полагаетесь на записывающие боты, вы можете потерять доступ, когда Microsoft введёт эти ограничения. Локальные инструменты записи, такие как Mono, работают независимо от API Microsoft — они захватывают системный звук напрямую, поэтому продолжат работать независимо от изменений политики.',
+        'copilot_th_feature': 'Функция',
+        'copilot_th_builtin': 'Teams встроенный',
+        'copilot_th_copilot': '+ Copilot',
+        'copilot_th_bots': 'Сторонние боты',
+        'copilot_th_local': 'Локально (Mono)',
+        'copilot_row1_feature': 'Запись',
+        'copilot_row1_builtin': 'Да (облако)',
+        'copilot_row1_copilot': 'Да (облако)',
+        'copilot_row1_bots': 'Да (облако)',
+        'copilot_row1_local': 'Да (локально)',
+        'copilot_row2_feature': 'Транскрипция',
+        'copilot_row2_builtin': 'Требуется админ',
+        'copilot_row2_copilot': 'В реальном времени',
+        'copilot_row2_bots': 'В реальном времени',
+        'copilot_row2_local': 'Локальный AI',
+        'copilot_row3_feature': 'AI-сводки',
+        'copilot_row3_builtin': 'Нет',
+        'copilot_row3_copilot': 'Да',
+        'copilot_row3_bots': 'Да',
+        'copilot_row3_local': 'Скоро',
+        'copilot_row4_feature': 'Видимость',
+        'copilot_row4_builtin': 'Все уведомлены',
+        'copilot_row4_copilot': 'Все уведомлены',
+        'copilot_row4_bots': 'Бот виден',
+        'copilot_row4_local': 'Не виден',
+        'copilot_row5_feature': 'Расположение данных',
+        'copilot_row5_builtin': 'Облако Microsoft',
+        'copilot_row5_copilot': 'Облако Microsoft',
+        'copilot_row5_bots': 'Облако третьей стороны',
+        'copilot_row5_local': 'Ваше устройство',
+        'copilot_row6_feature': 'Изменения май 2026',
+        'copilot_row6_builtin': 'Не затронуто',
+        'copilot_row6_copilot': 'Не затронуто',
+        'copilot_row6_bots': 'Заблокировано',
+        'copilot_row6_local': 'Не затронуто',
+        'copilot_row7_feature': 'Стоимость',
+        'copilot_row7_builtin': 'Лицензия M365',
+        'copilot_row7_copilot': '+$30/месяц',
+        'copilot_row7_bots': '$10-30/месяц',
+        'copilot_row7_local': '$50 единоразово',
+        'h2_troubleshooting': 'Устранение проблем с записью',
+        'troubleshoot_intro': 'Запись не работает в Teams? Вот самые распространённые проблемы и способы их решения:',
+        'troubleshoot_greyed': '<strong>«Начать запись» неактивна:</strong> Это происходит, когда ваш администратор отключил запись, у вас нет необходимой лицензии M365 (Business Basic или выше), или вы участник, а не организатор/докладчик. Попросите вашего IT-администратора проверить центр администрирования Teams → Политики собраний → Настройки записи.',
+        'troubleshoot_storage': '<strong>Запись останавливается или не сохраняется:</strong> Проверьте квоту хранилища OneDrive/SharePoint. Записи Teams требуют доступного облачного хранилища. Если хранилище заполнено, запись может остановиться посреди встречи или не обработаться. Освободите место или обратитесь в IT для увеличения квоты.',
+        'troubleshoot_transcription': '<strong>Транскрипция недоступна:</strong> Транскрипция требует включения администратором в центре администрирования Teams и доступна только на определённых языках. Перейдите в Настройки → Субтитры и транскрипции, чтобы проверить, включена ли она для вашей учётной записи.',
+        'troubleshoot_download': '<strong>Не удаётся скачать запись:</strong> После окончания встречи записи требуют времени на обработку (обычно 5-30 минут). Если прошло более часа, попробуйте выйти и снова войти в Teams. Также проверьте чат встречи или SharePoint/OneDrive — записи появляются в разных местах в зависимости от типа встречи.',
+        'troubleshoot_quality': '<strong>Плохое качество звука в записи:</strong> Teams записывает именно то, что получает. Если у участников плохое соединение или они используют динамики ноутбука вместо наушников, запись это отразит. Для важных встреч попросите участников использовать гарнитуры и стабильное интернет-соединение.',
+        'troubleshoot_bypass': '<strong>Нужно записать без этих ограничений?</strong> Локальные инструменты, такие как Mono, полностью обходят систему разрешений Teams — они захватывают звук на системном уровне, поэтому работают независимо от вашей роли в Teams, политик администратора или уровня лицензии. Вы получите запись, даже если вы просто участник без прав на запись.'
     }
 };
 </script>
