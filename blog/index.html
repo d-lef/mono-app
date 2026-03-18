@@ -117,6 +117,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="/components/nav.js" defer></script>
+    <script src="/components/waveform-bg.js" defer></script>
 
     <style>
         * {
@@ -187,22 +188,53 @@
             opacity: 1;
         }
 
+        /* Hero section - centered title */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 500;
+            font-size: clamp(48px, 10vw, 72px);
+            color: var(--text-primary);
+            text-align: center;
+            user-select: none;
+            -webkit-user-select: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.4;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-secondary);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
         /* Main content */
         .main {
             max-width: 900px;
             margin: 0 auto;
-            padding: 80px 24px 160px;
-        }
-
-        h1 {
-            font-family: 'Comfortaa', sans-serif;
-            font-weight: 500;
-            font-size: clamp(48px, 8vw, 72px);
-            color: var(--text-primary);
-            text-align: center;
-            margin-bottom: 64px;
-            user-select: none;
-            -webkit-user-select: none;
+            padding: 0 24px 160px;
         }
 
         /* Featured card */
@@ -213,8 +245,11 @@
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: 12px;
             padding: 32px;
-            margin-bottom: 24px;
             transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .main > .featured-card {
+            margin-bottom: 16px;
         }
 
         .featured-card:hover {
@@ -306,7 +341,7 @@
         }
 
         /* 3D fold effect */
-        .main h1,
+        .hero h1,
         .main .featured-card,
         .main .placeholder-card {
             transition: transform 0.05s linear, opacity 0.05s linear;
@@ -335,10 +370,18 @@
 <body>
     <site-nav base-path="../"></site-nav>
 
+    <!-- Hero section -->
+    <section class="hero">
+        <h1>blog</h1>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
     <!-- Main content -->
     <main class="main">
-        <h1>blog</h1>
-
         <!-- Featured post -->
         <a href="how-to-record-microsoft-teams" class="featured-card">
             <span class="card-category">[Guide]</span>
