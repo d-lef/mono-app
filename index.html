@@ -407,19 +407,13 @@
                 bottom: 35%;
             }
 
-            /* Shift content up to visually center below nav bar */
+            /* Pure centering on mobile - no vh offsets due to iOS viewport issues */
             .logo-group {
-                margin-top: -10vh;
+                margin-top: 0;
             }
 
-            /* Shift tagline up to visually center below nav bar */
             .tagline-container {
-                top: calc(50% - 5vh);
-            }
-
-            /* Shift buy container up to visually center below nav bar */
-            .buy-container {
-                padding-bottom: 10vh;
+                top: 50%;
             }
 
             /* Shield text from ripples */
