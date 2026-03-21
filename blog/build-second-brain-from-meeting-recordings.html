@@ -148,6 +148,10 @@
         .pipeline-step-title { font-weight: 500; font-size: 17px; margin-bottom: 8px; }
         .pipeline-step p { margin-bottom: 0; font-size: 15px; color: var(--text-secondary); }
 
+        .article-figure { margin: 32px 0; }
+        .article-figure img { width: 100%; height: auto; border-radius: 8px; display: block; cursor: zoom-in; }
+        .article-figure figcaption { font-size: 13px; color: var(--text-secondary); text-align: center; margin-top: 10px; line-height: 1.5; }
+
         blockquote { border-left: 3px solid rgba(255,255,255,0.15); padding: 12px 20px; margin: 24px 0; font-style: italic; color: var(--text-secondary); }
         :root.light blockquote { border-left-color: rgba(0,0,0,0.12); }
         @media (prefers-color-scheme: light) { :root:not(.dark) blockquote { border-left-color: rgba(0,0,0,0.12); } }
@@ -219,7 +223,7 @@
             <p data-i18n="pipeline_p1">Building a second brain from meetings requires four steps. Each one is straightforward on its own — the power comes from connecting them into an automated pipeline.</p>
 
             <figure class="article-figure">
-                <img src="images/second-brain-pipeline.png" alt="Pipeline diagram: Record, Transcribe, Vectorize, Query — four steps to build a second brain from meeting recordings" loading="lazy" width="1440" height="960">
+                <img src="images/second-brain-pipeline.png" alt="Pipeline diagram: Record, Transcribe, Vectorize, Query — four steps to build a second brain from meeting recordings" loading="lazy">
                 <figcaption data-i18n="fig_pipeline">The four-step pipeline: from meeting audio to queryable knowledge base</figcaption>
             </figure>
 
