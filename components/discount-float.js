@@ -165,13 +165,13 @@ class DiscountFloat extends HTMLElement {
             }
         </style>
 
-        <button class="float-btn" id="btn">Get 15% off</button>
+        <button class="float-btn" id="btn">Early bird: 15% off</button>
 
         <div class="overlay" id="overlay">
             <div class="popup">
                 <button class="close" id="close">&times;</button>
                 <h3 class="title">Get 15% off mono</h3>
-                <p class="desc">Enter your email and we'll send you a promo code with download links.</p>
+                <p class="desc">mono is in early release — grab 15% off as an early bird. Enter your email and we'll send you a promo code with download links.</p>
                 <form id="form">
                     <input type="email" class="email" id="email" placeholder="your@email.com" required autocomplete="email">
                     <button type="submit" class="submit" id="submit">Send my discount</button>
