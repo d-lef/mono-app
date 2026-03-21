@@ -188,15 +188,15 @@
 
             <p data-i18n="problem_p1">Think about the last important meeting you had. Can you recall the specific reasoning behind the main decision? The alternative that was rejected, and why? The follow-up that someone volunteered for?</p>
 
-            <p data-i18n="problem_p2">Most people can't. And it's not because the meeting was unmemorable — it's because human memory is fundamentally unsuited for retaining conversational detail. Studies on meeting recall show that participants forget 50% of discussed content within 24 hours, and up to 90% within a week.</p>
+            <p data-i18n="problem_p2">Most people can't. And it's not because the meeting was unmemorable — it's because human memory is fundamentally unsuited for retaining conversational detail. <a href="https://en.wikipedia.org/wiki/Forgetting_curve" target="_blank" rel="noopener">Research on the forgetting curve</a> shows that participants forget 50% of discussed content within 24 hours, and up to 90% within a week.</p>
 
             <p data-i18n="problem_p3">What's worse, the information lost in meetings is often <strong>the most valuable kind</strong>. Written documents capture conclusions. Meetings capture the reasoning, the trade-offs, the "we tried X but it didn't work because Y." That context is irreplaceable — and it vanishes every single day.</p>
 
-            <p data-i18n="problem_p4">The cost isn't just forgetfulness. It's the repeated discussions, the re-explained decisions, the new team member who has to piece together months of context from scattered Slack threads. It's institutional knowledge that exists only in people's heads, and walks out the door when they leave.</p>
+            <p data-i18n="problem_p4">The cost isn't just forgetfulness. It's the repeated discussions, the re-explained decisions, the new team member who has to piece together months of context from scattered Slack threads. It's institutional knowledge that exists only in people's heads, and walks out the door when they leave. Meanwhile, the tools most teams rely on for meeting capture are <a href="ai-meeting-privacy-lawsuits-2026">becoming a legal liability</a>.</p>
 
             <h2 data-i18n="h2_second_brain">What Is a Second Brain (and Why Meetings Are Its Best Input)</h2>
 
-            <p data-i18n="sb_p1">The concept of a "second brain" was popularized by Tiago Forte. It's a personal knowledge management system built on a simple framework called CODE: <strong>Capture</strong> what resonates, <strong>Organize</strong> by where you'll use it, <strong>Distill</strong> to the essentials, and <strong>Express</strong> by putting it to work.</p>
+            <p data-i18n="sb_p1">The concept of a "second brain" was popularized by <a href="https://fortelabs.com/blog/basboverview/" target="_blank" rel="noopener">Tiago Forte</a>. It's a personal knowledge management system built on a simple framework called CODE: <strong>Capture</strong> what resonates, <strong>Organize</strong> by where you'll use it, <strong>Distill</strong> to the essentials, and <strong>Express</strong> by putting it to work.</p>
 
             <p data-i18n="sb_p2">The core principle is ruthlessly practical: <strong>"Knowledge is usable content. If it's not usable, it's not knowledge."</strong></p>
 
@@ -221,13 +221,13 @@
             <div class="pipeline-step">
                 <p class="pipeline-step-number" data-i18n="step1_label">Step 1</p>
                 <p class="pipeline-step-title" data-i18n="step1_title">Record</p>
-                <p data-i18n="step1_p">Capture the audio from your meetings — any platform, any app. The key is making this effortless enough that you do it every time, not just when you remember. Tools like mono capture system audio and microphone simultaneously, so they work across Zoom, Meet, Teams, Discord, or any other app without joining as a visible bot.</p>
+                <p data-i18n="step1_p">Capture the audio from your meetings — any platform, any app. The key is making this effortless enough that you do it every time, not just when you remember. Tools like mono capture system audio and microphone simultaneously, so they work across <a href="how-to-record-zoom-calls">Zoom</a>, <a href="how-to-record-google-meet">Meet</a>, <a href="how-to-record-microsoft-teams">Teams</a>, <a href="how-to-record-discord-calls">Discord</a>, or any other app without joining as a visible bot.</p>
             </div>
 
             <div class="pipeline-step">
                 <p class="pipeline-step-number" data-i18n="step2_label">Step 2</p>
                 <p class="pipeline-step-title" data-i18n="step2_title">Transcribe</p>
-                <p data-i18n="step2_p">Turn audio into searchable text. Modern transcription engines like Whisper handle multiple speakers, accents, and technical jargon with high accuracy. The transcript becomes the raw material for everything that follows — a full, faithful record of what was actually said.</p>
+                <p data-i18n="step2_p">Turn audio into searchable text. Modern transcription engines like <a href="https://github.com/openai/whisper" target="_blank" rel="noopener">Whisper</a> handle multiple speakers, accents, and technical jargon with high accuracy. The transcript becomes the raw material for everything that follows — a full, faithful record of what was actually said.</p>
             </div>
 
             <div class="pipeline-step">
@@ -331,7 +331,7 @@
 
             <p data-i18n="building_p2"><strong>Start simple.</strong> Pick one recurring meeting — a weekly standup, a 1:1, a project sync. Record it for a week. Get comfortable with the capture step before building the rest. The habit matters more than the tooling.</p>
 
-            <p data-i18n="building_p3">Once you have a few transcripts, the vectorization step opens up. Tools like ChromaDB are open-source and can run locally. Embedding models (like those from Sentence Transformers or OpenAI) convert your transcript chunks into vectors. A simple Python script can automate the ingestion pipeline: new transcript appears, gets chunked, embedded, and stored.</p>
+            <p data-i18n="building_p3">Once you have a few transcripts, the vectorization step opens up. Tools like <a href="https://github.com/chroma-core/chroma" target="_blank" rel="noopener">ChromaDB</a> are open-source and can <a href="save-on-ai-subscriptions-local-models">run locally</a>. Embedding models (like those from <a href="https://www.sbert.net/" target="_blank" rel="noopener">Sentence Transformers</a> or OpenAI) convert your transcript chunks into vectors. A simple Python script can automate the ingestion pipeline: new transcript appears, gets chunked, embedded, and stored.</p>
 
             <p data-i18n="building_p4">For the organization layer, Forte's <strong>PARA method</strong> works well: organize knowledge by <strong>Projects</strong> (active efforts with deadlines), <strong>Areas</strong> (ongoing responsibilities), <strong>Resources</strong> (topics of interest), and <strong>Archive</strong> (completed or inactive). The key insight: organize by where you'll <em>use</em> the information, not where you <em>found</em> it.</p>
 
@@ -391,11 +391,11 @@ const translations = {
         'tldr_5': '<strong>Start simple:</strong> Record one recurring meeting, build the habit, then expand',
         'h2_problem': 'The Problem: Your Best Thinking Disappears in Meetings',
         'problem_p1': 'Think about the last important meeting you had. Can you recall the specific reasoning behind the main decision? The alternative that was rejected, and why? The follow-up that someone volunteered for?',
-        'problem_p2': 'Most people can\'t. And it\'s not because the meeting was unmemorable — it\'s because human memory is fundamentally unsuited for retaining conversational detail. Studies on meeting recall show that participants forget 50% of discussed content within 24 hours, and up to 90% within a week.',
+        'problem_p2': 'Most people can\'t. And it\'s not because the meeting was unmemorable — it\'s because human memory is fundamentally unsuited for retaining conversational detail. <a href="https://en.wikipedia.org/wiki/Forgetting_curve" target="_blank" rel="noopener">Research on the forgetting curve</a> shows that participants forget 50% of discussed content within 24 hours, and up to 90% within a week.',
         'problem_p3': 'What\'s worse, the information lost in meetings is often <strong>the most valuable kind</strong>. Written documents capture conclusions. Meetings capture the reasoning, the trade-offs, the "we tried X but it didn\'t work because Y." That context is irreplaceable — and it vanishes every single day.',
-        'problem_p4': 'The cost isn\'t just forgetfulness. It\'s the repeated discussions, the re-explained decisions, the new team member who has to piece together months of context from scattered Slack threads. It\'s institutional knowledge that exists only in people\'s heads, and walks out the door when they leave.',
+        'problem_p4': 'The cost isn\'t just forgetfulness. It\'s the repeated discussions, the re-explained decisions, the new team member who has to piece together months of context from scattered Slack threads. It\'s institutional knowledge that exists only in people\'s heads, and walks out the door when they leave. Meanwhile, the tools most teams rely on for meeting capture are <a href="ai-meeting-privacy-lawsuits-2026">becoming a legal liability</a>.',
         'h2_second_brain': 'What Is a Second Brain (and Why Meetings Are Its Best Input)',
-        'sb_p1': 'The concept of a "second brain" was popularized by Tiago Forte. It\'s a personal knowledge management system built on a simple framework called CODE: <strong>Capture</strong> what resonates, <strong>Organize</strong> by where you\'ll use it, <strong>Distill</strong> to the essentials, and <strong>Express</strong> by putting it to work.',
+        'sb_p1': 'The concept of a "second brain" was popularized by <a href="https://fortelabs.com/blog/basboverview/" target="_blank" rel="noopener">Tiago Forte</a>. It\'s a personal knowledge management system built on a simple framework called CODE: <strong>Capture</strong> what resonates, <strong>Organize</strong> by where you\'ll use it, <strong>Distill</strong> to the essentials, and <strong>Express</strong> by putting it to work.',
         'sb_p2': 'The core principle is ruthlessly practical: <strong>"Knowledge is usable content. If it\'s not usable, it\'s not knowledge."</strong>',
         'sb_p3': 'Most people who build a second brain feed it with articles, highlights, bookmarks, and podcast notes — passive consumption from the internet. That\'s useful, but it misses the richest source sitting right in front of you.',
         'sb_p4': '<strong>Meetings are different from every other input.</strong> They contain original, first-hand knowledge that\'s unique to your work:',
@@ -409,10 +409,10 @@ const translations = {
         'pipeline_p1': 'Building a second brain from meetings requires four steps. Each one is straightforward on its own — the power comes from connecting them into an automated pipeline.',
         'step1_label': 'Step 1',
         'step1_title': 'Record',
-        'step1_p': 'Capture the audio from your meetings — any platform, any app. The key is making this effortless enough that you do it every time, not just when you remember. Tools like mono capture system audio and microphone simultaneously, so they work across Zoom, Meet, Teams, Discord, or any other app without joining as a visible bot.',
+        'step1_p': 'Capture the audio from your meetings — any platform, any app. The key is making this effortless enough that you do it every time, not just when you remember. Tools like mono capture system audio and microphone simultaneously, so they work across <a href="how-to-record-zoom-calls">Zoom</a>, <a href="how-to-record-google-meet">Meet</a>, <a href="how-to-record-microsoft-teams">Teams</a>, <a href="how-to-record-discord-calls">Discord</a>, or any other app without joining as a visible bot.',
         'step2_label': 'Step 2',
         'step2_title': 'Transcribe',
-        'step2_p': 'Turn audio into searchable text. Modern transcription engines like Whisper handle multiple speakers, accents, and technical jargon with high accuracy. The transcript becomes the raw material for everything that follows — a full, faithful record of what was actually said.',
+        'step2_p': 'Turn audio into searchable text. Modern transcription engines like <a href="https://github.com/openai/whisper" target="_blank" rel="noopener">Whisper</a> handle multiple speakers, accents, and technical jargon with high accuracy. The transcript becomes the raw material for everything that follows — a full, faithful record of what was actually said.',
         'step3_label': 'Step 3',
         'step3_title': 'Vectorize',
         'step3_p': 'Embed transcript chunks into a vector database. This is the step that transforms a pile of text files into something genuinely useful. Vectorization converts text into numerical representations that capture meaning — so when you search later, you\'re searching by concept, not by exact words.',
@@ -458,7 +458,7 @@ const translations = {
         'td_llm': 'LLM',
         'td_llm_purpose': 'Query and synthesize answers',
         'building_p2': '<strong>Start simple.</strong> Pick one recurring meeting — a weekly standup, a 1:1, a project sync. Record it for a week. Get comfortable with the capture step before building the rest. The habit matters more than the tooling.',
-        'building_p3': 'Once you have a few transcripts, the vectorization step opens up. Tools like ChromaDB are open-source and can run locally. Embedding models (like those from Sentence Transformers or OpenAI) convert your transcript chunks into vectors. A simple Python script can automate the ingestion pipeline: new transcript appears, gets chunked, embedded, and stored.',
+        'building_p3': 'Once you have a few transcripts, the vectorization step opens up. Tools like <a href="https://github.com/chroma-core/chroma" target="_blank" rel="noopener">ChromaDB</a> are open-source and can <a href="save-on-ai-subscriptions-local-models">run locally</a>. Embedding models (like those from <a href="https://www.sbert.net/" target="_blank" rel="noopener">Sentence Transformers</a> or OpenAI) convert your transcript chunks into vectors. A simple Python script can automate the ingestion pipeline: new transcript appears, gets chunked, embedded, and stored.',
         'building_p4': 'For the organization layer, Forte\'s <strong>PARA method</strong> works well: organize knowledge by <strong>Projects</strong> (active efforts with deadlines), <strong>Areas</strong> (ongoing responsibilities), <strong>Resources</strong> (topics of interest), and <strong>Archive</strong> (completed or inactive). The key insight: organize by where you\'ll <em>use</em> the information, not where you <em>found</em> it.',
         'building_p5': '<strong>The compound effect is real.</strong> A second brain with 5 meetings in it is a curiosity. With 50 meetings, it starts becoming useful. With 500 meetings across a year, it becomes indispensable — a searchable institutional memory that makes you dramatically more effective in every conversation, every decision, every onboarding.',
         'h2_changes': 'What Changes When You Have Total Recall',
