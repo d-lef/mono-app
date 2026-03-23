@@ -1719,6 +1719,7 @@
                 'value': 50
             });
             if (typeof ma === 'function') ma('buy_click', { label: 'homepage', value: 50 });
+            if (typeof ym === 'function') ym(108199724, 'reachGoal', 'buy_click');
         });
 
         // Track download button clicks
@@ -1729,6 +1730,7 @@
                 'platform': 'windows'
             });
             if (typeof ma === 'function') ma('download_click', { label: 'homepage', platform: 'windows' });
+            if (typeof ym === 'function') ym(108199724, 'reachGoal', 'download_click_windows');
         });
 
         document.getElementById('downloadMacSilicon').addEventListener('click', () => {
@@ -1738,6 +1740,7 @@
                 'platform': 'mac-silicon'
             });
             if (typeof ma === 'function') ma('download_click', { label: 'homepage', platform: 'mac-silicon' });
+            if (typeof ym === 'function') ym(108199724, 'reachGoal', 'download_click_mac_silicon');
         });
 
         document.getElementById('downloadMacIntel').addEventListener('click', () => {
@@ -1747,6 +1750,7 @@
                 'platform': 'mac-intel'
             });
             if (typeof ma === 'function') ma('download_click', { label: 'homepage', platform: 'mac-intel' });
+            if (typeof ym === 'function') ym(108199724, 'reachGoal', 'download_click_mac_intel');
         });
 
         // ===== Mobile Discount Popup =====
