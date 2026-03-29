@@ -101,6 +101,7 @@
     <script src="/components/nav.js" defer></script>
     <script src="/components/discount-float.js" defer></script>
     <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/lightbox.js" defer></script>
 
     <style>
         * {
@@ -507,6 +508,11 @@
             }
         }
 
+        /* Article figure */
+        .article-figure { margin: 32px 0; }
+        .article-figure img { width: 100%; height: auto; border-radius: 8px; display: block; cursor: zoom-in; }
+        .article-figure figcaption { font-size: 13px; color: var(--text-secondary); margin-top: 12px; text-align: center; }
+
         /* Privacy link */
         .privacy-link {
             position: fixed;
@@ -621,7 +627,10 @@
 
             <h2 data-i18n="h2-fireflies">Why people leave Fireflies.ai</h2>
 
-            <img src="images/fireflies-bot-join.png" alt="Fireflies.ai bot asking to join a Google Meet call" style="width:100%;border-radius:8px;margin-bottom:24px;">
+            <figure class="article-figure">
+                <img src="images/fireflies-bot-join.png" alt="Fireflies.ai bot asking to join a Google Meet call" loading="lazy">
+                <figcaption data-i18n="fireflies-img-caption">The Fireflies bot asking to join a Google Meet call</figcaption>
+            </figure>
 
             <p data-i18n="fireflies-p1">Fireflies works well when it works — the AI summaries are useful, the search across past meetings is genuinely helpful, and the CRM integrations (Salesforce, HubSpot) make it valuable for sales teams. The Pro plan at $10/user/month is competitive.</p>
 
@@ -731,6 +740,7 @@
                 'h2-fireflies': 'Why people leave Fireflies.ai',
                 'fireflies-p1': 'Fireflies works well when it works — the AI summaries are useful, the search across past meetings is genuinely helpful, and the CRM integrations (Salesforce, HubSpot) make it valuable for sales teams. The Pro plan at $10/user/month is competitive.',
                 'fireflies-p1b': 'The problems: the bot ("Fred") joining calls feels intrusive to clients. Some users report it auto-joining meetings without explicit consent. The free tier caps at 800 minutes with limited AI features. Cancellation has been described as difficult, with some users reporting charges after deletion. And in December 2025, a class-action lawsuit alleged BIPA violations over biometric voiceprint collection.',
+                'fireflies-img-caption': 'The Fireflies bot asking to join a Google Meet call',
                 'fireflies-p2': 'If any of those are dealbreakers — the bot visibility, the privacy concerns, or the subscription model — here are alternatives worth considering.',
                 'h2-otter': 'Otter.ai',
                 'otter-p1': 'Otter.ai is the original in this category. Transcription accuracy is excellent, the mobile app is polished, and the free tier gives you 300 minutes per month. The real-time transcription lets you see text as people speak.',
@@ -790,6 +800,7 @@
                 'h2-fireflies': 'Por qué la gente deja Fireflies.ai',
                 'fireflies-p1': 'Fireflies funciona bien cuando funciona — los resúmenes de IA son útiles, la búsqueda en reuniones pasadas es genuinamente práctica, y las integraciones CRM (Salesforce, HubSpot) lo hacen valioso para equipos de ventas.',
                 'fireflies-p1b': 'Los problemas: el bot ("Fred") uniéndose a las llamadas resulta intrusivo para los clientes. Algunos usuarios reportan que se une automáticamente sin consentimiento explícito. El plan gratuito está limitado a 800 minutos. La cancelación se describe como difícil. Y en diciembre de 2025, una demanda colectiva alegó violaciones de BIPA.',
+                'fireflies-img-caption': 'El bot de Fireflies pidiendo unirse a una llamada de Google Meet',
                 'fireflies-p2': 'Si alguno de esos es inaceptable — el bot visible, las preocupaciones de privacidad, o el modelo de suscripción — aquí hay alternativas a considerar.',
                 'h2-otter': 'Otter.ai',
                 'otter-p1': 'Otter.ai es el original en esta categoría. La precisión de transcripción es excelente, la app móvil está pulida, y el plan gratuito da 300 minutos al mes.',
@@ -849,6 +860,7 @@
                 'h2-fireflies': 'Pourquoi les gens quittent Fireflies.ai',
                 'fireflies-p1': 'Fireflies fonctionne bien quand il fonctionne — les résumés IA sont utiles, la recherche dans les réunions passées est pratique, et les intégrations CRM le rendent précieux pour les équipes commerciales.',
                 'fireflies-p1b': 'Les problèmes : le bot ("Fred") qui rejoint les appels semble intrusif. Certains utilisateurs signalent qu\'il rejoint automatiquement sans consentement explicite. Le tier gratuit plafonne à 800 minutes. L\'annulation est décrite comme difficile. Et en décembre 2025, un recours collectif a allégué des violations BIPA.',
+                'fireflies-img-caption': 'Le bot Fireflies demandant à rejoindre un appel Google Meet',
                 'fireflies-p2': 'Si l\'un de ces points est rédhibitoire — le bot visible, les préoccupations de confidentialité, ou le modèle d\'abonnement — voici des alternatives à considérer.',
                 'h2-otter': 'Otter.ai',
                 'otter-p1': 'Otter.ai est l\'original dans cette catégorie. La précision de transcription est excellente, l\'app mobile est soignée, et le tier gratuit offre 300 minutes par mois.',
@@ -908,6 +920,7 @@
                 'h2-fireflies': 'Warum Leute Fireflies.ai verlassen',
                 'fireflies-p1': 'Fireflies funktioniert gut, wenn es funktioniert — die KI-Zusammenfassungen sind nützlich, die Suche in vergangenen Meetings ist praktisch, und die CRM-Integrationen machen es wertvoll für Vertriebsteams.',
                 'fireflies-p1b': 'Die Probleme: Der Bot ("Fred"), der Anrufen beitritt, wirkt auf Kunden aufdringlich. Einige Nutzer berichten, dass er automatisch beitritt ohne ausdrückliche Zustimmung. Der Gratis-Tarif ist auf 800 Minuten begrenzt. Die Kündigung wird als schwierig beschrieben. Und im Dezember 2025 klagte eine Sammelklage wegen BIPA-Verstößen.',
+                'fireflies-img-caption': 'Der Fireflies-Bot fragt, ob er einem Google Meet beitreten darf',
                 'fireflies-p2': 'Wenn eines davon ein K.O.-Kriterium ist — der sichtbare Bot, die Datenschutzbedenken oder das Abo-Modell — hier sind Alternativen.',
                 'h2-otter': 'Otter.ai',
                 'otter-p1': 'Otter.ai ist das Original in dieser Kategorie. Die Transkriptionsgenauigkeit ist ausgezeichnet, die mobile App ist poliert, und der Gratis-Tarif gibt 300 Minuten pro Monat.',
@@ -967,6 +980,7 @@
                 'h2-fireflies': '人们离开Fireflies.ai的原因',
                 'fireflies-p1': 'Fireflies运作良好时确实好用——AI摘要有用，跨会议搜索确实实用，CRM集成使其对销售团队有价值。',
                 'fireflies-p1b': '问题在于：机器人（"Fred"）加入通话让客户感到被侵犯。一些用户报告它未经明确同意就自动加入。免费套餐上限800分钟。取消订阅被描述为困难重重。2025年12月，一起集体诉讼指控BIPA违规。',
+                'fireflies-img-caption': 'Fireflies机器人请求加入Google Meet通话',
                 'fireflies-p2': '如果这些问题中任何一个是硬伤——可见机器人、隐私担忧或订阅模式——以下是值得考虑的替代方案。',
                 'h2-otter': 'Otter.ai',
                 'otter-p1': 'Otter.ai是这个领域的元老。转录准确度优秀，移动应用精致，免费套餐每月提供300分钟。',
@@ -1026,6 +1040,7 @@
                 'h2-fireflies': 'Почему люди уходят от Fireflies.ai',
                 'fireflies-p1': 'Fireflies работает хорошо, когда работает — ИИ-резюме полезны, поиск по прошлым встречам действительно практичен, а интеграции с CRM делают его ценным для отделов продаж.',
                 'fireflies-p1b': 'Проблемы: бот ("Fred"), заходящий на звонки, воспринимается клиентами как вторжение. Некоторые пользователи сообщают, что он автоматически присоединяется без явного согласия. Бесплатный тариф ограничен 800 минутами. Отмена описывается как сложная. А в декабре 2025 года коллективный иск заявил о нарушениях BIPA.',
+                'fireflies-img-caption': 'Бот Fireflies запрашивает доступ к звонку Google Meet',
                 'fireflies-p2': 'Если что-то из этого для вас критично — видимый бот, проблемы приватности или модель подписки — вот альтернативы для рассмотрения.',
                 'h2-otter': 'Otter.ai',
                 'otter-p1': 'Otter.ai — оригинал в этой категории. Точность транскрипции отличная, мобильное приложение отполировано, бесплатный тариф даёт 300 минут в месяц.',
