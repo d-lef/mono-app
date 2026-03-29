@@ -26,9 +26,15 @@
   </url>
   <url>
     <loc>https://mono-ai.uk/blog/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mono-ai.uk/blog/fireflies-ai-alternatives-2026</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mono-ai.uk/blog/build-second-brain-from-meeting-recordings</loc>
