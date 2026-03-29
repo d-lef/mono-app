@@ -13,14 +13,6 @@
     <script>
     (function(){if(localStorage.getItem("_ma_optout"))return;var u="https://t.mono-ai.uk/api/event",v=localStorage.getItem("_ma_vid");if(!v){v=crypto.randomUUID().slice(0,12);localStorage.setItem("_ma_vid",v)}var s=sessionStorage.getItem("_ma_sid");if(!s){s=crypto.randomUUID().slice(0,12);sessionStorage.setItem("_ma_sid",s)}var p=new URLSearchParams(location.search),t={};["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var val=p.get(k);if(val){t[k]=val;sessionStorage.setItem("_ma_"+k,val)}else{t[k]=sessionStorage.getItem("_ma_"+k)||""}});var r=document.referrer||"";function ma(e,o){var d=Object.assign({session_id:s,visitor_id:v,event_name:e,page_path:location.pathname,label:null,platform:null,value:null,utm_source:t.utm_source,utm_medium:t.utm_medium,utm_campaign:t.utm_campaign,utm_content:t.utm_content,utm_term:t.utm_term,referrer:r,screen_width:screen.width},o||{});if(navigator.sendBeacon)navigator.sendBeacon(u,JSON.stringify(d));else fetch(u,{method:"POST",body:JSON.stringify(d),keepalive:true})}ma("pageview");window.ma=ma})();
     </script>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=108199724','ym');
-        ym(108199724,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/108199724" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Record Discord Calls in 2026 — 4 Methods That Work</title>
