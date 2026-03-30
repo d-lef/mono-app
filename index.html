@@ -1745,8 +1745,8 @@
         document.fonts.ready.then(checkTaglineOverflow);
 
         // ===== Funnel Tracking =====
-        // Track buy button clicks
-        buyButton.addEventListener('click', () => {
+        // Append UTM + visitor attribution to Polar checkout URL on click
+        buyButton.addEventListener('click', function(e) {
             gtag('event', 'buy_click', {
                 'event_category': 'funnel',
                 'event_label': 'homepage',
@@ -1754,6 +1754,17 @@
             });
             if (typeof ma === 'function') ma('buy_click', { label: 'homepage', value: 50 });
             if (typeof ym === 'function') ym(108199724, 'reachGoal', 'buy_click');
+
+            var url = new URL(buyButton.href);
+            var vid = localStorage.getItem('_ma_vid') || '';
+            if (vid) url.searchParams.set('metadata[visitor_id]', vid);
+            ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
+                var v = sessionStorage.getItem('_ma_' + k);
+                if (v) url.searchParams.set(k, v);
+            });
+            var ref = document.referrer;
+            if (ref) url.searchParams.set('metadata[referrer]', ref);
+            buyButton.href = url.toString();
         });
 
         // Track download button clicks

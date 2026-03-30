@@ -135,7 +135,7 @@ class CtaCard extends HTMLElement {
         const buyBtn = this.shadowRoot.getElementById('cta-buy');
         const downloadBtn = this.shadowRoot.getElementById('cta-download');
 
-        buyBtn.addEventListener('click', () => {
+        buyBtn.addEventListener('click', function(e) {
             if (typeof gtag === 'function') {
                 gtag('event', 'buy_click', {
                     'event_category': 'funnel',
@@ -144,17 +144,27 @@ class CtaCard extends HTMLElement {
                 });
             }
             if (typeof ma === 'function') ma('buy_click', { label: 'blog_cta', value: 50 });
+
+            var url = new URL(buyBtn.href);
+            var vid = localStorage.getItem('_ma_vid') || '';
+            if (vid) url.searchParams.set('metadata[visitor_id]', vid);
+            ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
+                var v = sessionStorage.getItem('_ma_' + k);
+                if (v) url.searchParams.set(k, v);
+            });
+            var ref = document.referrer;
+            if (ref) url.searchParams.set('metadata[referrer]', ref);
+            buyBtn.href = url.toString();
         });
 
         downloadBtn.addEventListener('click', () => {
             if (typeof gtag === 'function') {
-                gtag('event', 'download_click', {
+                gtag('event', 'view_pricing', {
                     'event_category': 'funnel',
-                    'event_label': 'blog_cta',
-                    'platform': 'free_trial'
+                    'event_label': 'blog_cta'
                 });
             }
-            if (typeof ma === 'function') ma('download_click', { label: 'blog_cta', platform: 'free_trial' });
+            if (typeof ma === 'function') ma('view_pricing', { label: 'blog_cta' });
         });
     }
 }
