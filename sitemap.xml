@@ -37,6 +37,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mono-ai.uk/blog/obsidian-vault-meeting-knowledge-base</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mono-ai.uk/blog/build-second-brain-from-meeting-recordings</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
