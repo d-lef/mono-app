@@ -29,7 +29,7 @@
     <meta property="og:image" content="https://mono-ai.uk/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="article:published_time" content="2026-04-04T00:00:00Z">
+    <meta property="article:published_time" content="2026-04-10T00:00:00Z">
     <meta property="article:author" content="Daniil Lefanov">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="How to Turn Your Obsidian Vault into a Meeting Knowledge Base">
@@ -42,8 +42,8 @@
       "@type": "Article",
       "headline": "How to Turn Your Obsidian Vault into a Meeting Knowledge Base",
       "description": "Every meeting you record becomes a markdown note in your Obsidian vault — with YAML frontmatter, AI summary, action item checkboxes, and full transcript. No export, no copy-paste.",
-      "datePublished": "2026-04-04",
-      "dateModified": "2026-04-04",
+      "datePublished": "2026-04-10",
+      "dateModified": "2026-04-10",
       "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
       "publisher": {
         "@type": "Organization", "name": "mono", "url": "https://mono-ai.uk/",
@@ -180,64 +180,51 @@
         <header>
             <span class="article-category">[Guide]</span>
             <h1 class="article-title">How to Turn Your Obsidian Vault into a Meeting Knowledge Base</h1>
-            <p class="article-meta">Apr 4, 2026 &middot; 9 min read &middot; By Daniil Lefanov</p>
+            <p class="article-meta">Apr 10, 2026 &middot; 5 min read &middot; By Daniil Lefanov</p>
         </header>
 
         <div class="article-body">
 
-            <p>You've spent months building your Obsidian vault. Daily notes, project pages, linked references, tags that actually mean something. It's your external brain for everything that matters at work.</p>
+            <p>Meetings are the one knowledge source that doesn't fit into Obsidian. Cloud recorders like Otter and Fireflies store transcripts behind a login, in their own format. Export is a PDF or plain text dump you'd have to reformat.</p>
 
-            <p>Except meetings. The place where most decisions actually get made, where context gets shared, where someone says "let's do X" and three people nod &mdash; that all lives somewhere else entirely. A separate app, a separate silo, or more likely, nowhere at all.</p>
-
-            <p>You finish a call. Maybe you jot down two bullet points. Maybe you copy-paste a few lines from Otter into a daily note. But the full picture &mdash; who said what, the reasoning behind the decision, the action item someone volunteered for &mdash; evaporates within hours.</p>
-
-            <p>What if every meeting just <em>appeared</em> in your vault as a native markdown note? With YAML frontmatter you can query. Action items as checkboxes the Tasks plugin already sees. A full transcript you can search, link, and annotate. No export step, no copy-paste, no second app to check.</p>
+            <p>Mono writes recordings directly as markdown files in your vault &mdash; YAML frontmatter, AI summary, action item checkboxes, full transcript. No export step, no copy-paste.</p>
 
             <div class="tldr">
                 <p class="tldr-label">TL;DR</p>
                 <ul>
                     <li><strong>The gap:</strong> Meetings are your vault's biggest blind spot &mdash; decisions and context that exist nowhere in your PKM system</li>
                     <li><strong>The fix:</strong> A recorder that writes native .md files directly into your vault folder</li>
-                    <li><strong>Bases &amp; Dataview-ready:</strong> YAML frontmatter with title, date, duration, tags &mdash; queryable with built-in Bases or Dataview</li>
+                    <li><strong>Bases &amp; Dataview-ready:</strong> YAML frontmatter with date, duration, tags &mdash; queryable with built-in Bases or Dataview</li>
                     <li><strong>Tasks-ready:</strong> Action items as standard <code>- [ ]</code> checkboxes, bidirectional sync</li>
                     <li><strong>Semantic search:</strong> Ask questions across all meetings by meaning, not just keywords</li>
                 </ul>
             </div>
 
-            <h2>The Gap in Your Vault</h2>
-
-            <p>If you're serious about Obsidian, you've probably solved most of your knowledge capture problems. Articles go through a read-it-later pipeline. Highlights sync automatically. Project notes link to reference material. Daily notes tie everything to a timeline.</p>
-
-            <p>But meetings are the one source that resists this workflow. And it's not because they're unimportant &mdash; it's because the tools that capture them don't speak your language.</p>
-
-            <p>Cloud meeting recorders like Otter, Fireflies, and Fathom store your transcripts behind a login, in their own format, in their own silo. You can export, sometimes, but it's always a second-class experience. A PDF. A plain text dump. Something you'd have to reformat before it's useful in your vault.</p>
-
-            <p>Meanwhile, the information trapped in those tools is often <strong>the most valuable kind you produce at work</strong>. Not the article you bookmarked &mdash; the actual conversation where your team debated the trade-offs, made the decision, and assigned the follow-ups. That's original, first-hand knowledge. And you're letting it sit in a silo your vault can't reach.</p>
-
-            <h2>What a Meeting Note Looks Like in Your Vault</h2>
+            <h2>What a Meeting Note Looks Like</h2>
 
             <p>Imagine you finish a Zoom call. A few seconds later, this file appears in your vault:</p>
 
             <div class="code-block"><span class="code-comment">---</span>
-<span class="code-key">title:</span> <span class="code-string">Weekly Standup</span>
-<span class="code-key">date:</span> <span class="code-string">2026-04-04T10:00:00</span>
-<span class="code-key">duration:</span> <span class="code-string">"23:15"</span>
+<span class="code-key">date:</span> <span class="code-string">2026-04-10 10:00</span>
+<span class="code-key">duration:</span> <span class="code-string">23:15</span>
 <span class="code-key">tags:</span>
   <span class="code-string">- meeting</span>
   <span class="code-string">- project-alpha</span>
 <span class="code-key">language:</span> <span class="code-string">en</span>
-<span class="code-key">status:</span> <span class="code-string">summarized</span>
+<span class="code-key">mono_id:</span> <span class="code-string">rec_a1b2c3d4</span>
 <span class="code-comment">---</span>
 
-![](_audio/2026-04-04%20Weekly%20Standup.mp3)
+![](_audio/2026-04-10%20Weekly%20Standup.mp3)
 
-<span class="code-heading">## Summary</span>
+<span class="code-heading">## Notes</span>
+
+<span class="code-heading">### Summary</span>
 
 The team reviewed progress on the API migration. Sarah confirmed
 the database schema changes are complete. Marcus raised a concern
 about backwards compatibility with v2 clients.
 
-<span class="code-heading">## Action Items</span>
+<span class="code-heading">### Action Items</span>
 
 <span class="code-checkbox">- [ ]</span> Draft v2 deprecation timeline
 <span class="code-checkbox">- [ ]</span> Update API docs for v3 endpoints
@@ -261,11 +248,11 @@ Good point. Let's set a deprecation timeline.</div>
 
             <div class="code-block"><span class="code-heading">My Vault/</span>
 <span class="code-heading">  Meetings/</span>              <span class="code-comment">&larr; point mono at this folder</span>
-    2026-04-04 Weekly Standup.md
+    2026-04-10 Weekly Standup.md
     2026-04-03 Client Call.md
     2026-04-01 1-on-1 with Sarah.md
 <span class="code-heading">    _audio/</span>
-      2026-04-04 Weekly Standup.mp3
+      2026-04-10 Weekly Standup.mp3
       2026-04-03 Client Call.mp3
       2026-04-01 1-on-1 with Sarah.mp3</div>
 
@@ -273,17 +260,11 @@ Good point. Let's set a deprecation timeline.</div>
 
             <h2>Queryable with Bases and Dataview</h2>
 
-            <p>Every meeting note has standard YAML frontmatter: <code>title</code>, <code>date</code>, <code>duration</code>, <code>tags</code>, <code>status</code>. The same properties you'd put in any well-structured vault note. That means two powerful ways to query them.</p>
+            <p>Every meeting note has standard YAML frontmatter: <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code>, and <code>mono_id</code>. Title is derived from the filename. Status is derived from which sections exist (has <code>## Transcript</code> = transcribed, has <code>## Notes</code> = summarized). That means two powerful ways to query them.</p>
 
-            <h3>Obsidian Bases (built-in, no plugins)</h3>
+            <h3>Obsidian Bases (built-in)</h3>
 
-            <p>Obsidian's built-in <strong>Bases</strong> feature turns your meetings folder into a database-like view &mdash; no code, no community plugins, nothing to install.</p>
-
-            <p>Create a new Base, point it at your Meetings folder, and you get a sortable, filterable table of every meeting with columns for date, duration, tags, and status. Click a cell to edit a property inline &mdash; add a tag, change a status &mdash; and it writes directly to the note's frontmatter.</p>
-
-            <p>Filter to just this week's meetings. Sort by duration. Group by tag. All through a visual interface that feels like a spreadsheet but operates over your actual markdown files.</p>
-
-            <p>If you've used Notion databases, this is that &mdash; but over files you own.</p>
+            <p>Create a Base, point it at your Meetings folder. You get a sortable, filterable table with columns for date, duration, and tags. Edit properties inline &mdash; changes write directly to frontmatter.</p>
 
             <h3>Dataview (for power users)</h3>
 
@@ -292,20 +273,20 @@ Good point. Let's set a deprecation timeline.</div>
             <p><strong>All meetings this week tagged #project-alpha:</strong></p>
 
             <div class="code-block"><span class="code-comment">```dataview</span>
-TABLE duration, status
+TABLE duration, tags
 FROM "Meetings"
 WHERE contains(tags, "project-alpha")
   AND date >= date(today) - dur(7 days)
 SORT date DESC
 <span class="code-comment">```</span></div>
 
-            <p><strong>Meetings longer than 30 minutes you haven't summarized yet:</strong></p>
+            <p><strong>Meetings longer than 30 minutes that haven't been summarized:</strong></p>
 
             <div class="code-block"><span class="code-comment">```dataview</span>
 LIST
 FROM "Meetings"
-WHERE status = "transcribed"
-  AND duration > "30:00"
+WHERE duration > "30:00"
+  AND !contains(file.content, "## Notes")
 SORT date DESC
 <span class="code-comment">```</span></div>
 
@@ -315,7 +296,7 @@ SORT date DESC
 
             <p>This is the part that makes the biggest difference in practice.</p>
 
-            <p>Meeting action items are standard markdown checkboxes under a <code>## Action Items</code> heading. The format the Tasks plugin already queries natively:</p>
+            <p>Meeting action items are standard markdown checkboxes under <code>### Action Items</code> within the <code>## Notes</code> section. The format the Tasks plugin already queries natively:</p>
 
             <div class="code-block"><span class="code-checkbox">- [ ]</span> Draft v2 deprecation timeline
 <span class="code-checkbox">- [ ]</span> Update API docs for v3 endpoints
@@ -340,19 +321,15 @@ not done
 
             <p>Each meeting note embeds its audio file with Obsidian's standard image/file embed syntax:</p>
 
-            <div class="code-block">![](_audio/2026-04-04%20Weekly%20Standup.mp3)</div>
+            <div class="code-block">![](_audio/2026-04-10%20Weekly%20Standup.mp3)</div>
 
             <p>Obsidian renders this as a playable audio widget right inside the note. You're reading the transcript, you hit a section where tone matters &mdash; a disagreement, a hesitation, a joke that changed the direction of the conversation &mdash; and you click play right there.</p>
 
             <p>Audio files live in a <code>_audio/</code> subfolder. The underscore prefix sorts it to the top and out of the way. Your sidebar shows clean, date-sorted note titles, not a mix of markdown and mp3 files.</p>
 
-            <h2>Semantic Search Across All Your Meetings</h2>
+            <h2>Semantic Search</h2>
 
-            <p>Obsidian's built-in search is good for finding exact words. But meetings are conversational &mdash; the same concept gets described in different ways across different calls.</p>
-
-            <p>You remember a discussion about pricing strategy, but the transcript says "revenue model." You know someone raised a concern about the timeline, but they phrased it as "I'm not sure we can ship by Q3." Keyword search misses these. Semantic search doesn't.</p>
-
-            <p>Behind the scenes, the recorder chunks your transcripts and embeds them into a vector database. When you ask a question, it retrieves the relevant chunks by <em>meaning</em>, not by exact string match:</p>
+            <p>Mono chunks transcripts and embeds them into a local vector database. Search by meaning, not just keywords:</p>
 
             <ul>
                 <li><strong>"What did we decide about the API timeline?"</strong> &mdash; finds the discussion even if nobody said "API timeline" exactly</li>
@@ -364,13 +341,9 @@ not done
 
             <p>And because the vector index is stored in a hidden <code>.mono/</code> folder inside your meetings directory, it's invisible to Obsidian. Delete it, and it gets rebuilt from your markdown files. Your notes are always the source of truth &mdash; the search index is just a cache.</p>
 
-            <h2>Your Files, Not Ours</h2>
+            <h2>Data Ownership</h2>
 
-            <p>This is the part that matters most if you've been burned by a tool shutting down, changing pricing, or holding your data hostage.</p>
-
-            <p>Every meeting is a plain <code>.md</code> file and an <code>.mp3</code> file. That's it. No database you can't open. No proprietary format you can't read. No cloud account that gates access to your own recordings.</p>
-
-            <p>Compare that to what you get from cloud meeting recorders:</p>
+            <p>Every meeting is a plain <code>.md</code> and <code>.mp3</code> file. No database, no proprietary format, no cloud account required.</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
@@ -416,11 +389,9 @@ not done
                 </table>
             </div>
 
-            <p>Uninstall the recorder app tomorrow and you lose nothing. Every summary, every action item, every transcript is right there in your vault as a file you can open in any text editor on any operating system.</p>
+            <h2>Bidirectional Sync</h2>
 
-            <h2>Edits Go Both Ways</h2>
-
-            <p>The recorder watches your meetings folder for changes. This means edits you make in Obsidian are picked up automatically:</p>
+            <p>Mono watches your meetings folder. Edits in Obsidian sync back automatically:</p>
 
             <ul>
                 <li><strong>Add a tag</strong> in frontmatter &rarr; the recorder app's library reflects it</li>
@@ -429,41 +400,23 @@ not done
                 <li><strong>Edit the transcript</strong> &rarr; the recorder re-indexes it for semantic search</li>
             </ul>
 
-            <p>You're never locked into editing in one place. Use whichever tool is in front of you.</p>
+            <p>Your own annotations are preserved. Add notes between sections, links to project pages, block references &mdash; Mono won't overwrite them.</p>
 
-            <p>Your own notes are safe too. Add paragraphs between sections, drop links to project pages, insert block references. The recorder preserves any content it didn't create &mdash; your annotations survive when the file gets updated.</p>
-
-            <h2>How to Set It Up</h2>
-
-            <p>Three steps:</p>
+            <h2>Setup</h2>
 
             <ol>
-                <li><strong>Create a folder in your vault</strong> for meetings &mdash; <code>Meetings/</code>, <code>Calls/</code>, whatever fits your structure</li>
-                <li><strong>Point mono's recordings folder</strong> to that folder in settings</li>
-                <li><strong>Record a meeting</strong> &mdash; a .md file appears in your vault when transcription finishes</li>
+                <li>Create a folder in your vault for meetings</li>
+                <li>Settings &rarr; Recordings folder &rarr; select that folder</li>
+                <li>Record a meeting &mdash; file appears when transcription finishes</li>
             </ol>
 
-            <p>From there, the workflow is automatic. Every new recording produces a note with frontmatter, AI-generated summary, action items, and full transcript. Tag it, link it to your project, and move on.</p>
+            <h2>Workflow Examples</h2>
 
-            <p>mono handles the recording, transcription, and summarization. It runs on Windows and Mac, records audio from any app (Zoom, Teams, Meet, Discord, anything), and does transcription locally on your machine with Whisper. No audio leaves your device. No cloud account required.</p>
-
-            <div class="tip-box">
-                <p><strong>Already have recordings?</strong> Existing recordings from before the Obsidian integration will be migrated automatically in a future update. For now, new recordings go straight into your vault.</p>
-            </div>
-
-            <h2>What Your Vault Looks Like After a Month</h2>
-
-            <p>After a few weeks, the compound effect kicks in. Your vault goes from "notes plus a separate meeting tool" to a single system where everything connects.</p>
-
-            <p><strong>Your daily note links to today's meetings.</strong> Not manually &mdash; because the meeting note has today's date in frontmatter, a simple Dataview query in your daily template shows them automatically.</p>
-
-            <p><strong>Your project page surfaces every relevant meeting.</strong> Tag meetings with a project tag, and a Dataview table on the project page lists them chronologically with duration and status.</p>
-
-            <p><strong>Your weekly review includes action items from every call.</strong> One Tasks query aggregates them all. Nothing slips through the cracks because nothing lives outside the vault anymore.</p>
-
-            <p><strong>Onboarding a new team member?</strong> Share the vault folder. They get every meeting transcript, every decision with its reasoning, every action item with its status. Months of context in seconds.</p>
-
-            <p>The meeting silo is gone. Conversations, notes, projects, and action items all live in one place, linked by the connections you've already built.</p>
+            <ul>
+                <li><strong>Daily note:</strong> Dataview query shows today's meetings automatically (filter by <code>date</code>)</li>
+                <li><strong>Project page:</strong> Tag meetings with a project tag, Dataview lists them chronologically</li>
+                <li><strong>Weekly review:</strong> Tasks query aggregates action items from all calls</li>
+            </ul>
 
             <div class="cta-card">
                 <p class="cta-title">Your meetings belong in your vault</p>
