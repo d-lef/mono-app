@@ -196,7 +196,7 @@ class DiscountFloat extends HTMLElement {
 
         <div class="float-btns">
             <button class="float-btn" id="btn">Early bird: 15% off</button>
-            <a class="float-btn" href="https://forms.gle/w1rSzigjiFyuDg1A8" target="_blank" rel="noopener" style="text-decoration:none;">Student? 70% off</a>
+            <button class="float-btn" id="student-btn">Student? 70% off</button>
         </div>
 
         <div class="overlay" id="overlay">
@@ -209,6 +209,21 @@ class DiscountFloat extends HTMLElement {
                     <button type="submit" class="submit" id="submit">Send my discount</button>
                 </form>
                 <p class="status" id="status"></p>
+            </div>
+        </div>
+
+        <div class="overlay" id="student-overlay">
+            <div class="popup">
+                <button class="close" id="student-close">&times;</button>
+                <h3 class="title">Student discount — 70% off</h3>
+                <p class="desc">Enter your details and we'll verify your student status. The discount code will be sent to your student email.</p>
+                <form id="student-form">
+                    <input type="text" class="email" id="student-name" placeholder="Your name" required autocomplete="name">
+                    <input type="text" class="email" id="student-school" placeholder="University / school name" required>
+                    <input type="email" class="email" id="student-email" placeholder="Student email (.edu or university domain)" required autocomplete="email">
+                    <button type="submit" class="submit" id="student-submit">Send for verification</button>
+                </form>
+                <p class="status" id="student-status"></p>
             </div>
         </div>
         `;
@@ -298,6 +313,70 @@ class DiscountFloat extends HTMLElement {
                 }
             } catch {
                 showFallback();
+            }
+        });
+
+        // --- Student discount popup ---
+        const studentBtn = this.shadowRoot.getElementById('student-btn');
+        const studentOverlay = this.shadowRoot.getElementById('student-overlay');
+        const studentClose = this.shadowRoot.getElementById('student-close');
+        const studentForm = this.shadowRoot.getElementById('student-form');
+        const studentName = this.shadowRoot.getElementById('student-name');
+        const studentSchool = this.shadowRoot.getElementById('student-school');
+        const studentEmail = this.shadowRoot.getElementById('student-email');
+        const studentSubmit = this.shadowRoot.getElementById('student-submit');
+        const studentStatus = this.shadowRoot.getElementById('student-status');
+
+        studentBtn.addEventListener('click', () => {
+            studentOverlay.classList.add('active');
+            studentName.focus();
+        });
+
+        studentClose.addEventListener('click', () => {
+            studentOverlay.classList.remove('active');
+        });
+
+        studentOverlay.addEventListener('click', (e) => {
+            if (e.target === studentOverlay) studentOverlay.classList.remove('active');
+        });
+
+        studentForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const nameVal = studentName.value.trim();
+            const schoolVal = studentSchool.value.trim();
+            const emailVal = studentEmail.value.trim();
+            if (!nameVal || !schoolVal || !emailVal) return;
+
+            studentSubmit.disabled = true;
+            studentStatus.textContent = 'Sending...';
+
+            try {
+                const r = await fetch('https://t.mono-ai.uk/api/send-student-discount', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: nameVal,
+                        school: schoolVal,
+                        email: emailVal,
+                        session_id: sessionStorage.getItem('_ma_sid') || '',
+                    }),
+                });
+                const data = await r.json();
+                if (data.ok) {
+                    studentStatus.textContent = 'Sent! We\'ll verify and email your discount code soon.';
+                    studentName.value = '';
+                    studentSchool.value = '';
+                    studentEmail.value = '';
+                    if (typeof gtag === 'function') gtag('event', 'student_email_captured', { event_category: 'discount', event_label: 'float_student' });
+                    if (typeof ma === 'function') ma('student_email_captured', { label: 'float_student' });
+                    setTimeout(() => studentOverlay.classList.remove('active'), 3000);
+                } else {
+                    studentStatus.textContent = 'Something went wrong. Please try again.';
+                    studentSubmit.disabled = false;
+                }
+            } catch {
+                studentStatus.textContent = 'Something went wrong. Please try again.';
+                studentSubmit.disabled = false;
             }
         });
     }
