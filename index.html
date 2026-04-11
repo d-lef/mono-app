@@ -529,6 +529,8 @@
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
+        /* Arrow position is set dynamically via JS for showcase states */
+
         /* Position arrow below table on state 6 (compare) */
         body.state-8 .scroll-indicator {
             bottom: 15%;
@@ -820,11 +822,11 @@
         }
 
         .feature-showcase-text {
-            flex: 0 0 55%;
+            flex: 0 0 50%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 0 40px 0 34%;
+            justify-content: flex-end;
+            padding: 0 40px 0 0;
             opacity: 0;
             transform: translateY(8px);
             transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
@@ -853,10 +855,10 @@
         }
 
         .feature-showcase-image {
-            flex: 1;
+            flex: 0 0 50%;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: flex-start;
             opacity: 0;
             transform: translateX(30px);
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -1626,6 +1628,21 @@
                 });
                 if (typeof ma === 'function') ma('view_pricing', { label: 'homepage' });
             }
+
+            // Position arrow under the visible feature tile, or reset to center
+            if (!mobile && currentState >= 3 && currentState <= 7) {
+                const visibleTile = document.querySelector('.feature-showcase.visible .feature-showcase-text p');
+                if (visibleTile) {
+                    requestAnimationFrame(() => {
+                        const rect = visibleTile.getBoundingClientRect();
+                        scrollIndicator.style.left = (rect.left + rect.width / 2) + 'px';
+                        scrollIndicator.style.transform = 'translateX(-50%)';
+                    });
+                }
+            } else {
+                scrollIndicator.style.left = '';
+                scrollIndicator.style.transform = '';
+            }
         }
 
         // Set initial state on load; jump to buy screen if ?buy param present
@@ -2031,7 +2048,7 @@
         }
 
         // Check on load and resize
-        window.addEventListener('resize', checkTaglineOverflow);
+        window.addEventListener('resize', () => { checkTaglineOverflow(); updateVisibility(); });
         document.fonts.ready.then(checkTaglineOverflow);
 
         // ===== Funnel Tracking =====
