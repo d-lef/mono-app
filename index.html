@@ -508,6 +508,14 @@
                 box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
             }
 
+            /* Hide showcase-state dots on mobile (states 4-7 are desktop-only) */
+            .mobile-progress-dot:nth-child(5),
+            .mobile-progress-dot:nth-child(6),
+            .mobile-progress-dot:nth-child(7),
+            .mobile-progress-dot:nth-child(8) {
+                display: none;
+            }
+
             /* Hide on buy screen */
             body.state-9 .mobile-progress {
                 display: none !important;
@@ -1558,8 +1566,11 @@
         const mobileProgressDots = document.querySelectorAll('.mobile-progress-dot');
 
         function updateMobileProgress() {
-            // Update progress dots
+            const mobile = window.innerWidth < 768;
             mobileProgressDots.forEach((dot, i) => {
+                // On mobile, states 4-7 are skipped; dot indices 4-7 are hidden.
+                // State 8 (compare) should activate dot 8, state 9 (buy) dot 9.
+                // The CSS hides dots 4-7, so the visible sequence is 0,1,2,3,8,9.
                 dot.classList.toggle('active', i === currentState);
             });
         }
