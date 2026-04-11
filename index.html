@@ -2164,7 +2164,7 @@
                 const rect = tile.getBoundingClientRect();
                 const x = (e.clientX - rect.left) / rect.width - 0.5;
                 const y = (e.clientY - rect.top) / rect.height - 0.5;
-                tile.style.transform = `perspective(600px) rotateY(${x * 20}deg) rotateX(${y * -30}deg)`;
+                tile.style.transform = `perspective(400px) rotateY(${x * 30}deg) rotateX(${y * -40}deg)`;
             });
             tile.addEventListener('mouseleave', () => {
                 tile.style.transform = '';
