@@ -1065,6 +1065,12 @@
             opacity: 0.9;
         }
 
+        .discount-button-secondary {
+            font-size: clamp(9px, 2.5vw, 13px);
+            padding: 8px 20px;
+            border-style: dashed;
+        }
+
         .discount-sub {
             font-size: clamp(10px, 2.2vw, 12px);
             color: var(--text-secondary);
@@ -1345,7 +1351,7 @@
             <!-- Mobile discount CTA (hidden on desktop) -->
             <div class="mobile-discount" id="mobileDiscount">
                 <button class="discount-button" id="discountBtn">Get 15% off</button>
-                <button class="discount-button" id="studentBtnMobile" style="margin-top:6px;font-size:12px;padding:8px 16px">Student? 70% off</button>
+                <button class="discount-button discount-button-secondary" id="studentBtnMobile">Student? 70% off</button>
                 <p class="discount-sub">Mono is a desktop app — we'll email you the discount & download links</p>
                 <a href="https://www.youtube.com/watch?v=Imy_H4gUr8I"
                    class="demo-button"
