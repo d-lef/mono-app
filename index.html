@@ -429,7 +429,7 @@
             /* Shield text from ripples */
             .group-1,
             .group-2,
-            .group-3 {
+            .group-4 {
                 background: var(--bg-primary);
                 border-radius: 12px;
                 padding: 16px;
@@ -509,7 +509,7 @@
             }
 
             /* Hide on buy screen */
-            body.state-4 .mobile-progress {
+            body.state-5 .mobile-progress {
                 display: none !important;
             }
         }
@@ -529,19 +529,19 @@
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* Position arrow below table on state 3 */
-        body.state-3 .scroll-indicator {
+        /* Position arrow below table on state 4 (compare) */
+        body.state-4 .scroll-indicator {
             bottom: 15%;
         }
 
         @media (max-width: 768px) {
-            body.state-3 .scroll-indicator {
+            body.state-4 .scroll-indicator {
                 bottom: 18%;
             }
         }
 
         /* Hide arrow on buy screen with smooth fade */
-        body.state-4 .scroll-indicator {
+        body.state-5 .scroll-indicator {
             opacity: 0 !important;
             pointer-events: none;
         }
@@ -799,6 +799,81 @@
             opacity: 1;
         }
 
+
+        /* Feature grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            max-width: 640px;
+            width: 90vw;
+        }
+
+        .feature-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 24px 12px;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.15s ease;
+        }
+
+        .feature-tile:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .tagline-group.visible .feature-tile {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tagline-group.visible .feature-tile:nth-child(1) { transition-delay: 0s; }
+        .tagline-group.visible .feature-tile:nth-child(2) { transition-delay: 0.06s; }
+        .tagline-group.visible .feature-tile:nth-child(3) { transition-delay: 0.12s; }
+        .tagline-group.visible .feature-tile:nth-child(4) { transition-delay: 0.18s; }
+        .tagline-group.visible .feature-tile:nth-child(5) { transition-delay: 0.24s; }
+        .tagline-group.visible .feature-tile:nth-child(6) { transition-delay: 0.30s; }
+
+        .feature-icon {
+            width: 28px;
+            height: 28px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .feature-label {
+            font-size: clamp(10px, 2.5vw, 14px);
+            color: var(--text-primary);
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2px;
+                max-width: 320px;
+            }
+
+            .feature-tile {
+                padding: 18px 10px;
+                gap: 8px;
+            }
+
+            .group-features {
+                background: var(--bg-primary);
+                border-radius: 12px;
+                padding: 16px 8px;
+                z-index: 1;
+            }
+        }
 
         /* Allow wrapping only for overflowing taglines */
         .tagline.wrap-text {
@@ -1065,7 +1140,58 @@
                     <p class="tagline">No-subscription culture:</p>
                     <p class="tagline">AI features with one-time payment</p>
                 </div>
-                <div class="tagline-group group-3">
+                <div class="tagline-group group-features">
+                    <h2 class="sr-only">Key features</h2>
+                    <div class="feature-grid">
+                        <div class="feature-tile">
+                            <svg class="feature-icon" viewBox="0 0 24 24">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <path d="M8 10h.01M12 10h.01M16 10h.01"/>
+                            </svg>
+                            <span class="feature-label" data-feature="chat">AI chat</span>
+                        </div>
+                        <div class="feature-tile">
+                            <svg class="feature-icon" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            <span class="feature-label" data-feature="summary">AI summary</span>
+                        </div>
+                        <div class="feature-tile">
+                            <svg class="feature-icon" viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span class="feature-label" data-feature="actions">Action items</span>
+                        </div>
+                        <div class="feature-tile">
+                            <svg class="feature-icon" viewBox="0 0 24 24">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span class="feature-label" data-feature="calendar">Google Calendar</span>
+                        </div>
+                        <div class="feature-tile">
+                            <svg class="feature-icon" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <line x1="1" y1="1" x2="23" y2="23" stroke-width="1.5"/>
+                            </svg>
+                            <span class="feature-label" data-feature="invisible">Invisible recording</span>
+                        </div>
+                        <div class="feature-tile">
+                            <svg class="feature-icon" viewBox="0 0 24 24">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            <span class="feature-label" data-feature="obsidian">Obsidian integration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tagline-group group-4">
                     <h2 class="sr-only">Mono vs Otter, Fireflies, and other tools</h2>
                     <table class="compare-table">
                         <tr class="category-row">
@@ -1251,6 +1377,7 @@
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
+        <span class="mobile-progress-dot"></span>
     </div>
 
     <!-- Discount popup -->
@@ -1275,7 +1402,8 @@
 
         const group1 = document.querySelector('.group-1');
         const group2 = document.querySelector('.group-2');
-        const group3 = document.querySelector('.group-3');
+        const groupFeatures = document.querySelector('.group-features');
+        const group4 = document.querySelector('.group-4');
         const scrollIndicator = document.querySelector('.scroll-indicator');
         const logoGroup = document.querySelector('.logo-group');
         const logoSubtitle = document.querySelector('.logo-subtitle');
@@ -1296,12 +1424,13 @@
 
         siteNav.addEventListener('nav-buy', (e) => {
             e.preventDefault();
-            currentState = 4;
+            currentState = MAX_STATE;
             updateVisibility();
         });
 
-        // States: 0 = nothing, 1 = group1, 2 = group2, 3 = group3 (positioning), 4 = buy
+        // States: 0 = hero, 1 = group1, 2 = group2, 3 = features, 4 = compare, 5 = buy
         let currentState = 0;
+        const MAX_STATE = 5;
 
         // Mobile: progress dots
         const mobileProgressDots = document.querySelectorAll('.mobile-progress-dot');
@@ -1322,12 +1451,13 @@
         function updateVisibility() {
             group1.classList.remove('visible');
             group2.classList.remove('visible');
-            group3.classList.remove('visible');
+            groupFeatures.classList.remove('visible');
+            group4.classList.remove('visible');
             scrollIndicator.classList.remove('visible');
             buyContainer.classList.remove('visible');
 
             // Update body class for CSS state targeting
-            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4');
+            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4', 'state-5');
             document.body.classList.add('state-' + currentState);
             updateMobileProgress();
 
@@ -1356,7 +1486,7 @@
                 }
             } else if (currentState === 3) {
                 scrollIndicator.classList.add('visible');
-                group3.classList.add('visible');
+                groupFeatures.classList.add('visible');
                 if (mobile) {
                     logoGroup.classList.add('hidden');
                 } else {
@@ -1364,6 +1494,15 @@
                     logoGroup.classList.add('at-top');
                 }
             } else if (currentState === 4) {
+                scrollIndicator.classList.add('visible');
+                group4.classList.add('visible');
+                if (mobile) {
+                    logoGroup.classList.add('hidden');
+                } else {
+                    logoGroup.classList.remove('hidden');
+                    logoGroup.classList.add('at-top');
+                }
+            } else if (currentState === 5) {
                 logoGroup.classList.add('hidden');
                 buyContainer.classList.add('visible');
                 // Track pricing screen view
@@ -1378,7 +1517,7 @@
         // Set initial state on load; jump to buy screen if ?buy param present
         document.fonts.ready.then(() => {
             if (location.search.includes('buy')) {
-                currentState = 4;
+                currentState = MAX_STATE;
             }
             updateVisibility();
         });
@@ -1398,7 +1537,7 @@
             const threshold = lastTriggerTime === 0 ? INITIAL_THRESHOLD : RETRIGGER_THRESHOLD;
             if (Math.abs(e.deltaY) < threshold) return;
 
-            if (e.deltaY > 0 && currentState < 4) {
+            if (e.deltaY > 0 && currentState < MAX_STATE) {
                 currentState++;
                 updateVisibility();
                 lastTriggerTime = now;
@@ -1422,7 +1561,7 @@
             if (now - lastTouchTrigger < 400) return;
 
             const deltaY = touchStartY - e.changedTouches[0].clientY;
-            if (deltaY > 50 && currentState < 4) {
+            if (deltaY > 50 && currentState < MAX_STATE) {
                 currentState++;
                 updateVisibility();
                 lastTouchTrigger = now;
@@ -1442,7 +1581,7 @@
             const now = Date.now();
             if (now - lastClickTrigger < 400) return;
 
-            if (currentState < 4) {
+            if (currentState < MAX_STATE) {
                 currentState++;
                 updateVisibility();
                 lastClickTrigger = now;
@@ -1458,7 +1597,7 @@
             const now = Date.now();
             if (now - lastKeyTrigger < 400) return;
 
-            if (e.key === 'ArrowDown' && currentState < 4) {
+            if (e.key === 'ArrowDown' && currentState < MAX_STATE) {
                 currentState++;
                 updateVisibility();
                 lastKeyTrigger = now;
@@ -1477,6 +1616,7 @@
                 tagline1b: "and manage recordings in one place",
                 tagline2a: "No-subscription culture:",
                 tagline2b: "AI features with one-time payment",
+                features: { chat: "AI chat", summary: "AI summary", actions: "Action items", calendar: "Google Calendar", invisible: "Invisible recording", obsidian: "Obsidian integration" },
                 tagline3header: "Unlike other meeting tools",
                 compare: [
                     { category: "Zoom, Google Meet, MS Teams" },
@@ -1507,6 +1647,7 @@
                 tagline1b: "y gestionar todo en un solo lugar",
                 tagline2a: "Sin suscripciones:",
                 tagline2b: "Funciones IA con pago único",
+                features: { chat: "Chat IA", summary: "Resumen IA", actions: "Tareas", calendar: "Google Calendar", invisible: "Grabación invisible", obsidian: "Integración Obsidian" },
                 tagline3header: "A diferencia de otras herramientas",
                 compare: [
                     { category: "Zoom, Google Meet, MS Teams" },
@@ -1537,6 +1678,7 @@
                 tagline1b: "и хранить всё в одном месте",
                 tagline2a: "Без подписок:",
                 tagline2b: "ИИ-функции за разовый платёж",
+                features: { chat: "ИИ-чат", summary: "ИИ-резюме", actions: "Задачи", calendar: "Google Календарь", invisible: "Невидимая запись", obsidian: "Интеграция с Obsidian" },
                 tagline3header: "В отличие от других",
                 compare: [
                     { category: "Zoom, Google Meet, MS Teams" },
@@ -1567,6 +1709,7 @@
                 tagline1b: "et tout gérer au même endroit",
                 tagline2a: "Zéro abonnement :",
                 tagline2b: "Fonctions IA pour un paiement unique",
+                features: { chat: "Chat IA", summary: "Résumé IA", actions: "Actions à faire", calendar: "Google Agenda", invisible: "Enregistrement invisible", obsidian: "Intégration Obsidian" },
                 tagline3header: "Contrairement aux autres outils",
                 compare: [
                     { category: "Zoom, Google Meet, MS Teams" },
@@ -1597,6 +1740,7 @@
                 tagline1b: "und alles an einem Ort verwalten",
                 tagline2a: "Ohne Abo:",
                 tagline2b: "KI-Funktionen zum Einmalpreis",
+                features: { chat: "KI-Chat", summary: "KI-Zusammenfassung", actions: "Aufgaben", calendar: "Google Kalender", invisible: "Unsichtbare Aufnahme", obsidian: "Obsidian-Integration" },
                 tagline3header: "Anders als andere Tools",
                 compare: [
                     { category: "Zoom, Google Meet, MS Teams" },
@@ -1627,6 +1771,7 @@
                 tagline1b: "一处管理，井井有条",
                 tagline2a: "告别订阅：",
                 tagline2b: "AI功能，一次付费",
+                features: { chat: "AI 聊天", summary: "AI 摘要", actions: "待办事项", calendar: "Google 日历", invisible: "无感录制", obsidian: "Obsidian 集成" },
                 tagline3header: "与其他工具不同",
                 compare: [
                     { category: "Zoom, Google Meet, MS Teams" },
@@ -1659,7 +1804,8 @@
         const taglines2 = group2.querySelectorAll('.tagline');
         const tagline2a = taglines2[0];
         const tagline2b = taglines2[1];
-        const compareTable = group3.querySelector('.compare-table');
+        const compareTable = group4.querySelector('.compare-table');
+        const featureLabels = groupFeatures.querySelectorAll('.feature-label');
         const demoButtonText = document.getElementById('demoButtonText');
         const demoButtonMobile = document.getElementById('demoButtonMobile');
         const demoButtonTextMobile = document.getElementById('demoButtonTextMobile');
@@ -1697,6 +1843,13 @@
                 }
                 compareTable.appendChild(tr);
             });
+            // Update feature labels
+            if (t.features) {
+                featureLabels.forEach(label => {
+                    const key = label.dataset.feature;
+                    if (t.features[key]) label.textContent = t.features[key];
+                });
+            }
             privacyLink.textContent = t.privacyPolicy;
 
             // Update demo button (fallback to English if no video for this language)
